@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@antfu/eslint-config': ^0.39.5
   '@nuxt/devtools': latest
+  '@nuxtjs/google-fonts': ^3.0.1
   '@types/node': ^18
   eslint: ^8.42.0
   nuxt: ^3.5.2
@@ -11,6 +12,7 @@ specifiers:
 devDependencies:
   '@antfu/eslint-config': 0.39.5_binxsscxvozjxebftqdoazsxm4
   '@nuxt/devtools': 0.5.5_nuxt@3.5.3
+  '@nuxtjs/google-fonts': 3.0.1
   '@types/node': 18.16.16
   eslint: 8.42.0
   nuxt: 3.5.3_p7sm7eb7zyudk32trghcropzr4
@@ -1132,6 +1134,17 @@ packages:
       - vls
       - vti
       - vue-tsc
+    dev: true
+
+  /@nuxtjs/google-fonts/3.0.1:
+    resolution: {integrity: sha512-9W5jZhpJ4UTmiPebljdoxs+ju89rOBVD5gb0sPRe73BVXCUUv46lV2Q0ynPZPsnono5WlTB6nyZbOCECa7IWDQ==}
+    dependencies:
+      '@nuxt/kit': 3.5.3
+      google-fonts-helper: 3.3.0
+      pathe: 1.1.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /@pkgjs/parseargs/0.11.0:
@@ -3935,6 +3948,15 @@ packages:
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
+    dev: true
+
+  /google-fonts-helper/3.3.0:
+    resolution: {integrity: sha512-aFEVbmaavTY6wN3m6jZaWXQHfakMy6XNqdWN8YzHqHWCGpGma91zp8MiWsyb5i8gXQXYeGUWegb9ca/Jf/Q7Yw==}
+    dependencies:
+      deepmerge: 4.3.1
+      hookable: 5.5.3
+      ofetch: 1.1.0
+      ufo: 1.1.2
     dev: true
 
   /gopd/1.0.1:

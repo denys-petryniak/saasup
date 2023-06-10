@@ -1,7 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>Main Page</div>
+  <h1>Main Page</h1>
 </template>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  font-family: Nunito, arial, helvetica;
+  font-weight: bold;
+}
+</style>

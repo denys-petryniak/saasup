@@ -4,5 +4,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.words": ["saasup"]
+  "cSpell.words": [
+    "antfu",
+    "saasup"
+  ]
 }
