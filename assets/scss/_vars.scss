@@ -1,0 +1,15 @@
+// variables
+
+$dandy: #7ad9ff;
+
+// mixins
+
+@mixin k-border {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+@mixin k-border-debug {
+  border: 1px dotted red;
+  border-radius: 4px;
+}
