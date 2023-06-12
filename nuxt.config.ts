@@ -10,7 +10,10 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['@/assets/scss/global.scss', '@/node_modules/modern-normalize/modern-normalize.css'],
+  css: [
+    '@/assets/scss/global.scss',
+    '@/node_modules/modern-normalize/modern-normalize.css',
+  ],
 
   modules: [
     [
