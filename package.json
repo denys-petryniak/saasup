@@ -10,6 +10,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "dependencies": {
+    "modern-normalize": "^2.0.0"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
     "@nuxt/devtools": "latest",
