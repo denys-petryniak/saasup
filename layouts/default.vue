@@ -1,10 +1,7 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div>
-    Layout: default
+  <BaseContainer>
+    <header>This is a header</header>
     <slot />
-  </div>
+    <footer>This is a footer</footer>
+  </BaseContainer>
 </template>
-
-<style scoped></style>

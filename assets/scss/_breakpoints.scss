@@ -1,0 +1,22 @@
+@use 'sass:math';
+
+/// Converts PX to EM
+/// @access public
+/// @param {string} $size - Value to be converted in PX.
+/// @returns {string} - Returns EM string.
+/// @example font-size: em(24px);
+/// @returns font-size: 1.5em;
+@function em($size) {
+  $browser-context: 16px;
+  $emSize: math.div($size, $browser-context);
+
+  @return #{$emSize}em;
+}
+
+// based on tailwind breakpoints
+
+$screen--small: em(640px);
+$screen--medium: em(768px);
+$screen--large: em(1024px);
+$screen--xlarge: em(1280px);
+$screen--xxlarge: em(1536px);

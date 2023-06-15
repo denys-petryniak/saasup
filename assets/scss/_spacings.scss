@@ -1,0 +1,30 @@
+@use 'sass:math';
+
+/// Converts PX to REM
+/// @access public
+/// @param {string} $size - Value to be converted in PX.
+/// @returns {string} - Returns REM string.
+/// @example font-size: rem(24px);
+/// @returns font-size: 1.5rem;
+@function rem($size) {
+  $browser-context: 16px;
+  $remSize: math.div($size, $browser-context);
+
+  @return #{$remSize}rem;
+}
+
+$spacing--xxsmall: rem(2px);
+$spacing--xsmall: rem(4px);
+$spacing--small: rem(8px);
+$spacing--medium: rem(16px);
+$spacing--large: rem(24px);
+$spacing--xlarge: rem(32px);
+$spacing--xxlarge: rem(48px);
+$spacing--xxxlarge: rem(64px);
+
+$gap--small: rem(60px);
+$gap--medium: rem(80px);
+$gap--large: rem(100px);
+
+$container-width--large: rem(1400px);
+

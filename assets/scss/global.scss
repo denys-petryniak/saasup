@@ -1,15 +1,14 @@
-@use 'vars';
+html,
+body,
+#__nuxt {
+  min-height: 100vh
+}
 
 body {
   font-family: "Nunito", arial, helvetica;
 }
 
-.k-border {
-  @include k-border;
-}
-
 .k-border-debug {
   @include k-border-debug;
-
-  background-color: $dandy;
+  background-color: $secondary;
 }
