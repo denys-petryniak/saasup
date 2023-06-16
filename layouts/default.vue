@@ -1,7 +1,26 @@
 <template>
-  <BaseContainer>
-    <header>This is a header</header>
-    <slot />
-    <footer>This is a footer</footer>
+  <BaseContainer class="layout">
+    <TheHeader class="layout__header k-border-debug" />
+    <main class="layout__body">
+      <slot />
+    </main>
+    <TheFooter class="layout__footer k-border-debug" />
   </BaseContainer>
 </template>
+
+<style scoped lang="scss">
+  .layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    &__header,
+    &__footer {
+      flex-shrink: 0;
+    }
+
+    &__body {
+      flex-grow: 1;
+    }
+  }
+</style>
