@@ -26,6 +26,14 @@ export default defineNuxtConfig({
     ],
   ],
 
+  components: [
+    {
+      path: '~/components/base',
+      prefix: 'Base',
+    },
+    '~/components',
+  ],
+
   typescript: {
     strict: true,
     shim: false,
