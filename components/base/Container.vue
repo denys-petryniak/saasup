@@ -8,6 +8,6 @@
   .container {
     max-width: $container-width--large;
     padding: $spacing--xxxlarge $spacing--large;
-    margin: 0 auto;
+    margin-inline: auto;
   }
 </style>

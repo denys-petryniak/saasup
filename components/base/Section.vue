@@ -6,7 +6,6 @@
 
 <style scoped lang="scss">
   .section {
-    margin: 0 auto;
     padding: $gap--large 0;
   }
 
