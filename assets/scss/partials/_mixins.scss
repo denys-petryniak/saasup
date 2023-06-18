@@ -1,3 +1,21 @@
+@use "@/assets/scss/partials/breakpoints" as *;
+
+$breakpoints: (
+  small: $screen--small,
+  medium: $screen--medium,
+  large: $screen--large,
+  xlarge: $screen--xlarge,
+  xxlarge: $screen--xxlarge
+);
+
+@mixin breakpoint($media) {
+  @each $name, $size in $breakpoints {
+    @if $media == $name {
+      @media only screen and (min-width: $size) { @content; }
+    }
+  }
+}
+
 @mixin k-border-debug {
   border: 1px dotted red;
   border-radius: 4px;

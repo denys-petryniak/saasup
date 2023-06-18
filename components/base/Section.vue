@@ -6,18 +6,18 @@
 
 <style scoped lang="scss">
   .section {
-    padding: $gap--large 0;
+    padding: $gap--small 0;
   }
 
-  @media (max-width: $screen--medium) {
+  @include breakpoint(small) {
     .section {
       padding: $gap--medium 0;
     }
   }
 
-  @media (max-width: $screen--small) {
+  @include breakpoint(medium) {
     .section {
-      padding: $gap--small 0;
+      padding: $gap--large 0;
     }
   }
 </style>
