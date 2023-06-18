@@ -1,30 +1,17 @@
-@use 'sass:math';
+@use "@/assets/scss/partials/functions" as *;
 
-/// Converts PX to REM
-/// @access public
-/// @param {string} $size - Value to be converted in PX.
-/// @returns {string} - Returns REM string.
-/// @example font-size: rem(24px);
-/// @returns font-size: 1.5rem;
-@function rem($size) {
-  $browser-context: 16px;
-  $remSize: math.div($size, $browser-context);
+$spacing--xxsmall: convert(2px, 'rem');
+$spacing--xsmall: convert(4px, 'rem');
+$spacing--small: convert(8px, 'rem');
+$spacing--medium: convert(16px, 'rem');
+$spacing--large: convert(24px, 'rem');
+$spacing--xlarge: convert(32px, 'rem');
+$spacing--xxlarge: convert(48px, 'rem');
+$spacing--xxxlarge: convert(64px, 'rem');
 
-  @return #{$remSize}rem;
-}
+$gap--small: convert(60px, 'rem');
+$gap--medium: convert(80px, 'rem');
+$gap--large: convert(100px, 'rem');
 
-$spacing--xxsmall: rem(2px);
-$spacing--xsmall: rem(4px);
-$spacing--small: rem(8px);
-$spacing--medium: rem(16px);
-$spacing--large: rem(24px);
-$spacing--xlarge: rem(32px);
-$spacing--xxlarge: rem(48px);
-$spacing--xxxlarge: rem(64px);
-
-$gap--small: rem(60px);
-$gap--medium: rem(80px);
-$gap--large: rem(100px);
-
-$container-width--large: rem(1400px);
+$container-width--large: convert(1400px, 'rem');
 

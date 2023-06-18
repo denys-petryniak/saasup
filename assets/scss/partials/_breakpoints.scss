@@ -1,22 +1,7 @@
-@use 'sass:math';
+@use "@/assets/scss/partials/functions" as *;
 
-/// Converts PX to EM
-/// @access public
-/// @param {string} $size - Value to be converted in PX.
-/// @returns {string} - Returns EM string.
-/// @example font-size: em(24px);
-/// @returns font-size: 1.5em;
-@function em($size) {
-  $browser-context: 16px;
-  $emSize: math.div($size, $browser-context);
-
-  @return #{$emSize}em;
-}
-
-// based on tailwind breakpoints
-
-$screen--small: em(640px);
-$screen--medium: em(768px);
-$screen--large: em(1024px);
-$screen--xlarge: em(1280px);
-$screen--xxlarge: em(1536px);
+$screen--small: convert(640px, 'em');
+$screen--medium: convert(768px, 'em');
+$screen--large: convert(1024px, 'em');
+$screen--xlarge: convert(1280px, 'em');
+$screen--xxlarge: convert(1536px, 'em');

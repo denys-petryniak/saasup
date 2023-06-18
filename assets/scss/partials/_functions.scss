@@ -1,0 +1,15 @@
+@use 'sass:math';
+
+/// Converts PX to REM or EM
+/// @access public
+/// @param {string} $size - Value to be converted in PX.
+/// @param {string} $unit - Target unit: "rem" or "em".
+/// @returns {string} - Returns converted value with the specified unit.
+/// @example font-size: convert(24px, "rem");
+/// @returns font-size: 1.5rem;
+@function convert($size, $unit) {
+  $browser-context: 16px;
+  $convertedSize: math.div($size, $browser-context);
+
+  @return #{$convertedSize}#{$unit};
+}
