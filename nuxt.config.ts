@@ -16,11 +16,14 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    // https://www.npmjs.com/package/@vueuse/nuxt
+    '@vueuse/nuxt',
+    // https://www.npmjs.com/package/@nuxtjs/google-fonts
     [
       '@nuxtjs/google-fonts',
       {
         families: {
-          Nunito: [400, 700, 800],
+          Nunito: [300, 400, 600, 700],
         },
       },
     ],

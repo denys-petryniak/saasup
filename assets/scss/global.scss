@@ -9,13 +9,17 @@ body {
 }
 
 img {
-  display: block;
+  display: inline-block;
   max-width: 100%;
 }
 
 button {
   border: none;
   cursor: pointer;
+}
+
+.router-link-exact-active {
+  color: $color-primary--light;
 }
 
 .k-border-debug {
