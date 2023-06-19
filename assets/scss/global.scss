@@ -8,7 +8,16 @@ body {
   font-family: "Nunito", arial, helvetica;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
 .k-border-debug {
   @include k-border-debug;
-  background-color: $secondary;
 }

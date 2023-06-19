@@ -1,0 +1,9 @@
+@use "@/assets/scss/partials/functions" as *;
+
+$border-radius--xxsmall: convert(2px, 'rem');
+$border-radius--xsmall: convert(4px, 'rem');
+$border-radius--small: convert(8px, 'rem');
+$border-radius--medium: convert(16px, 'rem');
+$border-radius--large: convert(24px, 'rem');
+$border-radius--xlarge: convert(32px, 'rem');
+$border-radius--xxlarge: convert(40px, 'rem');
