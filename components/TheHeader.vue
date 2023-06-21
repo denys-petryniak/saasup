@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { isLaptop, isDesktop } = useMedia()
+
 const navigationLinks = ref([
   {
     to: '/',
@@ -70,21 +72,37 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
       </NuxtLink>
     </div>
     <div class="header__main">
-      <BaseButton
-        class="header__cart-button"
-        type="button"
+      <div class="header__buttons">
+        <BaseButton
+          v-show="!isDesktop"
+          class="header__cart-button"
+          type="button"
+        >
+          Cart (0)
+        </BaseButton>
+        <BaseButton
+          v-show="isLaptop || isDesktop"
+          class="header__cta-button"
+          type="button"
+        >
+          Get Started
+        </BaseButton>
+        <BaseButton
+          v-show="!isDesktop"
+          ref="menuButton"
+          class="header__menu-button"
+          :class="{ 'header__menu-button--active': isMenuVisible }"
+          type="button"
+          @click="toggleMenuVisibility"
+        >
+          Menu
+        </BaseButton>
+      </div>
+      <nav
+        v-show="isMenuVisible || isDesktop"
+        ref="navigation"
+        class="header__navigation navigation"
       >
-        Cart
-      </BaseButton>
-      <BaseButton
-        ref="menuButton"
-        class="header__menu-button"
-        type="button"
-        @click="toggleMenuVisibility"
-      >
-        Menu
-      </BaseButton>
-      <nav v-if="isMenuVisible" ref="navigation" class="header__navigation navigation">
         <menu v-if="navigationLinks.length" class="navigation__menu">
           <li
             v-for="navigationLink in navigationLinks"
@@ -110,11 +128,18 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
               </menu>
             </template>
             <template v-else>
-              <NuxtLink tag="div" class="navigation__link" :to="navigationLink.to">
+              <NuxtLink class="navigation__link" :to="navigationLink.to">
                 {{ navigationLink.text }}
               </NuxtLink>
             </template>
           </li>
+          <BaseButton
+            v-show="isDesktop"
+            class="header__cart-button"
+            type="button"
+          >
+            Cart (0)
+          </BaseButton>
         </menu>
       </nav>
     </div>
@@ -130,10 +155,13 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
 
   &__main {
     position: relative;
+    margin-top: $spacing--medium;
+  }
+
+  &__buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: $spacing--small;
   }
 
   &__cart-button {
@@ -143,6 +171,11 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
   &__menu-button {
     background-color: $color--secondary--extra-light;
     border-radius: $border-radius--medium;
+
+    &--active {
+      background-color: $color-primary--dark;
+      color: $color-white--regular;
+    }
   }
 
   &__navigation {
@@ -180,12 +213,15 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     font-size: $font-size--medium;
 
     &--inactive {
+      position: relative;
+
       &:hover #{$parent}__submenu,
       &:focus-within #{$parent}__submenu {
         padding-top: $spacing--medium;
         padding-bottom: $spacing--medium;
         visibility: visible;
         max-height: 100%;
+        // max-height: 100em;
         transform: translateY(0);
       }
     }
@@ -207,6 +243,91 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
   &__link,
   &__link-text {
     padding: $spacing--medium;
+  }
+}
+
+@include breakpoint(medium) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__main {
+      margin-top: 0;
+    }
+
+    &__cart-button,
+    &__cta-button {
+      margin-right: $spacing--medium;
+    }
+
+    &__cta-button {
+      display: block;
+      background-color: $color-primary--dark;
+      color: $color-white--regular;
+      border: 1px solid $color-border--regular;
+
+      &:hover {
+        background-color: $color--secondary--extra-light;
+        color: $color-primary--dark;
+      }
+    }
+  }
+}
+
+@include breakpoint(large) {
+  .header {
+    &__main {
+      display: flex;
+    }
+
+    &__navigation {
+      width: auto;
+      padding: $spacing--small $spacing--large;
+      margin-right: $spacing--xlarge;
+    }
+
+    &__buttons {
+      justify-content: flex-end;
+      order: 2;
+    }
+
+    &__cart-button {
+      padding: $spacing--medium;
+      margin-right: 0;
+    }
+
+    &__cta-button {
+      margin-right: 0;
+    }
+  }
+
+  .navigation {
+    position: static;
+    // top: 0;
+    order: 1;
+    margin-top: 0;
+    border-radius: $border-radius--xxlarge;
+
+    &__menu {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__submenu {
+      position: absolute;
+      left: -$spacing--medium;
+      padding: $spacing--medium;
+      // padding-left: 0;
+      // padding-bottom: 0;
+      background-color: $color--secondary--extra-light;
+      border-radius: $border-radius--small;
+    }
+
+    &__link-text {
+      position: relative;
+      display: inline-block;
+    }
   }
 }
 </style>

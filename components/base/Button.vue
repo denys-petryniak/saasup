@@ -10,7 +10,7 @@ $padding-btn--x-dynamic: clamp($spacing--xlarge, 5vw, $spacing--xxlarge);
 
 .btn {
   padding: $padding-btn--y-dynamic $padding-btn--x-dynamic;
-  font-weight: $font-weight--bold;
+  font-weight: $font-weight--semibold;
   font-size: $font-size--medium;
   color: $color-primary--dark;
   border-radius: $border-radius--xxlarge;

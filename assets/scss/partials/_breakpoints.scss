@@ -1,5 +1,7 @@
 @use "@/assets/scss/partials/functions" as *;
 
+// based on tailwind breakpoints - https://tailwindcss.com/docs/screens
+
 $screen--small: convert(640px, 'em');
 $screen--medium: convert(768px, 'em');
 $screen--large: convert(1024px, 'em');
