@@ -49,12 +49,7 @@ const closeMenu = () => isMenuVisible.value = false
 const isSubmenuVisible = ref(false)
 const toggleSubmenuVisibility = () => isSubmenuVisible.value = !isSubmenuVisible.value
 const openSubmenu = () => isSubmenuVisible.value = true
-// const closeSubmenu = () => isSubmenuVisible.value = false
-function closeSubmenu() {
-  // eslint-disable-next-line no-console
-  console.log('init')
-  isSubmenuVisible.value = false
-}
+const closeSubmenu = () => isSubmenuVisible.value = false
 
 const route = useRoute()
 watch(route, () => {
