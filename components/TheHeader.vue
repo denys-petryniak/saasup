@@ -49,11 +49,17 @@ const closeMenu = () => isMenuVisible.value = false
 const isSubmenuVisible = ref(false)
 const toggleSubmenuVisibility = () => isSubmenuVisible.value = !isSubmenuVisible.value
 const openSubmenu = () => isSubmenuVisible.value = true
-const closeSubmenu = () => isSubmenuVisible.value = false
+// const closeSubmenu = () => isSubmenuVisible.value = false
+function closeSubmenu() {
+  // eslint-disable-next-line no-console
+  console.log('init')
+  isSubmenuVisible.value = false
+}
 
 const route = useRoute()
 watch(route, () => {
   closeMenu()
+  closeSubmenu()
 })
 
 const navigation = ref(null)
@@ -107,6 +113,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
         v-show="isMenuVisible || isDesktop"
         ref="navigation"
         class="header__navigation navigation"
+        @mouseleave="isSubmenuVisible && isDesktop ? closeSubmenu() : null"
       >
         <menu v-if="navigationLinks.length" class="navigation__menu">
           <li
@@ -127,7 +134,6 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
               <menu
                 v-if="isSubmenuVisible"
                 class="navigation__submenu"
-                @mouseleave="isDesktop ? closeSubmenu() : null"
               >
                 <li
                   v-for="submenuNavigationLink in navigationLink.submenu"
