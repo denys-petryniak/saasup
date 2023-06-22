@@ -95,7 +95,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
           type="button"
           @click="toggleMenuVisibility"
         >
-          Menu
+          <Icon name="carbon:menu" size="1.25em" />
         </BaseButton>
       </div>
       <nav
@@ -112,8 +112,8 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
             :tabindex="navigationLink.submenu ? 0 : undefined"
           >
             <template v-if="navigationLink.submenu?.length">
-              <div class="navigation__link-text">
-                {{ navigationLink.text }}
+              <div class="navigation__link navigation__link--static">
+                <span>{{ navigationLink.text }}</span><Icon class="navigation__link-icon" name="material-symbols:keyboard-arrow-down" size="1.25em" />
               </div>
               <menu class="navigation__submenu">
                 <li
@@ -220,8 +220,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
         padding-top: $spacing--medium;
         padding-bottom: $spacing--medium;
         visibility: visible;
-        max-height: 100%;
-        // max-height: 100em;
+        max-height: 100em;
         transform: translateY(0);
       }
     }
@@ -229,6 +228,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
 
   &__link {
     display: block;
+    padding: $spacing--medium;
     text-decoration: none;
 
     &:not(.router-link-exact-active) {
@@ -240,9 +240,8 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     }
   }
 
-  &__link,
-  &__link-text {
-    padding: $spacing--medium;
+  &__link-icon {
+    margin-left: $spacing--xsmall;
   }
 }
 
@@ -304,7 +303,6 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
 
   .navigation {
     position: static;
-    // top: 0;
     order: 1;
     margin-top: 0;
     border-radius: $border-radius--xxlarge;
@@ -318,15 +316,8 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
       position: absolute;
       left: -$spacing--medium;
       padding: $spacing--medium;
-      // padding-left: 0;
-      // padding-bottom: 0;
       background-color: $color--secondary--extra-light;
       border-radius: $border-radius--small;
-    }
-
-    &__link-text {
-      position: relative;
-      display: inline-block;
     }
   }
 }

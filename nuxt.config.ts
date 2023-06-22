@@ -27,6 +27,8 @@ export default defineNuxtConfig({
         },
       },
     ],
+    // https://github.com/nuxt-modules/icon
+    'nuxt-icon',
   ],
 
   components: [
