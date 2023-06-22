@@ -18,6 +18,8 @@ export default defineNuxtConfig({
   modules: [
     // https://www.npmjs.com/package/@vueuse/nuxt
     '@vueuse/nuxt',
+    // https://github.com/nuxt-modules/icon
+    'nuxt-icon',
     // https://www.npmjs.com/package/@nuxtjs/google-fonts
     [
       '@nuxtjs/google-fonts',
@@ -27,8 +29,6 @@ export default defineNuxtConfig({
         },
       },
     ],
-    // https://github.com/nuxt-modules/icon
-    'nuxt-icon',
   ],
 
   components: [

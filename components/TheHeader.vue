@@ -46,6 +46,11 @@ const isMenuVisible = ref(false)
 const toggleMenuVisibility = () => isMenuVisible.value = !isMenuVisible.value
 const closeMenu = () => isMenuVisible.value = false
 
+const isSubmenuVisible = ref(false)
+const toggleSubmenuVisibility = () => isSubmenuVisible.value = !isSubmenuVisible.value
+const openSubmenu = () => isSubmenuVisible.value = true
+const closeSubmenu = () => isSubmenuVisible.value = false
+
 const route = useRoute()
 watch(route, () => {
   closeMenu()
@@ -109,13 +114,21 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
             :key="navigationLink.text"
             class="navigation__item"
             :class="{ 'navigation__item--inactive': navigationLink.submenu }"
-            :tabindex="navigationLink.submenu ? 0 : undefined"
           >
             <template v-if="navigationLink.submenu?.length">
-              <div class="navigation__link navigation__link--static">
-                <span>{{ navigationLink.text }}</span><Icon class="navigation__link-icon" name="material-symbols:keyboard-arrow-down" size="1.25em" />
-              </div>
-              <menu class="navigation__submenu">
+              <button
+                type="button"
+                class="navigation__button"
+                @click="toggleSubmenuVisibility"
+                @mouseover="isDesktop ? openSubmenu() : null"
+              >
+                <span>{{ navigationLink.text }}</span><Icon class="navigation__button-icon" name="material-symbols:keyboard-arrow-down" size="1.25em" />
+              </button>
+              <menu
+                v-if="isSubmenuVisible"
+                class="navigation__submenu"
+                @mouseleave="isDesktop ? closeSubmenu() : null"
+              >
                 <li
                   v-for="submenuNavigationLink in navigationLink.submenu"
                   :key="submenuNavigationLink.text"
@@ -226,9 +239,13 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     }
   }
 
-  &__link {
+  &__link,
+  &__button {
     display: block;
     padding: $spacing--medium;
+  }
+
+  &__link {
     text-decoration: none;
 
     &:not(.router-link-exact-active) {
@@ -240,7 +257,18 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     }
   }
 
-  &__link-icon {
+  &__button {
+    width: 100%;
+    text-align: start;
+    font-weight: $font-weight--semibold;
+    background-color: transparent;
+
+    &:hover {
+      color: $color-primary--light;
+    }
+  }
+
+  &__button-icon {
     margin-left: $spacing--xsmall;
   }
 }
