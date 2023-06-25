@@ -1,10 +1,10 @@
 <template>
   <BaseContainer class="layout">
-    <TheHeader class="layout__header k-border-debug" />
+    <TheHeader class="layout__header border-debug" />
     <main class="layout__body">
       <slot />
     </main>
-    <TheFooter class="layout__footer k-border-debug" />
+    <TheFooter class="layout__footer border-debug" />
   </BaseContainer>
 </template>
 

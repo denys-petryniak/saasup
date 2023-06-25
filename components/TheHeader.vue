@@ -66,16 +66,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
 <template>
   <header class="header">
     <div class="header__head">
-      <NuxtLink
-        class="header__logo-link"
-        to="/"
-      >
-        <img
-          class="header__logo"
-          src="@/assets/images/saasup-logo.svg"
-          alt="SaaSup logo"
-        >
-      </NuxtLink>
+      <AppLogoLink />
     </div>
     <div class="header__main">
       <div class="header__buttons">
@@ -107,7 +98,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
       <nav
         v-show="isMenuVisible || isDesktop"
         ref="navigation"
-        class="header__navigation navigation"
+        class="navigation header__navigation"
         @mouseleave="isSubmenuVisible && isDesktop ? closeSubmenu() : null"
       >
         <menu v-if="navigationLinks.length" class="navigation__menu">
@@ -224,7 +215,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
 
   &__item {
     font-weight: $font-weight--semibold;
-    font-size: $font-size--medium;
+    font-size: $font-size--small;
 
     &--inactive {
       position: relative;

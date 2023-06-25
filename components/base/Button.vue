@@ -5,13 +5,10 @@
 </template>
 
 <style scoped lang="scss">
-$padding-btn--y-dynamic: clamp($spacing--medium, 5vw, $spacing--large);
-$padding-btn--x-dynamic: clamp($spacing--xlarge, 5vw, $spacing--xxlarge);
-
 .btn {
-  padding: $padding-btn--y-dynamic $padding-btn--x-dynamic;
+  padding: clamped($spacing--medium, $spacing--large) clamped($spacing--xlarge, $spacing--2xlarge);
   font-weight: $font-weight--semibold;
-  font-size: $font-size--medium;
+  font-size: $font-size--small;
   color: $color-primary--dark;
   border-radius: $border-radius--xxlarge;
 }

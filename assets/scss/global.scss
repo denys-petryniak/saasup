@@ -5,8 +5,34 @@ body,
 }
 
 body {
-  font-family: "Nunito", arial, helvetica;
+  font-family: $font-family--primary;
+  font-size: clamped($font-size--small, $font-size--large);
+  // line-height: $line-height--md;
+  color: $color--secondary--dark;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // line-height: $line-height--xs;
+  color: $color--secondary--extra-dark;
+}
+
+h1 {
+  font-size: clamped($font-size--3xlarge, $font-size--8xlarge);
+}
+
+h2 {
+  font-size: clamped($font-size--xlarge, $font-size--5xlarge);
+}
+
+h3 {
+  font-size: clamped($font-size--xlarge, $font-size--2xlarge);
+}
+
 
 img {
   display: inline-block;
@@ -22,6 +48,8 @@ button {
   color: $color-primary--light;
 }
 
-.k-border-debug {
-  @include k-border-debug;
+// Utilities
+
+.border-debug {
+  border: 1px dotted red;
 }

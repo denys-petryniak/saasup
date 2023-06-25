@@ -6,6 +6,6 @@
 
 <style scoped lang="scss">
   .section {
-    padding: clamp($gap--small, 10vw, $gap--large) 0;
+    padding: clamped($gap--small, $gap--large) 0;
   }
 </style>

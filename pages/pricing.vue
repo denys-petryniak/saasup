@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <BaseSection class="k-border-debug">
+  <BaseSection class="border-debug">
     <h1>
       This is Pricing page
     </h1>

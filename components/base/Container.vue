@@ -5,10 +5,9 @@
 </template>
 
 <style scoped lang="scss">
-  $gap-container--dynamic: clamp($spacing--large, 5vw, $spacing--xxlarge);
   .container {
-    max-width: $container-width--large;
-    padding: $gap-container--dynamic $gap-container--dynamic;
+    max-width: $container-width--max;
+    padding: clamped($spacing--large, $spacing--2xlarge);
     margin-inline: auto;
   }
 </style>

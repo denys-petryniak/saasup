@@ -1,19 +1,17 @@
 <script setup lang="ts"></script>
 
 <template>
-  <BaseSection class="hero-section k-border-debug">
+  <BaseSection class="hero-section border-debug">
     <h1 class="hero-section__title">
-      Build your
-      audience and
-      grow your brand
+      We make your digital business very easy!
     </h1>
     <p class="hero-section__description">
       Make your work easier with an integrated ecosystem that lets all departments work properly together.
     </p>
   </BaseSection>
-  <BaseSection class="features-section k-border-debug">
+  <BaseSection class="features-section border-debug">
     <h2 class="features-section__title">
-      Powerful features to boost
+      The features to boost
       your productivity
     </h2>
     <p class="features-section__description">

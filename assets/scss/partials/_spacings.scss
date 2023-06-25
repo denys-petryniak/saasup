@@ -1,17 +1,18 @@
 @use "@/assets/scss/partials/functions" as *;
 
-$spacing--xxsmall: convert(2px, 'rem');
+$spacing--2xsmall: convert(2px, 'rem');
 $spacing--xsmall: convert(4px, 'rem');
 $spacing--small: convert(8px, 'rem');
 $spacing--medium: convert(16px, 'rem');
 $spacing--large: convert(24px, 'rem');
 $spacing--xlarge: convert(32px, 'rem');
-$spacing--xxlarge: convert(48px, 'rem');
-$spacing--xxxlarge: convert(64px, 'rem');
+$spacing--2xlarge: convert(48px, 'rem');
+$spacing--3xlarge: convert(64px, 'rem');
 
 $gap--small: convert(60px, 'rem');
 $gap--medium: convert(80px, 'rem');
 $gap--large: convert(100px, 'rem');
 
-$container-width--large: convert(1400px, 'rem');
+$container-width--min: convert(320px, 'rem');
+$container-width--max: convert(1400px, 'rem');
 

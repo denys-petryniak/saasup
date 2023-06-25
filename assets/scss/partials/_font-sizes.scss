@@ -1,3 +1,16 @@
 @use "@/assets/scss/partials/functions" as *;
 
-$font-size--medium: convert(18px, 'rem');
+// TODO: improve naming
+
+$font-size--base: convert(16px, 'rem');
+$font-size--small: convert(18px, 'rem');
+$font-size--medium: convert(20px, 'rem');
+$font-size--large: convert(24px, 'rem');
+$font-size--xlarge: convert(28px, 'rem');
+$font-size--2xlarge: convert(34px, 'rem');
+$font-size--3xlarge: convert(40px, 'rem');
+$font-size--4xlarge: convert(46px, 'rem');
+$font-size--5xlarge: convert(52px, 'rem');
+$font-size--6xlarge: convert(58px, 'rem');
+$font-size--7xlarge: convert(64px, 'rem');
+$font-size--8xlarge: convert(70px, 'rem');
