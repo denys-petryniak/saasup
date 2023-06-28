@@ -110,7 +110,7 @@ const socialLinks = ref([
 <template>
   <footer class="footer">
     <BaseDivider />
-    <BaseSection>
+    <BaseSection class="footer__wrapper">
       <div class="footer__section">
         <AppLogoLink />
         <p class="footer__text">
@@ -131,7 +131,7 @@ const socialLinks = ref([
               <NuxtLink
                 v-for="link in contact.links"
                 :key="link.to"
-                class="footer__contact-link"
+                class="link footer__contact-link"
                 :to="link.to" no-rel
               >
                 {{ link.text }}
@@ -182,10 +182,11 @@ const socialLinks = ref([
 
 <style scoped lang="scss">
 .footer {
-  &__section {
-    &:not(:first-child) {
-      margin-top: $gap--small;
-    }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: $gap--small;
+    column-gap: $spacing--2xlarge;
   }
 
   &__text,
@@ -203,20 +204,14 @@ const socialLinks = ref([
   }
 
   &__contact-icon {
+    position: relative;
+    top: $spacing--xsmall;
     color: $color-primary--light;
   }
 
   &__contact-link {
     display: block;
-    text-decoration: none; // TODO: create a mixin or global style utility
-
-    &:not(:first-child) {
-      margin-top: $spacing--xsmall;
-    }
-
-    &:not(.router-link-exact-active) {
-      color: $color--secondary--dark;
-    }
+    color: $color--secondary--dark;
 
     &:hover {
       color: $color-primary--light;
@@ -224,15 +219,22 @@ const socialLinks = ref([
   }
 
   &__copyright {
+    padding-top: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge);
     text-align: center;
   }
 
+  &__copyright-text {
+    margin: 0;
+  }
+
   &__social-links {
+    display: flex;
+    justify-content: center;
+    gap: $spacing--xlarge;
     margin-top: $spacing--xlarge;
   }
 
   &__social-link {
-    padding: 0 $spacing--medium;
     color: $color--secondary--extra-dark;
   }
 }
@@ -240,8 +242,8 @@ const socialLinks = ref([
 .navigation {
   &__title {
     position: relative;
+    margin-top: 0;
     padding-bottom: $spacing--large;
-    font-size: clamped($font-size--large, $font-size--xlarge);
 
     &::after {
       content: '';
@@ -262,7 +264,6 @@ const socialLinks = ref([
 
   &__item {
     font-weight: $font-weight--semibold;
-    font-size: $font-size--small;
 
     &:not(:first-child) {
       margin-top: $spacing--small;
@@ -272,14 +273,37 @@ const socialLinks = ref([
   &__link {
     display: block;
     padding: $spacing--small 0;
-    text-decoration: none;
-
-    &:not(.router-link-exact-active) {
-      color: $color--secondary--dark;
-    }
+    color: $color--secondary--dark;
 
     &:hover {
       color: $color-primary--light;
+    }
+  }
+}
+
+@include breakpoint(medium) {
+  .footer {
+    &__wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@include breakpoint(large) {
+  .footer {
+    &__wrapper {
+      grid-template-columns: 0.8fr 0.5fr 1fr;
+    }
+
+    &__copyright {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__social-links {
+      justify-content: flex-end;
+      margin-top: 0;
     }
   }
 }

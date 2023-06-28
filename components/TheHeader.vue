@@ -154,7 +154,6 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
 <style scoped lang="scss">
 .header {
   &__head {
-    font-size: 0;
     text-align: center;
   }
 
@@ -233,16 +232,12 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
 
   &__link,
   &__button {
-    display: block;
     padding: $spacing--medium;
   }
 
   &__link {
-    text-decoration: none;
-
-    &:not(.router-link-exact-active) {
-      color: $color-primary--dark;
-    }
+    display: block;
+    color: $color-primary--dark;
 
     &:hover {
       color: $color-primary--light;
@@ -250,9 +245,11 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
   }
 
   &__button {
+    display: block;
     width: 100%;
     text-align: start;
     font-weight: $font-weight--semibold;
+    line-height: $line-height--small;
     background-color: transparent;
 
     &:hover {

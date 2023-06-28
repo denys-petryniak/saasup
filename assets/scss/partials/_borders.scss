@@ -1,9 +1,9 @@
-@use "@/assets/scss/partials/functions" as *;
+@use "./functions" ;
 
-$border-radius--xxsmall: convert(2px, 'rem');
-$border-radius--xsmall: convert(4px, 'rem');
-$border-radius--small: convert(8px, 'rem');
-$border-radius--medium: convert(16px, 'rem');
-$border-radius--large: convert(24px, 'rem');
-$border-radius--xlarge: convert(32px, 'rem');
-$border-radius--xxlarge: convert(40px, 'rem');
+$border-radius--xxsmall: functions.convert(2px, 'rem');
+$border-radius--xsmall: functions.convert(4px, 'rem');
+$border-radius--small: functions.convert(8px, 'rem');
+$border-radius--medium: functions.convert(16px, 'rem');
+$border-radius--large: functions.convert(24px, 'rem');
+$border-radius--xlarge: functions.convert(32px, 'rem');
+$border-radius--xxlarge: functions.convert(40px, 'rem');

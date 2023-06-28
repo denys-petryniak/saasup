@@ -24,11 +24,13 @@
 </template>
 
 <style scoped lang="scss">
-$widget-max-width: convert(500px, 'rem');
+$widget-max-width: convert(580px, 'rem');
+$widget-padding-y: clamped($min-size: $spacing--2xlarge, $max-size: $spacing--3xlarge);
+$widget-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge);
 
 .widget {
   max-width: $widget-max-width;
-  padding: clamped($spacing--large, $spacing--3xlarge) clamped($spacing--large, $spacing--xlarge);
+  padding: $widget-padding-y $widget-padding-x;
   background-color: $color--secondary--extra-light;
   border-radius: $border-radius--xxlarge;
 
@@ -37,14 +39,6 @@ $widget-max-width: convert(500px, 'rem');
     font-size: $font-size--small;
     font-weight: $font-weight--bold;
     color: $color-primary--light;
-  }
-
-  &__title {
-    font-size: clamped($font-size--large, $font-size--xlarge);
-  }
-
-  &__description {
-    font-size: clamped($font-size--small, $font-size--medium);
   }
 
   &__button {

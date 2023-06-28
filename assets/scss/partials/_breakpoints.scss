@@ -1,9 +1,9 @@
-@use "@/assets/scss/partials/functions" as *;
+@use "./functions" ;
 
 // based on tailwind breakpoints - https://tailwindcss.com/docs/screens
 
-$screen--small: convert(640px, 'em');
-$screen--medium: convert(768px, 'em');
-$screen--large: convert(1024px, 'em');
-$screen--xlarge: convert(1280px, 'em');
-$screen--xxlarge: convert(1536px, 'em');
+$screen--small: functions.convert(640px, 'em');
+$screen--medium: functions.convert(768px, 'em');
+$screen--large: functions.convert(1024px, 'em');
+$screen--xlarge: functions.convert(1280px, 'em');
+$screen--xxlarge: functions.convert(1536px, 'em');

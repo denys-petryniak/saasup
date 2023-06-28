@@ -25,7 +25,7 @@ export default defineNuxtConfig({
       '@nuxtjs/google-fonts',
       {
         families: {
-          Nunito: [300, 400, 600, 700],
+          Nunito: [300, 400, 600, 700, 800],
         },
       },
     ],

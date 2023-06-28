@@ -1,11 +1,12 @@
-@use "@/assets/scss/partials/breakpoints" as *;
+@use "./functions";
+@use "./breakpoints";
 
 $breakpoints: (
-  small: $screen--small,
-  medium: $screen--medium,
-  large: $screen--large,
-  xlarge: $screen--xlarge,
-  xxlarge: $screen--xxlarge
+  small: breakpoints.$screen--small,
+  medium: breakpoints.$screen--medium,
+  large: breakpoints.$screen--large,
+  xlarge: breakpoints.$screen--xlarge,
+  xxlarge: breakpoints.$screen--xxlarge
 );
 
 @mixin breakpoint($media) {
@@ -14,4 +15,23 @@ $breakpoints: (
       @media only screen and (min-width: $size) { @content; }
     }
   }
+}
+
+// Fluid typography tool as an alternative to mixins and functions
+// Source: https://fluidtypography.com/
+
+@mixin fluid-typography(
+  $min-font-size,
+  $max-font-size,
+  $min-line-height,
+  $max-line-height,
+) {
+  font-size: functions.clamped(
+    $min-size: $min-font-size,
+    $max-size: $max-font-size
+  );
+  line-height: functions.clamped(
+    $min-size: $min-font-size * $min-line-height,
+    $max-size: $max-font-size * $max-line-height,
+  );
 }

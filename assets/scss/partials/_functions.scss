@@ -1,5 +1,4 @@
 @use 'sass:math';
-// @use "@/assets/scss/partials/spacings" as *;
 
 /// Converts PX to REM or EM
 /// @access public
@@ -39,11 +38,6 @@
   @return math.div(math.round($number * $n), $n);
 }
 
-$default-min-bp: convert(320px, 'rem');
-$default-max-bp: convert(1440px, 'rem');
-// $container-width--min
-// $container-width--max
-
 /// Clamps a value between a minimum and maximum size based on a breakpoint range.
 /// @access public
 /// @param {string|number} $min-size - Minimum size value in rem units.
@@ -53,7 +47,17 @@ $default-max-bp: convert(1440px, 'rem');
 /// @param {string} $unit - Target unit for the output size. (Default: vw)
 /// @throws {Error} - Throws an error if any of the input values have an invalid unit.
 /// @returns {string} - Returns the clamped value with the specified unit.
-@function clamped($min-size, $max-size, $min-breakpoint: $default-min-bp, $max-breakpoint: $default-max-bp, $unit: vw) {
+
+$default-min-bp: convert(320px, 'rem');
+$default-max-bp: convert(1440px, 'rem');
+
+@function clamped(
+  $min-size,
+  $max-size,
+  $min-breakpoint: $default-min-bp,
+  $max-breakpoint: $default-max-bp,
+  $unit: vw,
+) {
   $inputs: ($min-size, $max-size, $min-breakpoint, $max-breakpoint);
 
   @each $input in $inputs {
@@ -63,8 +67,14 @@ $default-max-bp: convert(1440px, 'rem');
   }
 
   $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
-  $slope-to-unit: decimalRound(($slope * 100), 3);
-  $intercept: decimalRound(($min-size - $slope * $min-breakpoint), 3);
+  $slope-to-unit: decimalRound(
+    $number: ($slope * 100),
+    $decimals: 3
+  );
+  $intercept: decimalRound(
+    $number: ($min-size - $slope * $min-breakpoint),
+    $decimals: 3
+  );
 
   @return clamp(#{$min-size}, #{$slope-to-unit}#{$unit} + #{$intercept}, #{$max-size});
 }

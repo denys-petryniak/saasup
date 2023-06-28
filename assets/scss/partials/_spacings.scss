@@ -1,18 +1,18 @@
-@use "@/assets/scss/partials/functions" as *;
+@use "./functions" ;
 
-$spacing--2xsmall: convert(2px, 'rem');
-$spacing--xsmall: convert(4px, 'rem');
-$spacing--small: convert(8px, 'rem');
-$spacing--medium: convert(16px, 'rem');
-$spacing--large: convert(24px, 'rem');
-$spacing--xlarge: convert(32px, 'rem');
-$spacing--2xlarge: convert(48px, 'rem');
-$spacing--3xlarge: convert(64px, 'rem');
+$spacing--2xsmall: functions.convert(2px, 'rem');
+$spacing--xsmall: functions.convert(4px, 'rem');
+$spacing--small: functions.convert(8px, 'rem');
+$spacing--medium: functions.convert(16px, 'rem');
+$spacing--large: functions.convert(24px, 'rem');
+$spacing--xlarge: functions.convert(32px, 'rem');
+$spacing--2xlarge: functions.convert(48px, 'rem');
+$spacing--3xlarge: functions.convert(64px, 'rem');
 
-$gap--small: convert(60px, 'rem');
-$gap--medium: convert(80px, 'rem');
-$gap--large: convert(100px, 'rem');
+$gap--small: functions.convert(60px, 'rem');
+$gap--medium: functions.convert(80px, 'rem');
+$gap--large: functions.convert(100px, 'rem');
 
-$container-width--min: convert(320px, 'rem');
-$container-width--max: convert(1400px, 'rem');
+$container-width--min: functions.convert(320px, 'rem');
+$container-width--max: functions.convert(1400px, 'rem');
 
