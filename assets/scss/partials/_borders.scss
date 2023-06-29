@@ -1,0 +1,9 @@
+@use "./functions" as fn;
+
+$border-radius--2xsmall: fn.convert(2px, 'rem');
+$border-radius--xsmall: fn.convert(4px, 'rem');
+$border-radius--small: fn.convert(8px, 'rem');
+$border-radius--medium: fn.convert(16px, 'rem');
+$border-radius--large: fn.convert(24px, 'rem');
+$border-radius--xlarge: fn.convert(32px, 'rem');
+$border-radius--2xlarge: fn.convert(40px, 'rem');

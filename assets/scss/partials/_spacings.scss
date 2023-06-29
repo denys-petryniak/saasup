@@ -1,0 +1,17 @@
+@use "./functions" as fn;
+
+$spacing--2xsmall: fn.convert(2px, 'rem');
+$spacing--xsmall: fn.convert(4px, 'rem');
+$spacing--small: fn.convert(8px, 'rem');
+$spacing--medium: fn.convert(16px, 'rem');
+$spacing--large: fn.convert(24px, 'rem');
+$spacing--xlarge: fn.convert(32px, 'rem');
+$spacing--2xlarge: fn.convert(48px, 'rem');
+$spacing--3xlarge: fn.convert(64px, 'rem');
+
+$gap--small: fn.convert(60px, 'rem');
+$gap--medium: fn.convert(80px, 'rem');
+$gap--large: fn.convert(100px, 'rem');
+
+$container-width--min: fn.convert(320px, 'rem');
+$container-width--max: fn.convert(1400px, 'rem');

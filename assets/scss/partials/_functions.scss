@@ -1,0 +1,80 @@
+@use 'sass:math';
+
+/// Converts PX to REM or EM
+/// @access public
+/// @param {string} $size - Value to be converted in PX.
+/// @param {string} $unit - Target unit: "rem" or "em".
+/// @returns {string} - Returns converted value with the specified unit.
+/// @example font-size: convert(24px, "rem");
+/// @returns font-size: 1.5rem;
+@function convert($size, $unit) {
+  $browser-context: 16px;
+  $convertedSize: $size;
+
+  @if $unit == 'rem' {
+    $convertedSize: math.div($size, $browser-context) * 1rem;
+  } @else if $unit == 'em' {
+    $convertedSize: math.div($size, $browser-context) * 1em;
+  } @else {
+    @warn "Unsupported unit: #{$unit}. Please specify 'rem' or 'em'.";
+  }
+
+  @return $convertedSize;
+}
+
+/// Rounds a number to the specified number of decimal places.
+/// @param {number} $number - The number to be rounded.
+/// @param {number} $decimals - The number of decimal places to round to (default: 0).
+/// @return {number} - The rounded number.
+@function decimalRound($number, $decimals: 0) {
+  $n: 1;
+
+  @if $decimals > 0 {
+    @for $i from 1 through $decimals {
+      $n: $n * 10;
+    }
+  }
+
+  @return math.div(math.round($number * $n), $n);
+}
+
+/// Clamps a value between a minimum and maximum size based on a breakpoint range.
+/// @access public
+/// @param {string|number} $min-size - Minimum size value in rem units.
+/// @param {string|number} $max-size - Maximum size value in rem units.
+/// @param {string|number} $min-breakpoint - Minimum breakpoint value in rem units. (Default: $default-min-bp)
+/// @param {string|number} $max-breakpoint - Maximum breakpoint value in rem units. (Default: $default-max-bp)
+/// @param {string} $unit - Target unit for the output size. (Default: vw)
+/// @throws {Error} - Throws an error if any of the input values have an invalid unit.
+/// @returns {string} - Returns the clamped value with the specified unit.
+
+$default-min-bp: convert(320px, 'rem');
+$default-max-bp: convert(1440px, 'rem');
+
+@function clamped(
+  $min-size,
+  $max-size,
+  $min-breakpoint: $default-min-bp,
+  $max-breakpoint: $default-max-bp,
+  $unit: vw,
+) {
+  $inputs: ($min-size, $max-size, $min-breakpoint, $max-breakpoint);
+
+  @each $input in $inputs {
+    @if unit($input) != 'rem' {
+      @error "Invalid unit! Please make sure all inputs use 'rem' as the unit.";
+    }
+  }
+
+  $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+  $slope-to-unit: decimalRound(
+    $number: ($slope * 100),
+    $decimals: 3
+  );
+  $intercept: decimalRound(
+    $number: ($min-size - $slope * $min-breakpoint),
+    $decimals: 3
+  );
+
+  @return clamp(#{$min-size}, #{$slope-to-unit}#{$unit} + #{$intercept}, #{$max-size});
+}

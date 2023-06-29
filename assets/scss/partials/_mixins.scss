@@ -1,0 +1,37 @@
+@use "./functions" as fn;
+@use "./breakpoints" as bp;
+
+$breakpoints: (
+  small: bp.$screen--small,
+  medium: bp.$screen--medium,
+  large: bp.$screen--large,
+  xlarge: bp.$screen--xlarge,
+  2xlarge: bp.$screen--2xlarge
+);
+
+@mixin breakpoint($media) {
+  @each $name, $size in $breakpoints {
+    @if $media == $name {
+      @media only screen and (min-width: $size) { @content; }
+    }
+  }
+}
+
+// Fluid typography tool as an alternative to mixins and functions
+// Source: https://fluidtypography.com/
+
+@mixin fluid-typography(
+  $min-font-size,
+  $max-font-size,
+  $min-line-height,
+  $max-line-height,
+) {
+  font-size: fn.clamped(
+    $min-size: $min-font-size,
+    $max-size: $max-font-size
+  );
+  line-height: fn.clamped(
+    $min-size: $min-font-size * $min-line-height,
+    $max-size: $max-font-size * $max-line-height,
+  );
+}

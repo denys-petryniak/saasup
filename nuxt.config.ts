@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "@/assets/scss/_vars.scss" as *;',
+          additionalData: '@use "@/assets/scss/foundation.scss" as *;',
         },
       },
     },
@@ -16,14 +16,27 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    // https://www.npmjs.com/package/@vueuse/nuxt
+    '@vueuse/nuxt',
+    // https://github.com/nuxt-modules/icon
+    'nuxt-icon',
+    // https://www.npmjs.com/package/@nuxtjs/google-fonts
     [
       '@nuxtjs/google-fonts',
       {
         families: {
-          Nunito: [400, 700, 800],
+          Nunito: [300, 400, 600, 700, 800],
         },
       },
     ],
+  ],
+
+  components: [
+    {
+      path: '~/components/base',
+      prefix: 'Base',
+    },
+    '~/components',
   ],
 
   typescript: {

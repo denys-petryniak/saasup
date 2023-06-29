@@ -1,0 +1,15 @@
+@use "./functions" as fn;
+
+$font-size--base: fn.convert(16px, 'rem');
+$font-size--small: fn.convert(18px, 'rem');
+$font-size--medium: fn.convert(20px, 'rem');
+$font-size--large: fn.convert(22px, 'rem');
+$font-size--xlarge: fn.convert(24px, 'rem');
+$font-size--2xlarge: fn.convert(28px, 'rem');
+$font-size--3xlarge: fn.convert(34px, 'rem');
+$font-size--4xlarge: fn.convert(40px, 'rem');
+$font-size--5xlarge: fn.convert(46px, 'rem');
+$font-size--6xlarge: fn.convert(52px, 'rem');
+$font-size--7xlarge: fn.convert(58px, 'rem');
+$font-size--8xlarge: fn.convert(64px, 'rem');
+$font-size--9xlarge: fn.convert(70px, 'rem');

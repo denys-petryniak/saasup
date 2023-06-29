@@ -1,15 +1,125 @@
-@use 'vars';
+html {
+  height: 100%;
+}
+
+body,
+#__nuxt,
+.layout {
+  min-height: 100vh;
+}
+
+#__nuxt {
+  padding: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
+}
 
 body {
-  font-family: "Nunito", arial, helvetica;
+  font-family: $font-family--primary;
+  @include fluid-typography(
+    $min-font-size: $font-size--small,
+    $max-font-size: $font-size--large,
+    $min-line-height: $line-height--medium,
+    $max-line-height: $line-height--large,
+  );
+  letter-spacing: 0.01rem;
+  color: $color--secondary--dark;
 }
 
-.k-border {
-  @include k-border;
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // Help prevent overflow of long words/names/URLs
+  overflow-wrap: break-word;
+  // Adds a hyphen where the word breaks, if supported (No Blink)
+  hyphens: auto;
 }
 
-.k-border-debug {
-  @include k-border-debug;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: $spacing--large 0;
+  font-weight: $font-weight--extrabold;
+  color: $color--secondary--extra-dark;
+}
 
-  background-color: $dandy;
+h1 {
+  @include fluid-typography(
+    $min-font-size: $font-size--4xlarge,
+    $max-font-size: $font-size--9xlarge,
+    $min-line-height: $line-height--4xsmall,
+    $max-line-height: $line-height--3xsmall,
+  )
+}
+
+h2 {
+  @include fluid-typography(
+    $min-font-size: $font-size--2xlarge,
+    $max-font-size: $font-size--6xlarge,
+    $min-line-height: $line-height--3xsmall,
+    $max-line-height: $line-height--medium,
+  )
+}
+
+h3 {
+  @include fluid-typography(
+    $min-font-size: $font-size--2xlarge,
+    $max-font-size: $font-size--3xlarge,
+    $min-line-height: $line-height--3xsmall,
+    $max-line-height: $line-height--medium,
+  )
+}
+
+h4 {
+  @include fluid-typography(
+    $min-font-size: $font-size--xlarge,
+    $max-font-size: $font-size--2xlarge,
+    $min-line-height: $line-height--2xsmall,
+    $max-line-height: $line-height--xsmall,
+  )
+}
+
+p {
+  margin: $spacing--large 0;
+
+  &:empty {
+    margin: 0;
+  }
+}
+
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  line-height: $line-height--small;
+}
+
+.router-link-active,
+.router-link-exact-active {
+  color: $color-primary--light !important;
+}
+
+// Utilities
+
+.border-debug {
+  border: 1px dotted red;
 }
