@@ -41,6 +41,11 @@ $widget-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--xlar
     color: $color-primary--light;
   }
 
+  &__title,
+  &__description {
+    margin: $spacing--medium 0;
+  }
+
   &__button {
     display: flex;
     align-items: center;

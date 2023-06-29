@@ -1,7 +1,20 @@
+<script setup lang="ts">
+interface Props {
+  tag?: 'div' | 'section'
+}
+
+withDefaults(defineProps<Props>(), {
+  tag: 'section',
+})
+</script>
+
 <template>
-  <section class="section">
+  <component
+    :is="tag"
+    class="section"
+  >
     <slot />
-  </section>
+  </component>
 </template>
 
 <style scoped lang="scss">

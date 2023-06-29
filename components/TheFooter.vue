@@ -110,7 +110,7 @@ const socialLinks = ref([
 <template>
   <footer class="footer">
     <BaseDivider />
-    <BaseSection class="footer__wrapper">
+    <BaseSection tag="div" class="footer__wrapper">
       <div class="footer__section">
         <AppLogoLink />
         <p class="footer__text">
@@ -173,7 +173,10 @@ const socialLinks = ref([
           :to="socialLink.link.to"
           target="_blank"
         >
-          <Icon :name="socialLink.icon.name" size="1.25em" />
+          <Icon
+            :name="socialLink.icon.name"
+            size="1.25em"
+          />
         </NuxtLink>
       </div>
     </div>
@@ -236,6 +239,10 @@ const socialLinks = ref([
 
   &__social-link {
     color: $color--secondary--extra-dark;
+
+    &:hover {
+      color: $color-primary--light;
+    }
   }
 }
 
