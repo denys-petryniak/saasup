@@ -32,7 +32,7 @@ $widget-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--xlar
   max-width: $widget-max-width;
   padding: $widget-padding-y $widget-padding-x;
   background-color: $color--secondary--extra-light;
-  border-radius: $border-radius--xxlarge;
+  border-radius: $border-radius--2xlarge;
 
   &__label {
     margin: 0;

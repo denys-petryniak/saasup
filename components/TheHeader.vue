@@ -322,7 +322,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     position: static;
     order: 1;
     margin-top: 0;
-    border-radius: $border-radius--xxlarge;
+    border-radius: $border-radius--2xlarge;
 
     &__menu {
       display: flex;

@@ -1,12 +1,12 @@
-@use "./functions";
-@use "./breakpoints";
+@use "./functions" as fn;
+@use "./breakpoints" as bp;
 
 $breakpoints: (
-  small: breakpoints.$screen--small,
-  medium: breakpoints.$screen--medium,
-  large: breakpoints.$screen--large,
-  xlarge: breakpoints.$screen--xlarge,
-  xxlarge: breakpoints.$screen--xxlarge
+  small: bp.$screen--small,
+  medium: bp.$screen--medium,
+  large: bp.$screen--large,
+  xlarge: bp.$screen--xlarge,
+  2xlarge: bp.$screen--2xlarge
 );
 
 @mixin breakpoint($media) {
@@ -26,11 +26,11 @@ $breakpoints: (
   $min-line-height,
   $max-line-height,
 ) {
-  font-size: functions.clamped(
+  font-size: fn.clamped(
     $min-size: $min-font-size,
     $max-size: $max-font-size
   );
-  line-height: functions.clamped(
+  line-height: fn.clamped(
     $min-size: $min-font-size * $min-line-height,
     $max-size: $max-font-size * $max-line-height,
   );

@@ -78,5 +78,3 @@ $default-max-bp: convert(1440px, 'rem');
 
   @return clamp(#{$min-size}, #{$slope-to-unit}#{$unit} + #{$intercept}, #{$max-size});
 }
-
-
