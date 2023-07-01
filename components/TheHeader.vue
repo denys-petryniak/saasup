@@ -120,7 +120,6 @@ function handleMouseleave(navigationLink: NavigationLink): void {
             v-for="navigationLink in navigationLinks"
             :key="navigationLink.text"
             class="navigation__item"
-            :class="{ 'navigation__item--has-submenu': navigationLink.submenu }"
             @mouseover="handleMouseover(navigationLink)"
             @mouseleave="handleMouseleave(navigationLink)"
           >
@@ -236,6 +235,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
   }
 
   &__item {
+    position: relative;
     font-weight: $font-weight--semibold;
     font-size: $font-size--small;
   }
@@ -360,12 +360,6 @@ function handleMouseleave(navigationLink: NavigationLink): void {
       padding: $spacing--medium;
       background-color: $color--secondary--extra-light;
       border-radius: $border-radius--small;
-    }
-
-    &__item {
-      &--has-submenu {
-        position: relative;
-      }
     }
 
     &__cart-button {
