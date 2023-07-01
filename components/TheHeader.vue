@@ -1,7 +1,11 @@
 <script setup lang="ts">
-const { isLaptop, isDesktop } = useMedia()
+interface NavigationLink {
+  to?: string
+  text: string
+  submenu?: NavigationLink[]
+}
 
-const navigationLinks = ref([
+const navigationLinks = ref<NavigationLink[]>([
   {
     to: '/',
     text: 'Home',
@@ -36,7 +40,6 @@ const navigationLinks = ref([
     ],
   },
   {
-
     to: '/contacts',
     text: 'Contacts',
   },
@@ -51,16 +54,32 @@ const toggleSubmenuVisibility = () => isSubmenuVisible.value = !isSubmenuVisible
 const openSubmenu = () => isSubmenuVisible.value = true
 const closeSubmenu = () => isSubmenuVisible.value = false
 
-const route = useRoute()
-watch(route, () => {
+function closeMenus() {
   closeMenu()
   closeSubmenu()
+}
+
+const route = useRoute()
+watch(route, () => {
+  closeMenus()
 })
 
-const navigation = ref(null)
-const menuButton = ref(null)
+const navigation = ref<HTMLElement | null>(null)
+const menuButton = ref<HTMLElement | null>(null)
 
-onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
+onClickOutside(navigation, () => closeMenus(), { ignore: [menuButton] })
+
+const { isDesktop } = useMedia()
+
+function handleMouseover(navigationLink: NavigationLink): void {
+  if (navigationLink.submenu && isDesktop.value && !isSubmenuVisible.value)
+    openSubmenu()
+}
+
+function handleMouseleave(navigationLink: NavigationLink): void {
+  if (navigationLink.submenu && isDesktop.value && isSubmenuVisible.value)
+    closeSubmenu()
+}
 </script>
 
 <template>
@@ -71,55 +90,52 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     <div class="header__main">
       <div class="header__buttons">
         <BaseButton
-          v-show="!isDesktop"
           class="header__cart-button"
-          type="button"
         >
           Cart (0)
         </BaseButton>
         <BaseButton
-          v-show="isLaptop || isDesktop"
           class="header__cta-button"
-          type="button"
         >
           Get Started
         </BaseButton>
         <BaseButton
-          v-show="!isDesktop"
           ref="menuButton"
           class="header__menu-button"
           :class="{ 'header__menu-button--active': isMenuVisible }"
-          type="button"
           @click="toggleMenuVisibility"
         >
           <Icon name="carbon:menu" size="1.25em" />
         </BaseButton>
       </div>
       <nav
-        v-show="isMenuVisible || isDesktop"
         ref="navigation"
         class="navigation header__navigation"
-        @mouseleave="isSubmenuVisible && isDesktop ? closeSubmenu() : null"
+        :class="{
+          'header__navigation--open': isMenuVisible,
+        }"
       >
         <menu v-if="navigationLinks.length" class="navigation__menu">
           <li
             v-for="navigationLink in navigationLinks"
             :key="navigationLink.text"
             class="navigation__item"
-            :class="{ 'navigation__item--inactive': navigationLink.submenu }"
+            @mouseover="handleMouseover(navigationLink)"
+            @mouseleave="handleMouseleave(navigationLink)"
           >
             <template v-if="navigationLink.submenu?.length">
               <button
                 type="button"
                 class="navigation__button"
                 @click="toggleSubmenuVisibility"
-                @mouseover="isDesktop ? openSubmenu() : null"
               >
                 <span>{{ navigationLink.text }}</span><Icon class="navigation__button-icon" name="material-symbols:keyboard-arrow-down" size="1.25em" />
               </button>
               <menu
-                v-if="isSubmenuVisible"
                 class="navigation__submenu"
+                :class="{
+                  'navigation__submenu--open': isSubmenuVisible,
+                }"
               >
                 <li
                   v-for="submenuNavigationLink in navigationLink.submenu"
@@ -139,9 +155,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
             </template>
           </li>
           <BaseButton
-            v-show="isDesktop"
-            class="header__cart-button"
-            type="button"
+            class="navigation__cart-button"
           >
             Cart (0)
           </BaseButton>
@@ -168,12 +182,11 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     align-items: center;
   }
 
-  &__cart-button {
-    background-color: $color--secondary--extra-light;
+  &__cta-button {
+    display: none;
   }
 
   &__menu-button {
-    background-color: $color--secondary--extra-light;
     border-radius: $border-radius--medium;
 
     &--active {
@@ -183,12 +196,18 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
   }
 
   &__navigation {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     margin-top: $spacing--small;
     padding: $spacing--large;
+    z-index: 5; // TODO: create variable for it
+
+    &--open {
+      display: block;
+    }
   }
 }
 
@@ -205,29 +224,20 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
   }
 
   &__submenu {
-    padding-left: $spacing--medium;
-    visibility: hidden;
+    display: none;
     max-height: 0;
-    transform: translateY(-1em);
-    transition: transform ease 0.3s;
+    padding: $spacing--large 0 0 $spacing--medium;
+
+    &--open {
+      display: block;
+      max-height: 100rem;
+    }
   }
 
   &__item {
+    position: relative;
     font-weight: $font-weight--semibold;
     font-size: $font-size--small;
-
-    &--inactive {
-      position: relative;
-
-      &:hover #{$parent}__submenu,
-      &:focus-within #{$parent}__submenu {
-        padding-top: $spacing--medium;
-        padding-bottom: $spacing--medium;
-        visibility: visible;
-        max-height: 100em;
-        transform: translateY(0);
-      }
-    }
   }
 
   &__link,
@@ -239,8 +249,10 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     display: block;
     color: $color-primary--dark;
 
-    &:hover {
-      color: $color-primary--light;
+    @media (hover: hover) {
+      &:hover {
+        color: $color-primary--light;
+      }
     }
   }
 
@@ -252,13 +264,19 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     line-height: $line-height--small;
     background-color: transparent;
 
-    &:hover {
-      color: $color-primary--light;
+    @media (hover: hover) {
+      &:hover {
+        color: $color-primary--light;
+      }
     }
   }
 
   &__button-icon {
     margin-left: $spacing--xsmall;
+  }
+
+  &__cart-button {
+    display: none;
   }
 }
 
@@ -279,13 +297,15 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
 
     &__cta-button {
       display: block;
-      background-color: $color-primary--dark;
       color: $color-white--regular;
+      background-color: $color-primary--dark;
       border: 1px solid $color-border--regular;
 
-      &:hover {
-        background-color: $color--secondary--extra-light;
-        color: $color-primary--dark;
+      @media (hover: hover) {
+        &:hover {
+          background-color: $color--secondary--extra-light;
+          color: $color-primary--dark;
+        }
       }
     }
   }
@@ -298,6 +318,7 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     }
 
     &__navigation {
+      display: block;
       width: auto;
       padding: $spacing--small $spacing--large;
       margin-right: $spacing--xlarge;
@@ -309,16 +330,20 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
     }
 
     &__cart-button {
-      padding: $spacing--medium;
-      margin-right: 0;
+      display: none;
     }
 
     &__cta-button {
       margin-right: 0;
     }
+
+    &__menu-button {
+      display: none;
+    }
   }
 
   .navigation {
+    $parent: &;
     position: static;
     order: 1;
     margin-top: 0;
@@ -335,6 +360,13 @@ onClickOutside(navigation, () => closeMenu(), { ignore: [menuButton] })
       padding: $spacing--medium;
       background-color: $color--secondary--extra-light;
       border-radius: $border-radius--small;
+    }
+
+    &__cart-button {
+      display: block;
+      padding: $spacing--medium;
+      margin-right: 0;
+      background-color: transparent;
     }
   }
 }
