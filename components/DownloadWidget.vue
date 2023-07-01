@@ -13,10 +13,18 @@
       Encompasses values and behaviors that contribute to the unique social business.
     </p>
     <div class="widget__buttons">
-      <BaseButton class="widget__button widget__button--dark">
+      <BaseButton
+        to="https://www.apple.com/in/app-store/"
+        target="_blank"
+        class="widget__button widget__button--dark"
+      >
         <Icon class="widget__button-icon" name="raphael:apple" />App Store
       </BaseButton>
-      <BaseButton class="widget__button">
+      <BaseButton
+        to="https://play.google.com/store"
+        target="_blank"
+        class="widget__button"
+      >
         <Icon class="widget__button-icon" name="raphael:android" />Play Store
       </BaseButton>
     </div>

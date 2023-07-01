@@ -175,7 +175,7 @@ const socialLinks = ref([
         >
           <Icon
             :name="socialLink.icon.name"
-            size="1.25em"
+            size="1.5em"
           />
         </NuxtLink>
       </div>
