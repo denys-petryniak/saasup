@@ -208,7 +208,7 @@ const socialLinks = ref([
 
   &__contact-icon {
     position: relative;
-    top: $spacing--xsmall;
+    top: $spacing--small;
     color: $color-primary--light;
   }
 

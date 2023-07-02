@@ -5,6 +5,7 @@
     <h1>
       This is Features page
     </h1>
+    (<code>under development</code>)
   </BaseSection>
 </template>
 

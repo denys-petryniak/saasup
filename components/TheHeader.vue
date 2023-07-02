@@ -95,6 +95,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
           Cart (0)
         </BaseButton>
         <BaseButton
+          to="/pricing"
           class="header__cta-button"
         >
           Get Started
@@ -262,6 +263,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
     text-align: start;
     font-weight: $font-weight--semibold;
     line-height: $line-height--small;
+    color: $color-primary--dark;
     background-color: transparent;
 
     @media (hover: hover) {
@@ -367,6 +369,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
       padding: $spacing--medium;
       margin-right: 0;
       background-color: transparent;
+      border-radius: 0;
     }
   }
 }

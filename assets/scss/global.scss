@@ -20,7 +20,7 @@ body {
     $min-line-height: $line-height--medium,
     $max-line-height: $line-height--large,
   );
-  letter-spacing: 0.01rem;
+  letter-spacing: 0.01em;
   color: $color--secondary--dark;
 }
 
@@ -113,8 +113,8 @@ li {
   line-height: $line-height--small;
 }
 
-.router-link-active,
-.router-link-exact-active {
+.router-link-active:not(.btn),
+.router-link-exact-active:not(.btn) {
   color: $color-primary--light !important;
 }
 
@@ -129,8 +129,13 @@ $btn-padding-x: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarg
 
 .btn {
   padding: $btn-padding-y $btn-padding-x;
+  @include fluid-typography(
+    $min-font-size: $font-size--base,
+    $max-font-size: $font-size--small,
+    $min-line-height: $line-height--3xsmall,
+    $max-line-height: $line-height--2xsmall,
+  );
   font-weight: $font-weight--semibold;
-  font-size: $font-size--small;
   color: $color-primary--dark;
   background-color: $color--secondary--extra-light;
   border-radius: $border-radius--2xlarge;
