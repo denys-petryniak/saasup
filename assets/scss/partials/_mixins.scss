@@ -10,10 +10,20 @@ $breakpoints: (
 );
 
 @mixin breakpoint($media) {
+  $validMedia: false;
+
   @each $name, $size in $breakpoints {
     @if $media == $name {
-      @media only screen and (min-width: $size) { @content; }
+      $validMedia: true;
+
+      @media only screen and (min-width: $size) {
+        @content;
+      }
     }
+  }
+
+  @if not $validMedia {
+    @warn "Invalid breakpoint: #{$media}.";
   }
 }
 

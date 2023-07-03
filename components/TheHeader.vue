@@ -204,7 +204,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
     width: 100%;
     margin-top: $spacing--small;
     padding: $spacing--large;
-    z-index: 5; // TODO: create variable for it
+    z-index: z-index('header');
 
     &--open {
       display: block;

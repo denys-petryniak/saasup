@@ -46,6 +46,7 @@ h5,
 h6 {
   margin: $spacing--large 0;
   font-weight: $font-weight--extrabold;
+  text-wrap: balance;
   color: $color--secondary--extra-dark;
 }
 
