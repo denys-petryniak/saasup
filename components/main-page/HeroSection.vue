@@ -25,11 +25,15 @@ defineProps<Props>()
       </div>
     </div>
     <div class="hero-section__image-container">
-      <img
+      <NuxtImg
         class="hero-section__image"
-        src="~/assets/images/main-page/hero-image.png"
+        src="/images/main-page/hero-image.png"
+        width="1541"
+        height="1168"
+        sizes="sm:100vw md:100vw lg:760px"
+        format="avif,webp"
         alt="Hero image"
-      >
+      />
     </div>
   </BaseSection>
 </template>
