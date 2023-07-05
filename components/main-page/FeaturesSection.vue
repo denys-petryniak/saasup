@@ -1,25 +1,61 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+interface CardImage {
+  src: string
+  alt: string
+}
+
+interface Card {
+  title: string
+  description: string
+  img: CardImage
+}
+
+interface Props {
+  subtitle: string
+  title: string
+  cards: Card[]
+}
+
+defineProps<Props>()
+</script>
 
 <template>
   <BaseSection class="features-section border-debug">
-    <h2 class="features-section__title">
-      The features to boost
-      your productivity
-    </h2>
-    <p class="features-section__description">
-      Use marketing automation to identify hot leads and email your sales team telling them to follow up. Nurture and contact leads at the opportune time to maximize.
-    </p>
+    <div class="features-section__head">
+      <SectionSubtitle :text="subtitle" />
+      <h2 class="features-section__title">
+        {{ title }}
+      </h2>
+    </div>
+    <div
+      v-if="cards.length"
+      class="features-section__cards"
+    >
+      <SectionCard
+        v-for="card in cards"
+        :key="card.title"
+        :title="card.title"
+        :description="card.description"
+        :img="card.img"
+      />
+    </div>
   </BaseSection>
 </template>
 
 <style scoped lang="scss">
 .features-section {
-  &__title {
-    margin-top: 0;
+  &__head {
+    text-align: center;
   }
 
-  &__description {
-    margin: 0;
+  &__title {
+    margin-top: $spacing--xlarge;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    // gap: $spacing--2xlarge;
   }
 }
 </style>
