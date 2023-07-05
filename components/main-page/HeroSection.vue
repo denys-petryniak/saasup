@@ -25,7 +25,15 @@ defineProps<Props>()
       </div>
     </div>
     <div class="hero-section__image-container">
-      <NuxtImg
+      <img
+        class="hero-section__image"
+        src="/images/main-page/hero-image.png"
+        width="1541"
+        height="1168"
+        alt="Hero image"
+      >
+      <!-- https://github.com/nuxt/image/issues/587 -->
+      <!-- <NuxtImg
         class="hero-section__image"
         src="/images/main-page/hero-image.png"
         width="1541"
@@ -33,7 +41,7 @@ defineProps<Props>()
         sizes="sm:100vw md:100vw lg:760px"
         format="avif,webp"
         alt="Hero image"
-      />
+      /> -->
     </div>
   </BaseSection>
 </template>
@@ -61,23 +69,9 @@ defineProps<Props>()
     border-radius: 25px;
     box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.11);
   }
-
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   width: 1000px;
-  //   height: 500px;
-  //   z-index: -1;
-  //   background: url('~/assets/images/main-page/main-page-background.png') no-repeat right top;
-  //   background-size: contain;
-  //   // background-size: 80%;
-  //   // background-size: min(600px, 100%);
-  // }
 }
 
-@include breakpoint(large) {
+@include breakpoint('large') {
   .hero-section {
     grid-template-columns: 0.8fr 1fr;
   }

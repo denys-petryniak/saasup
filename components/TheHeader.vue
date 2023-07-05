@@ -282,7 +282,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
   }
 }
 
-@include breakpoint(medium) {
+@include breakpoint('medium') {
   .header {
     display: flex;
     justify-content: space-between;
@@ -313,7 +313,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
   }
 }
 
-@include breakpoint(large) {
+@include breakpoint('large') {
   .header {
     &__main {
       display: flex;

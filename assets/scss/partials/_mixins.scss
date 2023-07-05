@@ -2,11 +2,11 @@
 @use "./breakpoints" as bp;
 
 $breakpoints: (
-  small: bp.$screen--small,
-  medium: bp.$screen--medium,
-  large: bp.$screen--large,
-  xlarge: bp.$screen--xlarge,
-  2xlarge: bp.$screen--2xlarge
+  'small': bp.$screen--small,
+  'medium': bp.$screen--medium,
+  'large': bp.$screen--large,
+  'xlarge': bp.$screen--xlarge,
+  '2xlarge': bp.$screen--2xlarge
 );
 
 @mixin breakpoint($media) {

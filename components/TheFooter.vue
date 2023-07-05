@@ -288,7 +288,7 @@ const socialLinks = ref([
   }
 }
 
-@include breakpoint(medium) {
+@include breakpoint('medium') {
   .footer {
     &__wrapper {
       grid-template-columns: repeat(2, 1fr);
@@ -296,7 +296,7 @@ const socialLinks = ref([
   }
 }
 
-@include breakpoint(large) {
+@include breakpoint('large') {
   .footer {
     &__wrapper {
       grid-template-columns: 0.8fr 0.5fr 1fr;
