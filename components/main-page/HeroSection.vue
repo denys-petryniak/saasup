@@ -17,8 +17,10 @@ defineProps<Props>()
         {{ description }}
       </p>
       <div class="hero-section__buttons">
-        <BaseButton>Get Started</BaseButton>
-        <BaseButton>
+        <BaseButton variant="default">
+          Get Started
+        </BaseButton>
+        <BaseButton variant="light">
           Watch Video
           <Icon class="navigation__button-icon" name="carbon:play-filled" size="1.25em" />
         </BaseButton>
@@ -62,6 +64,9 @@ defineProps<Props>()
   }
 
   &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing--medium;
     margin-top: $spacing--xlarge;
   }
 

@@ -32,7 +32,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.button {
   // Help prevent overflow of long words/names/URLs
   overflow-wrap: break-word;
   // Adds a hyphen where the word breaks, if supported (No Blink)
@@ -110,14 +111,21 @@ button {
 
 a {
   text-decoration: none;
+  color: $color--secondary--extra-dark;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-primary--light;
+    }
+  }
 }
 
 li {
   line-height: $line-height--small;
 }
 
-.router-link-active:not(.btn),
-.router-link-exact-active:not(.btn) {
+.router-link-active:not(.button),
+.router-link-exact-active:not(.button) {
   color: $color-primary--light !important;
 }
 
@@ -125,23 +133,6 @@ li {
 
 .border-debug {
   border: 1px dotted red;
-}
-
-$btn-padding-y: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
-$btn-padding-x: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
-
-.btn {
-  padding: $btn-padding-y $btn-padding-x;
-  @include fluid-typography(
-    $min-font-size: $font-size--base,
-    $max-font-size: $font-size--small,
-    $min-line-height: $line-height--3xsmall,
-    $max-line-height: $line-height--2xsmall,
-  );
-  font-weight: $font-weight--semibold;
-  color: $color-primary--dark;
-  background-color: $color--secondary--extra-light;
-  border-radius: $border-radius--2xlarge;
 }
 
 .body-background {
