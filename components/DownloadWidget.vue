@@ -19,7 +19,7 @@
         target="_blank"
         class="widget__button widget__button--dark"
       >
-        <Icon class="widget__button-icon" name="raphael:apple" />App Store
+        <Icon class="widget__button-icon" name="raphael:apple" size="1.5em" />App Store
       </BaseButton>
       <BaseButton
         variant="light-bordered"
@@ -27,7 +27,7 @@
         target="_blank"
         class="widget__button"
       >
-        <Icon class="widget__button-icon" name="raphael:android" />Play Store
+        <Icon class="widget__button-icon" name="raphael:android" size="1.5em" />Play Store
       </BaseButton>
     </div>
   </div>
