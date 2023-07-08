@@ -1,14 +1,5 @@
 <script setup lang="ts">
-interface CardImage {
-  src: string
-  alt: string
-}
-
-interface Card {
-  title: string
-  description: string
-  img: CardImage
-}
+import type { Card } from '~/types'
 
 interface Props {
   subtitle: string
@@ -34,9 +25,7 @@ defineProps<Props>()
       <SectionCard
         v-for="card in cards"
         :key="card.title"
-        :title="card.title"
-        :description="card.description"
-        :img="card.img"
+        :card="card"
       />
     </div>
   </BaseSection>

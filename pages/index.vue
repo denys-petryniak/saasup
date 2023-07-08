@@ -9,28 +9,31 @@ const featuresSection = ref({
   title: 'Powerful features to boost your productivity',
   cards: [
     {
-      title: 'Task Management',
-      description: 'The process of managing a task through its life cycle. It involves planning, testing, tracking.',
       img: {
         src: '/images/main-page/task-management-card.png',
         alt: 'Alt 1',
       },
+      title: 'Task Management',
+      description: 'The process of managing a task through its life cycle. It involves planning, testing, tracking.',
+      linkText: 'Learn More',
     },
     {
-      title: 'Automation',
-      description: 'The technology by which a process or procedure is performed with minimal human assistance.',
       img: {
         src: '/images/main-page/automation-card.png',
         alt: 'Alt 2',
       },
+      title: 'Automation',
+      description: 'The technology by which a process or procedure is performed with minimal human assistance.',
+      linkText: 'Learn More',
     },
     {
-      title: 'Budgeting Tools',
-      description: 'Creating plan to spend your money, This spending planer is called a budgeting tool for business.',
       img: {
         src: '/images/main-page/budgeting-tools-card.png',
         alt: 'Alt 3',
       },
+      title: 'Budgeting Tools',
+      description: 'Creating plan to spend your money, This spending planer is called a budgeting tool for business.',
+      linkText: 'Learn More',
     },
 
   ],

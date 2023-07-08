@@ -1,13 +1,8 @@
 <script setup lang="ts">
-interface CardImage {
-  src: string
-  alt: string
-}
+import type { Card } from '~/types'
 
 interface Props {
-  title: string
-  description: string
-  img: CardImage
+  card: Card
 }
 
 defineProps<Props>()
@@ -15,15 +10,15 @@ defineProps<Props>()
 
 <template>
   <div class="card">
-    <img class="card__image" :src="img.src" :alt="img.alt">
+    <img class="card__image" :src="card.img.src" :alt="card.img.alt">
     <h3 class="card__title">
-      {{ title }}
+      {{ card.title }}
     </h3>
     <p class="card__description">
-      {{ description }}
+      {{ card.description }}
     </p>
     <NuxtLink to="/features" class="card__link">
-      Learn More
+      {{ card.linkText }}
     </NuxtLink>
   </div>
 </template>
