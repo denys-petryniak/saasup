@@ -1,3 +1,14 @@
 {
-  "extends": "@antfu"
+  "extends": "@antfu",
+  "rules": {
+    // Limits the maximum number of attributes/properties per line to improve readability.
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": {
+        "max": 1
+      },
+      "multiline": {
+        "max": 1
+      }
+    }]
+  }
 }

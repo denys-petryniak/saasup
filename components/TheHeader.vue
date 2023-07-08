@@ -109,7 +109,10 @@ function handleMouseleave(navigationLink: NavigationLink): void {
           :class="{ 'header__menu-button--active': isMenuVisible }"
           @click="toggleMenuVisibility"
         >
-          <Icon name="carbon:menu" size="1.75em" />
+          <Icon
+            name="carbon:menu"
+            size="1.75em"
+          />
         </button>
       </div>
       <nav
@@ -119,7 +122,10 @@ function handleMouseleave(navigationLink: NavigationLink): void {
           'header__navigation--open': isMenuVisible,
         }"
       >
-        <menu v-if="navigationLinks.length" class="navigation__menu">
+        <menu
+          v-if="navigationLinks.length"
+          class="navigation__menu"
+        >
           <li
             v-for="navigationLink in navigationLinks"
             :key="navigationLink.text"
@@ -133,7 +139,11 @@ function handleMouseleave(navigationLink: NavigationLink): void {
                 class="navigation__submenu-button"
                 @click="toggleSubmenuVisibility"
               >
-                <span>{{ navigationLink.text }}</span><Icon class="navigation__button-icon" name="material-symbols:keyboard-arrow-down" size="1.25em" />
+                <span>{{ navigationLink.text }}</span><Icon
+                  class="navigation__button-icon"
+                  name="material-symbols:keyboard-arrow-down"
+                  size="1.25em"
+                />
               </button>
               <menu
                 class="navigation__submenu"
@@ -146,14 +156,20 @@ function handleMouseleave(navigationLink: NavigationLink): void {
                   :key="submenuNavigationLink.text"
                   class="navigation__item"
                 >
-                  <NuxtLink class="navigation__link" :to="submenuNavigationLink.to">
+                  <NuxtLink
+                    class="navigation__link"
+                    :to="submenuNavigationLink.to"
+                  >
                     {{ submenuNavigationLink.text }}
                   </NuxtLink>
                 </li>
               </menu>
             </template>
             <template v-else>
-              <NuxtLink class="navigation__link" :to="navigationLink.to">
+              <NuxtLink
+                class="navigation__link"
+                :to="navigationLink.to"
+              >
                 {{ navigationLink.text }}
               </NuxtLink>
             </template>

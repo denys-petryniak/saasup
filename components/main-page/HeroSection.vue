@@ -20,9 +20,15 @@ defineProps<Props>()
         <BaseButton variant="default">
           Get Started
         </BaseButton>
-        <BaseButton variant="light" class="hero-section__video-button">
+        <BaseButton
+          variant="light"
+          class="hero-section__video-button"
+        >
           <span class="hero-section__video-button-text">Watch Video</span>
-          <Icon class="hero-section__video-button-icon" name="carbon:play-filled" />
+          <Icon
+            class="hero-section__video-button-icon"
+            name="carbon:play-filled"
+          />
         </BaseButton>
       </div>
     </div>

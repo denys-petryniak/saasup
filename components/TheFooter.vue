@@ -110,13 +110,19 @@ const socialLinks = ref([
 <template>
   <footer class="footer">
     <BaseDivider />
-    <BaseSection tag="div" class="footer__wrapper">
+    <BaseSection
+      tag="div"
+      class="footer__wrapper"
+    >
       <div class="footer__section">
         <AppLogoLink />
         <p class="footer__text">
           The Professional SaaS business tool, It will helps to grow your business with more productivity.
         </p>
-        <div v-if="contacts.length" class="footer__contacts">
+        <div
+          v-if="contacts.length"
+          class="footer__contacts"
+        >
           <div
             v-for="contact in contacts"
             :key="contact.type"
@@ -132,7 +138,8 @@ const socialLinks = ref([
                 v-for="link in contact.links"
                 :key="link.to"
                 class="link footer__contact-link"
-                :to="link.to" no-rel
+                :to="link.to"
+                no-rel
               >
                 {{ link.text }}
               </NuxtLink>
@@ -144,13 +151,19 @@ const socialLinks = ref([
         <h4 class="navigation__title">
           Pages
         </h4>
-        <menu v-if="navigationLinks.length" class="navigation__menu">
+        <menu
+          v-if="navigationLinks.length"
+          class="navigation__menu"
+        >
           <li
             v-for="navigationLink in navigationLinks"
             :key="navigationLink.text"
             class="navigation__item"
           >
-            <NuxtLink class="navigation__link" :to="navigationLink.to">
+            <NuxtLink
+              class="navigation__link"
+              :to="navigationLink.to"
+            >
               {{ navigationLink.text }}
             </NuxtLink>
           </li>
@@ -165,7 +178,10 @@ const socialLinks = ref([
       <p class="footer__copyright-text">
         Copyright © Saasup | Designed by Victorflow
       </p>
-      <div v-if="socialLinks.length" class="footer__social-links">
+      <div
+        v-if="socialLinks.length"
+        class="footer__social-links"
+      >
         <NuxtLink
           v-for="socialLink in socialLinks"
           :key="socialLink.link.to"

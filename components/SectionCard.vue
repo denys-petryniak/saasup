@@ -10,14 +10,21 @@ defineProps<Props>()
 
 <template>
   <div class="card">
-    <img class="card__image" :src="card.img.src" :alt="card.img.alt">
+    <img
+      class="card__image"
+      :src="card.img.src"
+      :alt="card.img.alt"
+    >
     <h3 class="card__title">
       {{ card.title }}
     </h3>
     <p class="card__description">
       {{ card.description }}
     </p>
-    <NuxtLink to="/features" class="card__link">
+    <NuxtLink
+      to="/features"
+      class="card__link"
+    >
       {{ card.linkText }}
     </NuxtLink>
   </div>
