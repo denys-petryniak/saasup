@@ -8,7 +8,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <BaseSection class="hero-section border-debug">
+  <BaseSection class="hero-section">
     <div class="hero-section__content">
       <h1 class="hero-section__title">
         {{ title }}

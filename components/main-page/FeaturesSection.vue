@@ -20,7 +20,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <BaseSection class="features-section border-debug">
+  <BaseSection class="features-section">
     <div class="features-section__head">
       <SectionSubtitle :text="subtitle" />
       <h2 class="features-section__title">

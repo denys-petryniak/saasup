@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <BaseSection class="border-debug">
+  <BaseSection>
     <h1>
       This is Contacts page
     </h1>
