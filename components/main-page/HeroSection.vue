@@ -56,10 +56,18 @@ defineProps<Props>()
 
 <style scoped lang="scss">
 .hero-section {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  grid-gap: $spacing--xlarge;
+  gap: $spacing--xlarge;
+
+  &__content {
+    flex: 1 1 convert(400px, 'rem');
+  }
+
+  &__image-container {
+    flex: 1 1 convert(500px, 'rem');
+  }
 
   &__title {
     margin: 0;
@@ -97,12 +105,6 @@ defineProps<Props>()
   &__image {
     border-radius: 25px;
     box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.11);
-  }
-}
-
-@include breakpoint('large') {
-  .hero-section {
-    grid-template-columns: 0.8fr 1fr;
   }
 }
 </style>
