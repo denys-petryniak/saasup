@@ -137,7 +137,7 @@ li {
 
 .body-background {
   @include breakpoint('large') {
-    background-image: url('/images/main-page/main-page-background.png');
+    background-image: url('/images/body-background.png');
     background-repeat: no-repeat;
     background-position: top right;
     background-size:80%;

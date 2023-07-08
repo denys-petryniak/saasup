@@ -194,7 +194,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
   }
 
   &__menu-button {
-    padding: $spacing--large / 2;
+    padding: calc($spacing--large / 2);
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
     border-radius: $border-radius--small;
