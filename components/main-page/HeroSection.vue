@@ -20,9 +20,9 @@ defineProps<Props>()
         <BaseButton variant="default">
           Get Started
         </BaseButton>
-        <BaseButton variant="light">
-          Watch Video
-          <Icon class="navigation__button-icon" name="carbon:play-filled" size="1.25em" />
+        <BaseButton variant="light" class="hero-section__video-button">
+          <span class="hero-section__video-button-text">Watch Video</span>
+          <Icon class="hero-section__video-button-icon" name="carbon:play-filled" />
         </BaseButton>
       </div>
     </div>
@@ -68,6 +68,24 @@ defineProps<Props>()
     flex-wrap: wrap;
     gap: $spacing--medium;
     margin-top: $spacing--xlarge;
+  }
+
+  &__video-button {
+    position: relative;
+  }
+
+  &__video-button-text {
+    margin-right: $spacing--large;
+  }
+
+  &__video-button-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate3d(0, -50%, 0);
+    width: 30%;
+    height: 100%;
+    padding: $spacing--xsmall;
   }
 
   &__image {
