@@ -219,7 +219,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
     width: 100%;
     margin-top: $spacing--small;
     padding: $spacing--large;
-    z-index: z-index('header');
+    z-index: stacking(header);
 
     &--open {
       display: block;
