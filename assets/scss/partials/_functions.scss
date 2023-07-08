@@ -78,3 +78,24 @@ $default-max-bp: convert(1440px, 'rem');
 
   @return clamp(#{$min-size}, #{$slope-to-unit}#{$unit} + #{$intercept}, #{$max-size});
 }
+
+// Breakpoint var (first in array is the largest number, etc array.length)
+$z-indexes: (
+  'modal',
+  'header'
+);
+
+/// Retrieves the z-index value associated with the given name.
+///
+/// @access public
+/// @param {string} $name - The name of the z-index.
+/// @throws {Warning} - Prints a warning if the given name is not found in the list of z-indexes.
+/// @returns {number|null} - The z-index value if found, or null if not found.
+@function z-index($name) {
+  @if index($z-indexes, $name) {
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+    @return null;
+  }
+}

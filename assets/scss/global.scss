@@ -22,6 +22,7 @@ body {
   );
   letter-spacing: 0.01em;
   color: $color--secondary--dark;
+  overflow-x: hidden;
 }
 
 p,
@@ -31,7 +32,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.button {
   // Help prevent overflow of long words/names/URLs
   overflow-wrap: break-word;
   // Adds a hyphen where the word breaks, if supported (No Blink)
@@ -46,6 +48,7 @@ h5,
 h6 {
   margin: $spacing--large 0;
   font-weight: $font-weight--extrabold;
+  text-wrap: balance;
   color: $color--secondary--extra-dark;
 }
 
@@ -98,6 +101,7 @@ img {
   display: inline-block;
   vertical-align: middle;
   max-width: 100%;
+  height: auto;
 }
 
 button {
@@ -107,14 +111,21 @@ button {
 
 a {
   text-decoration: none;
+  color: $color--secondary--extra-dark;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-primary--light;
+    }
+  }
 }
 
 li {
   line-height: $line-height--small;
 }
 
-.router-link-active:not(.btn),
-.router-link-exact-active:not(.btn) {
+.router-link-active:not(.button),
+.router-link-exact-active:not(.button) {
   color: $color-primary--light !important;
 }
 
@@ -124,19 +135,15 @@ li {
   border: 1px dotted red;
 }
 
-$btn-padding-y: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
-$btn-padding-x: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
+.body-background {
+  @include breakpoint('large') {
+    background-image: url('/images/body-background.png'), url('/images/body-background-decor.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, top right;
+    background-size: 80%, cover;
+  }
 
-.btn {
-  padding: $btn-padding-y $btn-padding-x;
-  @include fluid-typography(
-    $min-font-size: $font-size--base,
-    $max-font-size: $font-size--small,
-    $min-line-height: $line-height--3xsmall,
-    $max-line-height: $line-height--2xsmall,
-  );
-  font-weight: $font-weight--semibold;
-  color: $color-primary--dark;
-  background-color: $color--secondary--extra-light;
-  border-radius: $border-radius--2xlarge;
+  @include breakpoint('xlarge') {
+    background-size: 70%, cover;
+  }
 }

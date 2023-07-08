@@ -90,24 +90,27 @@ function handleMouseleave(navigationLink: NavigationLink): void {
     <div class="header__main">
       <div class="header__buttons">
         <BaseButton
+          variant="light"
           class="header__cart-button"
         >
           Cart (0)
         </BaseButton>
         <BaseButton
+          variant="dark"
           to="/pricing"
           class="header__cta-button"
         >
           Get Started
         </BaseButton>
-        <BaseButton
+        <button
           ref="menuButton"
+          type="button"
           class="header__menu-button"
           :class="{ 'header__menu-button--active': isMenuVisible }"
           @click="toggleMenuVisibility"
         >
-          <Icon name="carbon:menu" size="1.25em" />
-        </BaseButton>
+          <Icon name="carbon:menu" size="1.75em" />
+        </button>
       </div>
       <nav
         ref="navigation"
@@ -127,7 +130,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
             <template v-if="navigationLink.submenu?.length">
               <button
                 type="button"
-                class="navigation__button"
+                class="navigation__submenu-button"
                 @click="toggleSubmenuVisibility"
               >
                 <span>{{ navigationLink.text }}</span><Icon class="navigation__button-icon" name="material-symbols:keyboard-arrow-down" size="1.25em" />
@@ -155,11 +158,14 @@ function handleMouseleave(navigationLink: NavigationLink): void {
               </NuxtLink>
             </template>
           </li>
-          <BaseButton
-            class="navigation__cart-button"
-          >
-            Cart (0)
-          </BaseButton>
+          <li class="navigation__item">
+            <button
+              type="button"
+              class="navigation__cart-button"
+            >
+              Cart (0)
+            </button>
+          </li>
         </menu>
       </nav>
     </div>
@@ -188,7 +194,16 @@ function handleMouseleave(navigationLink: NavigationLink): void {
   }
 
   &__menu-button {
-    border-radius: $border-radius--medium;
+    padding: calc($spacing--large / 2);
+    color: $color--secondary--extra-dark;
+    background-color: $color--secondary--extra-light;
+    border-radius: $border-radius--small;
+
+    &:focus {
+      outline-style: solid;
+      outline-color: transparent;
+      box-shadow: 0 0 0 2px scale-color($color-primary--light, $lightness: -40%);
+    }
 
     &--active {
       background-color: $color-primary--dark;
@@ -204,7 +219,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
     width: 100%;
     margin-top: $spacing--small;
     padding: $spacing--large;
-    z-index: 5; // TODO: create variable for it
+    z-index: z-index('header');
 
     &--open {
       display: block;
@@ -242,22 +257,17 @@ function handleMouseleave(navigationLink: NavigationLink): void {
   }
 
   &__link,
-  &__button {
+  &__submenu-button,
+  &__cart-button {
     padding: $spacing--medium;
   }
 
   &__link {
     display: block;
-    color: $color-primary--dark;
-
-    @media (hover: hover) {
-      &:hover {
-        color: $color-primary--light;
-      }
-    }
   }
 
-  &__button {
+  &__submenu-button,
+  &__cart-button {
     display: block;
     width: 100%;
     text-align: start;
@@ -282,7 +292,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
   }
 }
 
-@include breakpoint(medium) {
+@include breakpoint('medium') {
   .header {
     display: flex;
     justify-content: space-between;
@@ -299,21 +309,11 @@ function handleMouseleave(navigationLink: NavigationLink): void {
 
     &__cta-button {
       display: block;
-      color: $color-white--regular;
-      background-color: $color-primary--dark;
-      border: 1px solid $color-border--regular;
-
-      @media (hover: hover) {
-        &:hover {
-          background-color: $color--secondary--extra-light;
-          color: $color-primary--dark;
-        }
-      }
     }
   }
 }
 
-@include breakpoint(large) {
+@include breakpoint('large') {
   .header {
     &__main {
       display: flex;
@@ -366,10 +366,6 @@ function handleMouseleave(navigationLink: NavigationLink): void {
 
     &__cart-button {
       display: block;
-      padding: $spacing--medium;
-      margin-right: 0;
-      background-color: transparent;
-      border-radius: 0;
     }
   }
 }

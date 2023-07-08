@@ -14,18 +14,20 @@
     </p>
     <div class="widget__buttons">
       <BaseButton
+        variant="dark-branded"
         to="https://www.apple.com/in/app-store/"
         target="_blank"
         class="widget__button widget__button--dark"
       >
-        <Icon class="widget__button-icon" name="raphael:apple" />App Store
+        <Icon class="widget__button-icon" name="raphael:apple" size="1.5em" />App Store
       </BaseButton>
       <BaseButton
+        variant="light-bordered"
         to="https://play.google.com/store"
         target="_blank"
         class="widget__button"
       >
-        <Icon class="widget__button-icon" name="raphael:android" />Play Store
+        <Icon class="widget__button-icon" name="raphael:android" size="1.5em" />Play Store
       </BaseButton>
     </div>
   </div>
@@ -57,22 +59,6 @@ $widget-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--xlar
   &__button {
     display: flex;
     align-items: center;
-    background-color: transparent;
-    border: 1px solid $color-border--regular;
-
-    &:hover {
-      background-color: $color-white--regular;
-      border: 1px solid $color--secondary--dark;
-    }
-
-    &--dark {
-      background-color: $color-primary--dark;
-      color: $color-white--regular;
-
-      &:hover {
-        background-color: $color-primary--light;
-      }
-    }
   }
 
   &__button-icon {

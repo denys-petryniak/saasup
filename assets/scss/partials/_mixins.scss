@@ -2,18 +2,28 @@
 @use "./breakpoints" as bp;
 
 $breakpoints: (
-  small: bp.$screen--small,
-  medium: bp.$screen--medium,
-  large: bp.$screen--large,
-  xlarge: bp.$screen--xlarge,
-  2xlarge: bp.$screen--2xlarge
+  'small': bp.$screen--small,
+  'medium': bp.$screen--medium,
+  'large': bp.$screen--large,
+  'xlarge': bp.$screen--xlarge,
+  '2xlarge': bp.$screen--2xlarge
 );
 
 @mixin breakpoint($media) {
+  $validMedia: false;
+
   @each $name, $size in $breakpoints {
     @if $media == $name {
-      @media only screen and (min-width: $size) { @content; }
+      $validMedia: true;
+
+      @media only screen and (min-width: $size) {
+        @content;
+      }
     }
+  }
+
+  @if not $validMedia {
+    @warn "Invalid breakpoint: #{$media}.";
   }
 }
 

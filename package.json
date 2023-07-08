@@ -16,6 +16,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/google-fonts": "^3.0.1",
     "@types/node": "^18",
     "@vueuse/nuxt": "^10.2.0",
