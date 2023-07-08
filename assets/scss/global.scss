@@ -137,13 +137,13 @@ li {
 
 .body-background {
   @include breakpoint('large') {
-    background-image: url('/images/body-background.png');
-    background-repeat: no-repeat;
-    background-position: top right;
-    background-size:80%;
+    background-image: url('/images/body-background.png'), url('/images/body-background-decor.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, top right;
+    background-size: 80%, cover;
   }
 
   @include breakpoint('xlarge') {
-    background-size: 70%;
+    background-size: 70%, cover;
   }
 }
