@@ -21,7 +21,7 @@ defineProps<Props>()
       <div class="cost platform-section__cost">
         <img
           src="/images/main-page/cost-icon.svg"
-          alt=""
+          alt="Cost icon"
           class="cost__icon"
         >
         <div class="cost__text">
@@ -49,6 +49,8 @@ defineProps<Props>()
 <style scoped lang="scss">
 $section-content-padding-y: clamped($min-size: $spacing--2xlarge, $max-size: $gap--medium);
 $section-content-padding-x: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
+$section-content-bg-z-index: -1;
+$section-bg-z-index: -2;
 
 .platform-section {
   position: relative;
@@ -69,7 +71,7 @@ $section-content-padding-x: clamped($min-size: $spacing--medium, $max-size: $spa
       width: 100%;
       height: 100%;
       border-radius: $border-radius--2xlarge;
-      z-index: -1; // TODO: improve & use stacking function for this
+      z-index: $section-content-bg-z-index;
       background-color: $color--secondary--extra-light;
       pointer-events: none;
     }
@@ -91,11 +93,6 @@ $section-content-padding-x: clamped($min-size: $spacing--medium, $max-size: $spa
     margin-top: $spacing--2xlarge;
   }
 
-  &__image {
-    border-radius: 25px;
-    box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.11);
-  }
-
   &::after {
     content: '';
     position: absolute;
@@ -103,7 +100,7 @@ $section-content-padding-x: clamped($min-size: $spacing--medium, $max-size: $spa
     width: 100vw;
     height: 100%;
     transform: translate3d(-50%, 0, 0);
-    z-index: -2; // TODO: improve & use stacking function for this
+    z-index: $section-bg-z-index;
     background-color: $color-primary--light;
     pointer-events: none;
   }
@@ -122,6 +119,7 @@ $section-content-padding-x: clamped($min-size: $spacing--medium, $max-size: $spa
   &__title {
     margin: 0;
     font-weight: $font-weight--bold;
+    line-height: $line-height--4xsmall;
   }
 
   &__description {
