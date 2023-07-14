@@ -155,6 +155,7 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
     flex: 1 1 convert(350px, 'rem');
     padding: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge) clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
     border-radius: $border-radius--medium;
+    color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
     text-align: start;
     font-weight: $font-weight--bold;
