@@ -35,7 +35,7 @@ defineProps<Props>()
     <div class="hero-section__image-container">
       <img
         class="hero-section__image"
-        src="/images/main-page/hero-image.png"
+        src="/images/main-page/hero.png"
         width="1541"
         height="1168"
         alt="Hero image"
@@ -43,7 +43,7 @@ defineProps<Props>()
       <!-- https://github.com/nuxt/image/issues/587 -->
       <!-- <NuxtImg
         class="hero-section__image"
-        src="/images/main-page/hero-image.png"
+        src="/images/main-page/hero.png"
         width="1541"
         height="1168"
         sizes="sm:100vw md:100vw lg:760px"

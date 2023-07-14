@@ -39,6 +39,13 @@ const featuresSection = ref({
   ],
 })
 
+const platformSection = ref({
+  title: 'Powerful and easy to use SaaS platform',
+  description: 'Use marketing automation to identify hot leads and email your sales team telling them to follow up. Nurture and contact leads at the opportune time to maximize.',
+  costTitle: 'Cost Effective',
+  costDescription: 'With tools to make every part of your process more human excited to help.',
+})
+
 useHead({
   bodyAttrs: {
     class: 'body-background',
@@ -48,12 +55,12 @@ useHead({
 
 <template>
   <MainPageHeroSection
-    :title="heroSection.title"
-    :description="heroSection.description"
+    v-bind="heroSection"
   />
   <MainPageFeaturesSection
-    :subtitle="featuresSection.subtitle"
-    :title="featuresSection.title"
-    :cards="featuresSection.cards"
+    v-bind="featuresSection"
+  />
+  <MainPagePlatformSection
+    v-bind="platformSection"
   />
 </template>
