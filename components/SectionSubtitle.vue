@@ -1,14 +1,6 @@
-<script setup lang="ts">
-interface Props {
-  text: string
-}
-
-defineProps<Props>()
-</script>
-
 <template>
   <p class="subtitle">
-    {{ text }}
+    <slot />
   </p>
 </template>
 

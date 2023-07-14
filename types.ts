@@ -9,3 +9,11 @@ export interface Card {
   description: string
   linkText: string
 }
+
+export interface Step {
+  name: string
+  icon: CardImage
+  title: string
+  description: string
+  image: CardImage
+}
