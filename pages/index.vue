@@ -46,6 +46,52 @@ const platformSection = ref({
   costDescription: 'With tools to make every part of your process more human excited to help.',
 })
 
+const stepsSection = ref({
+  subtitle: 'How It Work',
+  title: 'Work smarter with easy access for user..',
+  steps: [
+    {
+      name: 'Create account',
+      icon: {
+        src: '/images/main-page/account-icon.svg',
+        alt: 'Icon',
+      },
+      title: 'Create your account & start your work',
+      description: 'After learning about your customer service needs, we will get you up and running, and then partner with you problems and keep your customer service organization.',
+      image: {
+        src: '/images/main-page/account-step.jpg',
+        alt: 'Account',
+      },
+    },
+    {
+      name: 'Install tracking code',
+      icon: {
+        src: '/images/main-page/tracking-icon.svg',
+        alt: 'Icon',
+      },
+      title: 'Install the code to organize the works',
+      description: 'After learning about your customer service needs, we will get you up and running, and then partner with you your customer service organization.',
+      image: {
+        src: '/images/main-page/tracking-step.png',
+        alt: 'Tracking',
+      },
+    },
+    {
+      name: 'Track analytics',
+      icon: {
+        src: '/images/main-page/analytics-icon.svg',
+        alt: 'Icon',
+      },
+      title: 'Get a free marketing automation guide',
+      description: 'Whether it\'s registering a lead for your SaaSup webinar or sending an internal message to your sales team on Slack, SaaSup makes it simple to set up any integration.',
+      image: {
+        src: '/images/main-page/analytics-step.png',
+        alt: 'Analytics',
+      },
+    },
+  ],
+})
+
 useHead({
   bodyAttrs: {
     class: 'body-background',
@@ -62,5 +108,8 @@ useHead({
   />
   <MainPagePlatformSection
     v-bind="platformSection"
+  />
+  <MainPageStepsSection
+    v-bind="stepsSection"
   />
 </template>
