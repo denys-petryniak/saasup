@@ -82,6 +82,8 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
               <img
                 :src="step.image.src"
                 :alt="step.image.alt"
+                width="602"
+                height="339"
                 class="steps__image"
               >
             </div>
