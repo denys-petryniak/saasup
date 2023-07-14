@@ -47,8 +47,8 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-$section-content-padding-y: clamped($min-size: $spacing--2xlarge, $max-size: $gap--medium);
-$section-content-padding-x: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
+$section-content-padding-y: clamped($min-size: $spacing--2xlarge, $max-size: $gap--large);
+$section-content-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--large);
 $section-content-bg-z-index: -1;
 $section-bg-z-index: -2;
 
@@ -133,8 +133,8 @@ $section-bg-z-index: -2;
   .platform-section {
     &::after {
       left: auto;
-      width: 50%;
-      transform: translate3d(50%, 0, 0);
+      width: 100%;
+      transform: translate3d(85%, 0, 0);
       border-radius: $border-radius--2xlarge;
     }
 
