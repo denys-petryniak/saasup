@@ -1,6 +1,4 @@
-[build.environment]
-  NODE_OPTIONS = "--max_old_space_size=4096"
-
 [build]
+  environment = { NODE_OPTIONS="–max-old-space-size=8192" }
   publish = "dist"
   command = "pnpm run build"
