@@ -20,7 +20,7 @@
     "@nuxt/devtools": "latest",
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/google-fonts": "^3.0.1",
-    "@types/node": "^18.16.19",
+    "@types/node": "^20.4.2",
     "@vueuse/nuxt": "^10.2.1",
     "eslint": "^8.45.0",
     "nuxt": "^3.6.5",
