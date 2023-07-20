@@ -9,21 +9,23 @@ $breakpoints: (
   '2xlarge': bp.$screen--2xlarge
 );
 
-@mixin breakpoint($media) {
-  $validMedia: false;
+@mixin breakpoint($media, $max: false) {
+  @if not map-has-key($breakpoints, $media) {
+    @warn "Warning: `#{$media}` is not a valid breakpoint name.";
+  }
 
   @each $name, $size in $breakpoints {
     @if $media == $name {
-      $validMedia: true;
-
-      @media only screen and (min-width: $size) {
-        @content;
+      @if $max {
+        @media only screen and (max-width: $size) {
+          @content;
+        }
+      } @else {
+        @media only screen and (min-width: $size) {
+          @content;
+        }
       }
     }
-  }
-
-  @if not $validMedia {
-    @warn "Invalid breakpoint: #{$media}.";
   }
 }
 

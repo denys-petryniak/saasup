@@ -1,10 +1,10 @@
-interface CardImage {
+interface Image {
   src: string
   alt: string
 }
 
 export interface Card {
-  img: CardImage
+  img: Image
   title: string
   description: string
   linkText: string
@@ -12,8 +12,20 @@ export interface Card {
 
 export interface Step {
   name: string
-  icon: CardImage
+  icon: Image
   title: string
   description: string
-  image: CardImage
+  image: Image
+}
+
+interface TestimonialAuthor {
+  name: string
+  photo: Image
+  job: string
+  rating: number
+}
+
+export interface Testimonial {
+  text: string
+  author: TestimonialAuthor
 }

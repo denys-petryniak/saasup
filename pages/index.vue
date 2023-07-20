@@ -92,6 +92,49 @@ const stepsSection = ref({
   ],
 })
 
+const testimonialsSection = ref({
+  subtitle: 'Testimonial',
+  title: 'Trusted by millions of creators',
+  testimonials: [
+    {
+      text: 'The perfect tool for our \'Service with Passion\' motto. From day one, SaaSup has inspired our trust and amazement. People often tell us that they love the chat and think it\'s modern - something they have expected from a company.',
+      author: {
+        name: 'James Toriff',
+        photo: {
+          src: '/images/main-page/james-toriff.jpg',
+          alt: 'Account',
+        },
+        job: 'Developer',
+        rating: 4,
+      },
+    },
+    {
+      text: 'I was surprised by the high frequency of chats and by how the customers using it got right to the point. SaaSup is the most intuitive and modern live chat we found. Live chat obviously made our users happier and more efficient.',
+      author: {
+        name: 'Iva Angel',
+        photo: {
+          src: '/images/main-page/iva-angel.jpg',
+          alt: 'Account',
+        },
+        job: 'Business',
+        rating: 3,
+      },
+    },
+    {
+      text: 'People often tell us that they love the chat and think it\'s modern - something they have expected from a company. The perfect tool for our \'Service with Passion\' motto. From day one, SaaSup has inspired our trust and amazement.',
+      author: {
+        name: 'Anne Hathaway',
+        photo: {
+          src: '/images/main-page/anne-hathaway.jpg',
+          alt: 'Account',
+        },
+        job: 'Developer',
+        rating: 5,
+      },
+    },
+  ],
+})
+
 useHead({
   bodyAttrs: {
     class: 'body-background',
@@ -111,5 +154,8 @@ useHead({
   />
   <MainPageStepsSection
     v-bind="stepsSection"
+  />
+  <MainPageTestimonialsSection
+    v-bind="testimonialsSection"
   />
 </template>

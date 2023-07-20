@@ -11,7 +11,8 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "modern-normalize": "^2.0.0"
+    "modern-normalize": "^2.0.0",
+    "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
