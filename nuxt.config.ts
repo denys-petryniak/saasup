@@ -57,8 +57,6 @@ export default defineNuxtConfig({
     '~/components',
   ],
 
-  sourcemap: false,
-
   typescript: {
     strict: true,
     shim: false,
