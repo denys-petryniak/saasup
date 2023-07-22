@@ -140,11 +140,9 @@ $carousel-quote-icon-size: convert(40px, 'rem');
     background-color: rgba($carousel-button-color, 0.2);
     backdrop-filter: blur($carousel-button-blur);
 
-    @media (hover: hover) {
-      &:hover {
-        background-color: $carousel-button-color;
-        color: $color-white--regular;
-      }
+    &:hover {
+      background-color: $carousel-button-color;
+      color: $color-white--regular;
     }
   }
 
