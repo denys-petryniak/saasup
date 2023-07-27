@@ -62,5 +62,5 @@ export default defineNuxtConfig({
     shim: false,
   },
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 })
