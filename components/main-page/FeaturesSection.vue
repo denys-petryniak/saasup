@@ -32,7 +32,7 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-$card-min-width: 250px;
+$card-min-width: convert(250px, 'rem');
 .features-section {
   &__head {
     text-align: center;
@@ -45,6 +45,7 @@ $card-min-width: 250px;
   &__cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax($card-min-width, 1fr));
+    gap: $spacing--large;
     margin-top: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
   }
 }

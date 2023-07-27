@@ -53,8 +53,14 @@ $card-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarg
     text-decoration: underline;
   }
 
-  &:hover {
+  @media (hover: none) {
     background-color: $color--secondary--extra-light;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: $color--secondary--extra-light;
+    }
   }
 }
 </style>
