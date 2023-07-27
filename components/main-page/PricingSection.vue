@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { PaymentMethods, PricingPlan } from '~/types'
+import type { Payment, PricingPlan } from '~/types'
 
 interface Props {
   subtitle: string
   title: string
   description: string
-  paymentMethods: PaymentMethods
+  payment: Payment
   pricingPlans: PricingPlan[]
 }
 
@@ -22,21 +22,25 @@ defineProps<Props>()
       <p class="pricing-section__description">
         {{ description }}
       </p>
-      <div class="payment-methods pricing-section__payment-methods">
-        <h3 class="payment-methods__title">
-          {{ paymentMethods.title }}
+      <div class="payment pricing-section__payment">
+        <h3 class="payment__title">
+          {{ payment.title }}
         </h3>
-        <div class="payment-methods__images-container">
-          <img
-            v-for="paymentMethodsImage in paymentMethods.images"
-            :key="paymentMethodsImage.src"
-            :src="paymentMethodsImage.src"
-            :width="paymentMethodsImage.width"
-            :height="paymentMethodsImage.height"
-            :alt="paymentMethodsImage.alt"
-            :title="paymentMethodsImage.alt"
-            class="payment-methods__image"
+        <div class="payment__body">
+          <div
+            v-for="paymentImage in payment.images"
+            :key="paymentImage.src"
+            class="payment__image-container"
           >
+            <img
+              :src="paymentImage.src"
+              :width="paymentImage.width"
+              :height="paymentImage.height"
+              :alt="paymentImage.alt"
+              :title="paymentImage.alt"
+              class="payment__image"
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -80,17 +84,20 @@ defineProps<Props>()
   }
 }
 
-.payment-methods {
+.payment {
   margin-top: $spacing--xlarge;
 
-  &__images-container {
+  &__body {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: $spacing--medium;
     padding: $spacing--large $spacing--medium;
     border-radius: $border-radius--large;
     background-color: $color--secondary--extra-light;
+  }
+
+  &__image-container {
+    max-width: convert(90px, 'rem');
   }
 }
 

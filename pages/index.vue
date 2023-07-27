@@ -139,31 +139,31 @@ const pricingSection = ref({
   subtitle: 'Pricing',
   title: 'Simple and flexible pricing',
   description: 'Start with Support and build your own custom solution or choose The Suite, our all-in-one saasup package.',
-  paymentMethods: {
+  payment: {
     title: 'Accepted Payment Methods',
     images: [
       {
         src: '/images/main-page/icon-visa.svg',
-        width: 90,
-        height: 90,
+        width: 480,
+        height: 480,
         alt: 'Visa',
       },
       {
         src: '/images/main-page/icon-mastercard.svg',
-        width: 90,
-        height: 90,
+        width: 480,
+        height: 480,
         alt: 'MasterCard',
       },
       {
         src: '/images/main-page/icon-paypal.svg',
-        width: 90,
-        height: 90,
+        width: 480,
+        height: 480,
         alt: 'PayPal',
       },
       {
         src: '/images/main-page/icon-amazon.svg',
-        width: 90,
-        height: 90,
+        width: 480,
+        height: 480,
         alt: 'Amazon',
       },
     ],

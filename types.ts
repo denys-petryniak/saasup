@@ -32,7 +32,7 @@ export interface Testimonial {
   author: TestimonialAuthor
 }
 
-export interface PaymentMethods {
+export interface Payment {
   title: string
   images: Image[]
 }
