@@ -33,6 +33,7 @@ defineProps<Props>()
       </div>
     </div>
     <div class="hero-section__image-container">
+      <!-- TODO: create props image for img -->
       <img
         class="hero-section__image"
         src="/images/main-page/hero.png"

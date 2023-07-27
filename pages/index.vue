@@ -226,6 +226,17 @@ const pricingSection = ref({
   ],
 })
 
+const ctaSection = ref({
+  title: 'Get started a 15-days free trial',
+  description: 'Start creating online marketing campaigns for your business with sassup\'s 15-day free trial. No commitment.',
+  image: {
+    src: '/images/main-page/cta.png',
+    width: 1336,
+    height: 988,
+    alt: 'CTA image',
+  },
+})
+
 useHead({
   bodyAttrs: {
     class: 'body-background',
@@ -237,7 +248,7 @@ useHead({
   <MainPageHeroSection
     v-bind="heroSection"
   />
-  <MainPageFeaturesSection
+  <!-- <MainPageFeaturesSection
     v-bind="featuresSection"
   />
   <MainPagePlatformSection
@@ -251,5 +262,8 @@ useHead({
   />
   <MainPagePricingSection
     v-bind="pricingSection"
+  /> -->
+  <MainPageCTASection
+    v-bind="ctaSection"
   />
 </template>
