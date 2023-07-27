@@ -60,9 +60,13 @@ function closeMenus() {
 }
 
 const route = useRoute()
-watch(route, () => {
-  closeMenus()
-})
+
+watch(
+  () => route.path,
+  () => {
+    closeMenus()
+  },
+)
 
 const navigation = ref<HTMLElement | null>(null)
 const menuButton = ref<HTMLElement | null>(null)
