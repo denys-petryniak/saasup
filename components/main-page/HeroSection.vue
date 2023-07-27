@@ -17,7 +17,7 @@ defineProps<Props>()
         {{ description }}
       </p>
       <div class="hero-section__buttons">
-        <BaseButton variant="default">
+        <BaseButton>
           Get Started
         </BaseButton>
         <BaseButton
