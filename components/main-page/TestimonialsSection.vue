@@ -21,7 +21,7 @@ const carouselSettings = ref({
 <template>
   <BaseSection class="testimonials-section">
     <div class="testimonials-section__head">
-      <SectionSubtitle>{{ subtitle }}</SectionSubtitle>
+      <BaseBadge>{{ subtitle }}</BaseBadge>
       <h2 class="testimonials-section__title">
         {{ title }}
       </h2>

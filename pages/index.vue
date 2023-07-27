@@ -135,6 +135,97 @@ const testimonialsSection = ref({
   ],
 })
 
+const pricingSection = ref({
+  subtitle: 'Pricing',
+  title: 'Simple and flexible pricing',
+  description: 'Start with Support and build your own custom solution or choose The Suite, our all-in-one saasup package.',
+  payment: {
+    title: 'Accepted Payment Methods',
+    images: [
+      {
+        src: '/images/main-page/icon-visa.svg',
+        width: 480,
+        height: 480,
+        alt: 'Visa',
+      },
+      {
+        src: '/images/main-page/icon-mastercard.svg',
+        width: 480,
+        height: 480,
+        alt: 'MasterCard',
+      },
+      {
+        src: '/images/main-page/icon-paypal.svg',
+        width: 480,
+        height: 480,
+        alt: 'PayPal',
+      },
+      {
+        src: '/images/main-page/icon-amazon.svg',
+        width: 480,
+        height: 480,
+        alt: 'Amazon',
+      },
+    ],
+  },
+  pricingPlans: [
+    {
+      title: 'Basic',
+      caption: 'Save 30%',
+      price: '$7.99',
+      billingDescription: 'Billed as $96 per year',
+      isPopular: false,
+      features: [
+        {
+          text: 'Unlimited members',
+        },
+        {
+          text: 'Unlimited feedback',
+        },
+        {
+          text: 'Weekly team Feedback Friday',
+        },
+        {
+          text: 'Custom Kudos +9 illustration',
+        },
+        {
+          text: 'Team feedback history',
+        },
+      ],
+    },
+    {
+      title: 'Advanced',
+      caption: 'Popular',
+      price: '$10.99',
+      billingDescription: 'Billed as $199 per year',
+      isPopular: true,
+      features: [
+        {
+          text: 'Unlimited members',
+        },
+        {
+          text: 'Unlimited feedback',
+        },
+        {
+          text: 'Weekly team Feedback Friday',
+        },
+        {
+          text: 'Custom Kudos +9 illustration',
+        },
+        {
+          text: 'Team feedback history (30 items)',
+        },
+        {
+          text: 'Personal feedback history (6 items)',
+        },
+        {
+          text: 'Slack integration',
+        },
+      ],
+    },
+  ],
+})
+
 useHead({
   bodyAttrs: {
     class: 'body-background',
@@ -157,5 +248,8 @@ useHead({
   />
   <MainPageTestimonialsSection
     v-bind="testimonialsSection"
+  />
+  <MainPagePricingSection
+    v-bind="pricingSection"
   />
 </template>

@@ -1,18 +1,22 @@
 <script setup lang="ts">
 import type { RouteLocation } from '#vue-router'
 
-type ButtonVariants = 'default' | 'light' | 'light-bordered' | 'dark' | 'dark-branded'
+type ButtonVariant = 'regular' | 'light' | 'light-bordered' | 'dark' | 'dark-branded'
 
 interface Props {
-  variant?: ButtonVariants
+  variant?: ButtonVariant
   to?: string | RouteLocation
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'default',
+  variant: 'regular',
 })
 
-const getVariantClass = computed(() => `button__${props.variant}`)
+const getButtonClasses = computed(() => {
+  const variantClass = `button--${props.variant}`
+
+  return [variantClass]
+})
 
 const NuxtLink = resolveComponent('NuxtLink')
 const getTag = computed(() => props.to ? NuxtLink : 'button')
@@ -25,7 +29,7 @@ const getType = computed(() => props.to ? undefined : 'button')
     :type="getType"
     :to="to"
     class="button"
-    :class="getVariantClass"
+    :class="getButtonClasses"
   >
     <slot />
   </component>
@@ -58,7 +62,7 @@ $button-max-width: 24ch;
     box-shadow: 0 0 0 2px scale-color($color-primary--light, $lightness: -40%);
   }
 
-  &__default {
+  &--regular {
     color: $color-white--regular;
     background-color: $color-primary--light;
     border: 2px solid $color-primary--light;
@@ -70,7 +74,7 @@ $button-max-width: 24ch;
     }
   }
 
-  &__light {
+  &--light {
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
     border: 2px solid $color--secondary--extra-light;
@@ -82,7 +86,7 @@ $button-max-width: 24ch;
     }
   }
 
-  &__light-bordered {
+  &--light-bordered {
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
     border: 2px solid $color-border--regular;
@@ -94,7 +98,7 @@ $button-max-width: 24ch;
     }
   }
 
-  &__dark {
+  &--dark {
     color: $color-white--regular;
     background-color: $color-primary--dark;
     border: 2px solid $color-primary--dark;
@@ -106,7 +110,7 @@ $button-max-width: 24ch;
     }
   }
 
-  &__dark-branded {
+  &--dark-branded {
     color: $color-white--regular;
     background-color: $color-primary--dark;
     border: 2px solid $color-primary--dark;

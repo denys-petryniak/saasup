@@ -13,7 +13,7 @@ defineProps<Props>()
 <template>
   <BaseSection class="features-section">
     <div class="features-section__head">
-      <SectionSubtitle>{{ subtitle }}</SectionSubtitle>
+      <BaseBadge>{{ subtitle }}</BaseBadge>
       <h2 class="features-section__title">
         {{ title }}
       </h2>

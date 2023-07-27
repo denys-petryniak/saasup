@@ -1,5 +1,7 @@
 interface Image {
   src: string
+  width?: number
+  height?: number
   alt: string
 }
 
@@ -28,4 +30,22 @@ interface TestimonialAuthor {
 export interface Testimonial {
   text: string
   author: TestimonialAuthor
+}
+
+export interface Payment {
+  title: string
+  images: Image[]
+}
+
+interface PricingFeature {
+  text: string
+}
+
+export interface PricingPlan {
+  title: string
+  caption: string
+  price: string
+  billingDescription: string
+  isPopular: boolean
+  features: PricingFeature[]
 }

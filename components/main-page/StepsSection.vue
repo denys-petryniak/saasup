@@ -27,7 +27,7 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
 <template>
   <BaseSection class="steps-section">
     <div class="steps-section__head">
-      <SectionSubtitle>{{ subtitle }}</SectionSubtitle>
+      <BaseBadge>{{ subtitle }}</BaseBadge>
       <h2 class="steps-section__title">
         {{ title }}
       </h2>
