@@ -21,7 +21,7 @@ defineProps<Props>()
           Get Started
         </BaseButton>
         <BaseButton
-          variant="light"
+          color="light-bordered"
           class="hero-section__video-button"
         >
           <span class="hero-section__video-button-text">Watch Video</span>
@@ -33,6 +33,7 @@ defineProps<Props>()
       </div>
     </div>
     <div class="hero-section__image-container">
+      <!-- TODO: create props image for img -->
       <img
         class="hero-section__image"
         src="/images/main-page/hero.png"

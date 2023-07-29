@@ -14,7 +14,7 @@
     </p>
     <div class="widget__buttons">
       <BaseButton
-        variant="dark-branded"
+        color="dark-branded"
         to="https://www.apple.com/in/app-store/"
         target="_blank"
         class="widget__button widget__button--dark"
@@ -26,7 +26,7 @@
         />App Store
       </BaseButton>
       <BaseButton
-        variant="light-bordered"
+        color="light-bordered"
         to="https://play.google.com/store"
         target="_blank"
         class="widget__button"

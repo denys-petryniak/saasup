@@ -73,15 +73,15 @@ const menuButton = ref<HTMLElement | null>(null)
 
 onClickOutside(navigation, () => closeMenus(), { ignore: [menuButton] })
 
-const { isDesktop } = useMedia()
+const { isDesktopScreenSize } = useMedia()
 
 function handleMouseover(navigationLink: NavigationLink): void {
-  if (navigationLink.submenu && isDesktop.value && !isSubmenuVisible.value)
+  if (navigationLink.submenu && isDesktopScreenSize.value && !isSubmenuVisible.value)
     openSubmenu()
 }
 
 function handleMouseleave(navigationLink: NavigationLink): void {
-  if (navigationLink.submenu && isDesktop.value && isSubmenuVisible.value)
+  if (navigationLink.submenu && isDesktopScreenSize.value && isSubmenuVisible.value)
     closeSubmenu()
 }
 </script>
@@ -94,13 +94,13 @@ function handleMouseleave(navigationLink: NavigationLink): void {
     <div class="header__main">
       <div class="header__buttons">
         <BaseButton
-          variant="light"
+          color="light-bordered"
           class="header__cart-button"
         >
           Cart (0)
         </BaseButton>
         <BaseButton
-          variant="dark"
+          color="dark"
           to="/pricing"
           class="header__cta-button"
         >
@@ -215,9 +215,10 @@ function handleMouseleave(navigationLink: NavigationLink): void {
 
   &__menu-button {
     padding: calc($spacing--large / 2);
+    border: 1px solid $color-devider--regular;
+    border-radius: $border-radius--small;
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
-    border-radius: $border-radius--small;
 
     &:focus {
       outline-style: solid;

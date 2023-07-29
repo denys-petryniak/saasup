@@ -1,21 +1,24 @@
 <script setup lang="ts">
 import type { RouteLocation } from '#vue-router'
 
-type ButtonVariant = 'regular' | 'light' | 'light-bordered' | 'dark' | 'dark-branded'
+type ButtonColor = 'regular' | 'light' | 'light-bordered' | 'dark' | 'dark-branded'
+type ButtonWidth = 'full'
 
 interface Props {
-  variant?: ButtonVariant
+  color?: ButtonColor
+  width?: ButtonWidth
   to?: string | RouteLocation
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'regular',
+  color: 'regular',
 })
 
 const getButtonClasses = computed(() => {
-  const variantClass = `button--${props.variant}`
+  const colorClass = `button--${props.color}`
+  const widthClass = `button--${props.width}`
 
-  return [variantClass]
+  return [colorClass, widthClass]
 })
 
 const NuxtLink = resolveComponent('NuxtLink')
@@ -39,11 +42,9 @@ const getType = computed(() => props.to ? undefined : 'button')
 $button-padding-y: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
 $button-padding-x: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
 $button-min-width: 14ch;
-$button-max-width: 24ch;
 
 .button {
   min-width: $button-min-width;
-  max-width: $button-max-width;
   min-height: $spacing--2xlarge;
   padding: $button-padding-y $button-padding-x;
   @include fluid-typography(
@@ -65,7 +66,7 @@ $button-max-width: 24ch;
   &--regular {
     color: $color-white--regular;
     background-color: $color-primary--light;
-    border: 2px solid $color-primary--light;
+    border: 1px solid $color-primary--light;
 
     &:hover,
     &:active {
@@ -77,31 +78,32 @@ $button-max-width: 24ch;
   &--light {
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
-    border: 2px solid $color--secondary--extra-light;
+    border: 1px solid $color--secondary--extra-light;
 
     &:hover,
     &:active {
-      background-color: $color-white--regular;
-      border: 2px solid $color-border--regular;
+      color: $color-white--regular;
+      background-color: $color-primary--dark;
+      border: 1px solid $color-primary--dark;
     }
   }
 
   &--light-bordered {
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
-    border: 2px solid $color-border--regular;
+    border: 1px solid $color-devider--regular;
 
     &:hover,
     &:active {
       background-color: $color-white--regular;
-      border: 2px solid $color--secondary--dark;
+      border: 1px solid $color--secondary--dark;
     }
   }
 
   &--dark {
     color: $color-white--regular;
     background-color: $color-primary--dark;
-    border: 2px solid $color-primary--dark;
+    border: 1px solid $color-primary--dark;
 
     &:hover,
     &:active {
@@ -113,13 +115,17 @@ $button-max-width: 24ch;
   &--dark-branded {
     color: $color-white--regular;
     background-color: $color-primary--dark;
-    border: 2px solid $color-primary--dark;
+    border: 1px solid $color-primary--dark;
 
     &:hover,
     &:active {
       background-color: $color-primary--light;
-      border: 2px solid $color-primary--light;
+      border: 1px solid $color-primary--light;
     }
+  }
+
+  &--full {
+    width: 100%;
   }
 }
 </style>
