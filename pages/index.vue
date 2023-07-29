@@ -248,7 +248,7 @@ useHead({
   <MainPageHeroSection
     v-bind="heroSection"
   />
-  <!-- <MainPageFeaturesSection
+  <MainPageFeaturesSection
     v-bind="featuresSection"
   />
   <MainPagePlatformSection
@@ -262,7 +262,7 @@ useHead({
   />
   <MainPagePricingSection
     v-bind="pricingSection"
-  /> -->
+  />
   <MainPageCTASection
     v-bind="ctaSection"
   />
