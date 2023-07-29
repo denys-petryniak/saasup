@@ -41,7 +41,7 @@ defineProps<Props>()
         {{ pricingPlanFeature.text }}
       </li>
     </ul>
-    <BaseButton :variant="card.isPopular ? 'dark' : 'light-bordered'">
+    <BaseButton :color="card.isPopular ? 'dark' : 'light-bordered'">
       Get Started
     </BaseButton>
   </div>

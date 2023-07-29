@@ -72,7 +72,7 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
               </div>
               <p>{{ step.description }}</p>
               <BaseButton
-                variant="dark"
+                color="dark"
                 class="steps__content-button"
               >
                 Get Started

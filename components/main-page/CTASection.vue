@@ -8,6 +8,22 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const formData = reactive({
+  email: '',
+})
+
+const isSuccess = ref(false)
+
+function submitForm() {
+  if (formData.email) {
+    // eslint-disable-next-line no-console
+    console.log('Form submitted', formData.email)
+
+    isSuccess.value = true
+    formData.email = ''
+  }
+}
 </script>
 
 <template>
@@ -19,15 +35,34 @@ defineProps<Props>()
       <p class="cta-section__description">
         {{ description }}
       </p>
-      <div class="cta-section__controls">
-        <BaseButton variant="light">
-          Get Started
-        </BaseButton>
-        <input
-          type="email"
-          placeholder="Your Email Here"
-        >
+      <div
+        v-if="isSuccess"
+        class="cta-section__success-message"
+      >
+        Thank you! Your submission has been received!
       </div>
+      <form
+        v-else
+        class="cta-section__form"
+        @submit.prevent="submitForm"
+      >
+        <BaseInput
+          v-model="formData.email"
+          type="email"
+          name="email"
+          placeholder="Your Email Here"
+          maxlength="256"
+          required
+          class="cta-section__email"
+        />
+        <BaseButton
+          type="submit"
+          color="light"
+          class="cta-section__button"
+        >
+          Subscribe
+        </BaseButton>
+      </form>
     </div>
     <div class="cta-section__image-container">
       <img
@@ -68,15 +103,43 @@ $section-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--3xl
   }
 
   &__description {
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--large;
     color: $color-white--regular;
   }
 
-  &__controls {
+  &__form {
     display: flex;
-    flex-wrap: wrap;
-    gap: $spacing--medium;
+    flex-direction: column;
+    gap: $spacing--large;
     margin-top: $spacing--xlarge;
+  }
+
+  &__email,
+  &__button {
+    width: 100%;
+  }
+
+  &__success-message {
+    padding: $spacing--medium $spacing--large;
+    border-radius: $border-radius--small;
+    background-color: $color-white--regular;
+  }
+}
+
+@include breakpoint('small') {
+  .cta-section {
+    &__form {
+      flex-direction: row;
+    }
+
+    &__email,
+    &__button {
+      width: auto;
+    }
+
+    &__email {
+      flex: 1;
+    }
   }
 }
 </style>

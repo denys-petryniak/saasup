@@ -21,7 +21,7 @@ defineProps<Props>()
           Get Started
         </BaseButton>
         <BaseButton
-          variant="light"
+          color="light-bordered"
           class="hero-section__video-button"
         >
           <span class="hero-section__video-button-text">Watch Video</span>
