@@ -137,9 +137,9 @@ const socialLinks = ref([
               <NuxtLink
                 v-for="link in contact.links"
                 :key="link.to"
-                class="link footer__contact-link"
                 :to="link.to"
                 no-rel
+                class="link footer__contact-link"
               >
                 {{ link.text }}
               </NuxtLink>
@@ -161,8 +161,8 @@ const socialLinks = ref([
             class="navigation__item"
           >
             <NuxtLink
-              class="navigation__link"
               :to="navigationLink.to"
+              class="navigation__link"
             >
               {{ navigationLink.text }}
             </NuxtLink>
@@ -185,9 +185,9 @@ const socialLinks = ref([
         <NuxtLink
           v-for="socialLink in socialLinks"
           :key="socialLink.link.to"
-          class="footer__social-link"
           :to="socialLink.link.to"
           target="_blank"
+          class="footer__social-link"
         >
           <Icon
             :name="socialLink.icon.name"

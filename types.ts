@@ -7,6 +7,7 @@ export interface Image {
 
 export interface Card {
   img: Image
+  date?: string
   title: string
   description: string
   linkText: string
