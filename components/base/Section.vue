@@ -11,7 +11,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <component
     :is="tag"
-    class="section border-debug"
+    class="section"
   >
     <slot />
   </component>
