@@ -34,15 +34,15 @@ defineProps<Props>()
     </div>
     <div class="hero-section__image-container">
       <!-- TODO: create props image for img -->
-      <img
+      <!-- <img
         class="hero-section__image"
         src="/images/main-page/hero.png"
         width="1541"
         height="1168"
         alt="Hero image"
-      >
+      > -->
       <!-- https://github.com/nuxt/image/issues/587 -->
-      <!-- <NuxtImg
+      <NuxtImg
         class="hero-section__image"
         src="/images/main-page/hero.png"
         width="1541"
@@ -50,7 +50,7 @@ defineProps<Props>()
         sizes="sm:100vw md:100vw lg:760px"
         format="avif,webp"
         alt="Hero image"
-      /> -->
+      />
     </div>
   </BaseSection>
 </template>
