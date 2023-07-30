@@ -18,11 +18,11 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const getButtonClasses = computed(() => {
-  const colorClass = props.color ? `button--${props.color}` : null
-  const sizeClass = props.size ? `button--${props.size}` : null
   const widthClass = props.width ? `button--${props.width}` : null
+  const sizeClass = props.size ? `button--${props.size}` : null
+  const colorClass = props.color ? `button--${props.color}` : null
 
-  return [colorClass, sizeClass, widthClass]
+  return [widthClass, sizeClass, colorClass]
 })
 
 const NuxtLink = resolveComponent('NuxtLink')

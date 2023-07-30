@@ -26,7 +26,6 @@ defineProps<Props>()
         Social Media
       </BaseButton>
     </div>
-
     <p class="card__date">
       {{ card.date }}
     </p>
@@ -68,7 +67,6 @@ $card-padding-x: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlar
 
   &__button {
     position: absolute;
-    // inset: 0 0 $spacing--medium $spacing--medium;
     bottom: $spacing--medium;
     left: $spacing--medium;
     border-radius: $border-radius--large;
