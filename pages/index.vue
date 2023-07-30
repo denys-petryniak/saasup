@@ -35,7 +35,6 @@ const featuresSection = ref({
       description: 'Creating plan to spend your money, This spending planer is called a budgeting tool for business.',
       linkText: 'Learn More',
     },
-
   ],
 })
 
@@ -237,6 +236,33 @@ const ctaSection = ref({
   },
 })
 
+const blogSection = ref({
+  subtitle: 'Blog',
+  title: 'Recent News',
+  cards: [
+    {
+      img: {
+        src: '/images/main-page/productive-thing-blog-post.jpg',
+        alt: 'Alt 1',
+      },
+      date: 'August 6, 2023',
+      title: 'Our Favorite Productive Thing Is SaaSup',
+      description: 'Capitalize on low-hanging fruit to identify a ballpark value added matrix economically activity to beta test override the digital divide with DevOps.',
+      linkText: 'View More',
+    },
+    {
+      img: {
+        src: '/images/main-page/young-startups-blog-post.jpg',
+        alt: 'Alt 2',
+      },
+      date: 'August 12, 2023',
+      title: 'Young Startups With SaaSup In Full Throttle',
+      description: 'Strategies on low-hanging fruit to identify a ballpark value added activity matrix economically to beta test override the digital divide with DevOps.',
+      linkText: 'View More',
+    },
+  ],
+})
+
 useHead({
   bodyAttrs: {
     class: 'body-background',
@@ -265,5 +291,8 @@ useHead({
   />
   <MainPageCTASection
     v-bind="ctaSection"
+  />
+  <MainPageBlogSection
+    v-bind="blogSection"
   />
 </template>

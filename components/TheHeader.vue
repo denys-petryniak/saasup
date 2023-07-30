@@ -161,8 +161,8 @@ function handleMouseleave(navigationLink: NavigationLink): void {
                   class="navigation__item"
                 >
                   <NuxtLink
-                    class="navigation__link"
                     :to="submenuNavigationLink.to"
+                    class="navigation__link"
                   >
                     {{ submenuNavigationLink.text }}
                   </NuxtLink>
@@ -171,8 +171,8 @@ function handleMouseleave(navigationLink: NavigationLink): void {
             </template>
             <template v-else>
               <NuxtLink
-                class="navigation__link"
                 :to="navigationLink.to"
+                class="navigation__link"
               >
                 {{ navigationLink.text }}
               </NuxtLink>

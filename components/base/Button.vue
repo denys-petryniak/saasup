@@ -1,29 +1,33 @@
 <script setup lang="ts">
 import type { RouteLocation } from '#vue-router'
 
-type ButtonColor = 'regular' | 'light' | 'light-bordered' | 'dark' | 'dark-branded'
 type ButtonWidth = 'full'
+type ButtonSize = 'small' | 'medium'
+type ButtonColor = 'branded' | 'light' | 'light-branded' | 'light-bordered' | 'dark' | 'dark-branded'
 
 interface Props {
-  color?: ButtonColor
   width?: ButtonWidth
+  size?: ButtonSize
+  color?: ButtonColor
   to?: string | RouteLocation
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  color: 'regular',
+  size: 'medium',
+  color: 'branded',
 })
 
 const getButtonClasses = computed(() => {
-  const colorClass = `button--${props.color}`
-  const widthClass = `button--${props.width}`
+  const colorClass = props.color ? `button--${props.color}` : null
+  const sizeClass = props.size ? `button--${props.size}` : null
+  const widthClass = props.width ? `button--${props.width}` : null
 
-  return [colorClass, widthClass]
+  return [colorClass, sizeClass, widthClass]
 })
 
 const NuxtLink = resolveComponent('NuxtLink')
 const getTag = computed(() => props.to ? NuxtLink : 'button')
-const getType = computed(() => props.to ? undefined : 'button')
+const getType = computed(() => getTag.value === 'button' ? 'button' : null)
 </script>
 
 <template>
@@ -39,23 +43,23 @@ const getType = computed(() => props.to ? undefined : 'button')
 </template>
 
 <style scoped lang="scss">
-$button-padding-y: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
-$button-padding-x: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
-$button-min-width: 14ch;
+$button-padding-y--small: clamped($min-size: $spacing--small, $max-size: $spacing--medium);
+$button-padding-x--small: clamped($min-size: $spacing--medium, $max-size: $spacing--xlarge);
+$button-padding-y--medium: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
+$button-padding-x--medium: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
+$button-min-width: 10ch;
 
 .button {
   min-width: $button-min-width;
-  min-height: $spacing--2xlarge;
-  padding: $button-padding-y $button-padding-x;
+  border-radius: $border-radius--2xlarge;
   @include fluid-typography(
     $min-font-size: $font-size--base,
     $max-font-size: $font-size--small,
-    $min-line-height: $line-height--3xsmall,
-    $max-line-height: $line-height--2xsmall,
+    $min-line-height: $line-height--4xsmall,
+    $max-line-height: $line-height--4xsmall,
   );
   font-weight: $font-weight--bold;
   text-align: center;
-  border-radius: $border-radius--2xlarge;
 
   &:focus {
     outline-style: solid;
@@ -63,10 +67,22 @@ $button-min-width: 14ch;
     box-shadow: 0 0 0 2px scale-color($color-primary--light, $lightness: -40%);
   }
 
-  &--regular {
+  &--full {
+    width: 100%;
+  }
+
+  &--small {
+    padding: $button-padding-y--small $button-padding-x--small;
+  }
+
+  &--medium {
+    padding: $button-padding-y--medium $button-padding-x--medium;
+  }
+
+  &--branded {
+    border: 1px solid $color-primary--light;
     color: $color-white--regular;
     background-color: $color-primary--light;
-    border: 1px solid $color-primary--light;
 
     &:hover,
     &:active {
@@ -76,27 +92,40 @@ $button-min-width: 14ch;
   }
 
   &--light {
+    border: 1px solid $color--secondary--extra-light;
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
-    border: 1px solid $color--secondary--extra-light;
 
     &:hover,
     &:active {
+      border: 1px solid $color-primary--dark;
       color: $color-white--regular;
       background-color: $color-primary--dark;
-      border: 1px solid $color-primary--dark;
+    }
+  }
+
+  &--light-branded {
+    border: 1px solid $color-devider--regular;
+    color: $color--secondary--extra-dark;
+    background-color: $color--secondary--extra-light;
+
+    &:hover,
+    &:active {
+      border: 1px solid $color-primary--light;
+      color: $color-white--regular;
+      background-color: $color-primary--light;
     }
   }
 
   &--light-bordered {
+    border: 1px solid $color-devider--regular;
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
-    border: 1px solid $color-devider--regular;
 
     &:hover,
     &:active {
-      background-color: $color-white--regular;
       border: 1px solid $color--secondary--dark;
+      background-color: $color-white--regular;
     }
   }
 
@@ -113,19 +142,15 @@ $button-min-width: 14ch;
   }
 
   &--dark-branded {
+    border: 1px solid $color-primary--dark;
     color: $color-white--regular;
     background-color: $color-primary--dark;
-    border: 1px solid $color-primary--dark;
 
     &:hover,
     &:active {
-      background-color: $color-primary--light;
       border: 1px solid $color-primary--light;
+      background-color: $color-primary--light;
     }
-  }
-
-  &--full {
-    width: 100%;
   }
 }
 </style>
