@@ -131,7 +131,7 @@ li {
 
 @media (prefers-reduced-motion: no-preference) {
   :focus-visible {
-    transition: outline-offset 75ms ease-out;
+    transition: outline-offset 0.75s ease-out;
   }
 
   :not(:active):focus-visible {
@@ -140,8 +140,8 @@ li {
 }
 
 :not(:active):focus-visible {
-  outline-offset: .15rem;
-  outline-color: rgba($color-primary--light, .5);
+  outline-offset: 0.15rem;
+  outline-color: rgba($color-primary--light, 0.5);
 }
 
 // Utilities

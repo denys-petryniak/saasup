@@ -245,6 +245,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
 .navigation {
   $parent: &;
   background-color: $color--secondary--extra-light;
+  border: 1px solid $color-devider--regular;
   border-radius: $border-radius--large;
 
   &__menu,
@@ -257,7 +258,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
   &__submenu {
     display: none;
     max-height: 0;
-    padding: $spacing--large 0 0 $spacing--medium;
+    padding: $spacing--small 0 $spacing--small $spacing--medium;
 
     &--open {
       display: block;
@@ -364,6 +365,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
     position: static;
     order: 1;
     margin-top: 0;
+    border: none;
     border-radius: $border-radius--2xlarge;
 
     &__menu {
