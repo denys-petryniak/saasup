@@ -129,6 +129,21 @@ li {
   color: $color-primary--light !important;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  :focus-visible {
+    transition: outline-offset 75ms ease-out;
+  }
+
+  :not(:active):focus-visible {
+    transition: outline-offset 0.25s ease-out;
+  }
+}
+
+:not(:active):focus-visible {
+  outline-offset: .15rem;
+  outline-color: rgba($color-primary--light, .5);
+}
+
 // Utilities
 
 .border-debug {

@@ -61,12 +61,6 @@ $button-min-width: 10ch;
   font-weight: $font-weight--bold;
   text-align: center;
 
-  &:focus {
-    outline-style: solid;
-    outline-color: transparent;
-    box-shadow: 0 0 0 2px scale-color($color-primary--light, $lightness: -40%);
-  }
-
   &--full {
     width: 100%;
   }

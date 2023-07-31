@@ -2,6 +2,12 @@
 const heroSection = ref({
   title: 'We make your digital business very easy!',
   description: 'Make your work easier with an integrated ecosystem that lets all departments work properly together.',
+  image: {
+    src: '/images/main-page/hero.png',
+    width: 1541,
+    height: 1168,
+    alt: 'Hero image',
+  },
 })
 
 const featuresSection = ref({

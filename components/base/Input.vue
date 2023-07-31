@@ -51,11 +51,5 @@ $field-bg-color: rgba(255, 255, 255, 0.20);
   &::placeholder {
     color: $color-white--regular;
   }
-
-  &:focus {
-    outline-style: solid;
-    outline-color: transparent;
-    box-shadow: 0 0 0 2px scale-color($color-primary--light, $lightness: -40%);
-  }
 }
 </style>

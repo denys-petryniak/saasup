@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import type { Image } from '~/types'
+
 interface Props {
   title: string
   description: string
+  image: Image
 }
 
 defineProps<Props>()
@@ -32,24 +35,15 @@ defineProps<Props>()
         </BaseButton>
       </div>
     </div>
-    <div class="hero-section__image-container">
-      <!-- TODO: create props image for img -->
-      <!-- <img
-        class="hero-section__image"
-        src="/images/main-page/hero.png"
-        width="1541"
-        height="1168"
-        alt="Hero image"
-      > -->
-      <!-- https://github.com/nuxt/image/issues/587 -->
+    <div class="hero-section__image-box">
       <NuxtImg
-        class="hero-section__image"
-        src="/images/main-page/hero.png"
-        width="1541"
-        height="1168"
-        sizes="sm:100vw md:100vw lg:760px"
+        :src="image.src"
+        :width="image.width"
+        :height="image.height"
+        :alt="image.alt"
         format="avif,webp"
-        alt="Hero image"
+        sizes="sm:100vw md:100vw lg:760px"
+        class="hero-section__image"
       />
     </div>
   </BaseSection>
@@ -66,7 +60,7 @@ defineProps<Props>()
     flex: 1 1 convert(400px, 'rem');
   }
 
-  &__image-container {
+  &__image-box {
     flex: 1 1 convert(500px, 'rem');
   }
 

@@ -220,12 +220,6 @@ function handleMouseleave(navigationLink: NavigationLink): void {
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
 
-    &:focus {
-      outline-style: solid;
-      outline-color: transparent;
-      box-shadow: 0 0 0 2px scale-color($color-primary--light, $lightness: -40%);
-    }
-
     &--active {
       background-color: $color-primary--dark;
       color: $color-white--regular;
