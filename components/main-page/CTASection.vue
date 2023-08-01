@@ -5,9 +5,10 @@ interface Props {
   title: string
   description: string
   image: Image
+  backgroundImage: Image
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const formData = reactive({
   email: '',
@@ -24,6 +25,16 @@ function submitForm() {
     formData.email = ''
   }
 }
+
+const img = useImage()
+
+const getSectionBackground = computed(() => {
+  const imgUrl = img(props.backgroundImage.src, {
+    format: 'webp',
+  })
+
+  return `url('${imgUrl}')`
+})
 </script>
 
 <template>
@@ -64,14 +75,18 @@ function submitForm() {
         </BaseButton>
       </form>
     </div>
-    <div class="cta-section__image-container">
-      <img
-        class="cta-section__image"
+    <div class="cta-section__image-box">
+      <NuxtImg
+        v-if="image.src"
         :src="image.src"
         :width="image.width"
         :height="image.height"
         :alt="image.alt"
-      >
+        format="avif,webp"
+        sizes="sm:100vw xl:670px"
+        loading="lazy"
+        class="cta-section__image"
+      />
     </div>
   </BaseSection>
 </template>
@@ -87,13 +102,13 @@ $section-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--3xl
   gap: $spacing--xlarge;
   padding: $section-padding-y $section-padding-x;
   border-radius: clamped($min-size: $border-radius--2xlarge, $max-size: $border-radius--3xlarge);
-  background: url('/images/main-page/cta-bg.png') no-repeat 50% 50%/cover;
+  background: v-bind(getSectionBackground) no-repeat 50% 50%/cover;
 
   &__content {
     flex: 1 1 convert(400px, 'rem');
   }
 
-  &__image-container {
+  &__image-box {
     flex: 1 1 convert(500px, 'rem');
   }
 

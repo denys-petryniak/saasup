@@ -2,7 +2,13 @@ export interface Image {
   src: string
   width?: number
   height?: number
-  alt: string
+  alt?: string
+}
+
+export interface Cost {
+  title: string
+  description: string
+  image: Image
 }
 
 export interface Card {

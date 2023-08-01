@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import type { Cost, Image } from '~/types'
+
 interface Props {
   title: string
   description: string
-  costTitle: string
-  costDescription: string
+  image: Image
+  cost: Cost
 }
 
 defineProps<Props>()
@@ -20,28 +22,35 @@ defineProps<Props>()
       </p>
       <div class="cost platform-section__cost">
         <img
-          src="/images/main-page/cost-icon.svg"
-          alt="Cost icon"
+          v-if="cost.image.src"
+          :src="cost.image.src"
+          :width="cost.image.width"
+          :height="cost.image.height"
+          :alt="cost.image.alt"
           class="cost__icon"
         >
         <div class="cost__text">
           <h3 class="cost__title">
-            {{ costTitle }}
+            {{ cost.title }}
           </h3>
           <p class="cost__description">
-            {{ costDescription }}
+            {{ cost.description }}
           </p>
         </div>
       </div>
     </div>
     <div class="platform-section__image-container">
-      <img
+      <NuxtImg
+        v-if="image.src"
+        :src="image.src"
+        :width="image.width"
+        :height="image.height"
+        :alt="image.alt"
+        format="avif,webp"
+        sizes="sm:100vw xl:740px"
+        loading="lazy"
         class="platform-section__image"
-        src="/images/main-page/platform.png"
-        width="1504"
-        height="1205"
-        alt="Platform image"
-      >
+      />
     </div>
   </BaseSection>
 </template>

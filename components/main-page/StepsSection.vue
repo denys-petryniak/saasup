@@ -59,12 +59,12 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
             <div class="steps__content">
               <div class="steps__content-head">
                 <img
-                  v-if="step.icon"
+                  v-if="step.icon?.src"
                   :src="step.icon.src"
-                  width="116"
-                  height="116"
-                  class="steps__content-head-icon"
+                  :width="step.icon.width"
+                  :height="step.icon.height"
                   :alt="step.icon.alt"
+                  class="steps__content-head-icon"
                 >
                 <h3 class="steps__content-head-title">
                   {{ step.title }}
@@ -78,14 +78,18 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
                 Get Started
               </BaseButton>
             </div>
-            <div class="steps__image-container">
-              <img
+            <div class="steps__image-box">
+              <NuxtImg
+                v-if="step.image.src"
                 :src="step.image.src"
+                :width="step.image.width"
+                :height="step.image.height"
                 :alt="step.image.alt"
-                width="602"
-                height="339"
+                format="avif,webp"
+                sizes="sm:100vw xl:602px"
+                loading="lazy"
                 class="steps__image"
-              >
+              />
             </div>
           </div>
         </template>
@@ -122,7 +126,7 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
     flex: 1 1 convert(500px, 'rem');
   }
 
-  &__image-container {
+  &__image-box {
     flex: 1 1 convert(500px, 'rem');
   }
 
