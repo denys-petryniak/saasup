@@ -278,6 +278,9 @@ const ctaSection = ref({
     height: 988,
     alt: 'CTA image',
   },
+  backgroundImage: {
+    src: '/images/main-page/cta-bg.png',
+  },
 })
 
 const blogSection = ref({

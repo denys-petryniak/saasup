@@ -5,9 +5,10 @@ interface Props {
   title: string
   description: string
   image: Image
+  backgroundImage: Image
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const formData = reactive({
   email: '',
@@ -24,10 +25,21 @@ function submitForm() {
     formData.email = ''
   }
 }
+
+const img = useImage()
+
+const getSectionBackground = computed(() => {
+  const imgUrl = img(props.backgroundImage.src, { format: 'webp' })
+
+  return { background: `url('${imgUrl}') no-repeat 50% 50%/cover` }
+})
 </script>
 
 <template>
-  <BaseSection class="cta-section">
+  <BaseSection
+    :style="getSectionBackground"
+    class="cta-section"
+  >
     <div class="cta-section__content">
       <h2 class="cta-section__title">
         {{ title }}
@@ -91,7 +103,6 @@ $section-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--3xl
   gap: $spacing--xlarge;
   padding: $section-padding-y $section-padding-x;
   border-radius: clamped($min-size: $border-radius--2xlarge, $max-size: $border-radius--3xlarge);
-  background: url('/images/main-page/cta-bg.png') no-repeat 50% 50%/cover;
 
   &__content {
     flex: 1 1 convert(400px, 'rem');
