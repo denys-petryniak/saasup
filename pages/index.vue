@@ -17,6 +17,8 @@ const featuresSection = ref({
     {
       img: {
         src: '/images/main-page/task-management-card.png',
+        width: 2000,
+        height: 1500,
         alt: 'Alt 1',
       },
       title: 'Task Management',
@@ -26,6 +28,8 @@ const featuresSection = ref({
     {
       img: {
         src: '/images/main-page/automation-card.png',
+        width: 2000,
+        height: 1500,
         alt: 'Alt 2',
       },
       title: 'Automation',
@@ -35,6 +39,8 @@ const featuresSection = ref({
     {
       img: {
         src: '/images/main-page/budgeting-tools-card.png',
+        width: 2000,
+        height: 1500,
         alt: 'Alt 3',
       },
       title: 'Budgeting Tools',
@@ -47,8 +53,22 @@ const featuresSection = ref({
 const platformSection = ref({
   title: 'Powerful and easy to use SaaS platform',
   description: 'Use marketing automation to identify hot leads and email your sales team telling them to follow up. Nurture and contact leads at the opportune time to maximize.',
-  costTitle: 'Cost Effective',
-  costDescription: 'With tools to make every part of your process more human excited to help.',
+  image: {
+    src: '/images/main-page/platform.png',
+    width: 1504,
+    height: 1205,
+    alt: 'Platform image',
+  },
+  cost: {
+    title: 'Cost Effective',
+    description: 'With tools to make every part of your process more human excited to help.',
+    image: {
+      src: '/images/main-page/cost-icon.svg',
+      width: 96,
+      height: 103,
+      alt: 'Cost icon',
+    },
+  },
 })
 
 const stepsSection = ref({
@@ -59,12 +79,16 @@ const stepsSection = ref({
       name: 'Create account',
       icon: {
         src: '/images/main-page/account-icon.svg',
+        width: 116,
+        height: 116,
         alt: 'Icon',
       },
       title: 'Create your account & start your work',
       description: 'After learning about your customer service needs, we will get you up and running, and then partner with you problems and keep your customer service organization.',
       image: {
         src: '/images/main-page/account-step.jpg',
+        width: 602,
+        height: 339,
         alt: 'Account',
       },
     },
@@ -72,12 +96,16 @@ const stepsSection = ref({
       name: 'Install tracking code',
       icon: {
         src: '/images/main-page/tracking-icon.svg',
+        width: 116,
+        height: 116,
         alt: 'Icon',
       },
       title: 'Install the code to organize the works',
       description: 'After learning about your customer service needs, we will get you up and running, and then partner with you your customer service organization.',
       image: {
         src: '/images/main-page/tracking-step.png',
+        width: 602,
+        height: 339,
         alt: 'Tracking',
       },
     },
@@ -85,12 +113,16 @@ const stepsSection = ref({
       name: 'Track analytics',
       icon: {
         src: '/images/main-page/analytics-icon.svg',
+        width: 116,
+        height: 116,
         alt: 'Icon',
       },
       title: 'Get a free marketing automation guide',
       description: 'Whether it\'s registering a lead for your SaaSup webinar or sending an internal message to your sales team on Slack, SaaSup makes it simple to set up any integration.',
       image: {
         src: '/images/main-page/analytics-step.png',
+        width: 602,
+        height: 339,
         alt: 'Analytics',
       },
     },
@@ -107,6 +139,8 @@ const testimonialsSection = ref({
         name: 'James Toriff',
         photo: {
           src: '/images/main-page/james-toriff.jpg',
+          width: 108,
+          height: 108,
           alt: 'Account',
         },
         job: 'Developer',
@@ -119,6 +153,8 @@ const testimonialsSection = ref({
         name: 'Iva Angel',
         photo: {
           src: '/images/main-page/iva-angel.jpg',
+          width: 108,
+          height: 108,
           alt: 'Account',
         },
         job: 'Business',
@@ -131,6 +167,8 @@ const testimonialsSection = ref({
         name: 'Anne Hathaway',
         photo: {
           src: '/images/main-page/anne-hathaway.jpg',
+          width: 108,
+          height: 108,
           alt: 'Account',
         },
         job: 'Developer',
@@ -249,6 +287,8 @@ const blogSection = ref({
     {
       img: {
         src: '/images/main-page/productive-thing-blog-post.jpg',
+        width: 1194,
+        height: 676,
         alt: 'Alt 1',
       },
       date: 'August 6, 2023',
@@ -259,6 +299,8 @@ const blogSection = ref({
     {
       img: {
         src: '/images/main-page/young-startups-blog-post.jpg',
+        width: 1194,
+        height: 676,
         alt: 'Alt 2',
       },
       date: 'August 12, 2023',

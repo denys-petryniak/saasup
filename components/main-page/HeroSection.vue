@@ -42,7 +42,7 @@ defineProps<Props>()
         :height="image.height"
         :alt="image.alt"
         format="avif,webp"
-        sizes="sm:100vw md:100vw lg:760px"
+        sizes="sm:100vw xl:740px"
         class="hero-section__image"
       />
     </div>

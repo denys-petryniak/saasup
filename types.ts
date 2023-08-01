@@ -5,6 +5,12 @@ export interface Image {
   alt: string
 }
 
+export interface Cost {
+  title: string
+  description: string
+  image: Image
+}
+
 export interface Card {
   img: Image
   date?: string

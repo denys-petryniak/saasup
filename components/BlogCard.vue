@@ -11,12 +11,17 @@ defineProps<Props>()
 <template>
   <div class="card">
     <div class="card__image-box">
-      <img
+      <NuxtImg
         v-if="card.img"
         :src="card.img.src"
+        :width="card.img.width"
+        :height="card.img.height"
         :alt="card.img.alt"
+        format="avif,webp"
+        sizes="sm:100vw xl:580px"
+        loading="lazy"
         class="card__image"
-      >
+      />
       <BaseButton
         size="small"
         color="light-branded"

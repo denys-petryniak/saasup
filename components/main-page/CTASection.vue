@@ -64,14 +64,18 @@ function submitForm() {
         </BaseButton>
       </form>
     </div>
-    <div class="cta-section__image-container">
-      <img
-        class="cta-section__image"
+    <div class="cta-section__image-box">
+      <NuxtImg
+        v-if="image.src"
         :src="image.src"
         :width="image.width"
         :height="image.height"
         :alt="image.alt"
-      >
+        format="avif,webp"
+        sizes="sm:100vw xl:670px"
+        loading="lazy"
+        class="cta-section__image"
+      />
     </div>
   </BaseSection>
 </template>
@@ -93,7 +97,7 @@ $section-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--3xl
     flex: 1 1 convert(400px, 'rem');
   }
 
-  &__image-container {
+  &__image-box {
     flex: 1 1 convert(500px, 'rem');
   }
 

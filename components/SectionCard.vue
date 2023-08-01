@@ -10,11 +10,17 @@ defineProps<Props>()
 
 <template>
   <div class="card">
-    <img
-      class="card__image"
+    <NuxtImg
+      v-if="card.img.src"
       :src="card.img.src"
+      :width="card.img.width"
+      :height="card.img.height"
       :alt="card.img.alt"
-    >
+      format="avif,webp"
+      sizes="xs:100vw sm:360px"
+      loading="lazy"
+      class="card__image"
+    />
     <h3 class="card__title">
       {{ card.title }}
     </h3>
