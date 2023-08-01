@@ -12,7 +12,7 @@ defineProps<Props>()
   <div class="card">
     <div class="card__image-box">
       <NuxtImg
-        v-if="card.img"
+        v-if="card.img.src"
         :src="card.img.src"
         :width="card.img.width"
         :height="card.img.height"
