@@ -16,6 +16,16 @@ const carouselSettings = ref({
   wrapAround: true, // enable infinite scrolling mode
   transition: 500, // sliding transition time in ms
 })
+
+const img = useImage()
+
+const getTestimonialsBackground = computed(() => {
+  const imgUrl = img('/images/main-page/testimonials-bg-decor.png', {
+    format: 'webp',
+  })
+
+  return `url('${imgUrl}')`
+})
 </script>
 
 <template>
@@ -96,10 +106,7 @@ $section-bg-decor-z-index: -1;
       width: 100vw;
       height: 100%;
       z-index: $section-bg-decor-z-index;
-      background-image: url('/images/main-page/testimonials-bg-decor.png');
-      background-repeat: no-repeat;
-      background-position: top right;
-      background-size: cover;
+      background: v-bind(getTestimonialsBackground) no-repeat top right/cover;
       pointer-events: none;
     }
   }
