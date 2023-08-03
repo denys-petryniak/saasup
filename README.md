@@ -1,8 +1,9 @@
 # SaaSup
 
-<img width="1200" alt="image 996" src="https://github.com/denys-petryniak/saasup/assets/16530588/42639ec5-cc27-4cca-bf4d-99339832551a">
+[<img width="1200" alt="image 996" src="https://github.com/denys-petryniak/saasup/assets/16530588/42639ec5-cc27-4cca-bf4d-99339832551a">](https://github.com/denys-petryniak/saasup/assets/16530588/42639ec5-cc27-4cca-bf4d-99339832551a)
 
 ## Demo
+
 Check out the live demo of SaaSup at https://saaasup.vercel.app.
 
 ## Setup
