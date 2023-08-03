@@ -1,6 +1,6 @@
 # SaaSup
 
-[<img width="1200" alt="image 996" src="https://github.com/denys-petryniak/saasup/assets/16530588/42639ec5-cc27-4cca-bf4d-99339832551a">](https://github.com/denys-petryniak/saasup/assets/16530588/42639ec5-cc27-4cca-bf4d-99339832551a)
+![SaaSup Preview](https://github.com/denys-petryniak/saasup/assets/16530588/df265948-6a98-43ab-a58e-b05464ed21f0)
 
 ## Demo
 
