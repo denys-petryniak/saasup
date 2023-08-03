@@ -1,18 +1,15 @@
-# Nuxt 3 Minimal Starter
+# SaaSup
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<img width="1200" alt="image 996" src="https://github.com/denys-petryniak/saasup/assets/16530588/42639ec5-cc27-4cca-bf4d-99339832551a">
+
+## Demo
+Check out the live demo of SaaSup at https://saaasup.vercel.app.
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
 # pnpm
 pnpm install
 ```
@@ -22,7 +19,7 @@ pnpm install
 Start the development server on `http://localhost:3000`
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## Production
@@ -30,13 +27,16 @@ npm run dev
 Build the application for production:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 Locally preview production build:
 
 ```bash
-npm run preview
+pnpm preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Credits
+Special thanks to [VictorFlow](https://www.figma.com/@victorflow) for the fantastic design that served as an inspiration for this project.
