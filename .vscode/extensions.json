@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "sdras.vue-vscode-snippets",
+    "Nuxtr.nuxtr-vscode",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "mrmlnc.vscode-scss",
+    "antfu.iconify",
+    "afzalsayed96.icones",
+    "streetsidesoftware.code-spell-checker",
+    "usernamehw.errorlens"
+  ]
+}
