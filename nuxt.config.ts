@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: 'SaaSup' },
         { property: 'og:url', content: 'https://saaasup.vercel.app' },
-        { property: 'og:image', content: 'https://assets.website-files.com/61d3d235e6a53f40dda1219c/6283291a1a1efcd099793c73_saasup-webflow-template.jpg' },
+        { property: 'og:image', content: 'https://saaasup.vercel.app/images/saasup-preview.png' },
         { property: 'og:description', content: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard.' },
         { property: 'og:site_name', content: 'SaaSup' },
         { name: 'msapplication-TileColor', content: '#da532c' },
