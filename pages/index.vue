@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const { siteUrl } = useAppConfig()
+
+useHead({
+  link: [{ rel: 'canonical', href: siteUrl }],
+})
+
 const heroSection = ref({
   title: 'We make your digital business very easy!',
   description: 'Make your work easier with an integrated ecosystem that lets all departments work properly together.',
