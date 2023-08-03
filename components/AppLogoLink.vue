@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import type { ImageLoading } from '~/types'
+
+interface Props {
+  loading?: ImageLoading
+}
+
+withDefaults(defineProps<Props>(), {
+  loading: 'eager',
+})
+</script>
+
 <template>
   <NuxtLink to="/">
     <img
@@ -5,6 +17,7 @@
       width="173"
       height="41"
       alt="SaaSup logo"
+      :loading="loading"
     >
   </NuxtLink>
 </template>

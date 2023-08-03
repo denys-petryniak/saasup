@@ -1,8 +1,10 @@
+export type ImageLoading = 'lazy' | 'eager'
 export interface Image {
   src: string
   width?: number
   height?: number
   alt?: string
+  loading?: ImageLoading
 }
 
 export interface Cost {

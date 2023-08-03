@@ -64,6 +64,7 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
                   :width="step.icon.width"
                   :height="step.icon.height"
                   :alt="step.icon.alt"
+                  loading="lazy"
                   class="steps__content-head-icon"
                 >
                 <h3 class="steps__content-head-title">
