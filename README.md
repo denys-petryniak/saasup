@@ -4,7 +4,7 @@
 
 ## Demo
 
-Check out the live demo of SaaSup at https://saaasup.vercel.app.
+Check out the live demo of SaaSup at [https://saaasup.vercel.app](https://saaasup.vercel.app).
 
 ## Setup
 
@@ -40,4 +40,5 @@ pnpm preview
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
 ## Credits
+
 Special thanks to [VictorFlow](https://www.figma.com/@victorflow) for the fantastic design that served as an inspiration for this project.
