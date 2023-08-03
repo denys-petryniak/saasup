@@ -27,6 +27,7 @@ defineProps<Props>()
           :width="cost.image.width"
           :height="cost.image.height"
           :alt="cost.image.alt"
+          loading="lazy"
           class="cost__icon"
         >
         <div class="cost__text">

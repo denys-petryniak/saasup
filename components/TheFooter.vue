@@ -115,7 +115,7 @@ const socialLinks = ref([
       class="footer__wrapper"
     >
       <div class="footer__section">
-        <AppLogoLink />
+        <AppLogoLink loading="lazy" />
         <p class="footer__text">
           The Professional SaaS business tool, It will helps to grow your business with more productivity.
         </p>

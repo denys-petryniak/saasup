@@ -38,6 +38,7 @@ defineProps<Props>()
               :height="paymentImage.height"
               :alt="paymentImage.alt"
               :title="paymentImage.alt"
+              loading="lazy"
               class="payment__image"
             >
           </div>
