@@ -42,8 +42,8 @@ $field-bg-color: rgba(255, 255, 255, 0.20);
   @include fluid-typography(
     $min-font-size: $font-size--base,
     $max-font-size: $font-size--small,
-    $min-line-height: $line-height--3xsmall,
-    $max-line-height: $line-height--2xsmall,
+    $min-line-height: $line-height--4xsmall,
+    $max-line-height: $line-height--4xsmall,
   );
   font-weight: $font-weight--bold;
   background-color: $field-bg-color;

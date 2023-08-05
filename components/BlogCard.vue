@@ -54,11 +54,10 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-$card-padding-y: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
-$card-padding-x: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
+$card-padding: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
 
 .card {
-  padding: $card-padding-y $card-padding-x;
+  padding: $card-padding;
   border-radius: $border-radius--2xlarge;
   background-color: $color--secondary--extra-light;
 

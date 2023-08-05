@@ -75,6 +75,7 @@ defineProps<Props>()
   &__buttons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: $spacing--medium;
     margin-top: $spacing--xlarge;
   }
@@ -100,6 +101,14 @@ defineProps<Props>()
   &__image {
     border-radius: 25px;
     box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.11);
+  }
+}
+
+@include breakpoint('large') {
+  .hero-section {
+    &__buttons {
+      justify-content: flex-start;
+    }
   }
 }
 </style>

@@ -30,7 +30,7 @@ defineProps<Props>()
           <div
             v-for="paymentImage in payment.images"
             :key="paymentImage.src"
-            class="payment__image-container"
+            class="payment__image-box"
           >
             <img
               :src="paymentImage.src"
@@ -92,13 +92,13 @@ defineProps<Props>()
     display: flex;
     justify-content: center;
     gap: $spacing--medium;
-    padding: $spacing--large $spacing--medium;
+    padding: $spacing--medium;
     border-radius: $border-radius--large;
     background-color: $color--secondary--extra-light;
   }
 
-  &__image-container {
-    max-width: convert(90px, 'rem');
+  &__image-box {
+    max-width: convert(80px, 'rem');
   }
 }
 
