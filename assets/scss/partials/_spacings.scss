@@ -1,5 +1,6 @@
 @use "./functions" as fn;
 
+// TODO: improve values, using multiples of 8
 $spacing--2xsmall: fn.convert(2px, 'rem');
 $spacing--xsmall: fn.convert(4px, 'rem');
 $spacing--small: fn.convert(8px, 'rem');

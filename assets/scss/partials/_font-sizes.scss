@@ -1,5 +1,6 @@
 @use "./functions" as fn;
 
+// TODO: improve values, using multiples of 8
 $font-size--base: fn.convert(16px, 'rem');
 $font-size--small: fn.convert(18px, 'rem');
 $font-size--medium: fn.convert(20px, 'rem');

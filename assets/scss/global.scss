@@ -20,7 +20,7 @@ body {
     $min-line-height: $line-height--medium,
     $max-line-height: $line-height--large,
   );
-  letter-spacing: 0.01em;
+  letter-spacing: 0.01em; // TODO: improve it, using rule "The bigger the text, the less space you need between each letter"
   color: $color--secondary--dark;
   overflow-x: hidden;
 }
