@@ -18,8 +18,13 @@ logs
 .idea
 
 # Local env files
+.env
 .env.*
 !.env.example
 
 # Local Netlify folder
 .netlify
+
+# HTTPS Proxy certificates
+localhost.pem
+localhost-key.pem

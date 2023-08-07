@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "dev-ssl": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -12,6 +13,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@storyblok/nuxt": "^5.5.2",
     "modern-normalize": "^2.0.0",
     "vue3-carousel": "^0.3.1"
   },
@@ -22,6 +24,7 @@
     "@nuxtjs/google-fonts": "^3.0.1",
     "@types/node": "^20.4.2",
     "@vueuse/nuxt": "^10.2.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.45.0",
     "nuxt": "^3.6.5",
     "nuxt-icon": "^0.4.2",

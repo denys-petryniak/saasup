@@ -5,6 +5,10 @@ useHead({
   link: [{ rel: 'canonical', href: siteUrl }],
 })
 
+const story = await useAsyncStoryblok('home', {
+  version: 'draft'
+})
+
 const heroSection = ref({
   title: 'We make your digital business very easy!',
   description: 'Make your work easier with an integrated ecosystem that lets all departments work properly together.',
@@ -322,6 +326,7 @@ const blogSection = ref({
 </script>
 
 <template>
+  <StoryblokComponent v-if="story" :blok="story.content" />
   <BodyBackground />
   <MainPageHeroSection
     v-bind="heroSection"

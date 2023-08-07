@@ -57,6 +57,16 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    // https://github.com/storyblok/storyblok-nuxt
+    [
+      '@storyblok/nuxt',
+      {
+        accessToken: process.env.STORYBLOK_API_TOKEN,
+        apiOptions: {
+          region: "eu",
+        }
+      }
+    ],
     // https://www.npmjs.com/package/@vueuse/nuxt
     '@vueuse/nuxt',
 
