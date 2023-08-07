@@ -9,6 +9,13 @@ const story = await useAsyncStoryblok('home', {
   version: 'draft'
 })
 
+if (story.value.status) {
+  throw createError({
+    statusCode: story.value.status,
+    statusMessage: story.value.response
+  });
+}
+
 const heroSection = ref({
   title: 'We make your digital business very easy!',
   description: 'Make your work easier with an integrated ecosystem that lets all departments work properly together.',
