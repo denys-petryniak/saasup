@@ -1,24 +1,24 @@
-<script setup lang="ts">
-import type { Image } from '~/types'
+<script setup>
+const props = defineProps({ blok: Object })
 
-interface Props {
-  title: string
-  description: string
-  image: Image
-}
-
-defineProps<Props>()
+const getHeroDescription = computed(() =>
+  renderRichText(props.blok.description),
+)
 </script>
 
 <template>
-  <BaseSection class="hero-section">
+  <BaseSection
+    v-editable="blok"
+    class="hero-section"
+  >
     <div class="hero-section__content">
-      <h1 class="hero-section__title">
-        {{ title }}
+      <h1 class="hero-section__heading">
+        {{ blok.heading }}
       </h1>
-      <p class="hero-section__description">
-        {{ description }}
-      </p>
+      <div
+        class="hero-section__description"
+        v-html="getHeroDescription"
+      />
       <div class="hero-section__buttons">
         <BaseButton>
           Get Started
@@ -37,10 +37,11 @@ defineProps<Props>()
     </div>
     <div class="hero-section__image-box">
       <NuxtImg
-        :src="image.src"
-        :width="image.width"
-        :height="image.height"
-        :alt="image.alt"
+        v-if="blok.image?.filename"
+        :src="blok.image.filename"
+        :width="1541"
+        :height="1168"
+        :alt="blok.image.alt"
         format="avif,webp"
         sizes="sm:100vw xl:740px"
         class="hero-section__image"
@@ -64,7 +65,7 @@ defineProps<Props>()
     flex: 1 1 convert(500px, 'rem');
   }
 
-  &__title {
+  &__heading {
     margin: 0;
   }
 

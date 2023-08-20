@@ -6,10 +6,11 @@ const { screenXlarge } = scssVariables
 const img = useImage()
 
 const getBodyBackground = computed(() => {
-  const bodyBackgroundUrl = img('/images/body-background.png', {
+  // TODO: rewrite hardcoded urls
+  const bodyBackgroundUrl = img('https://a.storyblok.com/f/245408/1386x705/7ec74d6e7f/body-background.png', {
     format: 'webp',
   })
-  const bodyBackgroundDecorUrl = img('/images/body-background-decor.png', {
+  const bodyBackgroundDecorUrl = img('https://a.storyblok.com/f/245408/3840x2090/ed23e685ce/body-background-decor.png', {
     format: 'webp',
   })
 

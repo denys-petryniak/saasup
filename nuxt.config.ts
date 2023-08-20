@@ -61,11 +61,12 @@ export default defineNuxtConfig({
     [
       '@storyblok/nuxt',
       {
+        // eslint-disable-next-line n/prefer-global/process
         accessToken: process.env.STORYBLOK_TOKEN,
         apiOptions: {
-          region: "eu",
-        }
-      }
+          region: 'eu',
+        },
+      },
     ],
     // https://www.npmjs.com/package/@vueuse/nuxt
     '@vueuse/nuxt',
@@ -77,6 +78,10 @@ export default defineNuxtConfig({
     [
       '@nuxt/image',
       {
+        provider: 'storyblok',
+        storyblok: {
+          baseURL: 'https://a.storyblok.com',
+        },
         // The screen sizes predefined by `@nuxt/image`:
         screens: {
           xs: 320,

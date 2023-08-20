@@ -1,31 +1,27 @@
 <script setup lang="ts">
-import type { Card } from '~/types'
-
-interface Props {
-  subtitle: string
-  title: string
-  cards: Card[]
-}
-
-defineProps<Props>()
+defineProps({ blok: Object })
 </script>
 
 <template>
-  <BaseSection class="blog-section">
+  <BaseSection
+    v-editable="blok"
+    class="blog-section"
+  >
     <div class="blog-section__head">
-      <BaseBadge>{{ subtitle }}</BaseBadge>
-      <h2 class="blog-section__title">
-        {{ title }}
+      <BaseBadge>{{ blok?.badge }}</BaseBadge>
+      <h2 class="blog-section__heading">
+        {{ blok?.heading }}
       </h2>
     </div>
     <div
-      v-if="cards.length"
+      v-if="blok?.articles.length"
       class="blog-section__cards"
     >
-      <BlogCard
-        v-for="card in cards"
-        :key="card.title"
-        :card="card"
+      <ArticleCard
+        v-for="article in blok.articles"
+        :key="article.uuid"
+        :article="article.content"
+        :slug="article.full_slug"
       />
     </div>
   </BaseSection>
@@ -39,7 +35,7 @@ $card-min-width: convert(250px, 'rem');
     text-align: center;
   }
 
-  &__title {
+  &__heading {
     margin-top: $spacing--xlarge;
   }
 

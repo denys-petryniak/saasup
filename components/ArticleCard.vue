@@ -1,22 +1,23 @@
-<script setup lang="ts">
-import type { Card } from '~/types'
+<script setup>
+const props = defineProps({ article: Object, slug: String })
 
-interface Props {
-  card: Card
-}
-
-defineProps<Props>()
+const getDescription = computed(() =>
+  renderRichText(props.article.content),
+)
 </script>
 
 <template>
-  <div class="card">
+  <div
+    v-editable="article"
+    class="card"
+  >
     <div class="card__image-box">
       <NuxtImg
-        v-if="card.img.src"
-        :src="card.img.src"
-        :width="card.img.width"
-        :height="card.img.height"
-        :alt="card.img.alt"
+        v-if="article.image?.filename"
+        :src="article.image?.filename"
+        :width="1194"
+        :height="676"
+        :alt="article.image?.alt"
         format="avif,webp"
         sizes="sm:100vw xl:580px"
         loading="lazy"
@@ -25,30 +26,31 @@ defineProps<Props>()
       <BaseButton
         size="small"
         color="light-branded"
-        to="/blog"
+        :to="slug"
         class="card__button"
       >
         Social Media
       </BaseButton>
     </div>
     <p class="card__date">
-      {{ card.date }}
+      {{ article.date }}
     </p>
     <NuxtLink
-      to="/blog"
+      :to="slug"
     >
       <h3 class="card__title">
-        {{ card.title }}
+        {{ article.title }}
       </h3>
     </NuxtLink>
-    <p class="card__description">
-      {{ card.description }}
-    </p>
+    <div
+      class="card__description"
+      v-html="getDescription"
+    />
     <NuxtLink
-      to="/blog"
+      :to="slug"
       class="card__link"
     >
-      {{ card.linkText }}
+      {{ article.link_text }}
     </NuxtLink>
   </div>
 </template>
