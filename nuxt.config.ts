@@ -1,3 +1,4 @@
+/* eslint-disable n/prefer-global/process */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -61,8 +62,9 @@ export default defineNuxtConfig({
     [
       '@storyblok/nuxt',
       {
-        // eslint-disable-next-line n/prefer-global/process
-        accessToken: process.env.STORYBLOK_TOKEN,
+        accessToken: process.env.NODE_ENV === 'development'
+          ? process.env.STORYBLOK_PREVIEW_TOKEN
+          : process.env.STORYBLOK_PUBLIC_TOKEN,
         apiOptions: {
           region: 'eu',
         },

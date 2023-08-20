@@ -13,11 +13,22 @@ const resolveRelations = [
   'blog-section.articles',
 ]
 
+const getStoryVersion = computed(() => {
+  // return query._storyblok ? 'draft' : 'published'
+
+  // eslint-disable-next-line n/prefer-global/process
+  return process.env.NODE_ENV === 'development'
+    ? 'draft'
+    : 'published'
+})
+
+// eslint-disable-next-line no-console
+console.log('getStoryVersion', getStoryVersion.value)
+
 const story = await useAsyncStoryblok(
   slug && slug.length > 0 ? (slug as string[]).join('/') : 'home',
   {
-    // version: query._storyblok ? 'draft' : 'published',
-    version: 'draft',
+    version: getStoryVersion.value,
     resolve_relations: resolveRelations,
   },
   {
