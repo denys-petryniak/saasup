@@ -25,23 +25,20 @@ const getStoryVersion = computed(() => {
 // eslint-disable-next-line no-console
 console.log('getStoryVersion', getStoryVersion.value)
 
+const slugValue = slug && slug.length > 0 ? (slug as string[]).join('/') : 'home'
+
 const story = await useAsyncStoryblok(
-  slug && slug.length > 0 ? (slug as string[]).join('/') : 'home',
+  slugValue,
+  // API Options
   {
     version: getStoryVersion.value,
     resolve_relations: resolveRelations,
   },
+  // Bridge Options
   {
     resolveRelations,
   },
 )
-
-// if (story.value?.status) {
-//   throw createError({
-//     statusCode: story.value.status,
-//     statusMessage: story.value.response,
-//   })
-// }
 
 const isHomePage = computed(() => {
   return story.value?.name === 'Home'
