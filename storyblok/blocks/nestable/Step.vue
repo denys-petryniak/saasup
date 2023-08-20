@@ -1,5 +1,11 @@
 <script setup lang="ts">
-const props = defineProps({ blok: Object })
+import type { StepStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: StepStoryblok
+}
+
+const props = defineProps<Props>()
 
 const getDescription = computed(() =>
   renderRichText(props.blok.description),

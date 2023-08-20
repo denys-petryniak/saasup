@@ -1,13 +1,19 @@
-<script setup>
-defineProps({ blok: Object })
+<script setup lang="ts">
+import type { PageStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: PageStoryblok
+}
+
+defineProps<Props>()
 </script>
 
 <template>
   <div v-editable="blok">
     <StoryblokComponent
-      v-for="blok in blok.body"
-      :key="blok._uid"
-      :blok="blok"
+      v-for="bodyItem in blok.body"
+      :key="bodyItem._uid"
+      :blok="bodyItem"
     />
   </div>
 </template>

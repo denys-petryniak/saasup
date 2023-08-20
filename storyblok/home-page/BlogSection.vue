@@ -1,5 +1,11 @@
 <script setup lang="ts">
-defineProps({ blok: Object })
+import type { BlogSectionStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: BlogSectionStoryblok
+}
+
+defineProps<Props>()
 </script>
 
 <template>
@@ -8,15 +14,16 @@ defineProps({ blok: Object })
     class="blog-section"
   >
     <div class="blog-section__head">
-      <BaseBadge>{{ blok?.badge }}</BaseBadge>
+      <BaseBadge>{{ blok.badge }}</BaseBadge>
       <h2 class="blog-section__heading">
-        {{ blok?.heading }}
+        {{ blok.heading }}
       </h2>
     </div>
     <div
-      v-if="blok?.articles.length"
+      v-if="blok.articles?.length"
       class="blog-section__cards"
     >
+      <!-- TODO: fix types for Article -->
       <ArticleCard
         v-for="article in blok.articles"
         :key="article.uuid"

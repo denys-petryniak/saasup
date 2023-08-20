@@ -1,5 +1,11 @@
 <script setup lang="ts">
-defineProps({ blok: Object })
+import type { StepsSectionStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: StepsSectionStoryblok
+}
+
+defineProps<Props>()
 
 const activeStepIndex = ref(0)
 
@@ -11,7 +17,7 @@ function getFormattedStepIndex(index: number): string {
   return `0${index + 1}.`
 }
 
-function getStepButtonText({ index, text }: { index: number; text: string }): string {
+function getStepButtonText({ index, text }: { index: number; text: string | undefined }): string {
   return `${getFormattedStepIndex(index)} ${text}`
 }
 </script>
@@ -22,18 +28,18 @@ function getStepButtonText({ index, text }: { index: number; text: string }): st
     class="steps-section"
   >
     <div class="steps-section__head">
-      <BaseBadge>{{ blok?.badge }}</BaseBadge>
+      <BaseBadge>{{ blok.badge }}</BaseBadge>
       <h2 class="steps-section__heading">
-        {{ blok?.heading }}
+        {{ blok.heading }}
       </h2>
     </div>
     <div
-      v-if="blok?.steps.length"
+      v-if="blok.steps?.length"
       class="steps-section__body"
     >
       <div class="steps-section__buttons">
         <button
-          v-for="(step, stepIndex) in blok?.steps"
+          v-for="(step, stepIndex) in blok.steps"
           :key="step.name"
           class="steps-section__button"
           :class="{ 'steps-section__button--active': stepIndex === activeStepIndex }"

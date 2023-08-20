@@ -2,7 +2,13 @@
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
-const props = defineProps({ blok: Object })
+import type { TestimonialsSectionStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: TestimonialsSectionStoryblok
+}
+
+const props = defineProps<Props>()
 
 const carouselSettings = ref({
   wrapAround: true, // enable infinite scrolling mode
@@ -12,7 +18,10 @@ const carouselSettings = ref({
 const img = useImage()
 
 const getTestimonialsBackground = computed(() => {
-  const imgUrl = img(props.blok?.background?.filename, {
+  if (!props.blok.background?.filename)
+    return
+
+  const imgUrl = img(props.blok.background.filename, {
     format: 'webp',
   })
 
@@ -26,9 +35,9 @@ const getTestimonialsBackground = computed(() => {
     class="testimonials-section"
   >
     <div class="testimonials-section__head">
-      <BaseBadge>{{ blok?.badge }}</BaseBadge>
+      <BaseBadge>{{ blok.badge }}</BaseBadge>
       <h2 class="testimonials-section__heading">
-        {{ blok?.heading }}
+        {{ blok.heading }}
       </h2>
     </div>
     <Carousel
@@ -37,7 +46,7 @@ const getTestimonialsBackground = computed(() => {
     >
       <template #slides>
         <Slide
-          v-for="testimonial in blok?.testimonials"
+          v-for="testimonial in blok.testimonials"
           :key="testimonial._uid"
         >
           <Testimonial

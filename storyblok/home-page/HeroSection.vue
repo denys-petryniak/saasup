@@ -1,5 +1,11 @@
-<script setup>
-const props = defineProps({ blok: Object })
+<script setup lang="ts">
+import type { HeroSectionStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: HeroSectionStoryblok
+}
+
+const props = defineProps<Props>()
 
 const getHeroDescription = computed(() =>
   renderRichText(props.blok.description),

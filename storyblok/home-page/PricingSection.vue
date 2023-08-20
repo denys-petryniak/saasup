@@ -1,8 +1,14 @@
 <script setup lang="ts">
-const props = defineProps({ blok: Object })
+import type { PricingSectionStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: PricingSectionStoryblok
+}
+
+const props = defineProps<Props>()
 
 const getSectionDescription = computed(() =>
-  renderRichText(props.blok?.description),
+  renderRichText(props.blok.description),
 )
 </script>
 
@@ -12,9 +18,9 @@ const getSectionDescription = computed(() =>
     class="pricing-section"
   >
     <div class="pricing-section__content">
-      <BaseBadge>{{ blok?.badge }}</BaseBadge>
+      <BaseBadge>{{ blok.badge }}</BaseBadge>
       <h2 class="pricing-section__heading">
-        {{ blok?.heading }}
+        {{ blok.heading }}
       </h2>
       <div
         class="pricing-section__description"
@@ -22,14 +28,14 @@ const getSectionDescription = computed(() =>
       />
       <div class="payment pricing-section__payment">
         <h3 class="payment__title">
-          {{ blok?.payment_heading }}
+          {{ blok.payment_heading }}
         </h3>
         <div
-          v-if="blok?.payment_images?.length"
+          v-if="blok.payment_images?.length"
           class="payment__body"
         >
           <div
-            v-for="paymentImage in blok?.payment_images"
+            v-for="paymentImage in blok.payment_images"
             :key="paymentImage.id"
             class="payment__image-box"
           >
@@ -47,11 +53,11 @@ const getSectionDescription = computed(() =>
       </div>
     </div>
     <div
-      v-if="blok?.pricing_plans?.length"
+      v-if="blok.pricing_plans?.length"
       class="pricing-section__plans"
     >
       <PricingPlan
-        v-for="pricingPlan in blok?.pricing_plans"
+        v-for="pricingPlan in blok.pricing_plans"
         :key="pricingPlan._uid"
         :blok="pricingPlan"
         class="pricing-section__plans-item"

@@ -1,8 +1,14 @@
 <script setup lang="ts">
-const props = defineProps({ blok: Object })
+import type { FeatureStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: FeatureStoryblok
+}
+
+const props = defineProps<Props>()
 
 const getCardDescription = computed(() =>
-  renderRichText(props.blok?.description),
+  renderRichText(props.blok.description),
 )
 </script>
 
@@ -12,7 +18,7 @@ const getCardDescription = computed(() =>
     class="card"
   >
     <NuxtImg
-      v-if="blok?.image?.filename"
+      v-if="blok.image?.filename"
       :src="blok.image.filename"
       :width="2000"
       :height="1500"
@@ -23,7 +29,7 @@ const getCardDescription = computed(() =>
       class="card__image"
     />
     <h3 class="card__heading">
-      {{ blok?.heading }}
+      {{ blok.heading }}
     </h3>
     <div
       class="card__description"
@@ -33,7 +39,7 @@ const getCardDescription = computed(() =>
       to="/features"
       class="card__link"
     >
-      {{ blok?.linkText }}
+      {{ blok.linkText }}
     </NuxtLink>
   </div>
 </template>

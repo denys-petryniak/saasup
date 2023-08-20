@@ -1,5 +1,12 @@
-<script setup>
-const props = defineProps({ article: Object, slug: String })
+<script setup lang="ts">
+import type { ArticleStoryblok } from '~/component-types-sb'
+
+interface Props {
+  article: ArticleStoryblok
+  slug: string
+}
+
+const props = defineProps<Props>()
 
 const getDescription = computed(() =>
   renderRichText(props.article.content),
@@ -14,10 +21,10 @@ const getDescription = computed(() =>
     <div class="card__image-box">
       <NuxtImg
         v-if="article.image?.filename"
-        :src="article.image?.filename"
+        :src="article.image.filename"
         :width="1194"
         :height="676"
-        :alt="article.image?.alt"
+        :alt="article.image.alt"
         format="avif,webp"
         sizes="sm:100vw xl:580px"
         loading="lazy"

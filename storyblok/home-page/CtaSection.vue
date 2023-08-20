@@ -1,8 +1,14 @@
 <script setup lang="ts">
-const props = defineProps({ blok: Object })
+import type { CtaSectionStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: CtaSectionStoryblok
+}
+
+const props = defineProps<Props>()
 
 const getSectionDescription = computed(() =>
-  renderRichText(props.blok?.description),
+  renderRichText(props.blok.description),
 )
 
 const formData = reactive({
@@ -24,7 +30,10 @@ function submitForm() {
 const img = useImage()
 
 const getSectionBackground = computed(() => {
-  const imgUrl = img(props.blok?.background_image.filename, {
+  if (!props.blok.background_image)
+    return
+
+  const imgUrl = img(props.blok.background_image.filename, {
     format: 'webp',
   })
 
@@ -39,7 +48,7 @@ const getSectionBackground = computed(() => {
   >
     <div class="cta-section__content">
       <h2 class="cta-section__heading">
-        {{ blok?.heading }}
+        {{ blok.heading }}
       </h2>
       <div
         class="cta-section__description"
@@ -76,11 +85,11 @@ const getSectionBackground = computed(() => {
     </div>
     <div class="cta-section__image-box">
       <NuxtImg
-        v-if="blok?.image.filename"
-        :src="blok?.image.filename"
+        v-if="blok.image?.filename"
+        :src="blok.image.filename"
         :width="1336"
         :height="988"
-        :alt="blok?.image.alt"
+        :alt="blok.image.alt"
         format="avif,webp"
         sizes="sm:100vw xl:670px"
         loading="lazy"

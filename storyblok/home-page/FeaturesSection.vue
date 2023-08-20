@@ -1,5 +1,11 @@
-<script setup>
-defineProps({ blok: Object })
+<script setup lang="ts">
+import type { FeaturesSectionStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: FeaturesSectionStoryblok
+}
+
+defineProps<Props>()
 </script>
 
 <template>

@@ -1,5 +1,11 @@
-<script setup>
-const props = defineProps({ blok: Object })
+<script setup lang="ts">
+import type { ArticleStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: ArticleStoryblok
+}
+
+const props = defineProps<Props>()
 
 const resolvedRichText = computed(() => renderRichText(props.blok.content))
 </script>

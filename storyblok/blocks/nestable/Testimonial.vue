@@ -1,8 +1,14 @@
 <script setup lang="ts">
-const props = defineProps({ blok: Object })
+import type { TestimonialStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: TestimonialStoryblok
+}
+
+const props = defineProps<Props>()
 
 const getTestimonialText = computed(() =>
-  renderRichText(props.blok?.text),
+  renderRichText(props.blok.text),
 )
 </script>
 
@@ -16,7 +22,7 @@ const getTestimonialText = computed(() =>
       v-html="getTestimonialText"
     />
     <template
-      v-if="blok?.authors?.length"
+      v-if="blok.authors?.length"
     >
       <Author
         v-for="author in blok.authors"

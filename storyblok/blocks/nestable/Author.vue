@@ -1,5 +1,11 @@
 <script setup lang="ts">
-const props = defineProps({ blok: Object })
+import type { AuthorStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: AuthorStoryblok
+}
+
+const props = defineProps<Props>()
 
 const getAuthorRating = computed(() => {
   return Number(props.blok.rating)

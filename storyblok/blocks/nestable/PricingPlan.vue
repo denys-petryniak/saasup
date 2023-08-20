@@ -1,5 +1,11 @@
 <script setup lang="ts">
-defineProps({ blok: Object })
+import type { PricingPlanStoryblok } from '~/component-types-sb'
+
+interface Props {
+  blok: PricingPlanStoryblok
+}
+
+defineProps<Props>()
 </script>
 
 <template>
@@ -9,39 +15,39 @@ defineProps({ blok: Object })
   >
     <div class="pricing-plan__head">
       <h3 class="pricing-plan__title">
-        {{ blok?.title }}
+        {{ blok.title }}
       </h3>
       <BaseBadge
         size="small"
         :color="blok?.popular ? 'purple' : 'white'"
       >
-        {{ blok?.caption }}
+        {{ blok.caption }}
       </BaseBadge>
     </div>
     <div class="pricing-plan__price-container">
       <p class="pricing-plan__price">
-        {{ blok?.price }}
+        {{ blok.price }}
       </p>
       <BaseBadge
         size="small"
         color="orange"
       >
-        {{ blok?.billing_description }}
+        {{ blok.billing_description }}
       </BaseBadge>
     </div>
     <ul
-      v-if="blok?.features?.length"
+      v-if="blok.features?.length"
       class="pricing-plan__features"
     >
       <li
-        v-for="(pricingPlanFeature, index) in blok?.features"
+        v-for="(pricingPlanFeature, index) in blok.features"
         :key="index"
         class="pricing-plan__features-item"
       >
         {{ pricingPlanFeature }}
       </li>
     </ul>
-    <BaseButton :color="blok?.popular ? 'dark' : 'light-bordered'">
+    <BaseButton :color="blok.popular ? 'dark' : 'light-bordered'">
       Get Started
     </BaseButton>
   </div>
