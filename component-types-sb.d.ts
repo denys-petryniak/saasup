@@ -21,20 +21,20 @@ export interface AssetStoryblok {
 }
 
 export interface ArticleStoryblok {
-  date?: string;
-  title?: string;
-  content?: RichtextStoryblok;
-  image?: AssetStoryblok;
-  link_text?: string;
+  date: string;
+  title: string;
+  content: RichtextStoryblok;
+  image: AssetStoryblok;
+  link_text: string;
   _uid: string;
   component: "article";
   [k: string]: any;
 }
 
 export interface AuthorStoryblok {
-  name?: string;
-  photo?: AssetStoryblok;
-  job?: string;
+  name: string;
+  photo: AssetStoryblok;
+  job: string;
   rating?: string;
   _uid: string;
   component: "author";
@@ -42,54 +42,54 @@ export interface AuthorStoryblok {
 }
 
 export interface BlogSectionStoryblok {
-  badge?: string;
-  heading?: string;
-  articles?: (StoryblokStory<ArticleStoryblok> | string)[];
+  badge: string;
+  heading: string;
+  articles: (StoryblokStory<ArticleStoryblok> | string)[];
   _uid: string;
   component: "blog-section";
   [k: string]: any;
 }
 
 export interface CtaSectionStoryblok {
-  heading?: string;
-  description?: RichtextStoryblok;
-  image?: AssetStoryblok;
-  background_image?: AssetStoryblok;
+  heading: string;
+  description: RichtextStoryblok;
+  image: AssetStoryblok;
+  background_image: AssetStoryblok;
   _uid: string;
   component: "cta-section";
   [k: string]: any;
 }
 
 export interface FeatureStoryblok {
-  image?: AssetStoryblok;
-  heading?: string;
-  description?: RichtextStoryblok;
-  linkText?: string;
+  image: AssetStoryblok;
+  heading: string;
+  description: RichtextStoryblok;
+  linkText: string;
   _uid: string;
   component: "feature";
   [k: string]: any;
 }
 
 export interface FeaturesSectionStoryblok {
-  badge?: string;
-  heading?: string;
-  features?: FeatureStoryblok[];
+  badge: string;
+  heading: string;
+  features: FeatureStoryblok[];
   _uid: string;
   component: "features-section";
   [k: string]: any;
 }
 
 export interface HeroSectionStoryblok {
-  heading?: string;
-  description?: RichtextStoryblok;
-  image?: AssetStoryblok;
+  heading: string;
+  description: RichtextStoryblok;
+  image: AssetStoryblok;
   _uid: string;
   component: "hero-section";
   [k: string]: any;
 }
 
 export interface PageStoryblok {
-  body?: any[];
+  body: any[];
   _uid: string;
   component: "page";
   uuid?: string;
@@ -97,9 +97,9 @@ export interface PageStoryblok {
 }
 
 export interface PlatformSectionStoryblok {
-  heading?: string;
-  description?: RichtextStoryblok;
-  image?: AssetStoryblok;
+  heading: string;
+  description: RichtextStoryblok;
+  image: AssetStoryblok;
   cost_heading?: string;
   cost_description?: RichtextStoryblok;
   cost_image?: AssetStoryblok;
@@ -109,12 +109,12 @@ export interface PlatformSectionStoryblok {
 }
 
 export interface PricingPlanStoryblok {
-  title?: string;
-  caption?: string;
-  price?: string;
+  title: string;
+  caption: string;
+  price: string;
   billing_description?: string;
   popular?: boolean;
-  features?: (
+  features: (
     | ""
     | "Unlimited members"
     | "Unlimited feedback"
@@ -141,58 +141,58 @@ export type MultiassetStoryblok = {
 }[];
 
 export interface PricingSectionStoryblok {
-  badge?: string;
-  heading?: string;
-  description?: RichtextStoryblok;
+  badge: string;
+  heading: string;
+  description: RichtextStoryblok;
   payment_heading?: string;
   payment_images?: MultiassetStoryblok;
-  pricing_plans?: PricingPlanStoryblok[];
+  pricing_plans: PricingPlanStoryblok[];
   _uid: string;
   component: "pricing-section";
   [k: string]: any;
 }
 
 export interface StepStoryblok {
-  name?: string;
-  heading?: string;
-  description?: RichtextStoryblok;
-  icon?: AssetStoryblok;
-  image?: AssetStoryblok;
+  name: string;
+  heading: string;
+  description: RichtextStoryblok;
+  icon: AssetStoryblok;
+  image: AssetStoryblok;
   _uid: string;
   component: "step";
   [k: string]: any;
 }
 
 export interface StepsSectionStoryblok {
-  badge?: string;
-  heading?: string;
-  steps?: StepStoryblok[];
+  badge: string;
+  heading: string;
+  steps: StepStoryblok[];
   _uid: string;
   component: "steps-section";
   [k: string]: any;
 }
 
 export interface TestimonialStoryblok {
-  text?: RichtextStoryblok;
-  authors?: AuthorStoryblok[];
+  text: RichtextStoryblok;
+  authors: AuthorStoryblok[];
   _uid: string;
   component: "testimonial";
   [k: string]: any;
 }
 
 export interface TestimonialsSectionStoryblok {
-  badge?: string;
-  heading?: string;
+  badge: string;
+  heading: string;
   background?: AssetStoryblok;
-  testimonials?: TestimonialStoryblok[];
+  testimonials: TestimonialStoryblok[];
   _uid: string;
   component: "testimonials-section";
   [k: string]: any;
 }
 
 export interface UnderDevStoryblok {
-  heading?: string;
-  description?: RichtextStoryblok;
+  heading: string;
+  description: RichtextStoryblok;
   _uid: string;
   component: "under-dev";
   [k: string]: any;
