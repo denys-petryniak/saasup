@@ -6,10 +6,11 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "dev-ssl": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
-    "generate-sb-types": "storyblok-generate-ts source=./components.245408.json target=./component-types-sb",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "pull-sb-components": "storyblok pull-components --space 245408",
+    "generate-sb-types": "storyblok-generate-ts source=./components.245408.json target=./component-types-sb",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

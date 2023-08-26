@@ -27,18 +27,25 @@ console.log('getStoryVersion', getStoryVersion.value)
 
 const slugValue = slug && slug.length > 0 ? (slug as string[]).join('/') : 'home'
 
-const story = await useAsyncStoryblok(
-  slugValue,
-  // API Options
-  {
-    version: getStoryVersion.value,
-    resolve_relations: resolveRelations,
-  },
-  // Bridge Options
-  {
-    resolveRelations,
-  },
-)
+let story: any
+
+try {
+  story = await useAsyncStoryblok(
+    slugValue,
+    // API Options
+    {
+      version: getStoryVersion.value,
+      resolve_relations: resolveRelations,
+    },
+    // Bridge Options
+    {
+      resolveRelations,
+    },
+  )
+}
+catch (error) {
+  console.error('An error occurred:', error)
+}
 
 const isHomePage = computed(() => {
   return story.value?.name === 'Home'

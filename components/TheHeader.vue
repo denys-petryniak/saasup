@@ -1,49 +1,12 @@
 <script setup lang="ts">
-interface NavigationLink {
-  to?: string
-  text: string
-  submenu?: NavigationLink[]
+import type { AssetStoryblok, NavItemStoryblok, SubmenuStoryblok } from '~/component-types-sb'
+
+interface Props {
+  logo: AssetStoryblok | undefined
+  navigation: (NavItemStoryblok | SubmenuStoryblok)[] | null
 }
 
-const navigationLinks = ref<NavigationLink[]>([
-  {
-    to: '/',
-    text: 'Home',
-  },
-  {
-    to: '/about',
-    text: 'About',
-  },
-  {
-    text: 'Pages',
-    submenu: [
-      {
-        to: '/features',
-        text: 'Features',
-      },
-      {
-        to: '/pricing',
-        text: 'Pricing',
-      },
-      {
-        to: '/integrations',
-        text: 'Integrations',
-      },
-      {
-        to: '/blog',
-        text: 'Blog',
-      },
-      {
-        to: '/careers',
-        text: 'Careers',
-      },
-    ],
-  },
-  {
-    to: '/contacts',
-    text: 'Contacts',
-  },
-])
+defineProps<Props>()
 
 const isMenuVisible = ref(false)
 const toggleMenuVisibility = () => isMenuVisible.value = !isMenuVisible.value
@@ -68,20 +31,24 @@ watch(
   },
 )
 
-const navigation = ref<HTMLElement | null>(null)
-const menuButton = ref<HTMLElement | null>(null)
+const navigationRef = ref<HTMLElement | null>(null)
+const menuButtonRef = ref<HTMLElement | null>(null)
 
-onClickOutside(navigation, () => closeMenus(), { ignore: [menuButton] })
+onClickOutside(navigationRef, () => closeMenus(), { ignore: [menuButtonRef] })
 
 const { isDesktopScreenSize } = useMedia()
 
-function handleMouseover(navigationLink: NavigationLink): void {
-  if (navigationLink.submenu && isDesktopScreenSize.value && !isSubmenuVisible.value)
+function isSubmenuComponent(item: SubmenuStoryblok): boolean {
+  return item.component === 'submenu'
+}
+
+function handleMouseover(navigationItem: SubmenuStoryblok): void {
+  if (isSubmenuComponent(navigationItem) && isDesktopScreenSize.value && !isSubmenuVisible.value)
     openSubmenu()
 }
 
-function handleMouseleave(navigationLink: NavigationLink): void {
-  if (navigationLink.submenu && isDesktopScreenSize.value && isSubmenuVisible.value)
+function handleMouseleave(navigationItem: SubmenuStoryblok): void {
+  if (isSubmenuComponent(navigationItem) && isDesktopScreenSize.value && isSubmenuVisible.value)
     closeSubmenu()
 }
 </script>
@@ -89,7 +56,13 @@ function handleMouseleave(navigationLink: NavigationLink): void {
 <template>
   <header class="header">
     <div class="header__head">
-      <AppLogoLink />
+      <AppLogoLink
+        v-if="logo"
+        :src="logo?.filename"
+        :width="logo?.meta_data?.width"
+        :height="logo?.meta_data?.height"
+        :alt="logo?.alt"
+      />
     </div>
     <div class="header__main">
       <div class="header__buttons">
@@ -107,7 +80,7 @@ function handleMouseleave(navigationLink: NavigationLink): void {
           Get Started
         </BaseButton>
         <button
-          ref="menuButton"
+          ref="menuButtonRef"
           type="button"
           class="header__menu-button"
           :class="{ 'header__menu-button--active': isMenuVisible }"
@@ -120,30 +93,30 @@ function handleMouseleave(navigationLink: NavigationLink): void {
         </button>
       </div>
       <nav
-        ref="navigation"
+        ref="navigationRef"
         class="navigation header__navigation"
         :class="{
           'header__navigation--open': isMenuVisible,
         }"
       >
         <menu
-          v-if="navigationLinks.length"
+          v-if="navigation?.length"
           class="navigation__menu"
         >
           <li
-            v-for="navigationLink in navigationLinks"
-            :key="navigationLink.text"
+            v-for="navigationItem in navigation"
+            :key="navigationItem._uid"
             class="navigation__item"
-            @mouseover="handleMouseover(navigationLink)"
-            @mouseleave="handleMouseleave(navigationLink)"
+            @mouseover="handleMouseover(navigationItem as SubmenuStoryblok)"
+            @mouseleave="handleMouseleave(navigationItem as SubmenuStoryblok)"
           >
-            <template v-if="navigationLink.submenu?.length">
+            <template v-if="isSubmenuComponent(navigationItem as SubmenuStoryblok)">
               <button
                 type="button"
                 class="navigation__submenu-button"
                 @click="toggleSubmenuVisibility"
               >
-                <span>{{ navigationLink.text }}</span><Icon
+                <span>{{ navigationItem.title }}</span><Icon
                   class="navigation__button-icon"
                   name="material-symbols:keyboard-arrow-down"
                   size="1.25em"
@@ -156,25 +129,25 @@ function handleMouseleave(navigationLink: NavigationLink): void {
                 }"
               >
                 <li
-                  v-for="submenuNavigationLink in navigationLink.submenu"
-                  :key="submenuNavigationLink.text"
+                  v-for="submenuNavigationItem in (navigationItem as SubmenuStoryblok).links"
+                  :key="submenuNavigationItem._uid"
                   class="navigation__item"
                 >
                   <NuxtLink
-                    :to="submenuNavigationLink.to"
+                    :to="submenuNavigationItem.link.story?.url"
                     class="navigation__link"
                   >
-                    {{ submenuNavigationLink.text }}
+                    {{ submenuNavigationItem.label }}
                   </NuxtLink>
                 </li>
               </menu>
             </template>
             <template v-else>
               <NuxtLink
-                :to="navigationLink.to"
+                :to="(navigationItem as NavItemStoryblok).link.story?.url"
                 class="navigation__link"
               >
-                {{ navigationLink.text }}
+                {{ (navigationItem as NavItemStoryblok).label }}
               </NuxtLink>
             </template>
           </li>

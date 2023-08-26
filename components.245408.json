@@ -4,7 +4,7 @@
       "name": "article",
       "display_name": null,
       "created_at": "2023-08-17T18:42:56.203Z",
-      "updated_at": "2023-08-21T14:55:44.479Z",
+      "updated_at": "2023-08-22T08:19:27.604Z",
       "id": 4437519,
       "schema": {
         "date": {
@@ -46,8 +46,8 @@
       "preset_id": null,
       "real_name": "article",
       "component_group_uuid": "4f963b32-e8de-47bf-b6d4-904645d78ddc",
-      "color": null,
-      "icon": null,
+      "color": "#2db47d",
+      "icon": "block-text-img-l",
       "component_group_name": "Blog"
     },
     {
@@ -130,6 +130,114 @@
       "color": null,
       "icon": null,
       "component_group_name": "Blog"
+    },
+    {
+      "name": "button",
+      "display_name": null,
+      "created_at": "2023-08-26T01:19:42.150Z",
+      "updated_at": "2023-08-26T01:29:08.508Z",
+      "id": 4478709,
+      "schema": {
+        "label": {
+          "type": "text",
+          "default_value": "Button label",
+          "required": false
+        },
+        "link": {
+          "type": "multilink"
+        }
+      },
+      "image": null,
+      "preview_field": "label",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "button",
+      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
+      "color": "#395ece",
+      "icon": "block-arrow-pointer",
+      "component_group_name": "General"
+    },
+    {
+      "name": "config",
+      "display_name": null,
+      "created_at": "2023-08-25T15:38:51.769Z",
+      "updated_at": "2023-08-26T01:30:32.125Z",
+      "id": 4478042,
+      "schema": {
+        "header_logo": {
+          "type": "asset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "header_nav": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "nav_item",
+            "submenu"
+          ],
+          "required": true,
+          "pos": 1
+        },
+        "tab-2bd30c4b-5e8c-4a0d-95d3-a9e0d5b83f67": {
+          "display_name": "Header",
+          "keys": [
+            "header_menu",
+            "header_nav",
+            "header_logo",
+            "header_buttons"
+          ],
+          "pos": 2,
+          "type": "tab",
+          "name": "tab-2bd30c4b-5e8c-4a0d-95d3-a9e0d5b83f67"
+        },
+        "tab-af7c469d-dded-4cb7-9a1b-f499b356ce6a": {
+          "display_name": "Footer",
+          "keys": [
+            "footer_nav"
+          ],
+          "pos": 3,
+          "type": "tab",
+          "name": "tab-af7c469d-dded-4cb7-9a1b-f499b356ce6a"
+        },
+        "footer_nav": {
+          "type": "bloks",
+          "required": true,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "nav_item"
+          ],
+          "pos": 4
+        },
+        "header_buttons": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "maximum": 2
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "config",
+      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
+      "color": "#1b243f",
+      "icon": "block-keyboard",
+      "component_group_name": "General"
     },
     {
       "name": "cta-section",
@@ -314,10 +422,43 @@
       "component_group_name": "Home"
     },
     {
+      "name": "nav_item",
+      "display_name": null,
+      "created_at": "2023-08-22T08:45:27.261Z",
+      "updated_at": "2023-08-26T00:43:19.493Z",
+      "id": 4456032,
+      "schema": {
+        "label": {
+          "type": "text",
+          "pos": 0
+        },
+        "link": {
+          "type": "multilink",
+          "required": true,
+          "restrict_content_types": false,
+          "component_whitelist": [],
+          "force_link_scope": false,
+          "pos": 1
+        }
+      },
+      "image": null,
+      "preview_field": "label",
+      "is_root": false,
+      "preview_tmpl": "",
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "nav_item",
+      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
+      "color": null,
+      "icon": null,
+      "component_group_name": "General"
+    },
+    {
       "name": "page",
       "display_name": null,
       "created_at": "2023-08-06T15:40:57.955Z",
-      "updated_at": "2023-08-21T14:57:21.366Z",
+      "updated_at": "2023-08-22T08:18:49.464Z",
       "id": 4385624,
       "schema": {
         "body": {
@@ -334,8 +475,8 @@
       "preset_id": null,
       "real_name": "page",
       "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
-      "color": null,
-      "icon": null,
+      "color": "#2db47d",
+      "icon": "block-text-img-l",
       "component_group_name": "General"
     },
     {
@@ -647,6 +788,40 @@
       "color": null,
       "icon": null,
       "component_group_name": "Home"
+    },
+    {
+      "name": "submenu",
+      "display_name": null,
+      "created_at": "2023-08-22T18:31:09.153Z",
+      "updated_at": "2023-08-26T00:43:19.554Z",
+      "id": 4459519,
+      "schema": {
+        "title": {
+          "type": "text",
+          "required": true
+        },
+        "links": {
+          "type": "bloks",
+          "required": true,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "nav_item"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "submenu",
+      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
+      "color": null,
+      "icon": null,
+      "component_group_name": "General"
     },
     {
       "name": "testimonial",
