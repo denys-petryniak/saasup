@@ -4,10 +4,17 @@ import type { AssetStoryblok, ConfigStoryblok, NavItemStoryblok, SubmenuStoryblo
 const headerNavigation = ref<(NavItemStoryblok | SubmenuStoryblok)[] | null>(null)
 const headerLogo = ref<AssetStoryblok | undefined>(undefined)
 
+const getStoryVersion = computed(() => {
+  // eslint-disable-next-line n/prefer-global/process
+  return process.env.NODE_ENV === 'development'
+    ? 'draft'
+    : 'published'
+})
+
 try {
   const storyblokApi = useStoryblokApi()
   const { data } = await storyblokApi.get('cdn/stories/config', {
-    version: 'draft',
+    version: getStoryVersion.value,
     resolve_links: 'url',
   })
 
