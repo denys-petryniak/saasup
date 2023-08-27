@@ -32,6 +32,14 @@ Storyblok v2 requires your app to be served via HTTPS. Please follow the steps b
 mkcert localhost
 ```
 
+IMPORTANT: Add this to your project’s to gitignore
+
+```bash
+# HTTPS Proxy certificates
+localhost.pem
+localhost-key.pem
+```
+
 #### Storyblok + TypeScript
 
 - Install the Storyblok CLI: `npm i -g storyblok`
