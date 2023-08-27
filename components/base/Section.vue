@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { SectionTag } from '~/types'
+
 interface Props {
-  tag?: 'div' | 'section'
+  tag?: SectionTag
 }
 
 withDefaults(defineProps<Props>(), {

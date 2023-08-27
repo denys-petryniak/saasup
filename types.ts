@@ -1,61 +1,36 @@
+import type {
+  AssetStoryblok,
+  ButtonStoryblok,
+  LinkStoryblok,
+  SubmenuStoryblok,
+} from '~/component-types-sb'
+
 export type ImageLoading = 'lazy' | 'eager'
 
-export interface Image {
-  src: string
-  width?: number
-  height?: number
-  alt?: string
-  loading?: ImageLoading
+export type BadgeSize = 'regular' | 'small'
+export type BadgeColor = 'purple' | 'white' | 'orange'
+
+export type ButtonWidth = 'full'
+export type ButtonSize = 'small' | 'medium'
+export type ButtonColor = 'branded' | 'light' | 'light-branded' | 'light-bordered' | 'dark' | 'dark-branded'
+
+export type SectionTag = 'div' | 'section' | 'article'
+
+export interface HeaderData {
+  navigation: (LinkStoryblok | SubmenuStoryblok)[] | null
+  logo: AssetStoryblok | undefined
 }
 
-export interface Cost {
-  title: string
-  description: string
-  image: Image
-}
-
-export interface Card {
-  img: Image
-  date?: string
-  title: string
-  description: string
-  linkText: string
-}
-
-export interface Step {
-  name: string
-  icon: Image
-  title: string
-  description: string
-  image: Image
-}
-
-interface TestimonialAuthor {
-  name: string
-  photo: Image
-  job: string
-  rating: number
-}
-
-export interface Testimonial {
-  text: string
-  author: TestimonialAuthor
-}
-
-export interface Payment {
-  title: string
-  images: Image[]
-}
-
-interface PricingFeature {
-  text: string
-}
-
-export interface PricingPlan {
-  title: string
-  caption: string
-  price: string
-  billingDescription: string
-  isPopular: boolean
-  features: PricingFeature[]
+export interface FooterData {
+  headline: string | null
+  description: string | null
+  copyright: string | null
+  navigation: (LinkStoryblok)[] | null
+  emails: LinkStoryblok[] | null
+  phones: LinkStoryblok[] | null
+  socialLinks: LinkStoryblok[] | null
+  widgetLabel: string | null
+  widgetTitle: string | null
+  widgetDescription: string | null
+  widgetButtons: ButtonStoryblok[] | null
 }

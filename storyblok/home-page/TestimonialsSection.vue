@@ -2,15 +2,13 @@
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
-import type { Testimonial } from '~/types'
+import type { TestimonialsSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
-  subtitle: string
-  title: string
-  testimonials: Testimonial[]
+  blok: TestimonialsSectionStoryblok
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const carouselSettings = ref({
   wrapAround: true, // enable infinite scrolling mode
@@ -20,7 +18,10 @@ const carouselSettings = ref({
 const img = useImage()
 
 const getTestimonialsBackground = computed(() => {
-  const imgUrl = img('/images/main-page/testimonials-bg-decor.png', {
+  if (!props.blok.background?.filename)
+    return
+
+  const imgUrl = img(props.blok.background.filename, {
     format: 'webp',
   })
 
@@ -29,11 +30,14 @@ const getTestimonialsBackground = computed(() => {
 </script>
 
 <template>
-  <BaseSection class="testimonials-section">
+  <BaseSection
+    v-editable="blok"
+    class="testimonials-section"
+  >
     <div class="testimonials-section__head">
-      <BaseBadge>{{ subtitle }}</BaseBadge>
-      <h2 class="testimonials-section__title">
-        {{ title }}
+      <BaseBadge>{{ blok.badge }}</BaseBadge>
+      <h2 class="testimonials-section__heading">
+        {{ blok.heading }}
       </h2>
     </div>
     <Carousel
@@ -42,36 +46,12 @@ const getTestimonialsBackground = computed(() => {
     >
       <template #slides>
         <Slide
-          v-for="slide in testimonials"
-          :key="slide.text"
+          v-for="testimonial in blok.testimonials"
+          :key="testimonial._uid"
         >
-          <div class="carousel__item">
-            <p class="carousel__text">
-              {{ slide.text }}
-            </p>
-            <div class="carousel__author">
-              <NuxtImg
-                v-if="slide.author?.photo?.src"
-                :src="slide.author.photo.src"
-                :width="slide.author.photo.width"
-                :height="slide.author.photo.height"
-                :alt="slide.author.photo.alt"
-                format="jpg"
-                loading="lazy"
-                class="carousel__author-image"
-              />
-              <p class="carousel__author-name">
-                {{ slide.author?.name }}
-              </p>
-              <p class="carousel__author-job">
-                {{ slide.author?.job }}
-              </p>
-              <Rating
-                :rating="slide.author?.rating"
-                class="carousel__author-rating"
-              />
-            </div>
-          </div>
+          <Testimonial
+            :blok="testimonial"
+          />
         </Slide>
       </template>
       <template #addons>
@@ -92,7 +72,7 @@ $section-bg-decor-z-index: -1;
     text-align: center;
   }
 
-  &__title {
+  &__heading {
     margin-top: $spacing--xlarge;
     color: $color-white--regular;
   }
@@ -133,7 +113,6 @@ $section-bg-decor-z-index: -1;
 $carousel-button-color: #6850FF;
 $carousel-button-blur: 12px;
 $carousel-button-size: convert(76px, 'rem');
-$carousel-quote-icon-size: convert(40px, 'rem');
 
 .carousel {
   &__slide {
@@ -153,54 +132,6 @@ $carousel-quote-icon-size: convert(40px, 'rem');
       background-color: $carousel-button-color;
       color: $color-white--regular;
     }
-  }
-
-  &__item {
-    position: relative;
-    color: $color-white--regular;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0 0 0 50%;
-      transform: translate3d(-50%, 0, 0);
-      width: $carousel-quote-icon-size;
-      height: $carousel-quote-icon-size;
-      background: url('/images/quote.svg') no-repeat center/contain;
-    }
-  }
-
-  &__text {
-    margin-top: $gap--small;
-    font-style: italic;
-  }
-
-  &__author {
-    margin-top: $spacing--xlarge;
-  }
-
-  &__author-image {
-    border-radius: $border-radius--circle;
-  }
-
-  &__author-name,
-  &__author-job,
-  &__author-rating {
-    margin: calc($spacing--large / 2) 0 0 0;
-  }
-
-  &__author-name {
-    @include fluid-typography(
-      $min-font-size: $font-size--xlarge,
-      $max-font-size: $font-size--3xlarge,
-      $min-line-height: $line-height--3xsmall,
-      $max-line-height: $line-height--2xsmall,
-    );
-    font-weight: $font-weight--bold;
-  }
-
-  &__author-job {
-    font-weight: $font-weight--semibold;
   }
 }
 

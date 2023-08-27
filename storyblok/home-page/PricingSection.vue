@@ -1,41 +1,48 @@
 <script setup lang="ts">
-import type { Payment, PricingPlan } from '~/types'
+import type { PricingSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
-  subtitle: string
-  title: string
-  description: string
-  payment: Payment
-  pricingPlans: PricingPlan[]
+  blok: PricingSectionStoryblok
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const getSectionDescription = computed(() =>
+  renderRichText(props.blok.description),
+)
 </script>
 
 <template>
-  <BaseSection class="pricing-section">
+  <BaseSection
+    v-editable="blok"
+    class="pricing-section"
+  >
     <div class="pricing-section__content">
-      <BaseBadge>{{ subtitle }}</BaseBadge>
-      <h2 class="pricing-section__title">
-        {{ title }}
+      <BaseBadge>{{ blok.badge }}</BaseBadge>
+      <h2 class="pricing-section__heading">
+        {{ blok.heading }}
       </h2>
-      <p class="pricing-section__description">
-        {{ description }}
-      </p>
+      <div
+        class="pricing-section__description"
+        v-html="getSectionDescription"
+      />
       <div class="payment pricing-section__payment">
         <h3 class="payment__title">
-          {{ payment.title }}
+          {{ blok.payment_heading }}
         </h3>
-        <div class="payment__body">
+        <div
+          v-if="blok.payment_images?.length"
+          class="payment__body"
+        >
           <div
-            v-for="paymentImage in payment.images"
-            :key="paymentImage.src"
+            v-for="paymentImage in blok.payment_images"
+            :key="paymentImage.id"
             class="payment__image-box"
           >
             <img
-              :src="paymentImage.src"
-              :width="paymentImage.width"
-              :height="paymentImage.height"
+              :src="paymentImage.filename"
+              :width="480"
+              :height="480"
               :alt="paymentImage.alt"
               :title="paymentImage.alt"
               loading="lazy"
@@ -46,13 +53,13 @@ defineProps<Props>()
       </div>
     </div>
     <div
-      v-if="pricingPlans.length"
+      v-if="blok.pricing_plans?.length"
       class="pricing-section__plans"
     >
-      <PricingPlanCard
-        v-for="pricingPlan in pricingPlans"
-        :key="pricingPlan.title"
-        :card="pricingPlan"
+      <PricingPlan
+        v-for="pricingPlan in blok.pricing_plans"
+        :key="pricingPlan._uid"
+        :blok="pricingPlan"
         class="pricing-section__plans-item"
       />
     </div>
@@ -80,7 +87,7 @@ defineProps<Props>()
     flex: 1 1 convert(250px, 'rem');
   }
 
-  &__title {
+  &__heading {
     margin-top: $spacing--xlarge;
   }
 }

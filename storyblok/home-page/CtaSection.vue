@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import type { Image } from '~/types'
+import type { CtaSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
-  title: string
-  description: string
-  image: Image
-  backgroundImage: Image
+  blok: CtaSectionStoryblok
 }
 
 const props = defineProps<Props>()
+
+const getSectionDescription = computed(() =>
+  renderRichText(props.blok.description),
+)
 
 const formData = reactive({
   email: '',
@@ -29,7 +30,10 @@ function submitForm() {
 const img = useImage()
 
 const getSectionBackground = computed(() => {
-  const imgUrl = img(props.backgroundImage.src, {
+  if (!props.blok.background_image)
+    return
+
+  const imgUrl = img(props.blok.background_image.filename, {
     format: 'webp',
   })
 
@@ -38,14 +42,18 @@ const getSectionBackground = computed(() => {
 </script>
 
 <template>
-  <BaseSection class="cta-section">
+  <BaseSection
+    v-editable="blok"
+    class="cta-section"
+  >
     <div class="cta-section__content">
-      <h2 class="cta-section__title">
-        {{ title }}
+      <h2 class="cta-section__heading">
+        {{ blok.heading }}
       </h2>
-      <p class="cta-section__description">
-        {{ description }}
-      </p>
+      <div
+        class="cta-section__description"
+        v-html="getSectionDescription"
+      />
       <div
         v-if="isSuccess"
         class="cta-section__success-message"
@@ -77,11 +85,11 @@ const getSectionBackground = computed(() => {
     </div>
     <div class="cta-section__image-box">
       <NuxtImg
-        v-if="image.src"
-        :src="image.src"
-        :width="image.width"
-        :height="image.height"
-        :alt="image.alt"
+        v-if="blok.image?.filename"
+        :src="blok.image.filename"
+        :width="1336"
+        :height="988"
+        :alt="blok.image.alt"
         format="avif,webp"
         sizes="sm:100vw xl:670px"
         loading="lazy"
@@ -112,7 +120,7 @@ $section-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--3xl
     flex: 1 1 convert(500px, 'rem');
   }
 
-  &__title {
+  &__heading {
     margin: 0;
     color: $color-white--regular;
   }

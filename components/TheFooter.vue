@@ -1,110 +1,26 @@
 <script setup lang="ts">
-const navigationLinks = ref([
-  {
-    to: '/',
-    text: 'Home',
-  },
-  {
-    to: '/about',
-    text: 'About',
-  },
-  {
-    to: '/features',
-    text: 'Features',
-  },
-  {
-    to: '/pricing',
-    text: 'Pricing',
-  },
-  {
-    to: '/integrations',
-    text: 'Integrations',
-  },
-  {
-    to: '/blog',
-    text: 'Blog',
-  },
-  {
-    to: '/careers',
-    text: 'Careers',
-  },
-  {
+import type { FooterData } from 'types'
 
-    to: '/contacts',
-    text: 'Contacts',
-  },
-])
+interface Props {
+  data: FooterData
+}
 
-const contacts = ref([
-  {
-    type: 'mail',
-    icon: {
-      name: 'carbon:email',
-    },
-    links: [
-      {
-        to: 'mailto:saasup@gmail.com',
-        text: 'saasup@gmail.com',
-      },
-      {
-        to: 'mailto:mail@saasup.com',
-        text: 'mail@saasup.com',
-      },
-    ],
+defineProps<Props>()
 
-  },
-  {
-    type: 'tel',
-    icon: {
-      name: 'carbon:phone',
-    },
-    links: [
-      {
-        to: 'tel:+98765413654',
-        text: '+987 6541 3654',
-      },
-      {
-        to: 'tel:+00165476589',
-        text: '+001 6547 6589',
-      },
-    ],
-  },
-])
-
-const socialLinks = ref([
-  {
-    icon: {
-      name: 'carbon:logo-facebook',
-    },
-    link: {
-      to: 'https://facebook.com',
-    },
-  },
-  {
-    icon: {
-      name: 'carbon:logo-twitter',
-    },
-    link: {
-      to: 'https://twitter.com',
-    },
-  },
-  {
-    icon: {
-      name: 'carbon:logo-linkedin',
-    },
-    link: {
-      to: 'https://linkedin.com',
-    },
-  },
-  {
-    icon: {
-      name: 'carbon:logo-instagram',
-    },
-    link: {
-      to: 'https://instagram.com',
-    },
-  },
-])
+function getSocialLinkLogo(label: string | undefined): string {
+  switch (label) {
+    case 'Facebook':
+      return 'carbon-logo-facebook'
+    case 'Twitter':
+      return 'carbon-logo-twitter'
+    case 'Linkedin':
+      return 'carbon-logo-linkedin'
+    case 'Instagram':
+      return 'carbon-logo-instagram'
+    default:
+      return 'carbon-logo-facebook'
+  }
+}
 </script>
 
 <template>
@@ -116,81 +32,73 @@ const socialLinks = ref([
     >
       <div class="footer__section">
         <AppLogoLink loading="lazy" />
-        <p class="footer__text">
-          The Professional SaaS business tool, It will helps to grow your business with more productivity.
+        <p class="footer__description">
+          {{ data.description }}
         </p>
-        <div
-          v-if="contacts.length"
-          class="footer__contacts"
-        >
-          <div
-            v-for="contact in contacts"
-            :key="contact.type"
-            class="footer__contact"
-          >
-            <Icon
-              class="footer__contact-icon"
-              :name="contact.icon.name"
-              size="1.25em"
-            />
-            <div class="footer__contact-links">
-              <NuxtLink
-                v-for="link in contact.links"
-                :key="link.to"
-                :to="link.to"
-                no-rel
-                class="link footer__contact-link"
-              >
-                {{ link.text }}
-              </NuxtLink>
-            </div>
-          </div>
+        <div class="footer__contacts">
+          <FooterContactBlock
+            v-if="data.emails?.length"
+            type="email"
+            icon-name="carbon:email"
+            :links="data.emails"
+          />
+          <FooterContactBlock
+            v-if="data.phones?.length"
+            type="phone"
+            icon-name="carbon:phone"
+            :links="data.phones"
+          />
         </div>
       </div>
       <nav class="navigation footer__section">
-        <h4 class="navigation__title">
-          Pages
+        <h4 class="navigation__headline">
+          {{ data.headline }}
         </h4>
         <menu
-          v-if="navigationLinks.length"
+          v-if="data.navigation?.length"
           class="navigation__menu"
         >
           <li
-            v-for="navigationLink in navigationLinks"
-            :key="navigationLink.text"
+            v-for="navigationItem in data.navigation"
+            :key="navigationItem._uid"
             class="navigation__item"
           >
             <NuxtLink
-              :to="navigationLink.to"
+              :to="navigationItem.link.story?.url"
               class="navigation__link"
             >
-              {{ navigationLink.text }}
+              {{ navigationItem.label }}
             </NuxtLink>
           </li>
         </menu>
       </nav>
       <div class="footer__section">
-        <DownloadWidget />
+        <DownloadWidget
+          :label="data.widgetLabel"
+          :title="data.widgetTitle"
+          :description="data.widgetDescription"
+          :buttons="data.widgetButtons"
+        />
       </div>
     </BaseSection>
     <BaseDivider />
     <div class="footer__copyright">
       <p class="footer__copyright-text">
-        Copyright © Saasup | Designed by Victorflow
+        {{ data.copyright }}
       </p>
       <div
-        v-if="socialLinks.length"
+        v-if="data.socialLinks?.length"
         class="footer__social-links"
       >
         <NuxtLink
-          v-for="socialLink in socialLinks"
-          :key="socialLink.link.to"
-          :to="socialLink.link.to"
+          v-for="socialLink in data.socialLinks"
+          :key="socialLink._uid"
+          :to="socialLink.link.url"
           target="_blank"
           class="footer__social-link"
         >
           <Icon
-            :name="socialLink.icon.name"
+            :name="getSocialLinkLogo(socialLink.label)"
             size="1.5em"
           />
         </NuxtLink>
@@ -208,33 +116,9 @@ const socialLinks = ref([
     column-gap: $spacing--2xlarge;
   }
 
-  &__text,
+  &__description,
   &__contacts {
     margin-top: $spacing--xlarge;
-  }
-
-  &__contact {
-    display: flex;
-    gap: $spacing--medium;
-
-    &:not(:first-child) {
-      margin-top: $spacing--medium;
-    }
-  }
-
-  &__contact-icon {
-    position: relative;
-    top: $spacing--small;
-    color: $color-primary--light;
-  }
-
-  &__contact-link {
-    display: block;
-    color: $color--secondary--dark;
-
-    &:hover {
-      color: $color-primary--light;
-    }
   }
 
   &__copyright {
@@ -263,7 +147,7 @@ const socialLinks = ref([
 }
 
 .navigation {
-  &__title {
+  &__headline {
     position: relative;
     margin-top: 0;
     padding-bottom: $spacing--large;

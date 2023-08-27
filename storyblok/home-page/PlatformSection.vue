@@ -1,52 +1,62 @@
 <script setup lang="ts">
-import type { Cost, Image } from '~/types'
+import type { PlatformSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
-  title: string
-  description: string
-  image: Image
-  cost: Cost
+  blok: PlatformSectionStoryblok
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const getSectionDescription = computed(() =>
+  renderRichText(props.blok.description),
+)
+
+const getCostBlockDescription = computed(() =>
+  renderRichText(props.blok.cost_description),
+)
 </script>
 
 <template>
-  <BaseSection class="platform-section">
+  <BaseSection
+    v-editable="blok"
+    class="platform-section"
+  >
     <div class="platform-section__content">
-      <h2 class="platform-section__title">
-        {{ title }}
+      <h2 class="platform-section__heading">
+        {{ blok.heading }}
       </h2>
-      <p class="platform-section__description">
-        {{ description }}
-      </p>
+      <div
+        class="platform-section__description"
+        v-html="getSectionDescription"
+      />
       <div class="cost platform-section__cost">
         <img
-          v-if="cost.image.src"
-          :src="cost.image.src"
-          :width="cost.image.width"
-          :height="cost.image.height"
-          :alt="cost.image.alt"
+          v-if="blok.cost_image?.filename"
+          :src="blok.cost_image.filename"
+          :width="96"
+          :height="103"
+          :alt="blok.cost_image.alt"
           loading="lazy"
           class="cost__icon"
         >
         <div class="cost__text">
-          <h3 class="cost__title">
-            {{ cost.title }}
+          <h3 class="cost__heading">
+            {{ blok.cost_heading }}
           </h3>
-          <p class="cost__description">
-            {{ cost.description }}
-          </p>
+          <div
+            class="cost__description"
+            v-html="getCostBlockDescription"
+          />
         </div>
       </div>
     </div>
-    <div class="platform-section__image-container">
+    <div class="platform-section__image-box">
       <NuxtImg
-        v-if="image.src"
-        :src="image.src"
-        :width="image.width"
-        :height="image.height"
-        :alt="image.alt"
+        v-if="blok.image?.filename"
+        :src="blok.image.filename"
+        :width="1541"
+        :height="1168"
+        :alt="blok.image.alt"
         format="avif,webp"
         sizes="sm:100vw xl:740px"
         loading="lazy"
@@ -87,11 +97,11 @@ $section-bg-z-index: -2;
     }
   }
 
-  &__image-container {
+  &__image-box {
     flex: 1 1 convert(500px, 'rem');
   }
 
-  &__title {
+  &__heading {
     margin: 0;
   }
 
@@ -126,7 +136,7 @@ $section-bg-z-index: -2;
     flex: 1 1 convert(374px, 'rem');
   }
 
-  &__title {
+  &__heading {
     margin: 0;
     font-weight: $font-weight--bold;
     line-height: $line-height--4xsmall;

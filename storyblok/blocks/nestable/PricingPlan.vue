@@ -1,47 +1,53 @@
 <script setup lang="ts">
-import type { PricingPlan } from '~/types'
+import type { PricingPlanStoryblok } from '~/component-types-sb'
 
 interface Props {
-  card: PricingPlan
+  blok: PricingPlanStoryblok
 }
 
 defineProps<Props>()
 </script>
 
 <template>
-  <div class="pricing-plan">
+  <div
+    v-editable="blok"
+    class="pricing-plan"
+  >
     <div class="pricing-plan__head">
       <h3 class="pricing-plan__title">
-        {{ card.title }}
+        {{ blok.title }}
       </h3>
       <BaseBadge
         size="small"
-        :color="card.isPopular ? 'purple' : 'white'"
+        :color="blok.popular ? 'purple' : 'white'"
       >
-        {{ card.caption }}
+        {{ blok.caption }}
       </BaseBadge>
     </div>
     <div class="pricing-plan__price-container">
       <p class="pricing-plan__price">
-        {{ card.price }}
+        {{ blok.price }}
       </p>
       <BaseBadge
         size="small"
         color="orange"
       >
-        {{ card.billingDescription }}
+        {{ blok.billing_description }}
       </BaseBadge>
     </div>
-    <ul class="pricing-plan__features">
+    <ul
+      v-if="blok.features?.length"
+      class="pricing-plan__features"
+    >
       <li
-        v-for="pricingPlanFeature in card.features"
-        :key="pricingPlanFeature.text"
+        v-for="(pricingPlanFeature, index) in blok.features"
+        :key="index"
         class="pricing-plan__features-item"
       >
-        {{ pricingPlanFeature.text }}
+        {{ pricingPlanFeature }}
       </li>
     </ul>
-    <BaseButton :color="card.isPopular ? 'dark' : 'light-bordered'">
+    <BaseButton :color="blok.popular ? 'dark' : 'light-bordered'">
       Get Started
     </BaseButton>
   </div>

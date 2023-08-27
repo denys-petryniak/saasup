@@ -1,37 +1,45 @@
 <script setup lang="ts">
-import type { Card } from '~/types'
+import type { FeatureStoryblok } from '~/component-types-sb'
 
 interface Props {
-  card: Card
+  blok: FeatureStoryblok
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const getCardDescription = computed(() =>
+  renderRichText(props.blok.description),
+)
 </script>
 
 <template>
-  <div class="card">
+  <div
+    v-editable="blok"
+    class="card"
+  >
     <NuxtImg
-      v-if="card.img.src"
-      :src="card.img.src"
-      :width="card.img.width"
-      :height="card.img.height"
-      :alt="card.img.alt"
+      v-if="blok.image?.filename"
+      :src="blok.image.filename"
+      :width="2000"
+      :height="1500"
+      :alt="blok.image.alt"
       format="avif,webp"
       sizes="xs:100vw sm:360px"
       loading="lazy"
       class="card__image"
     />
-    <h3 class="card__title">
-      {{ card.title }}
+    <h3 class="card__heading">
+      {{ blok.heading }}
     </h3>
-    <p class="card__description">
-      {{ card.description }}
-    </p>
+    <div
+      class="card__description"
+      v-html="getCardDescription"
+    />
     <NuxtLink
       to="/features"
       class="card__link"
     >
-      {{ card.linkText }}
+      {{ blok.linkText }}
     </NuxtLink>
   </div>
 </template>
@@ -45,7 +53,7 @@ $card-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarg
   text-align: center;
   border-radius: $border-radius--2xlarge;
 
-  &__title {
+  &__heading {
     margin-top: $spacing--2xlarge;
   }
 

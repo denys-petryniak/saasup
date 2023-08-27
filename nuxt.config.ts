@@ -1,3 +1,4 @@
+/* eslint-disable n/prefer-global/process */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
@@ -57,6 +58,18 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    // https://github.com/storyblok/storyblok-nuxt
+    [
+      '@storyblok/nuxt',
+      {
+        accessToken: process.env.NODE_ENV === 'development'
+          ? process.env.STORYBLOK_PREVIEW_TOKEN
+          : process.env.STORYBLOK_PUBLIC_TOKEN,
+        apiOptions: {
+          region: 'eu',
+        },
+      },
+    ],
     // https://www.npmjs.com/package/@vueuse/nuxt
     '@vueuse/nuxt',
 
@@ -67,6 +80,10 @@ export default defineNuxtConfig({
     [
       '@nuxt/image',
       {
+        provider: 'storyblok',
+        storyblok: {
+          baseURL: 'https://a.storyblok.com',
+        },
         // The screen sizes predefined by `@nuxt/image`:
         screens: {
           xs: 320,
