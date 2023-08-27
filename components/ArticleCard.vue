@@ -11,6 +11,11 @@ const props = defineProps<Props>()
 const getDescription = computed(() =>
   renderRichText(props.article.content),
 )
+
+const dateFormatter = ref('MMMM DD, YYYY')
+const formattedDate = useDateFormat(props.article.date, dateFormatter, {
+  locales: 'en-US',
+})
 </script>
 
 <template>
@@ -40,11 +45,9 @@ const getDescription = computed(() =>
       </BaseButton>
     </div>
     <p class="card__date">
-      {{ article.date }}
+      {{ formattedDate }}
     </p>
-    <NuxtLink
-      :to="slug"
-    >
+    <NuxtLink :to="slug">
       <h3 class="card__title">
         {{ article.title }}
       </h3>
