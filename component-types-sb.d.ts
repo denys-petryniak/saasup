@@ -1,5 +1,12 @@
 import {StoryblokStory} from 'storyblok-generate-ts'
 
+export interface AllArticlesStoryblok {
+  title?: string;
+  _uid: string;
+  component: "all-articles";
+  [k: string]: any;
+}
+
 export interface RichtextStoryblok {
   type: string;
   content?: RichtextStoryblok[];
