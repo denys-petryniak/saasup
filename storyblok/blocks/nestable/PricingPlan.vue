@@ -19,7 +19,7 @@ defineProps<Props>()
       </h3>
       <BaseBadge
         size="small"
-        :color="blok?.popular ? 'purple' : 'white'"
+        :color="blok.popular ? 'purple' : 'white'"
       >
         {{ blok.caption }}
       </BaseBadge>

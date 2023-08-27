@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import type { FooterData, HeaderData } from 'types'
-import type {
-  ConfigStoryblok,
-} from '~/component-types-sb'
+import type { ConfigStoryblok } from '~/component-types-sb'
 
 const headerData: HeaderData = reactive({
   navigation: null,
