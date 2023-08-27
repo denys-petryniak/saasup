@@ -14,19 +14,19 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const src = computed(() => {
-  return props.src ?? '/images/saasup-logo.svg'
+  return props.src || '/images/saasup-logo.svg'
 })
 
 const width = computed(() => {
-  return Number(props.width) ?? 173
+  return Number(props.width) || 173
 })
 
 const height = computed(() => {
-  return Number(props.height) ?? 41
+  return Number(props.height) || 41
 })
 
 const alt = computed(() => {
-  return props.alt ?? 'SaaSup App Logo'
+  return props.alt || 'SaaSup App Logo'
 })
 </script>
 

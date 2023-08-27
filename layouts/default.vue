@@ -1,8 +1,27 @@
 <script setup lang="ts">
-import type { AssetStoryblok, ConfigStoryblok, NavItemStoryblok, SubmenuStoryblok } from '~/component-types-sb'
+import type { FooterData, HeaderData } from 'types'
+import type {
+  ConfigStoryblok,
+} from '~/component-types-sb'
 
-const headerNavigation = ref<(NavItemStoryblok | SubmenuStoryblok)[] | null>(null)
-const headerLogo = ref<AssetStoryblok | undefined>(undefined)
+const headerData: HeaderData = reactive({
+  navigation: null,
+  logo: undefined,
+})
+
+const footerData: FooterData = reactive({
+  headline: null,
+  description: null,
+  copyright: null,
+  navigation: null,
+  emails: null,
+  phones: null,
+  socialLinks: null,
+  widgetLabel: null,
+  widgetTitle: null,
+  widgetDescription: null,
+  widgetButtons: null,
+})
 
 const getStoryVersion = computed(() => {
   // eslint-disable-next-line n/prefer-global/process
@@ -20,8 +39,20 @@ try {
 
   const content: ConfigStoryblok = data.story.content
 
-  headerLogo.value = content.header_logo
-  headerNavigation.value = content.header_nav
+  headerData.logo = content.header_logo
+  headerData.navigation = content.header_nav
+
+  footerData.headline = content.footer_nav_headline
+  footerData.description = content.footer_description
+  footerData.copyright = content.footer_copyright_text
+  footerData.navigation = content.footer_nav
+  footerData.emails = content.footer_emails
+  footerData.phones = content.footer_phones
+  footerData.socialLinks = content.footer_social_links
+  footerData.widgetLabel = content.download_widget_label
+  footerData.widgetTitle = content.download_widget_title
+  footerData.widgetDescription = content.download_widget_description
+  footerData.widgetButtons = content.download_widget_buttons
 }
 catch (error) {
   console.error('An error occurred:', error)
@@ -31,14 +62,16 @@ catch (error) {
 <template>
   <BaseContainer class="layout">
     <TheHeader
-      :logo="headerLogo"
-      :navigation="headerNavigation"
+      :data="headerData"
       class="layout__header"
     />
     <main class="layout__body">
       <slot />
     </main>
-    <TheFooter class="layout__footer" />
+    <TheFooter
+      :data="footerData"
+      class="layout__footer"
+    />
   </BaseContainer>
 </template>
 

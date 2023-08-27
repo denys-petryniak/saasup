@@ -1,17 +1,28 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { ButtonStoryblok } from 'component-types-sb'
+
+interface Props {
+  label: string | null
+  title: string | null
+  description: string | null
+  buttons: ButtonStoryblok[] | null
+}
+
+defineProps<Props>()
+</script>
 
 <template>
   <div class="widget">
     <p class="widget__label">
-      Download
+      {{ label }}
     </p>
     <h4 class="widget__title">
-      Its perfectly suitable to all
-      operating platforms
+      {{ title }}
     </h4>
     <p class="widget__description">
-      Encompasses values and behaviors that contribute to the unique social business.
+      {{ description }}
     </p>
+    <!-- TODO: replace hardcoded buttons data with dynamic from storyblok -->
     <div class="widget__buttons">
       <BaseButton
         color="dark-branded"

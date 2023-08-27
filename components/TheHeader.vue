@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { AssetStoryblok, NavItemStoryblok, SubmenuStoryblok } from '~/component-types-sb'
+import type { HeaderData } from 'types'
+import type { LinkStoryblok, SubmenuStoryblok } from '~/component-types-sb'
 
 interface Props {
-  logo: AssetStoryblok | undefined
-  navigation: (NavItemStoryblok | SubmenuStoryblok)[] | null
+  data: HeaderData
 }
 
 defineProps<Props>()
@@ -57,11 +57,11 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
   <header class="header">
     <div class="header__head">
       <AppLogoLink
-        v-if="logo"
-        :src="logo?.filename"
-        :width="logo?.meta_data?.width"
-        :height="logo?.meta_data?.height"
-        :alt="logo?.alt"
+        v-if="data.logo"
+        :src="data.logo?.filename"
+        :width="data.logo?.meta_data?.width"
+        :height="data.logo?.meta_data?.height"
+        :alt="data.logo?.alt"
       />
     </div>
     <div class="header__main">
@@ -100,11 +100,11 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
         }"
       >
         <menu
-          v-if="navigation?.length"
+          v-if="data.navigation?.length"
           class="navigation__menu"
         >
           <li
-            v-for="navigationItem in navigation"
+            v-for="navigationItem in data.navigation"
             :key="navigationItem._uid"
             class="navigation__item"
             @mouseover="handleMouseover(navigationItem as SubmenuStoryblok)"
@@ -144,10 +144,10 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
             </template>
             <template v-else>
               <NuxtLink
-                :to="(navigationItem as NavItemStoryblok).link.story?.url"
+                :to="(navigationItem as LinkStoryblok).link.story?.url"
                 class="navigation__link"
               >
-                {{ (navigationItem as NavItemStoryblok).label }}
+                {{ (navigationItem as LinkStoryblok).label }}
               </NuxtLink>
             </template>
           </li>

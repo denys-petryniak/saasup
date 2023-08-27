@@ -114,9 +114,23 @@ export interface ButtonStoryblok {
 }
 
 export interface ConfigStoryblok {
+  footer_description: string;
+  navigation?: any;
+  footer_nav_headline: string;
+  footer_nav: LinkStoryblok[];
+  contacts?: any;
+  footer_emails: LinkStoryblok[];
+  footer_phones: LinkStoryblok[];
+  social_links?: any;
+  footer_social_links: LinkStoryblok[];
+  download_widget?: any;
+  download_widget_label: string;
+  download_widget_title: string;
+  download_widget_description: string;
+  download_widget_buttons: ButtonStoryblok[];
+  footer_copyright_text: string;
   header_logo?: AssetStoryblok;
-  header_nav: (NavItemStoryblok | SubmenuStoryblok)[];
-  footer_nav: NavItemStoryblok[];
+  header_nav: (SubmenuStoryblok | LinkStoryblok)[];
   header_buttons?: ButtonStoryblok[];
   _uid: string;
   component: "config";
@@ -161,11 +175,11 @@ export interface HeroSectionStoryblok {
   [k: string]: any;
 }
 
-export interface NavItemStoryblok {
+export interface LinkStoryblok {
   label?: string;
   link: MultilinkStoryblok;
   _uid: string;
-  component: "nav_item";
+  component: "link";
   [k: string]: any;
 }
 
@@ -255,7 +269,7 @@ export interface StepsSectionStoryblok {
 
 export interface SubmenuStoryblok {
   title: string;
-  links: NavItemStoryblok[];
+  links: LinkStoryblok[];
   _uid: string;
   component: "submenu";
   [k: string]: any;
