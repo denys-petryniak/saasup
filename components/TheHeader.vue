@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { HeaderData } from 'types'
+import type { HeaderData } from '~/types'
 import type { LinkStoryblok, SubmenuStoryblok } from '~/component-types-sb'
 
 interface Props {

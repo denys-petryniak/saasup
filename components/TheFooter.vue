@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FooterData } from 'types'
+import type { FooterData } from '~/types'
 
 interface Props {
   data: FooterData

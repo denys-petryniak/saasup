@@ -3,7 +3,7 @@ import type { LinkStoryblok, MultilinkStoryblok } from '~/component-types-sb'
 
 interface Props {
   type: string
-  iconName: string | number
+  iconName: string
   links: LinkStoryblok[] | null
 }
 
