@@ -8,8 +8,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const getHeroDescription = computed(() =>
-  renderRichText(props.blok.description),
-)
+  renderRichText(props.blok.description))
 </script>
 
 <template>

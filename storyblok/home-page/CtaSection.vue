@@ -8,8 +8,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const getSectionDescription = computed(() =>
-  renderRichText(props.blok.description),
-)
+  renderRichText(props.blok.description))
 
 const formData = reactive({
   email: '',

@@ -8,12 +8,10 @@ interface Props {
 const props = defineProps<Props>()
 
 const getSectionDescription = computed(() =>
-  renderRichText(props.blok.description),
-)
+  renderRichText(props.blok.description))
 
 const getCostBlockDescription = computed(() =>
-  renderRichText(props.blok.cost_description),
-)
+  renderRichText(props.blok.cost_description))
 </script>
 
 <template>

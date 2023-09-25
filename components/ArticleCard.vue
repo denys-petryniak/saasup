@@ -9,8 +9,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const getDescription = computed(() =>
-  renderRichText(props.article.content),
-)
+  renderRichText(props.article.content))
 
 const dateFormatter = ref('MMMM DD, YYYY')
 const formattedDate = useDateFormat(props.article.date, dateFormatter, {
