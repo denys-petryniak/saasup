@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FooterData, HeaderData } from 'types'
+import type { FooterData, HeaderData } from '~/types'
 import type { ConfigStoryblok } from '~/component-types-sb'
 
 const headerData: HeaderData = reactive({
@@ -22,7 +22,6 @@ const footerData: FooterData = reactive({
 })
 
 const getStoryVersion = computed(() => {
-  // eslint-disable-next-line n/prefer-global/process
   return process.env.NODE_ENV === 'development'
     ? 'draft'
     : 'published'

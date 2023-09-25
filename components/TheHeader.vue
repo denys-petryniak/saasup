@@ -51,6 +51,12 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
   if (isSubmenuComponent(navigationItem) && isDesktopScreenSize.value && isSubmenuVisible.value)
     closeSubmenu()
 }
+
+function getNavigationSlug(navigationItem: LinkStoryblok): string {
+  const { slug } = useNavigationSlug(navigationItem)
+
+  return slug
+}
 </script>
 
 <template>
@@ -134,7 +140,7 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
                   class="navigation__item"
                 >
                   <NuxtLink
-                    :to="submenuNavigationItem.link.story?.url"
+                    :to="getNavigationSlug(submenuNavigationItem)"
                     class="navigation__link"
                   >
                     {{ submenuNavigationItem.label }}
@@ -144,7 +150,7 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
             </template>
             <template v-else>
               <NuxtLink
-                :to="(navigationItem as LinkStoryblok).link.story?.url"
+                :to="getNavigationSlug(navigationItem as LinkStoryblok)"
                 class="navigation__link"
               >
                 {{ (navigationItem as LinkStoryblok).label }}

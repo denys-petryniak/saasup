@@ -7,7 +7,7 @@ useHead({
 
 const route = useRoute()
 const slug = route.params.slug
-const query = route.query
+// const query = route.query
 
 const resolveRelations = [
   'blog-section.articles',
@@ -16,7 +16,6 @@ const resolveRelations = [
 const getStoryVersion = computed(() => {
   // return query._storyblok ? 'draft' : 'published'
 
-  // eslint-disable-next-line n/prefer-global/process
   return process.env.NODE_ENV === 'development'
     ? 'draft'
     : 'published'
@@ -45,6 +44,13 @@ try {
 }
 catch (error) {
   console.error('An error occurred:', error)
+}
+
+if (!story) {
+  throw createError({
+    statusCode: 404,
+    message: 'Page not found',
+  })
 }
 
 const isHomePage = computed(() => {

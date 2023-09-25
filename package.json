@@ -1,5 +1,6 @@
 {
   "name": "saasup",
+  "type": "module",
   "private": true,
   "packageManager": "pnpm@8.6.9",
   "scripts": {
@@ -20,11 +21,11 @@
     "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "1.0.0-beta.6",
+    "@antfu/eslint-config": "1.0.0-beta.8",
     "@nuxt/devtools": "^0.8.4",
-    "@nuxt/image": "1.0.0-rc.1",
+    "@nuxt/image": "1.0.0-rc.2",
     "@nuxtjs/google-fonts": "^3.0.2",
-    "@types/node": "^20.6.4",
+    "@types/node": "^20.6.5",
     "@vueuse/nuxt": "^10.4.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.50.0",

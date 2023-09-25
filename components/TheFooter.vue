@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { LinkStoryblok } from '~/component-types-sb'
 import type { FooterData } from '~/types'
 
 interface Props {
@@ -20,6 +21,12 @@ function getSocialLinkLogo(label: string | undefined): string {
     default:
       return 'carbon-logo-facebook'
   }
+}
+
+function getNavigationSlug(navigationItem: LinkStoryblok): string {
+  const { slug } = useNavigationSlug(navigationItem)
+
+  return slug
 }
 </script>
 
@@ -64,7 +71,7 @@ function getSocialLinkLogo(label: string | undefined): string {
             class="navigation__item"
           >
             <NuxtLink
-              :to="navigationItem.link.story?.url"
+              :to="getNavigationSlug(navigationItem)"
               class="navigation__link"
             >
               {{ navigationItem.label }}
