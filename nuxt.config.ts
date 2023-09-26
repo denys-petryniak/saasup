@@ -62,9 +62,10 @@ export default defineNuxtConfig({
     [
       '@storyblok/nuxt',
       {
-        accessToken: process.env.NODE_ENV === 'development'
-          ? process.env.STORYBLOK_PREVIEW_TOKEN
-          : process.env.STORYBLOK_PUBLIC_TOKEN,
+        // accessToken: process.env.NODE_ENV === 'development'
+        //   ? process.env.STORYBLOK_PREVIEW_TOKEN
+        //   : process.env.STORYBLOK_PUBLIC_TOKEN,
+        accessToken: process.env.STORYBLOK_PREVIEW_TOKEN,
         apiOptions: {
           region: 'eu',
         },
