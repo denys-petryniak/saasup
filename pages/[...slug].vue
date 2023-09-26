@@ -5,26 +5,18 @@ useHead({
   link: [{ rel: 'canonical', href: siteUrl }],
 })
 
-const route = useRoute()
-const slug = route.params.slug
-// const query = route.query
-
 const resolveRelations = [
   'blog-section.articles',
 ]
 
-const getStoryVersion = computed(() => {
-  // return query._storyblok ? 'draft' : 'published'
-
-  return process.env.NODE_ENV === 'development'
-    ? 'draft'
-    : 'published'
-})
-
-// eslint-disable-next-line no-console
-console.log('getStoryVersion', getStoryVersion.value)
+const route = useRoute()
+const slug = route.params.slug
 
 const slugValue = slug && slug.length > 0 ? (slug as string[]).join('/') : 'home'
+
+const { version: storyVersion } = useStoryVersion()
+// eslint-disable-next-line no-console
+console.log('storyVersion', storyVersion)
 
 let story: any
 
@@ -33,7 +25,7 @@ try {
     slugValue,
     // API Options
     {
-      version: getStoryVersion.value,
+      version: storyVersion,
       resolve_relations: resolveRelations,
     },
     // Bridge Options

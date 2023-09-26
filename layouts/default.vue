@@ -21,16 +21,12 @@ const footerData: FooterData = reactive({
   widgetButtons: null,
 })
 
-const getStoryVersion = computed(() => {
-  return process.env.NODE_ENV === 'development'
-    ? 'draft'
-    : 'published'
-})
+const { version: storyVersion } = useStoryVersion()
 
 try {
   const storyblokApi = useStoryblokApi()
   const { data } = await storyblokApi.get('cdn/stories/config', {
-    version: getStoryVersion.value,
+    version: storyVersion,
     resolve_links: 'url',
   })
 

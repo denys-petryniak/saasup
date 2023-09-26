@@ -16,6 +16,8 @@ export type ButtonColor = 'branded' | 'light' | 'light-branded' | 'light-bordere
 
 export type SectionTag = 'div' | 'section' | 'article'
 
+export type StoryVersion = 'draft' | 'published'
+
 export interface HeaderData {
   navigation: (LinkStoryblok | SubmenuStoryblok)[] | null
   logo: AssetStoryblok | undefined
