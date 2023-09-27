@@ -10,6 +10,7 @@ body,
 
 #__nuxt {
   padding: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
+  overflow-x: hidden;
 }
 
 body {

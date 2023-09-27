@@ -17,8 +17,8 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config':
-    specifier: 1.0.0-beta.11
-    version: 1.0.0-beta.11(eslint@8.50.0)(typescript@5.2.2)
+    specifier: 1.0.0-beta.12
+    version: 1.0.0-beta.12(eslint@8.50.0)(typescript@5.2.2)
   '@nuxt/devtools':
     specifier: ^0.8.5
     version: 0.8.5(nuxt@3.7.4)(vite@4.4.9)
@@ -70,8 +70,8 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.19
 
-  /@antfu/eslint-config@1.0.0-beta.11(eslint@8.50.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-n1Q+YVh1b+0nhDjP6pvjKUwCKUoRpFcBUHUsRQcK423upnnwVnnisrtUl+TFCnvnmSkoj8I/orFGX6okpUtw0Q==}
+  /@antfu/eslint-config@1.0.0-beta.12(eslint@8.50.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-Fwa7ZfVrbsKbe4WWGi44nx6R7+MDrDXuyqPtmfr2dqugIF1Vgb+C2J87LV6uF1B7WBnqChb/2WHDNdbMyBMDvg==}
     peerDependencies:
       eslint: '>=8.0.0'
     dependencies:
