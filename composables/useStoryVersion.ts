@@ -4,7 +4,9 @@ export function useStoryVersion(): { version: StoryVersion } {
   const route = useRoute()
   const query = route.query
 
+  const version = query._storyblok ? 'draft' : 'published'
+
   return {
-    version: query._storyblok ? 'draft' : 'published',
+    version,
   }
 }
