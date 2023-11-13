@@ -1,6 +1,8 @@
 /* eslint-disable node/prefer-global/process */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: process.env.NUXT_PUBLIC_NODE_ENV === 'production',
+
   app: {
     head: {
       htmlAttrs: {
@@ -57,14 +59,18 @@ export default defineNuxtConfig({
     '@/node_modules/modern-normalize/modern-normalize.css',
   ],
 
+  runtimeConfig: {
+    public: {
+      NODE_ENV: process.env.NODE_ENV,
+    },
+  },
+
   modules: [
     // https://github.com/storyblok/storyblok-nuxt
     [
       '@storyblok/nuxt',
       {
-        accessToken: process.env.NODE_ENV === 'development'
-          ? process.env.STORYBLOK_PREVIEW_TOKEN
-          : process.env.STORYBLOK_PUBLIC_TOKEN,
+        accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
         apiOptions: {
           region: 'eu',
         },

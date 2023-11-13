@@ -12,38 +12,43 @@ const resolveRelations = [
 const route = useRoute()
 const slug = route.params.slug
 
-const slugValue = slug && slug.length > 0 ? (slug as string[]).join('/') : 'home'
+const slugValue = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 
 const { version: storyVersion } = useStoryVersion()
 // eslint-disable-next-line no-console
 console.log('storyVersion', storyVersion)
 
-let story: any
+const isPreview = useRuntimeConfig().public.NODE_ENV !== 'production'
 
-try {
-  story = await useAsyncStoryblok(
-    slugValue,
-    // API Options
-    {
+function removeTrailingSlash(value: string): string {
+  return value.replace(/\/$/, '')
+}
+
+const apiEndpoint = `cdn/stories/${removeTrailingSlash(slugValue)}`
+
+const { data: story, pending } = await useAsyncData(slugValue, async () => {
+  try {
+    const { data } = await useStoryblokApi().get(apiEndpoint, {
       version: storyVersion,
       resolve_relations: resolveRelations,
-    },
-    // Bridge Options
-    {
-      resolveRelations,
-    },
-  )
-}
-catch (error) {
-  console.error('An error occurred:', error)
-}
+    })
+    return data?.story
+  }
+  catch (error) {
+    console.error('An error occurred while fetching the story:', error)
+  }
+})
 
-if (!story) {
-  throw createError({
-    statusCode: 404,
-    message: 'Page not found',
-  })
-}
+if (!isPreview && !story.value)
+  showError({ statusCode: 404, statusMessage: 'Page Not Found' })
+
+onMounted(() => {
+  if (isPreview && story.value?.id) {
+    useStoryblokBridge(story.value.id, evStory => (story.value = evStory), {
+      resolveRelations,
+    })
+  }
+})
 
 const isHomePage = computed(() => {
   return story.value?.name === 'Home'
@@ -53,7 +58,7 @@ const isHomePage = computed(() => {
 <template>
   <BodyBackground v-if="isHomePage" />
   <StoryblokComponent
-    v-if="story"
+    v-if="!pending && story"
     :blok="story.content"
   />
   <p v-else>

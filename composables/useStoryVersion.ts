@@ -1,10 +1,9 @@
 import type { StoryVersion } from '~/types'
 
 export function useStoryVersion(): { version: StoryVersion } {
-  const route = useRoute()
-  const query = route.query
+  const isProduction = useRuntimeConfig().public.NODE_ENV === 'production'
 
-  const version = query._storyblok ? 'draft' : 'published'
+  const version = isProduction ? 'published' : 'draft'
 
   return {
     version,
