@@ -15,10 +15,7 @@ const slug = route.params.slug
 const slugValue = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 
 const { version: storyVersion } = useStoryVersion()
-// eslint-disable-next-line no-console
-console.log('storyVersion', storyVersion)
-
-const isPreview = useRuntimeConfig().public.NODE_ENV !== 'production'
+const isPreview = storyVersion === 'draft'
 
 function removeTrailingSlash(value: string): string {
   return value.replace(/\/$/, '')
@@ -42,12 +39,17 @@ const { data: story, pending } = await useAsyncData(slugValue, async () => {
 if (!isPreview && !story.value)
   showError({ statusCode: 404, statusMessage: 'Page Not Found' })
 
+function initStoryblokBridge() {
+  if (!isPreview || !story.value?.id)
+    return
+
+  useStoryblokBridge(story.value.id, evStory => (story.value = evStory), {
+    resolveRelations,
+  })
+}
+
 onMounted(() => {
-  if (isPreview && story.value?.id) {
-    useStoryblokBridge(story.value.id, evStory => (story.value = evStory), {
-      resolveRelations,
-    })
-  }
+  initStoryblokBridge()
 })
 
 const isHomePage = computed(() => {
