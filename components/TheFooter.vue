@@ -11,15 +11,15 @@ defineProps<Props>()
 function getSocialLinkLogo(label: string | undefined): string {
   switch (label) {
     case 'Facebook':
-      return 'carbon-logo-facebook'
+      return 'carbon:logo-facebook'
     case 'Twitter':
-      return 'carbon-logo-twitter'
+      return 'carbon:logo-twitter'
     case 'Linkedin':
-      return 'carbon-logo-linkedin'
+      return 'carbon:logo-linkedin'
     case 'Instagram':
-      return 'carbon-logo-instagram'
+      return 'carbon:logo-instagram'
     default:
-      return 'carbon-logo-facebook'
+      return 'carbon:logo-facebook'
   }
 }
 
