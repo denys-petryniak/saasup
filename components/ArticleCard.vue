@@ -23,6 +23,7 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
     class="card"
   >
     <div class="card__image-box">
+      <!-- replace with NuxtPicture (?) because of avif support -->
       <NuxtImg
         v-if="article.image?.filename"
         :src="article.image.filename"

@@ -1,6 +1,7 @@
 /* eslint-disable node/prefer-global/process */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+
   ssr: process.env.NUXT_PUBLIC_NODE_ENV === 'production',
 
   app: {
@@ -128,5 +129,5 @@ export default defineNuxtConfig({
     shim: false,
   },
 
-  devtools: { enabled: false },
+  devtools: { enabled: true },
 })
