@@ -66,7 +66,10 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
 </template>
 
 <style scoped lang="scss">
-$card-padding: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
+$card-padding: clamped(
+  $min-size: $spacing--large,
+  $max-size: $spacing--2xlarge,
+);
 
 .card {
   padding: $card-padding;
@@ -89,12 +92,15 @@ $card-padding: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge)
   }
 
   &__date {
-    margin-top: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
+    margin-top: clamped(
+      $min-size: $spacing--xlarge,
+      $max-size: $spacing--2xlarge
+    );
     @include fluid-typography(
       $min-font-size: $font-size--base,
       $max-font-size: $font-size--small,
       $min-line-height: $line-height--3xsmall,
-      $max-line-height: $line-height--2xsmall,
+      $max-line-height: $line-height--2xsmall
     );
   }
 
@@ -108,7 +114,10 @@ $card-padding: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge)
 
   &__link {
     display: inline-block;
-    margin-top: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
+    margin-top: clamped(
+      $min-size: $spacing--xlarge,
+      $max-size: $spacing--2xlarge
+    );
     font-weight: $font-weight--bold;
     text-decoration: underline;
   }

@@ -50,7 +50,10 @@ $card-min-width: convert(250px, 'rem');
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax($card-min-width, 1fr));
     gap: $spacing--2xlarge;
-    margin-top: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
+    margin-top: clamped(
+      $min-size: $spacing--xlarge,
+      $max-size: $spacing--2xlarge
+    );
   }
 }
 </style>

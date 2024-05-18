@@ -44,8 +44,14 @@ const getCardDescription = computed(() =>
 </template>
 
 <style scoped lang="scss">
-$card-padding-y: clamped($min-size: $spacing--xlarge, $max-size: $spacing--3xlarge);
-$card-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
+$card-padding-y: clamped(
+  $min-size: $spacing--xlarge,
+  $max-size: $spacing--3xlarge,
+);
+$card-padding-x: clamped(
+  $min-size: $spacing--large,
+  $max-size: $spacing--2xlarge,
+);
 
 .card {
   padding: $card-padding-y $card-padding-x;

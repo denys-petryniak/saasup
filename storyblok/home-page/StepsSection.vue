@@ -17,7 +17,7 @@ function getFormattedStepIndex(index: number): string {
   return `0${index + 1}.`
 }
 
-function getStepButtonText({ index, text }: { index: number; text: string | undefined }): string {
+function getStepButtonText({ index, text }: { index: number, text: string | undefined }): string {
   return `${getFormattedStepIndex(index)} ${text}`
 }
 </script>
@@ -87,7 +87,8 @@ function getStepButtonText({ index, text }: { index: number; text: string | unde
   &__button {
     max-width: convert(500px, 'rem');
     flex: 1 1 convert(350px, 'rem');
-    padding: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge) clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
+    padding: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge)
+      clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
     border-radius: $border-radius--medium;
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;

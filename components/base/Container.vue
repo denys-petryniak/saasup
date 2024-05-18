@@ -6,7 +6,7 @@
 
 <style scoped lang="scss">
   .container {
-    width: min($container-width--max, 100%);
-    margin-inline: auto;
-  }
+  width: min($container-width--max, 100%);
+  margin-inline: auto;
+}
 </style>

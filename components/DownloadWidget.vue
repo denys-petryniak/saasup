@@ -54,8 +54,14 @@ defineProps<Props>()
 
 <style scoped lang="scss">
 $widget-max-width: convert(580px, 'rem');
-$widget-padding-y: clamped($min-size: $spacing--2xlarge, $max-size: $spacing--3xlarge);
-$widget-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge);
+$widget-padding-y: clamped(
+  $min-size: $spacing--2xlarge,
+  $max-size: $spacing--3xlarge,
+);
+$widget-padding-x: clamped(
+  $min-size: $spacing--large,
+  $max-size: $spacing--xlarge,
+);
 
 .widget {
   max-width: $widget-max-width;

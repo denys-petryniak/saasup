@@ -54,8 +54,14 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-$card-padding-y: clamped($min-size: $spacing--2xlarge, $max-size: $spacing--3xlarge);
-$card-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge);
+$card-padding-y: clamped(
+  $min-size: $spacing--2xlarge,
+  $max-size: $spacing--3xlarge,
+);
+$card-padding-x: clamped(
+  $min-size: $spacing--large,
+  $max-size: $spacing--xlarge,
+);
 
 .pricing-plan {
   padding: $card-padding-y $card-padding-x;
@@ -86,10 +92,10 @@ $card-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge
       $min-font-size: $font-size--2xlarge,
       $max-font-size: $font-size--3xlarge,
       $min-line-height: $line-height--3xsmall,
-      $max-line-height: $line-height--medium,
+      $max-line-height: $line-height--medium
     );
     font-weight: $font-weight--extrabold;
-    color: $color--secondary--extra-dark
+    color: $color--secondary--extra-dark;
   }
 
   &__features {

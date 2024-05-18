@@ -28,9 +28,15 @@ function updateModelValue(event: Event) {
 </template>
 
 <style scoped lang="scss">
-$field-padding-y: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
-$field-padding-x: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
-$field-bg-color: rgba(255, 255, 255, 0.20);
+$field-padding-y: clamped(
+  $min-size: $spacing--medium,
+  $max-size: $spacing--large,
+);
+$field-padding-x: clamped(
+  $min-size: $spacing--xlarge,
+  $max-size: $spacing--2xlarge,
+);
+$field-bg-color: rgba(255, 255, 255, 0.2);
 
 .field {
   display: inline-block;
@@ -43,7 +49,7 @@ $field-bg-color: rgba(255, 255, 255, 0.20);
     $min-font-size: $font-size--base,
     $max-font-size: $font-size--small,
     $min-line-height: $line-height--4xsmall,
-    $max-line-height: $line-height--4xsmall,
+    $max-line-height: $line-height--4xsmall
   );
   font-weight: $font-weight--bold;
   background-color: $field-bg-color;

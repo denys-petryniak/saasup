@@ -1,4 +1,4 @@
-@use "./functions" as fn;
+@use './functions' as fn;
 
 // TODO: improve values, using multiples of 8
 $spacing--2xsmall: fn.convert(2px, 'rem');

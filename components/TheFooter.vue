@@ -129,7 +129,10 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   }
 
   &__copyright {
-    padding-top: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge);
+    padding-top: clamped(
+      $min-size: $spacing--large,
+      $max-size: $spacing--xlarge
+    );
     text-align: center;
   }
 

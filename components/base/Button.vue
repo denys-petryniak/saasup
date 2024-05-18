@@ -40,10 +40,22 @@ const getType = computed(() => getTag.value === 'button' ? 'button' : null)
 </template>
 
 <style scoped lang="scss">
-$button-padding-y--small: clamped($min-size: $spacing--small, $max-size: $spacing--medium);
-$button-padding-x--small: clamped($min-size: $spacing--medium, $max-size: $spacing--xlarge);
-$button-padding-y--medium: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
-$button-padding-x--medium: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
+$button-padding-y--small: clamped(
+  $min-size: $spacing--small,
+  $max-size: $spacing--medium,
+);
+$button-padding-x--small: clamped(
+  $min-size: $spacing--medium,
+  $max-size: $spacing--xlarge,
+);
+$button-padding-y--medium: clamped(
+  $min-size: $spacing--medium,
+  $max-size: $spacing--large,
+);
+$button-padding-x--medium: clamped(
+  $min-size: $spacing--xlarge,
+  $max-size: $spacing--2xlarge,
+);
 $button-min-width: 10ch;
 
 .button {
@@ -53,7 +65,7 @@ $button-min-width: 10ch;
     $min-font-size: $font-size--base,
     $max-font-size: $font-size--small,
     $min-line-height: $line-height--4xsmall,
-    $max-line-height: $line-height--4xsmall,
+    $max-line-height: $line-height--4xsmall
   );
   font-weight: $font-weight--bold;
   text-align: center;

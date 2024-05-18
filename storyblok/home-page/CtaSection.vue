@@ -99,8 +99,14 @@ const getSectionBackground = computed(() => {
 </template>
 
 <style scoped lang="scss">
-$section-padding-y: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
-$section-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--3xlarge);
+$section-padding-y: clamped(
+  $min-size: $spacing--xlarge,
+  $max-size: $spacing--2xlarge,
+);
+$section-padding-x: clamped(
+  $min-size: $spacing--large,
+  $max-size: $spacing--3xlarge,
+);
 
 .cta-section {
   display: flex;
@@ -108,8 +114,11 @@ $section-padding-x: clamped($min-size: $spacing--large, $max-size: $spacing--3xl
   align-items: center;
   gap: $spacing--xlarge;
   padding: $section-padding-y $section-padding-x;
-  border-radius: clamped($min-size: $border-radius--2xlarge, $max-size: $border-radius--3xlarge);
-  background: v-bind(getSectionBackground) no-repeat 50% 50%/cover;
+  border-radius: clamped(
+    $min-size: $border-radius--2xlarge,
+    $max-size: $border-radius--3xlarge
+  );
+  background: v-bind(getSectionBackground) no-repeat 50% 50% / cover;
 
   &__content {
     flex: 1 1 convert(400px, 'rem');

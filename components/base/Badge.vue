@@ -29,13 +29,25 @@ const getBadgeClasses = computed(() => {
 </template>
 
 <style scoped lang="scss">
-$badge-padding-y--regular: clamped($min-size: $spacing--medium, $max-size: $spacing--large);
-$badge-padding-x--regular: clamped($min-size: $spacing--xlarge, $max-size: $spacing--2xlarge);
-$badge-padding-y--small: clamped($min-size: $spacing--small, $max-size: $spacing--medium);
-$badge-padding-x--small: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge);
-$badge-bg-color--purple: #EFECFF;
-$badge-bg-color--orange: #FFEECC;
-$badge-text-color--orange: #C68A15;
+$badge-padding-y--regular: clamped(
+  $min-size: $spacing--medium,
+  $max-size: $spacing--large,
+);
+$badge-padding-x--regular: clamped(
+  $min-size: $spacing--xlarge,
+  $max-size: $spacing--2xlarge,
+);
+$badge-padding-y--small: clamped(
+  $min-size: $spacing--small,
+  $max-size: $spacing--medium,
+);
+$badge-padding-x--small: clamped(
+  $min-size: $spacing--large,
+  $max-size: $spacing--xlarge,
+);
+$badge-bg-color--purple: #efecff;
+$badge-bg-color--orange: #ffeecc;
+$badge-text-color--orange: #c68a15;
 
 .badge {
   display: inline-block;
@@ -43,7 +55,7 @@ $badge-text-color--orange: #C68A15;
     $min-font-size: $font-size--base,
     $max-font-size: $font-size--small,
     $min-line-height: $line-height--3xsmall,
-    $max-line-height: $line-height--2xsmall,
+    $max-line-height: $line-height--2xsmall
   );
   font-weight: $font-weight--bold;
   border-radius: $border-radius--2xlarge;

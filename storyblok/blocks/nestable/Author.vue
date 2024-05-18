@@ -59,7 +59,7 @@ const getAuthorRating = computed(() => {
       $min-font-size: $font-size--xlarge,
       $max-font-size: $font-size--3xlarge,
       $min-line-height: $line-height--3xsmall,
-      $max-line-height: $line-height--2xsmall,
+      $max-line-height: $line-height--2xsmall
     );
     font-weight: $font-weight--bold;
   }

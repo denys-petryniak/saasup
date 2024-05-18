@@ -32,7 +32,7 @@ const totalStars = Array.from({ length: props.maxRating }, (_, index) => index +
 </template>
 
 <style scoped lang="scss">
-$rating-star-color: #FFC226;
+$rating-star-color: #ffc226;
 
 .rating {
   &__star {

@@ -70,16 +70,16 @@ catch (error) {
 
 <style scoped lang="scss">
   .layout {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    &__header,
-    &__footer {
-      flex-shrink: 0;
-    }
-
-    &__body {
-      flex-grow: 1;
-    }
+  &__header,
+  &__footer {
+    flex-shrink: 0;
   }
+
+  &__body {
+    flex-grow: 1;
+  }
+}
 </style>

@@ -107,7 +107,7 @@ $section-bg-decor-z-index: -1;
 </style>
 
 <style lang="scss">
-$carousel-button-color: #6850FF;
+$carousel-button-color: #6850ff;
 $carousel-button-blur: 12px;
 $carousel-button-size: convert(76px, 'rem');
 
@@ -144,11 +144,11 @@ $carousel-button-size: convert(76px, 'rem');
     }
 
     &__prev {
-      left: calc(50% - ($carousel-button-size + $spacing--large))
+      left: calc(50% - ($carousel-button-size + $spacing--large));
     }
 
     &__next {
-      right: calc(50% - ($carousel-button-size + $spacing--large))
+      right: calc(50% - ($carousel-button-size + $spacing--large));
     }
   }
 }

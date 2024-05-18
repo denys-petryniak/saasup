@@ -60,7 +60,10 @@ const getDescription = computed(() =>
   display: flex;
   flex-wrap: wrap;
   gap: $spacing--2xlarge;
-  margin-top: clamped($min-size: $spacing--2xlarge, $max-size: $spacing--3xlarge);
+  margin-top: clamped(
+    $min-size: $spacing--2xlarge,
+    $max-size: $spacing--3xlarge
+  );
   padding: 0 clamped($min-size: $spacing--xsmall, $max-size: $spacing--3xlarge);
 
   &__main {

@@ -1,4 +1,4 @@
-@use "./functions" as fn;
+@use './functions' as fn;
 
 $border-radius--2xsmall: fn.convert(2px, 'rem');
 $border-radius--xsmall: fn.convert(4px, 'rem');
