@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonStoryblok } from 'component-types-sb'
+import type { ButtonStoryblok } from '~/component-types-sb'
 
 interface Props {
   label: string | null
