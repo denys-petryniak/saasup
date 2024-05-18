@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { Carousel, Navigation, Slide } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
-
 import type { TestimonialsSectionStoryblok } from '~/component-types-sb'
 
 interface Props {

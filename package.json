@@ -17,8 +17,7 @@
   },
   "dependencies": {
     "@storyblok/nuxt": "^6.0.10",
-    "modern-normalize": "^2.0.0",
-    "vue3-carousel": "^0.3.1"
+    "modern-normalize": "^2.0.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.18.1",
@@ -33,6 +32,7 @@
     "nuxt-icon": "^0.6.10",
     "sass": "^1.77.2",
     "storyblok-generate-ts": "^2.1.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vue3-carousel-nuxt": "^1.1.1"
   }
 }

@@ -79,18 +79,16 @@ export default defineNuxtConfig({
     ],
     // https://www.npmjs.com/package/@vueuse/nuxt
     '@vueuse/nuxt',
-
     // https://github.com/nuxt-modules/icon
     'nuxt-icon',
-
     // https://github.com/nuxt/image
     [
       '@nuxt/image',
       {
         provider: 'storyblok',
         storyblok: {
-          // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
-          // opened issue: https://github.com/storyblok/storyblok/issues/580
+        // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
+        // opened issue: https://github.com/storyblok/storyblok/issues/580
           baseURL: 'https://a2.storyblok.com',
         },
         // The screen sizes predefined by `@nuxt/image`:
@@ -104,7 +102,6 @@ export default defineNuxtConfig({
         },
       },
     ],
-
     // https://www.npmjs.com/package/@nuxtjs/google-fonts,
     [
       '@nuxtjs/google-fonts',
@@ -114,6 +111,8 @@ export default defineNuxtConfig({
         },
       },
     ],
+    // https://github.com/gaetansenn/vue3-carousel-nuxt
+    'vue3-carousel-nuxt',
   ],
 
   components: [
