@@ -58,12 +58,14 @@ const isHomePage = computed(() => {
 </script>
 
 <template>
-  <BodyBackground v-if="isHomePage" />
-  <StoryblokComponent
-    v-if="!pending && story"
-    :blok="story.content"
-  />
-  <p v-else>
-    Unfortunately, this page could not be found.
-  </p>
+  <div>
+    <BodyBackground v-if="isHomePage" />
+    <StoryblokComponent
+      v-if="!pending && story"
+      :blok="story.content"
+    />
+    <p v-else>
+      Unfortunately, this page could not be found.
+    </p>
+  </div>
 </template>
