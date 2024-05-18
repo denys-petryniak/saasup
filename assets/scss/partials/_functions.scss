@@ -68,15 +68,11 @@ $default-max-bp: convert(1440px, 'rem');
 
   $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
   $slope-to-unit: decimalRound(
-    $number: (
-      $slope * 100,
-    ),
+    $number: $slope * 100,
     $decimals: 3,
   );
   $intercept: decimalRound(
-    $number: (
-      $min-size - $slope * $min-breakpoint,
-    ),
+    $number: $min-size - $slope * $min-breakpoint,
     $decimals: 3,
   );
 
