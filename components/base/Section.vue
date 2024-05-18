@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style scoped lang="scss">
-  .section {
+.section {
   padding: clamped($min-size: $gap--small, $max-size: $gap--large) 0;
 }
 </style>

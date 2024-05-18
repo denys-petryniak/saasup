@@ -5,7 +5,7 @@
 </template>
 
 <style scoped lang="scss">
-  .container {
+.container {
   width: min($container-width--max, 100%);
   margin-inline: auto;
 }

@@ -69,7 +69,7 @@ catch (error) {
 </template>
 
 <style scoped lang="scss">
-  .layout {
+.layout {
   display: flex;
   flex-direction: column;
 

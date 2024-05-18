@@ -127,8 +127,6 @@ export default defineNuxtConfig({
   eslint: {
     config: {
       standalone: false,
-      // https://eslint.style/
-      // stylistic: true,
     },
   },
 })
