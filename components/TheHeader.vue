@@ -179,7 +179,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
 
   &__main {
     position: relative;
-    margin-top: $spacing--medium;
+    margin-top: $spacing--lg;
   }
 
   &__buttons {
@@ -193,9 +193,9 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   }
 
   &__menu-button {
-    padding: calc($spacing--large / 2);
+    padding: calc($spacing--2xl / 2);
     border: 1px solid $color-devider--regular;
-    border-radius: $border-radius--small;
+    border-radius: $rounded--lg;
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
 
@@ -211,8 +211,8 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
     top: 100%;
     left: 0;
     width: 100%;
-    margin-top: $spacing--small;
-    padding: $spacing--large;
+    margin-top: $spacing--sm;
+    padding: $spacing--2xl;
     z-index: stacking(header);
 
     &--open {
@@ -225,7 +225,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   $parent: &;
   background-color: $color--secondary--extra-light;
   border: 1px solid $color-devider--regular;
-  border-radius: $border-radius--large;
+  border-radius: $rounded--3xl;
 
   &__menu,
   &__submenu {
@@ -237,7 +237,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   &__submenu {
     display: none;
     max-height: 0;
-    padding: $spacing--small 0 $spacing--small $spacing--medium;
+    padding: $spacing--sm 0 $spacing--sm $spacing--lg;
 
     &--open {
       display: block;
@@ -247,14 +247,14 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
 
   &__item {
     position: relative;
-    font-weight: $font-weight--semibold;
-    font-size: $font-size--small;
+    font-weight: $font--semibold;
+    font-size: $font-size--lg;
   }
 
   &__link,
   &__submenu-button,
   &__cart-button {
-    padding: $spacing--medium;
+    padding: $spacing--lg;
   }
 
   &__link {
@@ -266,8 +266,8 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
     display: block;
     width: 100%;
     text-align: start;
-    font-weight: $font-weight--semibold;
-    line-height: $line-height--small;
+    font-weight: $font--semibold;
+    line-height: $leading--cozy;
     color: $color-primary--dark;
     background-color: transparent;
 
@@ -279,7 +279,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   }
 
   &__button-icon {
-    margin-left: $spacing--xsmall;
+    margin-left: $spacing--xs;
   }
 
   &__cart-button {
@@ -287,7 +287,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   }
 }
 
-@include breakpoint('medium') {
+@include breakpoint('md') {
   .header {
     display: flex;
     justify-content: space-between;
@@ -299,7 +299,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
 
     &__cart-button,
     &__cta-button {
-      margin-right: $spacing--medium;
+      margin-right: $spacing--lg;
     }
 
     &__cta-button {
@@ -308,7 +308,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   }
 }
 
-@include breakpoint('large') {
+@include breakpoint('lg') {
   .header {
     &__main {
       display: flex;
@@ -317,8 +317,8 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
     &__navigation {
       display: block;
       width: auto;
-      padding: $spacing--small $spacing--large;
-      margin-right: $spacing--xlarge;
+      padding: $spacing--sm $spacing--2xl;
+      margin-right: $spacing--4xl;
     }
 
     &__buttons {
@@ -345,7 +345,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
     order: 1;
     margin-top: 0;
     border: none;
-    border-radius: $border-radius--2xlarge;
+    border-radius: $rounded--3xl * 2;
 
     &__menu {
       display: flex;
@@ -354,10 +354,10 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
 
     &__submenu {
       position: absolute;
-      left: -$spacing--medium;
-      padding: $spacing--medium;
+      left: -$spacing--lg;
+      padding: $spacing--lg;
       background-color: $color--secondary--extra-light;
-      border-radius: $border-radius--small;
+      border-radius: $rounded--lg;
     }
 
     &__cart-button {

@@ -1,16 +1,18 @@
 @use './functions' as fn;
 
-// TODO: improve values, using multiples of 8
+// based on tailwind font-sizes - https://tailwindcss.com/docs/font-size
+
+$font-size--xs: fn.convert(12px, 'rem');
+$font-size--sm: fn.convert(14px, 'rem');
 $font-size--base: fn.convert(16px, 'rem');
-$font-size--small: fn.convert(18px, 'rem');
-$font-size--medium: fn.convert(20px, 'rem');
-$font-size--large: fn.convert(22px, 'rem');
-$font-size--xlarge: fn.convert(24px, 'rem');
-$font-size--2xlarge: fn.convert(28px, 'rem');
-$font-size--3xlarge: fn.convert(34px, 'rem');
-$font-size--4xlarge: fn.convert(40px, 'rem');
-$font-size--5xlarge: fn.convert(46px, 'rem');
-$font-size--6xlarge: fn.convert(52px, 'rem');
-$font-size--7xlarge: fn.convert(58px, 'rem');
-$font-size--8xlarge: fn.convert(64px, 'rem');
-$font-size--9xlarge: fn.convert(70px, 'rem');
+$font-size--lg: fn.convert(18px, 'rem');
+$font-size--xl: fn.convert(20px, 'rem');
+$font-size--2xl: fn.convert(24px, 'rem');
+$font-size--3xl: fn.convert(30px, 'rem');
+$font-size--4xl: fn.convert(36px, 'rem');
+$font-size--5xl: fn.convert(48px, 'rem');
+$font-size--6xl: fn.convert(60px, 'rem');
+$font-size--7xl: fn.convert(72px, 'rem');
+$font-size--8xl: fn.convert(96px, 'rem');
+$font-size--9xl: fn.convert(128px, 'rem');
+

@@ -66,12 +66,12 @@ const getCostBlockDescription = computed(() =>
 
 <style scoped lang="scss">
 $section-content-padding-y: clamped(
-  $min-size: $spacing--2xlarge,
-  $max-size: $gap--large,
+  $min-size: $spacing--8xl,
+  $max-size: $gap--lg,
 );
 $section-content-padding-x: clamped(
-  $min-size: $spacing--large,
-  $max-size: $spacing--large,
+  $min-size: $spacing--2xl,
+  $max-size: $spacing--2xl,
 );
 $section-content-bg-z-index: -1;
 $section-bg-z-index: -2;
@@ -81,7 +81,7 @@ $section-bg-z-index: -2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: $spacing--xlarge;
+  gap: $spacing--4xl;
 
   &__content {
     position: relative;
@@ -94,7 +94,7 @@ $section-bg-z-index: -2;
       inset: 0;
       width: 100%;
       height: 100%;
-      border-radius: $border-radius--2xlarge;
+      border-radius: $rounded--3xl * 2;
       z-index: $section-content-bg-z-index;
       background-color: $color--secondary--extra-light;
       pointer-events: none;
@@ -110,11 +110,11 @@ $section-bg-z-index: -2;
   }
 
   &__description {
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--4xl;
   }
 
   &__cost {
-    margin-top: $spacing--2xlarge;
+    margin-top: $spacing--8xl;
   }
 
   &::after {
@@ -134,7 +134,7 @@ $section-bg-z-index: -2;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: $spacing--medium;
+  gap: $spacing--lg;
 
   &__text {
     flex: 1 1 convert(374px, 'rem');
@@ -142,16 +142,16 @@ $section-bg-z-index: -2;
 
   &__heading {
     margin: 0;
-    font-weight: $font-weight--bold;
-    line-height: $line-height--4xsmall;
+    font-weight: $font--bold;
+    line-height: $leading--none;
   }
 
   &__description {
-    margin: $spacing--medium 0 0 0;
+    margin: $spacing--lg 0 0 0;
   }
 }
 
-@include breakpoint('large') {
+@include breakpoint('lg') {
   $section-content-overlap-size: 40%;
 
   .platform-section {
@@ -159,7 +159,7 @@ $section-bg-z-index: -2;
       left: auto;
       width: 100%;
       transform: translate3d(85%, 0, 0);
-      border-radius: $border-radius--2xlarge;
+      border-radius: $rounded--3xl * 2;
     }
 
     &__content {

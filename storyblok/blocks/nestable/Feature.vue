@@ -45,30 +45,30 @@ const getCardDescription = computed(() =>
 
 <style scoped lang="scss">
 $card-padding-y: clamped(
-  $min-size: $spacing--xlarge,
-  $max-size: $spacing--3xlarge,
+  $min-size: $spacing--4xl,
+  $max-size: $spacing--12xl,
 );
 $card-padding-x: clamped(
-  $min-size: $spacing--large,
-  $max-size: $spacing--2xlarge,
+  $min-size: $spacing--2xl,
+  $max-size: $spacing--8xl,
 );
 
 .card {
   padding: $card-padding-y $card-padding-x;
   text-align: center;
-  border-radius: $border-radius--2xlarge;
+  border-radius: $rounded--3xl * 2;
 
   &__heading {
-    margin-top: $spacing--2xlarge;
+    margin-top: $spacing--8xl;
   }
 
   &__description {
-    margin: $spacing--large 0 0 0;
+    margin: $spacing--2xl 0 0 0;
   }
 
   &__link {
     display: inline-block;
-    margin-top: $spacing--2xlarge;
+    margin-top: $spacing--8xl;
     text-decoration: underline;
   }
 

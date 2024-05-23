@@ -43,17 +43,14 @@ $card-min-width: convert(250px, 'rem');
   }
 
   &__heading {
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--4xl;
   }
 
   &__cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax($card-min-width, 1fr));
-    gap: $spacing--2xlarge;
-    margin-top: clamped(
-      $min-size: $spacing--xlarge,
-      $max-size: $spacing--2xlarge
-    );
+    gap: $spacing--8xl;
+    margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }
 }
 </style>

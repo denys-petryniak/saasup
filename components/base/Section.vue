@@ -21,6 +21,6 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped lang="scss">
 .section {
-  padding: clamped($min-size: $gap--small, $max-size: $gap--large) 0;
+  padding: clamped($min-size: $gap--sm, $max-size: $gap--lg) 0;
 }
 </style>

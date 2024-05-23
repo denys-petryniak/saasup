@@ -42,30 +42,30 @@ const getAuthorRating = computed(() => {
 
 <style scoped lang="scss">
 .author {
-  margin-top: $spacing--xlarge;
+  margin-top: $spacing--4xl;
 
   &__image {
-    border-radius: $border-radius--circle;
+    border-radius: $rounded--full;
   }
 
   &__name,
   &__job,
   &__rating {
-    margin: calc($spacing--large / 2) 0 0 0;
+    margin: calc($spacing--2xl / 2) 0 0 0;
   }
 
   &__name {
     @include fluid-typography(
-      $min-font-size: $font-size--xlarge,
-      $max-font-size: $font-size--3xlarge,
-      $min-line-height: $line-height--3xsmall,
-      $max-line-height: $line-height--2xsmall
+      $min-font-size: $font-size--4xl,
+      $max-font-size: $font-size--4xl,
+      $min-line-height: $leading--tight,
+      $max-line-height: $leading--condensed
     );
-    font-weight: $font-weight--bold;
+    font-weight: $font--bold;
   }
 
   &__job {
-    font-weight: $font-weight--semibold;
+    font-weight: $font--semibold;
   }
 }
 </style>

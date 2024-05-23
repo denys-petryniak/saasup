@@ -55,30 +55,30 @@ defineProps<Props>()
 <style scoped lang="scss">
 $widget-max-width: convert(580px, 'rem');
 $widget-padding-y: clamped(
-  $min-size: $spacing--2xlarge,
-  $max-size: $spacing--3xlarge,
+  $min-size: $spacing--8xl,
+  $max-size: $spacing--12xl,
 );
 $widget-padding-x: clamped(
-  $min-size: $spacing--large,
-  $max-size: $spacing--xlarge,
+  $min-size: $spacing--2xl,
+  $max-size: $spacing--4xl,
 );
 
 .widget {
   max-width: $widget-max-width;
   padding: $widget-padding-y $widget-padding-x;
   background-color: $color--secondary--extra-light;
-  border-radius: $border-radius--2xlarge;
+  border-radius: $rounded--3xl;
 
   &__label {
     margin: 0;
-    font-size: $font-size--small;
-    font-weight: $font-weight--bold;
+    font-size: $font-size--lg;
+    font-weight: $font--bold;
     color: $color-primary--light;
   }
 
   &__title,
   &__description {
-    margin: $spacing--medium 0;
+    margin: $spacing--lg 0;
   }
 
   &__button {
@@ -87,7 +87,7 @@ $widget-padding-x: clamped(
   }
 
   &__button-icon {
-    margin-right: $spacing--xsmall;
+    margin-right: $spacing--xs;
     flex-shrink: 0;
   }
 
@@ -95,8 +95,8 @@ $widget-padding-x: clamped(
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: $spacing--medium;
-    margin-top: $spacing--xlarge;
+    gap: $spacing--lg;
+    margin-top: $spacing--4xl;
   }
 }
 </style>

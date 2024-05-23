@@ -7,7 +7,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  size: 'regular',
+  size: 'md',
   color: 'purple',
 })
 
@@ -29,21 +29,21 @@ const getBadgeClasses = computed(() => {
 </template>
 
 <style scoped lang="scss">
-$badge-padding-y--regular: clamped(
-  $min-size: $spacing--medium,
-  $max-size: $spacing--large,
+$badge-padding-y--sm: clamped(
+  $min-size: $spacing--sm,
+  $max-size: $spacing--lg,
 );
-$badge-padding-x--regular: clamped(
-  $min-size: $spacing--xlarge,
-  $max-size: $spacing--2xlarge,
+$badge-padding-x--sm: clamped(
+  $min-size: $spacing--2xl,
+  $max-size: $spacing--4xl,
 );
-$badge-padding-y--small: clamped(
-  $min-size: $spacing--small,
-  $max-size: $spacing--medium,
+$badge-padding-y--md: clamped(
+  $min-size: $spacing--lg,
+  $max-size: $spacing--2xl,
 );
-$badge-padding-x--small: clamped(
-  $min-size: $spacing--large,
-  $max-size: $spacing--xlarge,
+$badge-padding-x--md: clamped(
+  $min-size: $spacing--4xl,
+  $max-size: $spacing--8xl,
 );
 $badge-bg-color--purple: #efecff;
 $badge-bg-color--orange: #ffeecc;
@@ -53,19 +53,19 @@ $badge-text-color--orange: #c68a15;
   display: inline-block;
   @include fluid-typography(
     $min-font-size: $font-size--base,
-    $max-font-size: $font-size--small,
-    $min-line-height: $line-height--3xsmall,
-    $max-line-height: $line-height--2xsmall
+    $max-font-size: $font-size--lg,
+    $min-line-height: $leading--tight,
+    $max-line-height: $leading--condensed
   );
-  font-weight: $font-weight--bold;
-  border-radius: $border-radius--2xlarge;
+  font-weight: $font--bold;
+  border-radius: $rounded--3xl * 2;
 
-  &--regular {
-    padding: $badge-padding-y--regular $badge-padding-x--regular;
+  &--sm {
+    padding: $badge-padding-y--sm $badge-padding-x--sm;
   }
 
-  &--small {
-    padding: $badge-padding-y--small $badge-padding-x--small;
+  &--md {
+    padding: $badge-padding-y--md $badge-padding-x--md;
   }
 
   &--purple {

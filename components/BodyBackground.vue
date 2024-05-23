@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import scssVariables from '~/assets/scss/export.module.scss'
 
-const { screenXlarge } = scssVariables
+const { screenXl } = scssVariables
 
 const img = useImage()
 
@@ -22,7 +22,7 @@ const getBodyBackground = computed(() => {
   <Head>
     <Style
       type="text/css"
-      :children="`@media (min-width: ${screenXlarge}) { body { background: ${getBodyBackground}; }}`"
+      :children="`@media (min-width: ${screenXl}) { body { background: ${getBodyBackground}; }}`"
     />
   </Head>
 </template>

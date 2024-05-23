@@ -29,12 +29,12 @@ function updateModelValue(event: Event) {
 
 <style scoped lang="scss">
 $field-padding-y: clamped(
-  $min-size: $spacing--medium,
-  $max-size: $spacing--large,
+  $min-size: $spacing--lg,
+  $max-size: $spacing--2xl,
 );
 $field-padding-x: clamped(
-  $min-size: $spacing--xlarge,
-  $max-size: $spacing--2xlarge,
+  $min-size: $spacing--4xl,
+  $max-size: $spacing--8xl,
 );
 $field-bg-color: rgba(255, 255, 255, 0.2);
 
@@ -43,15 +43,15 @@ $field-bg-color: rgba(255, 255, 255, 0.2);
   vertical-align: middle;
   padding: $field-padding-y $field-padding-x;
   border: 1px solid $color-border--regular;
-  border-radius: $border-radius--2xlarge;
+  border-radius: $rounded--3xl * 2;
   color: $color-white--regular;
   @include fluid-typography(
     $min-font-size: $font-size--base,
-    $max-font-size: $font-size--small,
-    $min-line-height: $line-height--4xsmall,
-    $max-line-height: $line-height--4xsmall
+    $max-font-size: $font-size--lg,
+    $min-line-height: $leading--none,
+    $max-line-height: $leading--none
   );
-  font-weight: $font-weight--bold;
+  font-weight: $font--bold;
   background-color: $field-bg-color;
 
   &::placeholder {

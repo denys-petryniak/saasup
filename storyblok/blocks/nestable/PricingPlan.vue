@@ -18,7 +18,7 @@ defineProps<Props>()
         {{ blok.title }}
       </h3>
       <BaseBadge
-        size="small"
+        size="sm"
         :color="blok.popular ? 'purple' : 'white'"
       >
         {{ blok.caption }}
@@ -29,7 +29,7 @@ defineProps<Props>()
         {{ blok.price }}
       </p>
       <BaseBadge
-        size="small"
+        size="sm"
         color="orange"
       >
         {{ blok.billing_description }}
@@ -55,26 +55,26 @@ defineProps<Props>()
 
 <style scoped lang="scss">
 $card-padding-y: clamped(
-  $min-size: $spacing--2xlarge,
-  $max-size: $spacing--3xlarge,
+  $min-size: $spacing--8xl,
+  $max-size: $spacing--12xl,
 );
 $card-padding-x: clamped(
-  $min-size: $spacing--large,
-  $max-size: $spacing--xlarge,
+  $min-size: $spacing--2xl,
+  $max-size: $spacing--4xl,
 );
 
 .pricing-plan {
   padding: $card-padding-y $card-padding-x;
   text-align: center;
   background-color: $color--secondary--extra-light;
-  border-radius: $border-radius--2xlarge;
+  border-radius: $rounded--3xl * 2;
 
   &__head {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: $spacing--medium;
-    padding-bottom: $spacing--xlarge;
+    gap: $spacing--lg;
+    padding-bottom: $spacing--4xl;
   }
 
   &__title {
@@ -82,31 +82,31 @@ $card-padding-x: clamped(
   }
 
   &__price-container {
-    padding: $spacing--large 0;
+    padding: $spacing--2xl 0;
     border-top: 1px solid $color-devider--regular;
   }
 
   &__price {
     margin-top: 0;
     @include fluid-typography(
-      $min-font-size: $font-size--2xlarge,
-      $max-font-size: $font-size--3xlarge,
-      $min-line-height: $line-height--3xsmall,
-      $max-line-height: $line-height--medium
+      $min-font-size: $font-size--4xl,
+      $max-font-size: $font-size--4xl,
+      $min-line-height: $leading--tight,
+      $max-line-height: $leading--normal
     );
-    font-weight: $font-weight--extrabold;
+    font-weight: $font--extrabold;
     color: $color--secondary--extra-dark;
   }
 
   &__features {
-    padding: $spacing--xlarge 0;
+    padding: $spacing--4xl 0;
     margin: 0;
     list-style: none;
     border-top: 1px solid $color-devider--regular;
   }
 
   &__features-item:not(:first-child) {
-    margin-top: $spacing--large;
+    margin-top: $spacing--2xl;
   }
 
   @media (hover: hover) {
@@ -116,7 +116,7 @@ $card-padding-x: clamped(
   }
 }
 
-@include breakpoint('xlarge') {
+@include breakpoint('xl') {
   .pricing-plan {
     &__head {
       flex-direction: row;

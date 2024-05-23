@@ -1,9 +1,8 @@
 @use './functions' as fn;
 
 // based on tailwind breakpoints - https://tailwindcss.com/docs/screens
-
-$screen--small: fn.convert(640px, 'em');
-$screen--medium: fn.convert(768px, 'em');
-$screen--large: fn.convert(1024px, 'em');
-$screen--xlarge: fn.convert(1280px, 'em');
-$screen--2xlarge: fn.convert(1536px, 'em');
+$screen--sm: fn.convert(640px, 'em');
+$screen--md: fn.convert(768px, 'em');
+$screen--lg: fn.convert(1024px, 'em');
+$screen--xl: fn.convert(1280px, 'em');
+$screen--2xl: fn.convert(1536px, 'em');

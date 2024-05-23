@@ -69,7 +69,7 @@ const getSectionDescription = computed(() =>
 .pricing-section {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing--2xlarge;
+  gap: $spacing--8xl;
 
   &__content {
     text-align: center;
@@ -79,7 +79,7 @@ const getSectionDescription = computed(() =>
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: $spacing--xlarge;
+    gap: $spacing--4xl;
   }
 
   &__plans-item {
@@ -87,19 +87,19 @@ const getSectionDescription = computed(() =>
   }
 
   &__heading {
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--4xl;
   }
 }
 
 .payment {
-  margin-top: $spacing--xlarge;
+  margin-top: $spacing--4xl;
 
   &__body {
     display: flex;
     justify-content: center;
-    gap: $spacing--medium;
-    padding: $spacing--medium;
-    border-radius: $border-radius--large;
+    gap: $spacing--lg;
+    padding: $spacing--lg;
+    border-radius: $rounded--3xl;
     background-color: $color--secondary--extra-light;
   }
 
@@ -108,7 +108,7 @@ const getSectionDescription = computed(() =>
   }
 }
 
-@include breakpoint('large') {
+@include breakpoint('lg') {
   .pricing-section {
     grid-template-columns: 0.5fr 1fr;
 

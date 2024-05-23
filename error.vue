@@ -10,25 +10,64 @@ function handleError() {
 
 <template>
   <NuxtLayout>
-    <div>
+    <BaseSection v-if="error" class="error">
       <div v-if="error.statusCode === 404">
-        <h1>404</h1>
-        <p>I guess that page doesn't exist.</p>
+        <h1 class="error__title">
+          404
+        </h1>
+        <h2 class="error__subtitle">
+          Page doesn't exist
+        </h2>
       </div>
       <div v-else>
-        <h1>Dang</h1>
-        <p>It looks like something broke.</p>
-        <p>Sorry about that.</p>
+        <h1 class="error__title">
+          Dang
+        </h1>
+        <h2 class="error__subtitle">
+          It looks like something broke
+        </h2>
       </div>
       <div>
-        <p>
-          <strong>{{ error.message }}</strong>
+        <p class="error__message">
+          {{ error.statusMessage }}
         </p>
-        <p>
-          Go to the
-          <a @click="handleError">Home</a>
-        </p>
+        <BaseButton class="error__button" @click="handleError">
+          Home Page
+        </BaseButton>
       </div>
-    </div>
+    </BaseSection>
   </NuxtLayout>
 </template>
+
+<style scoped lang="scss">
+.error {
+  text-align: center;
+
+  &__title {
+    @include fluid-typography(
+      $min-font-size: $font-size--8xl,
+      $max-font-size: $font-size--8xl * 3,
+      $min-line-height: $leading--none,
+      $max-line-height: $leading--none
+    );
+    font-weight: $font--extrabold;
+    color: $color-primary--light;
+    text-shadow: 0 6px 6px rgba(82, 54, 255, 0.22);
+  }
+
+  &__subtitle {
+    @include fluid-typography(
+      $min-font-size: $font-size--4xl,
+      $max-font-size: $font-size--7xl,
+      $min-line-height: $leading--tight,
+      $max-line-height: $leading--condensed
+    );
+    font-weight: $font--extrabold;
+    color: $color-primary--dark;
+  }
+
+  &__button {
+    margin-top: $spacing--xl;
+  }
+}
+</style>

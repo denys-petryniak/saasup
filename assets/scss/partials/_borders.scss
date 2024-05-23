@@ -1,11 +1,12 @@
 @use './functions' as fn;
 
-$border-radius--2xsmall: fn.convert(2px, 'rem');
-$border-radius--xsmall: fn.convert(4px, 'rem');
-$border-radius--small: fn.convert(8px, 'rem');
-$border-radius--medium: fn.convert(16px, 'rem');
-$border-radius--large: fn.convert(24px, 'rem');
-$border-radius--xlarge: fn.convert(32px, 'rem');
-$border-radius--2xlarge: fn.convert(40px, 'rem');
-$border-radius--3xlarge: fn.convert(50px, 'rem');
-$border-radius--circle: 50%;
+// based on tailwind border radiuses - https://tailwindcss.com/docs/border-radius
+$rounded--none: 0px;
+$rounded--xs: fn.convert(2px, 'rem');
+$rounded--sm: fn.convert(4px, 'rem');
+$rounded--md: fn.convert(6px, 'rem');
+$rounded--lg: fn.convert(8px, 'rem');
+$rounded--xl: fn.convert(12px, 'rem');
+$rounded--2xl: fn.convert(16px, 'rem');
+$rounded--3xl: fn.convert(24px, 'rem');
+$rounded--full: 50%;

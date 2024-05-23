@@ -60,7 +60,7 @@ const getHeroDescription = computed(() =>
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: $spacing--xlarge;
+  gap: $spacing--4xl;
 
   &__content {
     flex: 1 1 convert(400px, 'rem');
@@ -75,15 +75,15 @@ const getHeroDescription = computed(() =>
   }
 
   &__description {
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--4xl;
   }
 
   &__buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: $spacing--medium;
-    margin-top: $spacing--xlarge;
+    gap: $spacing--lg;
+    margin-top: $spacing--4xl;
   }
 
   &__video-button {
@@ -91,7 +91,7 @@ const getHeroDescription = computed(() =>
   }
 
   &__video-button-text {
-    margin-right: $spacing--large;
+    margin-right: $spacing--2xl;
   }
 
   &__video-button-icon {
@@ -101,7 +101,7 @@ const getHeroDescription = computed(() =>
     transform: translate3d(0, -50%, 0);
     width: 30%;
     height: 100%;
-    padding: $spacing--xsmall;
+    padding: $spacing--xs;
   }
 
   &__image {
@@ -110,7 +110,7 @@ const getHeroDescription = computed(() =>
   }
 }
 
-@include breakpoint('large') {
+@include breakpoint('lg') {
   .hero-section {
     &__buttons {
       justify-content: flex-start;

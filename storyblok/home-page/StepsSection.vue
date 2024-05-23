@@ -70,30 +70,30 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
   }
 
   &__heading {
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--4xl;
   }
 
   &__body {
-    margin-top: clamped($min-size: $gap--small, $max-size: $gap--medium);
+    margin-top: clamped($min-size: $gap--sm, $max-size: $gap--md);
   }
 
   &__buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: $spacing--medium;
+    gap: $spacing--lg;
   }
 
   &__button {
     max-width: convert(500px, 'rem');
     flex: 1 1 convert(350px, 'rem');
-    padding: clamped($min-size: $spacing--large, $max-size: $spacing--xlarge)
-      clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
-    border-radius: $border-radius--medium;
+    padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl)
+      clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
+    border-radius: $rounded--2xl;
     color: $color--secondary--extra-dark;
     background-color: $color--secondary--extra-light;
     text-align: start;
-    font-weight: $font-weight--bold;
+    font-weight: $font--bold;
 
     &--active {
       background-color: $color-primary--light;
@@ -102,7 +102,7 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
   }
 }
 
-@include breakpoint('medium') {
+@include breakpoint('md') {
   .steps-section {
     &__button {
       text-align: center;

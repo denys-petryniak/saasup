@@ -10,7 +10,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  size: 'medium',
+  size: 'md',
   color: 'branded',
 })
 
@@ -40,46 +40,46 @@ const getType = computed(() => getTag.value === 'button' ? 'button' : null)
 </template>
 
 <style scoped lang="scss">
-$button-padding-y--small: clamped(
-  $min-size: $spacing--small,
-  $max-size: $spacing--medium,
+$button-padding-y--sm: clamped(
+  $min-size: $spacing--sm,
+  $max-size: $spacing--lg,
 );
-$button-padding-x--small: clamped(
-  $min-size: $spacing--medium,
-  $max-size: $spacing--xlarge,
+$button-padding-x--sm: clamped(
+  $min-size: $spacing--lg,
+  $max-size: $spacing--4xl,
 );
-$button-padding-y--medium: clamped(
-  $min-size: $spacing--medium,
-  $max-size: $spacing--large,
+$button-padding-y--md: clamped(
+  $min-size: $spacing--lg,
+  $max-size: $spacing--2xl,
 );
-$button-padding-x--medium: clamped(
-  $min-size: $spacing--xlarge,
-  $max-size: $spacing--2xlarge,
+$button-padding-x--md: clamped(
+  $min-size: $spacing--4xl,
+  $max-size: $spacing--8xl,
 );
 $button-min-width: 10ch;
 
 .button {
   min-width: $button-min-width;
-  border-radius: $border-radius--2xlarge;
+  border-radius: $rounded--3xl * 2;
   @include fluid-typography(
     $min-font-size: $font-size--base,
-    $max-font-size: $font-size--small,
-    $min-line-height: $line-height--4xsmall,
-    $max-line-height: $line-height--4xsmall
+    $max-font-size: $font-size--lg,
+    $min-line-height: $leading--none,
+    $max-line-height: $leading--none
   );
-  font-weight: $font-weight--bold;
+  font-weight: $font--bold;
   text-align: center;
 
   &--full {
     width: 100%;
   }
 
-  &--small {
-    padding: $button-padding-y--small $button-padding-x--small;
+  &--sm {
+    padding: $button-padding-y--sm $button-padding-x--sm;
   }
 
-  &--medium {
-    padding: $button-padding-y--medium $button-padding-x--medium;
+  &--md {
+    padding: $button-padding-y--md $button-padding-x--md;
   }
 
   &--branded {

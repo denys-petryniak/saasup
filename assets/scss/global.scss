@@ -9,17 +9,17 @@ body,
 }
 
 #__nuxt {
-  padding: clamped($min-size: $spacing--large, $max-size: $spacing--2xlarge);
+  padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
   overflow-x: hidden;
 }
 
 body {
   font-family: $font-family--primary;
   @include fluid-typography(
-    $min-font-size: $font-size--small,
-    $max-font-size: $font-size--large,
-    $min-line-height: $line-height--medium,
-    $max-line-height: $line-height--large
+    $min-font-size: $font-size--lg,
+    $max-font-size: $font-size--2xl,
+    $min-line-height: $leading--normal,
+    $max-line-height: $leading--relaxed
   );
   letter-spacing: 0.01em; // TODO: improve it, using rule "The bigger the text, the less space you need between each letter"
   color: $color--secondary--dark;
@@ -47,50 +47,50 @@ h3,
 h4,
 h5,
 h6 {
-  margin: $spacing--large 0;
-  font-weight: $font-weight--extrabold;
+  margin: $spacing--2xl 0;
+  font-weight: $font--extrabold;
   text-wrap: balance;
   color: $color--secondary--extra-dark;
 }
 
 h1 {
   @include fluid-typography(
-    $min-font-size: $font-size--4xlarge,
-    $max-font-size: $font-size--9xlarge,
-    $min-line-height: $line-height--4xsmall,
-    $max-line-height: $line-height--3xsmall
+    $min-font-size: $font-size--4xl,
+    $max-font-size: $font-size--7xl,
+    $min-line-height: $leading--none,
+    $max-line-height: $leading--tight
   );
 }
 
 h2 {
   @include fluid-typography(
-    $min-font-size: $font-size--2xlarge,
-    $max-font-size: $font-size--6xlarge,
-    $min-line-height: $line-height--3xsmall,
-    $max-line-height: $line-height--medium
+    $min-font-size: $font-size--3xl,
+    $max-font-size: $font-size--5xl,
+    $min-line-height: $leading--tight,
+    $max-line-height: $leading--condensed
   );
 }
 
 h3 {
   @include fluid-typography(
-    $min-font-size: $font-size--2xlarge,
-    $max-font-size: $font-size--3xlarge,
-    $min-line-height: $line-height--3xsmall,
-    $max-line-height: $line-height--medium
+    $min-font-size: $font-size--2xl,
+    $max-font-size: $font-size--3xl,
+    $min-line-height: $leading--tight,
+    $max-line-height: $leading--normal
   );
 }
 
 h4 {
   @include fluid-typography(
-    $min-font-size: $font-size--xlarge,
-    $max-font-size: $font-size--2xlarge,
-    $min-line-height: $line-height--2xsmall,
-    $max-line-height: $line-height--xsmall
+    $min-font-size: $font-size--2xl,
+    $max-font-size: $font-size--3xl,
+    $min-line-height: $leading--condensed,
+    $max-line-height: $leading--snug
   );
 }
 
 p {
-  margin: $spacing--large 0;
+  margin: $spacing--2xl 0;
 
   &:empty {
     margin: 0;
@@ -121,7 +121,7 @@ a {
 }
 
 li {
-  line-height: $line-height--small;
+  line-height: $leading--cozy;
 }
 
 .router-link-active:not(.button),

@@ -44,15 +44,15 @@ function getLinkUrl(link: MultilinkStoryblok): string {
 <style scoped lang="scss">
 .contact-block {
   display: flex;
-  gap: $spacing--medium;
+  gap: $spacing--lg;
 
   &:not(:first-child) {
-    margin-top: $spacing--medium;
+    margin-top: $spacing--lg;
   }
 
   &__icon {
     position: relative;
-    top: $spacing--small;
+    top: $spacing--sm;
     color: $color-primary--light;
   }
 

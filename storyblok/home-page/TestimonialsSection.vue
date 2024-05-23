@@ -70,11 +70,11 @@ $section-bg-decor-z-index: -1;
   }
 
   &__heading {
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--4xl;
     color: $color-white--regular;
   }
 
-  @include breakpoint('large') {
+  @include breakpoint('lg') {
     &::before {
       content: '';
       position: absolute;
@@ -101,7 +101,7 @@ $section-bg-decor-z-index: -1;
   }
 
   &__carousel {
-    margin-top: $spacing--2xlarge;
+    margin-top: $spacing--8xl;
   }
 }
 </style>
@@ -113,14 +113,14 @@ $carousel-button-size: convert(76px, 'rem');
 
 .carousel {
   &__slide {
-    padding: 0 clamped($min-size: $spacing--2xsmall, $max-size: $gap--large);
+    padding: 0 clamped($min-size: $spacing--xs, $max-size: $gap--lg);
   }
 
   &__prev,
   &__next {
     width: $carousel-button-size;
     height: $carousel-button-size;
-    border-radius: $border-radius--circle;
+    border-radius: $rounded--full;
     color: $color-white--regular;
     background-color: rgba($carousel-button-color, 0.2);
     backdrop-filter: blur($carousel-button-blur);
@@ -132,9 +132,9 @@ $carousel-button-size: convert(76px, 'rem');
   }
 }
 
-@include breakpoint('medium', $max: true) {
+@include breakpoint('md', $max: true) {
   .carousel {
-    padding-bottom: calc($carousel-button-size + $spacing--xlarge);
+    padding-bottom: calc($carousel-button-size + $spacing--4xl);
 
     &__prev,
     &__next {
@@ -144,11 +144,11 @@ $carousel-button-size: convert(76px, 'rem');
     }
 
     &__prev {
-      left: calc(50% - ($carousel-button-size + $spacing--large));
+      left: calc(50% - ($carousel-button-size + $spacing--2xl));
     }
 
     &__next {
-      right: calc(50% - ($carousel-button-size + $spacing--large));
+      right: calc(50% - ($carousel-button-size + $spacing--2xl));
     }
   }
 }

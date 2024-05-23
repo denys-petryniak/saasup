@@ -36,7 +36,7 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
         class="card__image"
       />
       <BaseButton
-        size="small"
+        size="sm"
         color="light-branded"
         :to="slug"
         class="card__button"
@@ -67,13 +67,20 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
 
 <style scoped lang="scss">
 $card-padding: clamped(
-  $min-size: $spacing--large,
-  $max-size: $spacing--2xlarge,
+  $min-size: $spacing--2xl,
+  $max-size: $spacing--8xl,
+);
+// outer radius = inner radius + gap
+// source: https://cloudfour.com/thinks/the-math-behind-nesting-rounded-corners/
+$card-image-border-radius: $rounded--2xl * 2;
+$card-border-radius: clamped(
+  $min-size: $card-image-border-radius + $spacing--2xl,
+  $max-size: $card-image-border-radius + $spacing--8xl,
 );
 
 .card {
   padding: $card-padding;
-  border-radius: $border-radius--2xlarge;
+  border-radius: $card-border-radius;
   background-color: $color--secondary--extra-light;
 
   &__image-box {
@@ -81,44 +88,38 @@ $card-padding: clamped(
   }
 
   &__image {
-    border-radius: $border-radius--xlarge;
+    border-radius: $card-image-border-radius;
   }
 
   &__button {
     position: absolute;
-    bottom: $spacing--medium;
-    left: $spacing--medium;
-    border-radius: $border-radius--large;
+    bottom: $spacing--lg;
+    left: $spacing--lg;
+    border-radius: $rounded--3xl;
   }
 
   &__date {
-    margin-top: clamped(
-      $min-size: $spacing--xlarge,
-      $max-size: $spacing--2xlarge
-    );
+    margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
     @include fluid-typography(
       $min-font-size: $font-size--base,
-      $max-font-size: $font-size--small,
-      $min-line-height: $line-height--3xsmall,
-      $max-line-height: $line-height--2xsmall
+      $max-font-size: $font-size--lg,
+      $min-line-height: $leading--tight,
+      $max-line-height: $leading--condensed
     );
   }
 
   &__title {
-    margin-top: $spacing--large;
+    margin-top: $spacing--2xl;
   }
 
   &__description {
-    margin: $spacing--large 0 0 0;
+    margin: $spacing--2xl 0 0 0;
   }
 
   &__link {
     display: inline-block;
-    margin-top: clamped(
-      $min-size: $spacing--xlarge,
-      $max-size: $spacing--2xlarge
-    );
-    font-weight: $font-weight--bold;
+    margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
+    font-weight: $font--bold;
     text-decoration: underline;
   }
 

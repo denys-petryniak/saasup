@@ -50,7 +50,7 @@ $testimonial-quote-icon-size: convert(40px, 'rem');
   }
 
   &__text {
-    margin-top: $gap--small;
+    margin-top: $gap--sm;
     font-style: italic;
   }
 }

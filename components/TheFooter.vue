@@ -119,20 +119,17 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   &__wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: $gap--small;
-    column-gap: $spacing--2xlarge;
+    row-gap: $gap--sm;
+    column-gap: $spacing--8xl;
   }
 
   &__description,
   &__contacts {
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--4xl;
   }
 
   &__copyright {
-    padding-top: clamped(
-      $min-size: $spacing--large,
-      $max-size: $spacing--xlarge
-    );
+    padding-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
     text-align: center;
   }
 
@@ -143,8 +140,8 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   &__social-links {
     display: flex;
     justify-content: center;
-    gap: $spacing--xlarge;
-    margin-top: $spacing--xlarge;
+    gap: $spacing--4xl;
+    margin-top: $spacing--4xl;
   }
 
   &__social-link {
@@ -160,7 +157,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   &__headline {
     position: relative;
     margin-top: 0;
-    padding-bottom: $spacing--large;
+    padding-bottom: $spacing--2xl;
 
     &::after {
       content: '';
@@ -175,21 +172,21 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
 
   &__menu {
     padding: 0;
-    margin: $spacing--large 0 0 0;
+    margin: $spacing--2xl 0 0 0;
     list-style: none;
   }
 
   &__item {
-    font-weight: $font-weight--semibold;
+    font-weight: $font--semibold;
 
     &:not(:first-child) {
-      margin-top: $spacing--small;
+      margin-top: $spacing--sm;
     }
   }
 
   &__link {
     display: block;
-    padding: $spacing--small 0;
+    padding: $spacing--sm 0;
     color: $color--secondary--dark;
 
     &:hover {
@@ -198,7 +195,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   }
 }
 
-@include breakpoint('medium') {
+@include breakpoint('md') {
   .footer {
     &__wrapper {
       grid-template-columns: repeat(2, 1fr);
@@ -206,7 +203,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   }
 }
 
-@include breakpoint('large') {
+@include breakpoint('lg') {
   .footer {
     &__wrapper {
       grid-template-columns: 0.8fr 0.5fr 1fr;

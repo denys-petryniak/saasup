@@ -59,12 +59,9 @@ const getDescription = computed(() =>
 .step {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing--2xlarge;
-  margin-top: clamped(
-    $min-size: $spacing--2xlarge,
-    $max-size: $spacing--3xlarge
-  );
-  padding: 0 clamped($min-size: $spacing--xsmall, $max-size: $spacing--3xlarge);
+  gap: $spacing--8xl;
+  margin-top: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
+  padding: 0 clamped($min-size: $spacing--xs, $max-size: $spacing--12xl);
 
   &__main {
     flex: 1 1 convert(500px, 'rem');
@@ -77,7 +74,7 @@ const getDescription = computed(() =>
   &__head {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing--large;
+    gap: $spacing--2xl;
   }
 
   &__title {
@@ -88,11 +85,11 @@ const getDescription = computed(() =>
 
   &__button {
     display: block;
-    margin-top: $spacing--xlarge;
+    margin-top: $spacing--4xl;
   }
 
   &__image {
-    border-radius: $border-radius--xlarge;
+    border-radius: $rounded--2xl * 2;
   }
 }
 </style>

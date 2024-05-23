@@ -100,24 +100,25 @@ const getSectionBackground = computed(() => {
 
 <style scoped lang="scss">
 $section-padding-y: clamped(
-  $min-size: $spacing--xlarge,
-  $max-size: $spacing--2xlarge,
+  $min-size: $spacing--4xl,
+  $max-size: $spacing--8xl,
 );
 $section-padding-x: clamped(
-  $min-size: $spacing--large,
-  $max-size: $spacing--3xlarge,
+  $min-size: $spacing--2xl,
+  $max-size: $spacing--12xl,
+);
+$section-border-radius: clamped(
+  $min-size: $rounded--2xl * 2,
+  $max-size: $rounded--3xl * 2,
 );
 
 .cta-section {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: $spacing--xlarge;
+  gap: $spacing--4xl;
   padding: $section-padding-y $section-padding-x;
-  border-radius: clamped(
-    $min-size: $border-radius--2xlarge,
-    $max-size: $border-radius--3xlarge
-  );
+  border-radius: $section-border-radius;
   background: v-bind(getSectionBackground) no-repeat 50% 50% / cover;
 
   &__content {
@@ -134,15 +135,15 @@ $section-padding-x: clamped(
   }
 
   &__description {
-    margin-top: $spacing--large;
+    margin-top: $spacing--2xl;
     color: $color-white--regular;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: $spacing--large;
-    margin-top: $spacing--xlarge;
+    gap: $spacing--2xl;
+    margin-top: $spacing--4xl;
   }
 
   &__email,
@@ -151,13 +152,13 @@ $section-padding-x: clamped(
   }
 
   &__success-message {
-    padding: $spacing--medium $spacing--large;
-    border-radius: $border-radius--small;
+    padding: $spacing--lg $spacing--2xl;
+    border-radius: $rounded--lg;
     background-color: $color-white--regular;
   }
 }
 
-@include breakpoint('small') {
+@include breakpoint('sm') {
   .cta-section {
     &__form {
       flex-direction: row;

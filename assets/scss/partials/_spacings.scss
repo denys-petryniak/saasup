@@ -1,18 +1,28 @@
 @use './functions' as fn;
 
-// TODO: improve values, using multiples of 8
-$spacing--2xsmall: fn.convert(2px, 'rem');
-$spacing--xsmall: fn.convert(4px, 'rem');
-$spacing--small: fn.convert(8px, 'rem');
-$spacing--medium: fn.convert(16px, 'rem');
-$spacing--large: fn.convert(24px, 'rem');
-$spacing--xlarge: fn.convert(32px, 'rem');
-$spacing--2xlarge: fn.convert(48px, 'rem');
-$spacing--3xlarge: fn.convert(64px, 'rem');
+// based on tailwind default spacing scale -
+// https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale
 
-$gap--small: fn.convert(60px, 'rem');
-$gap--medium: fn.convert(80px, 'rem');
-$gap--large: fn.convert(100px, 'rem');
+$spacing--xs: fn.convert(4px, 'rem');
+$spacing--sm: fn.convert(8px, 'rem');
+$spacing--md: fn.convert(12px, 'rem');
+$spacing--lg: fn.convert(16px, 'rem');
+$spacing--xl: fn.convert(20px, 'rem');
+$spacing--2xl: fn.convert(24px, 'rem');
+$spacing--3xl: fn.convert(28px, 'rem');
+$spacing--4xl: fn.convert(32px, 'rem');
+$spacing--5xl: fn.convert(36px, 'rem');
+$spacing--6xl: fn.convert(40px, 'rem');
+$spacing--7xl: fn.convert(44px, 'rem');
+$spacing--8xl: fn.convert(48px, 'rem');
+$spacing--9xl: fn.convert(52px, 'rem');
+$spacing--10xl: fn.convert(56px, 'rem');
+$spacing--11xl: fn.convert(60px, 'rem');
+$spacing--12xl: fn.convert(64px, 'rem');
+
+$gap--sm: fn.convert(60px, 'rem');
+$gap--md: fn.convert(80px, 'rem');
+$gap--lg: fn.convert(100px, 'rem');
 
 $container-width--min: fn.convert(320px, 'rem');
 $container-width--max: fn.convert(1400px, 'rem');
