@@ -248,7 +248,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   &__item {
     position: relative;
     font-weight: $font--semibold;
-    font-size: $font-size--lg;
+    font-size: $text--lg;
   }
 
   &__link,

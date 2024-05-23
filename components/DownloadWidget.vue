@@ -71,7 +71,7 @@ $widget-padding-x: clamped(
 
   &__label {
     margin: 0;
-    font-size: $font-size--lg;
+    font-size: $text--lg;
     font-weight: $font--bold;
     color: $color-primary--light;
   }

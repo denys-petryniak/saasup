@@ -2,17 +2,17 @@
 
 // based on tailwind font-sizes - https://tailwindcss.com/docs/font-size
 
-$font-size--xs: fn.convert(12px, 'rem');
-$font-size--sm: fn.convert(14px, 'rem');
-$font-size--base: fn.convert(16px, 'rem');
-$font-size--lg: fn.convert(18px, 'rem');
-$font-size--xl: fn.convert(20px, 'rem');
-$font-size--2xl: fn.convert(24px, 'rem');
-$font-size--3xl: fn.convert(30px, 'rem');
-$font-size--4xl: fn.convert(36px, 'rem');
-$font-size--5xl: fn.convert(48px, 'rem');
-$font-size--6xl: fn.convert(60px, 'rem');
-$font-size--7xl: fn.convert(72px, 'rem');
-$font-size--8xl: fn.convert(96px, 'rem');
-$font-size--9xl: fn.convert(128px, 'rem');
+$text--xs: fn.convert(12px, 'rem');
+$text--sm: fn.convert(14px, 'rem');
+$text--base: fn.convert(16px, 'rem');
+$text--lg: fn.convert(18px, 'rem');
+$text--xl: fn.convert(20px, 'rem');
+$text--2xl: fn.convert(24px, 'rem');
+$text--3xl: fn.convert(30px, 'rem');
+$text--4xl: fn.convert(36px, 'rem');
+$text--5xl: fn.convert(48px, 'rem');
+$text--6xl: fn.convert(60px, 'rem');
+$text--7xl: fn.convert(72px, 'rem');
+$text--8xl: fn.convert(96px, 'rem');
+$text--9xl: fn.convert(128px, 'rem');
 

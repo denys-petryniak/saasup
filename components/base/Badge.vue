@@ -52,8 +52,8 @@ $badge-text-color--orange: #c68a15;
 .badge {
   display: inline-block;
   @include fluid-typography(
-    $min-font-size: $font-size--base,
-    $max-font-size: $font-size--lg,
+    $min-font-size: $text--base,
+    $max-font-size: $text--lg,
     $min-line-height: $leading--tight,
     $max-line-height: $leading--condensed
   );

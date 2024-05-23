@@ -46,8 +46,8 @@ $field-bg-color: rgba(255, 255, 255, 0.2);
   border-radius: $rounded--3xl * 2;
   color: $color-white--regular;
   @include fluid-typography(
-    $min-font-size: $font-size--base,
-    $max-font-size: $font-size--lg,
+    $min-font-size: $text--base,
+    $max-font-size: $text--lg,
     $min-line-height: $leading--none,
     $max-line-height: $leading--none
   );

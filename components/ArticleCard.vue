@@ -101,8 +101,8 @@ $card-border-radius: clamped(
   &__date {
     margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
     @include fluid-typography(
-      $min-font-size: $font-size--base,
-      $max-font-size: $font-size--lg,
+      $min-font-size: $text--base,
+      $max-font-size: $text--lg,
       $min-line-height: $leading--tight,
       $max-line-height: $leading--condensed
     );

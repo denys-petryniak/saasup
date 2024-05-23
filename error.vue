@@ -45,8 +45,8 @@ function handleError() {
 
   &__title {
     @include fluid-typography(
-      $min-font-size: $font-size--8xl,
-      $max-font-size: $font-size--8xl * 3,
+      $min-font-size: $text--8xl,
+      $max-font-size: $text--8xl * 3,
       $min-line-height: $leading--none,
       $max-line-height: $leading--none
     );
@@ -57,8 +57,8 @@ function handleError() {
 
   &__subtitle {
     @include fluid-typography(
-      $min-font-size: $font-size--4xl,
-      $max-font-size: $font-size--7xl,
+      $min-font-size: $text--4xl,
+      $max-font-size: $text--7xl,
       $min-line-height: $leading--tight,
       $max-line-height: $leading--condensed
     );
