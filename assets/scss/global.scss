@@ -18,10 +18,10 @@ body {
   @include fluid-typography(
     $min-font-size: $text--lg,
     $max-font-size: $text--2xl,
-    $min-line-height: $leading--normal,
-    $max-line-height: $leading--relaxed
+    $min-line-height: $leading--cozy,
+    $max-line-height: $leading--normal
   );
-  letter-spacing: 0.01em; // TODO: improve it, using rule "The bigger the text, the less space you need between each letter"
+  letter-spacing: $tracking--normal;
   color: $color--secondary--dark;
   overflow-x: hidden;
 }
@@ -49,6 +49,7 @@ h5,
 h6 {
   margin: $spacing--2xl 0;
   font-weight: $font--extrabold;
+  letter-spacing: $tracking--tight;
   text-wrap: balance;
   color: $color--secondary--extra-dark;
 }
@@ -58,7 +59,7 @@ h1 {
     $min-font-size: $text--4xl,
     $max-font-size: $text--7xl,
     $min-line-height: $leading--none,
-    $max-line-height: $leading--tight
+    $max-line-height: $leading--tight,
   );
 }
 
@@ -76,7 +77,7 @@ h3 {
     $min-font-size: $text--2xl,
     $max-font-size: $text--3xl,
     $min-line-height: $leading--tight,
-    $max-line-height: $leading--normal
+    $max-line-height: $leading--condensed
   );
 }
 

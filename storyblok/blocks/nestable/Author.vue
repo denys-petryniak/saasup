@@ -55,12 +55,8 @@ const getAuthorRating = computed(() => {
   }
 
   &__name {
-    @include fluid-typography(
-      $min-font-size: $text--4xl,
-      $max-font-size: $text--4xl,
-      $min-line-height: $leading--tight,
-      $max-line-height: $leading--condensed
-    );
+    font-size: $text--4xl;
+    line-height: $leading--tight;
     font-weight: $font--bold;
   }
 

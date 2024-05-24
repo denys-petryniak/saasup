@@ -63,10 +63,9 @@ $button-min-width: 10ch;
   border-radius: $rounded--3xl * 2;
   @include fluid-typography(
     $min-font-size: $text--base,
-    $max-font-size: $text--lg,
-    $min-line-height: $leading--none,
-    $max-line-height: $leading--none
+    $max-font-size: $text--lg
   );
+  line-height: $leading--none;
   font-weight: $font--bold;
   text-align: center;
 

@@ -47,10 +47,9 @@ $field-bg-color: rgba(255, 255, 255, 0.2);
   color: $color-white--regular;
   @include fluid-typography(
     $min-font-size: $text--base,
-    $max-font-size: $text--lg,
-    $min-line-height: $leading--none,
-    $max-line-height: $leading--none
+    $max-font-size: $text--lg
   );
+  line-height: $leading--none;
   font-weight: $font--bold;
   background-color: $field-bg-color;
 

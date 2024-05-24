@@ -88,12 +88,8 @@ $card-padding-x: clamped(
 
   &__price {
     margin-top: 0;
-    @include fluid-typography(
-      $min-font-size: $text--4xl,
-      $max-font-size: $text--4xl,
-      $min-line-height: $leading--tight,
-      $max-line-height: $leading--normal
-    );
+    font-size: $text--4xl;
+    line-height: $leading--tight;
     font-weight: $font--extrabold;
     color: $color--secondary--extra-dark;
   }
