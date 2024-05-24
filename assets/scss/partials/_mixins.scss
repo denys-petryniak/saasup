@@ -33,12 +33,6 @@ $breakpoints: (
 
 // *** FLUID TYPOGRAPHY ***
 
-// Fluid typography tool as an alternative to mixins and functions
-// Sources:
-// - https://fluidtypography.com/
-// - https://www.fluid-type-scale.com/
-// - https://utopia.fyi/
-
 // This mixin provides a way to apply fluid typography with dynamic font size and line height.
 @mixin fluid-typography(
   $min-font-size,
@@ -46,12 +40,12 @@ $breakpoints: (
   $min-line-height: null,
   $max-line-height: null,
 ) {
-  // Calculate the clamped font size using the provided minimum and maximum values
+  // Calculate the clamped font size
   font-size: fn.clamped($min-size: $min-font-size, $max-size: $max-font-size);
 
   @if $min-line-height and $max-line-height {
     @if unitless($min-line-height) and unitless($max-line-height) {
-      // Calculate the clamped line height based on the min and max font values
+      // Calculate the clamped line height
       line-height: fn.clamped(
         $min-size: $min-font-size * $min-line-height,
         $max-size: $max-font-size * $max-line-height
@@ -61,6 +55,12 @@ $breakpoints: (
     }
   }
 }
+
+// Fluid typography tool as an alternative to mixins and functions
+// Sources:
+// - https://fluidtypography.com/
+// - https://www.fluid-type-scale.com/
+// - https://utopia.fyi/
 
 
 
