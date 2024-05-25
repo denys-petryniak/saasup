@@ -193,7 +193,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   }
 
   &__menu-button {
-    padding: calc($spacing--2xl / 2);
+    padding: $spacing--sm;
     border: 1px solid $color-devider--regular;
     border-radius: $rounded--lg;
     color: $color--secondary--extra-dark;

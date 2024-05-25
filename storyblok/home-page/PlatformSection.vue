@@ -164,7 +164,7 @@ $section-bg-z-index: -2;
 
     &__content {
       &::after {
-        width: calc(100% + $section-content-overlap-size);
+        width: 100% + $section-content-overlap-size;
       }
     }
   }

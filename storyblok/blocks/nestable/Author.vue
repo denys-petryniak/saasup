@@ -51,7 +51,7 @@ const getAuthorRating = computed(() => {
   &__name,
   &__job,
   &__rating {
-    margin: calc($spacing--2xl / 2) 0 0 0;
+    margin: $spacing--md 0 0 0;
   }
 
   &__name {

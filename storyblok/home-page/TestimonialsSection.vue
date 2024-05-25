@@ -134,7 +134,7 @@ $carousel-button-size: convert(76px, 'rem');
 
 @include breakpoint('md', $max: true) {
   .carousel {
-    padding-bottom: calc($carousel-button-size + $spacing--4xl);
+    padding-bottom: $carousel-button-size + $spacing--4xl;
 
     &__prev,
     &__next {
