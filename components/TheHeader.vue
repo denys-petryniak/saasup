@@ -90,6 +90,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
           type="button"
           class="header__menu-button"
           :class="{ 'header__menu-button--active': isMenuVisible }"
+          aria-label="Toggle menu"
           @click="toggleMenuVisibility"
         >
           <Icon
@@ -104,6 +105,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
         :class="{
           'header__navigation--open': isMenuVisible,
         }"
+        aria-label="Secondary"
       >
         <menu
           v-if="data.navigation?.length"
@@ -120,9 +122,11 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
               <button
                 type="button"
                 class="navigation__submenu-button"
+                :aria-label="`Toggle submenu for ${navigationItem.title}`"
                 @click="toggleSubmenuVisibility"
               >
-                <span>{{ navigationItem.title }}</span><Icon
+                <span>{{ navigationItem.title }}</span>
+                <Icon
                   class="navigation__button-icon"
                   name="material-symbols:keyboard-arrow-down"
                   size="1.25em"

@@ -31,6 +31,7 @@ const getHeroDescription = computed(() =>
         <BaseButton
           color="light-bordered"
           class="hero-section__video-button"
+          aria-label="Play video button"
         >
           <span class="hero-section__video-button-text">Watch Video</span>
           <Icon

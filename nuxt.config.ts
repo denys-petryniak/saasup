@@ -68,8 +68,9 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    // https://github.com/storyblok/storyblok-nuxt
     [
-      '@storyblok/nuxt', // https://github.com/storyblok/storyblok-nuxt
+      '@storyblok/nuxt',
       {
         accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
         apiOptions: {
@@ -77,15 +78,18 @@ export default defineNuxtConfig({
         },
       },
     ],
-    '@vueuse/nuxt', // https://www.npmjs.com/package/@vueuse/nuxt
-    'nuxt-icon', // https://github.com/nuxt-modules/icon
+    // https://www.npmjs.com/package/@vueuse/nuxt
+    '@vueuse/nuxt',
+    // https://github.com/nuxt-modules/icon
+    'nuxt-icon',
+    // https://github.com/nuxt/image
     [
-      '@nuxt/image', // https://github.com/nuxt/image
+      '@nuxt/image',
       {
         provider: 'storyblok',
         storyblok: {
-          // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
-          // opened issue: https://github.com/storyblok/storyblok/issues/580
+        // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
+        // opened issue: https://github.com/storyblok/storyblok/issues/580
           baseURL: 'https://a2.storyblok.com',
         },
         // The screen sizes predefined by `@nuxt/image`:
@@ -99,16 +103,21 @@ export default defineNuxtConfig({
         },
       },
     ],
+    // https://www.npmjs.com/package/@nuxtjs/google-fonts,
     [
-      '@nuxtjs/google-fonts', // https://www.npmjs.com/package/@nuxtjs/google-fonts,
+      '@nuxtjs/google-fonts',
       {
         families: {
           Nunito: [300, 400, 600, 700, 800],
         },
       },
     ],
-    'vue3-carousel-nuxt', // https://github.com/gaetansenn/vue3-carousel-nuxt
-    '@nuxt/eslint', // https://eslint.nuxt.com/
+    // https://github.com/gaetansenn/vue3-carousel-nuxt
+    'vue3-carousel-nuxt',
+    // https://eslint.nuxt.com/
+    '@nuxt/eslint',
+    // https://html-validator.nuxtjs.org/
+    '@nuxtjs/html-validator',
   ],
 
   components: [

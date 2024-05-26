@@ -39,7 +39,7 @@ const getTestimonialsBackground = computed(() => {
     </div>
     <Carousel
       v-bind="carouselSettings"
-      class="carousel testimonials-section__carousel"
+      class="testimonials-section__carousel"
     >
       <template #slides>
         <Slide

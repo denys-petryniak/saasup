@@ -41,6 +41,7 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
         <button
           v-for="(step, stepIndex) in blok.steps"
           :key="step.name"
+          type="button"
           class="steps-section__button"
           :class="{ 'steps-section__button--active': stepIndex === activeStepIndex }"
           @click="changeStep(stepIndex)"

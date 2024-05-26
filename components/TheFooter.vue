@@ -57,7 +57,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
           />
         </div>
       </div>
-      <nav class="navigation footer__section">
+      <nav class="navigation footer__section" aria-label="Primary">
         <h4 class="navigation__headline">
           {{ data.headline }}
         </h4>
@@ -103,6 +103,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
           :to="socialLink.link.url"
           target="_blank"
           class="footer__social-link"
+          :aria-label="`${socialLink.label} social link`"
         >
           <Icon
             :name="getSocialLinkLogo(socialLink.label)"

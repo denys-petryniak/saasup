@@ -72,6 +72,7 @@ const getSectionBackground = computed(() => {
           maxlength="256"
           required
           class="cta-section__email"
+          aria-label="Email field"
         />
         <BaseButton
           type="submit"

@@ -5,6 +5,10 @@ interface Props {
   modelValue: ModelValue
 }
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 defineProps<Props>()
 
 const emit = defineEmits<{

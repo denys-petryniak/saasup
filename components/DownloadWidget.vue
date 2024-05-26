@@ -29,24 +29,28 @@ defineProps<Props>()
         to="https://www.apple.com/in/app-store/"
         target="_blank"
         class="widget__button widget__button--dark"
+        aria-label="Apple icon"
       >
         <Icon
           class="widget__button-icon"
           name="raphael:apple"
           size="1.5em"
-        />App Store
+        />
+        App Store
       </BaseButton>
       <BaseButton
         color="light-bordered"
         to="https://play.google.com/store"
         target="_blank"
         class="widget__button"
+        aria-label="Android icon"
       >
         <Icon
           class="widget__button-icon"
           name="raphael:android"
           size="1.5em"
-        />Play Store
+        />
+        Play Store
       </BaseButton>
     </div>
   </div>
