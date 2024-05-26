@@ -142,6 +142,7 @@ export default defineNuxtConfig({
   },
 
   experimental: {
+    typedPages: true, // Fully typed routing 💪
     defaults: {
       nuxtLink: {
         trailingSlash: 'append',
