@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { BlogSectionStoryblok } from '~/component-types-sb'
+import type { StoryblokStory } from 'storyblok-generate-ts'
+import type { ArticleStoryblok, BlogSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
   blok: BlogSectionStoryblok
@@ -23,12 +24,12 @@ defineProps<Props>()
       v-if="blok.articles?.length"
       class="blog-section__cards"
     >
-      <!-- TODO: fix types for Article -->
+      <!-- TODO: improve types -->
       <ArticleCard
         v-for="article in blok.articles"
-        :key="article.uuid"
-        :article="article.content"
-        :slug="article.full_slug"
+        :key="(article as StoryblokStory<ArticleStoryblok>).uuid"
+        :article="(article as StoryblokStory<ArticleStoryblok>).content"
+        :slug="(article as StoryblokStory<ArticleStoryblok>).full_slug"
       />
     </div>
   </BaseSection>

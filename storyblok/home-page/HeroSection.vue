@@ -42,6 +42,9 @@ const getHeroDescription = computed(() =>
       </div>
     </div>
     <div class="hero-section__image-box">
+      <!-- Width & height set manually because custom metadata (width & height)
+      for the asset is not available from the CMS.
+      This is due to limitations in the free plan. -->
       <NuxtImg
         v-if="blok.image?.filename"
         :src="blok.image.filename"
