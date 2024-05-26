@@ -140,4 +140,12 @@ export default defineNuxtConfig({
       standalone: false,
     },
   },
+
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        trailingSlash: 'append',
+      },
+    },
+  },
 })
