@@ -45,6 +45,7 @@ const getAuthorRating = computed(() => {
   margin-top: $spacing--4xl;
 
   &__image {
+    margin-inline: auto;
     border-radius: $rounded--full;
   }
 

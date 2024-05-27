@@ -1,3 +1,26 @@
+:root {
+  font-family: $font-family--primary;
+  letter-spacing: $tracking--normal;
+  color: $color--secondary--dark;
+
+  /* Disables automatic font synthesis. Helps ensure that only the specified font weights and styles are used,
+     which can improve visual consistency across different browsers and operating systems. */
+  font-synthesis: none;
+
+  /* Optimizes text rendering for legibility. This setting can make text more readable, especially on small screens. */
+  text-rendering: optimizeLegibility;
+
+  /* Enables antialiasing for WebKit browsers, which can make text appear smoother. */
+  -webkit-font-smoothing: antialiased;
+
+  /* Enables grayscale antialiasing for Firefox on macOS, which can improve text appearance. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Prevents browsers from automatically resizing text based on user settings.
+     This helps maintain consistent text sizes across different devices and user preferences. */
+  -webkit-text-size-adjust: 100%;
+}
+
 html {
   height: 100%;
 }
@@ -14,16 +37,13 @@ body,
 }
 
 body {
-  font-family: $font-family--primary;
+  overflow-x: hidden;
   @include fluid-typography(
     $min-font-size: $text--lg,
     $max-font-size: $text--2xl,
     $min-line-height: $leading--cozy,
     $max-line-height: $leading--normal
   );
-  letter-spacing: $tracking--normal;
-  color: $color--secondary--dark;
-  overflow-x: hidden;
 }
 
 p,
@@ -98,10 +118,14 @@ p {
   }
 }
 
-img {
-  display: inline-block;
-  vertical-align: middle;
+img,
+picture,
+svg {
+  display: block;
   max-width: 100%;
+}
+
+img {
   height: auto;
 }
 

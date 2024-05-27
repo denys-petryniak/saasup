@@ -32,7 +32,7 @@ function handleError() {
           {{ error.statusMessage }}
         </p>
         <BaseButton class="error__button" @click="handleError">
-          Home Page
+          Home
         </BaseButton>
       </div>
     </BaseSection>

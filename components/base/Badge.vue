@@ -47,7 +47,7 @@ $badge-padding-x--md: clamped(
 );
 $badge-bg-color--purple: #efecff;
 $badge-bg-color--orange: #ffeecc;
-$badge-text-color--orange: #c68a15;
+$badge-text-color--orange: #4a2e00;
 
 .badge {
   display: inline-block;

@@ -178,7 +178,8 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
 <style scoped lang="scss">
 .header {
   &__head {
-    text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
   &__main {
