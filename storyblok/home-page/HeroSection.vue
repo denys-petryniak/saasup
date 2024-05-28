@@ -109,8 +109,8 @@ const getHeroDescription = computed(() =>
   }
 
   &__image {
-    border-radius: 25px;
-    box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.11);
+    border-radius: $rounded--3xl;
+    box-shadow: $shadow--regular;
   }
 }
 

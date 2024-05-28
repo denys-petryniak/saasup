@@ -105,6 +105,11 @@ $section-bg-z-index: -2;
     flex: 1 1 convert(500px, 'rem');
   }
 
+  &__image {
+    border-radius: $rounded--3xl * 2;
+    box-shadow: $shadow--regular;
+  }
+
   &__heading {
     margin: 0;
   }
