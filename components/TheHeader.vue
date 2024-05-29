@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { HeaderData } from '~/types'
+import type { Header } from '~/types'
 import type { LinkStoryblok, SubmenuStoryblok } from '~/component-types-sb'
 
 interface Props {
-  data: HeaderData
+  header: Header
 }
 
 defineProps<Props>()
@@ -63,11 +63,11 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
   <header class="header">
     <div class="header__head">
       <AppLogoLink
-        v-if="data.logo"
-        :src="data.logo?.filename"
-        :width="data.logo?.meta_data?.width"
-        :height="data.logo?.meta_data?.height"
-        :alt="data.logo?.alt"
+        v-if="header.logo"
+        :src="header.logo.filename"
+        :width="header.logo.meta_data?.width"
+        :height="header.logo.meta_data?.height"
+        :alt="header.logo.alt"
       />
     </div>
     <div class="header__main">
@@ -108,11 +108,11 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
         aria-label="Secondary"
       >
         <menu
-          v-if="data.navigation?.length"
+          v-if="header.navigation?.length"
           class="navigation__menu"
         >
           <li
-            v-for="navigationItem in data.navigation"
+            v-for="navigationItem in header.navigation"
             :key="navigationItem._uid"
             class="navigation__item"
             @mouseover="handleMouseover(navigationItem as SubmenuStoryblok)"

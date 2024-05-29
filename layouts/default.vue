@@ -1,25 +1,9 @@
 <script setup lang="ts">
-import type { FooterData, HeaderData } from '~/types'
+import type { Footer, Header } from '~/types'
 import type { ConfigStoryblok } from '~/component-types-sb'
 
-const headerData: HeaderData = reactive({
-  navigation: null,
-  logo: undefined,
-})
-
-const footerData: FooterData = reactive({
-  headline: null,
-  description: null,
-  copyright: null,
-  navigation: null,
-  emails: null,
-  phones: null,
-  socialLinks: null,
-  widgetLabel: null,
-  widgetTitle: null,
-  widgetDescription: null,
-  widgetButtons: null,
-})
+const header = ref<Header | null>(null)
+const footer = ref<Footer | null>(null)
 
 const { version: storyVersion } = useStoryVersion()
 
@@ -32,20 +16,26 @@ try {
 
   const content: ConfigStoryblok = data.story.content
 
-  headerData.logo = content.header_logo
-  headerData.navigation = content.header_nav
+  header.value = {
+    logo: content.header_logo,
+    navigation: content.header_nav,
+  }
 
-  footerData.headline = content.footer_nav_headline
-  footerData.description = content.footer_description
-  footerData.copyright = content.footer_copyright_text
-  footerData.navigation = content.footer_nav
-  footerData.emails = content.footer_emails
-  footerData.phones = content.footer_phones
-  footerData.socialLinks = content.footer_social_links
-  footerData.widgetLabel = content.download_widget_label
-  footerData.widgetTitle = content.download_widget_title
-  footerData.widgetDescription = content.download_widget_description
-  footerData.widgetButtons = content.download_widget_buttons
+  footer.value = {
+    headline: content.footer_nav_headline,
+    description: content.footer_description,
+    copyright: content.footer_copyright_text,
+    navigation: content.footer_nav,
+    emails: content.footer_emails,
+    phones: content.footer_phones,
+    socialLinks: content.footer_social_links,
+    widget: {
+      label: content.download_widget_label,
+      title: content.download_widget_title,
+      description: content.download_widget_description,
+      buttons: content.download_widget_buttons,
+    },
+  }
 }
 catch (error) {
   console.error('An error occurred:', error)
@@ -55,14 +45,16 @@ catch (error) {
 <template>
   <BaseContainer class="layout">
     <TheHeader
-      :data="headerData"
+      v-if="header"
+      :header="header"
       class="layout__header"
     />
     <main class="layout__body">
       <slot />
     </main>
     <TheFooter
-      :data="footerData"
+      v-if="footer"
+      :footer="footer"
       class="layout__footer"
     />
   </BaseContainer>

@@ -18,21 +18,25 @@ export type SectionTag = 'div' | 'section' | 'article'
 
 export type StoryVersion = 'draft' | 'published'
 
-export interface HeaderData {
-  navigation: (LinkStoryblok | SubmenuStoryblok)[] | null
-  logo: AssetStoryblok | undefined
+export interface Header {
+  navigation: (LinkStoryblok | SubmenuStoryblok)[]
+  logo?: AssetStoryblok
 }
 
-export interface FooterData {
-  headline: string | null
-  description: string | null
-  copyright: string | null
-  navigation: (LinkStoryblok)[] | null
-  emails: LinkStoryblok[] | null
-  phones: LinkStoryblok[] | null
-  socialLinks: LinkStoryblok[] | null
-  widgetLabel: string | null
-  widgetTitle: string | null
-  widgetDescription: string | null
-  widgetButtons: ButtonStoryblok[] | null
+interface FooterWidget {
+  label: string
+  title: string
+  description: string
+  buttons: ButtonStoryblok[]
+}
+
+export interface Footer {
+  headline: string
+  description: string
+  copyright: string
+  navigation: (LinkStoryblok)[]
+  emails: LinkStoryblok[]
+  phones: LinkStoryblok[]
+  socialLinks: LinkStoryblok[]
+  widget?: FooterWidget
 }

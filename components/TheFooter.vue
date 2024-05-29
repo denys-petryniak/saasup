@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { LinkStoryblok } from '~/component-types-sb'
-import type { FooterData } from '~/types'
+import type { Footer } from '~/types'
 
 interface Props {
-  data: FooterData
+  footer: Footer
 }
 
 defineProps<Props>()
@@ -40,33 +40,33 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
       <div class="footer__section">
         <AppLogoLink loading="lazy" />
         <p class="footer__description">
-          {{ data.description }}
+          {{ footer.description }}
         </p>
         <div class="footer__contacts">
           <FooterContactBlock
-            v-if="data.emails?.length"
+            v-if="footer.emails?.length"
             type="email"
             icon-name="carbon:email"
-            :links="data.emails"
+            :links="footer.emails"
           />
           <FooterContactBlock
-            v-if="data.phones?.length"
+            v-if="footer.phones?.length"
             type="phone"
             icon-name="carbon:phone"
-            :links="data.phones"
+            :links="footer.phones"
           />
         </div>
       </div>
       <nav class="navigation footer__section" aria-label="Primary">
         <h4 class="navigation__headline">
-          {{ data.headline }}
+          {{ footer.headline }}
         </h4>
         <menu
-          v-if="data.navigation?.length"
+          v-if="footer.navigation?.length"
           class="navigation__menu"
         >
           <li
-            v-for="navigationItem in data.navigation"
+            v-for="navigationItem in footer.navigation"
             :key="navigationItem._uid"
             class="navigation__item"
           >
@@ -79,26 +79,26 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
           </li>
         </menu>
       </nav>
-      <div class="footer__section">
+      <div v-if="footer.widget" class="footer__section">
         <DownloadWidget
-          :label="data.widgetLabel"
-          :title="data.widgetTitle"
-          :description="data.widgetDescription"
-          :buttons="data.widgetButtons"
+          :label="footer.widget.label"
+          :title="footer.widget.title"
+          :description="footer.widget.description"
+          :buttons="footer.widget.buttons"
         />
       </div>
     </BaseSection>
     <BaseDivider />
     <div class="footer__copyright">
       <p class="footer__copyright-text">
-        {{ data.copyright }}
+        {{ footer.copyright }}
       </p>
       <div
-        v-if="data.socialLinks?.length"
+        v-if="footer.socialLinks?.length"
         class="footer__social-links"
       >
         <NuxtLink
-          v-for="socialLink in data.socialLinks"
+          v-for="socialLink in footer.socialLinks"
           :key="socialLink._uid"
           :to="socialLink.link.url"
           target="_blank"
