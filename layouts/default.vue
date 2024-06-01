@@ -5,7 +5,7 @@ import type { ConfigStoryblok } from '~/component-types-sb'
 const header = ref<Header | null>(null)
 const footer = ref<Footer | null>(null)
 
-const { version: storyVersion } = useStoryVersion()
+const storyVersion = getStoryVersion()
 
 try {
   const storyblokApi = useStoryblokApi()

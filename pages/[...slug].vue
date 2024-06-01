@@ -9,27 +9,23 @@ const resolveRelations = [
   'blog-section.articles',
 ]
 
-const route = useRoute()
-const slug = route.params.slug
-
-const slugValue = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
-
-const { version: storyVersion } = useStoryVersion()
+const storyVersion = getStoryVersion()
 const isPreview = storyVersion === 'draft'
 
-function removeTrailingSlash(value: string): string {
-  return value.replace(/\/$/, '')
-}
+const route = useRoute()
+const slug = route.params.slug
+const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 
-const apiEndpoint = `cdn/stories/${removeTrailingSlash(slugValue)}`
+const { data: story } = await useAsyncData(getSlug, async () => {
+  const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
 
-const { data: story } = await useAsyncData(slugValue, async () => {
   try {
     const { data } = await useStoryblokApi().get(apiEndpoint, {
       version: storyVersion,
       resolve_relations: resolveRelations,
     })
-    return data?.story
+
+    return data.story
   }
   catch (error) {
     console.error('An error occurred while fetching the story:', error)
@@ -43,18 +39,20 @@ function initStoryblokBridge() {
   if (!isPreview || !story.value?.id)
     return
 
-  useStoryblokBridge(story.value.id, evStory => (story.value = evStory), {
-    resolveRelations,
-  })
+  useStoryblokBridge(
+    story.value.id,
+    evStory => (story.value = evStory),
+    {
+      resolveRelations,
+    },
+  )
 }
 
 onMounted(() => {
   initStoryblokBridge()
 })
 
-const isHomePage = computed(() => {
-  return story.value?.name === 'Home'
-})
+const isHomePage = computed(() => story.value.name === 'Home')
 </script>
 
 <template>

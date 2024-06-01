@@ -3,6 +3,7 @@ import process from 'node:process'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
+  // Enable SPA mode for preview env or SSR (SSG) mode for production env
   ssr: process.env.NUXT_PUBLIC_NODE_ENV === 'production',
 
   app: {
