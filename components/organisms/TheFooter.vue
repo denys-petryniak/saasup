@@ -22,12 +22,6 @@ function getSocialLinkLogo(label: string | undefined): string {
       return 'carbon:logo-facebook'
   }
 }
-
-function getNavigationSlug(navigationItem: LinkStoryblok): string {
-  const { slug } = useNavigationSlug(navigationItem)
-
-  return slug
-}
 </script>
 
 <template>

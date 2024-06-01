@@ -51,12 +51,6 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
   if (isSubmenuComponent(navigationItem) && isDesktopScreenSize.value && isSubmenuVisible.value)
     closeSubmenu()
 }
-
-function getNavigationSlug(navigationItem: LinkStoryblok): string {
-  const { slug } = useNavigationSlug(navigationItem)
-
-  return slug
-}
 </script>
 
 <template>
