@@ -122,10 +122,10 @@ export default defineNuxtConfig({
 
   components: [
     {
-      path: '~/components/base',
-      prefix: 'Base',
+      path: '~/components',
+      // auto-import components based only on its name, not path
+      pathPrefix: false,
     },
-    '~/components',
   ],
 
   typescript: {

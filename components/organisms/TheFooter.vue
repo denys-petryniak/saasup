@@ -32,7 +32,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
 
 <template>
   <footer class="footer">
-    <BaseDivider />
+    <LineDivider />
     <BaseSection
       tag="div"
       class="footer__wrapper"
@@ -88,7 +88,7 @@ function getNavigationSlug(navigationItem: LinkStoryblok): string {
         />
       </div>
     </BaseSection>
-    <BaseDivider />
+    <LineDivider />
     <div class="footer__copyright">
       <p class="footer__copyright-text">
         {{ footer.copyright }}

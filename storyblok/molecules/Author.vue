@@ -33,7 +33,7 @@ const getAuthorRating = computed(() => {
     <p class="author__job">
       {{ blok.job }}
     </p>
-    <Rating
+    <StarRating
       :rating="getAuthorRating"
       class="author__rating"
     />

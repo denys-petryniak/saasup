@@ -28,7 +28,7 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
     class="steps-section"
   >
     <div class="steps-section__head">
-      <BaseBadge>{{ blok.badge }}</BaseBadge>
+      <LabelBadge>{{ blok.badge }}</LabelBadge>
       <h2 class="steps-section__heading">
         {{ blok.heading }}
       </h2>

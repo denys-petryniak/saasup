@@ -17,23 +17,23 @@ defineProps<Props>()
       <h3 class="pricing-plan__title">
         {{ blok.title }}
       </h3>
-      <BaseBadge
+      <LabelBadge
         size="sm"
         :color="blok.popular ? 'purple' : 'white'"
       >
         {{ blok.caption }}
-      </BaseBadge>
+      </LabelBadge>
     </div>
     <div class="pricing-plan__price-container">
       <p class="pricing-plan__price">
         {{ blok.price }}
       </p>
-      <BaseBadge
+      <LabelBadge
         size="sm"
         color="orange"
       >
         {{ blok.billing_description }}
-      </BaseBadge>
+      </LabelBadge>
     </div>
     <ul
       v-if="blok.features?.length"

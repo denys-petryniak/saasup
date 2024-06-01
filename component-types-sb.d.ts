@@ -50,7 +50,7 @@ export interface AuthorStoryblok {
   name: string
   photo: AssetStoryblok
   job: string
-  rating?: string
+  StarRating?: string
   _uid: string
   component: 'author'
   [k: string]: any

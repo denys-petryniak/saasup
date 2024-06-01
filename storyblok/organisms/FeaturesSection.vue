@@ -14,7 +14,7 @@ defineProps<Props>()
     class="features-section"
   >
     <div class="features-section__head">
-      <BaseBadge>{{ blok.badge }}</BaseBadge>
+      <LabelBadge>{{ blok.badge }}</LabelBadge>
       <h2 class="features-section__heading">
         {{ blok.heading }}
       </h2>

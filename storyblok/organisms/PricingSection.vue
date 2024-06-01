@@ -17,7 +17,7 @@ const getSectionDescription = computed(() =>
     class="pricing-section"
   >
     <div class="pricing-section__content">
-      <BaseBadge>{{ blok.badge }}</BaseBadge>
+      <LabelBadge>{{ blok.badge }}</LabelBadge>
       <h2 class="pricing-section__heading">
         {{ blok.heading }}
       </h2>

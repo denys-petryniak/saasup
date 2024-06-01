@@ -23,7 +23,7 @@ function removeTrailingSlash(value: string): string {
 
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(slugValue)}`
 
-const { data: story, pending } = await useAsyncData(slugValue, async () => {
+const { data: story } = await useAsyncData(slugValue, async () => {
   try {
     const { data } = await useStoryblokApi().get(apiEndpoint, {
       version: storyVersion,
@@ -61,11 +61,8 @@ const isHomePage = computed(() => {
   <div>
     <BodyBackground v-if="isHomePage" />
     <StoryblokComponent
-      v-if="!pending && story"
+      v-if="story"
       :blok="story.content"
     />
-    <p v-else>
-      Unfortunately, this page could not be found.
-    </p>
   </div>
 </template>

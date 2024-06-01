@@ -113,7 +113,7 @@
           "type": "text",
           "required": true
         },
-        "rating": {
+        "StarRating": {
           "type": "number",
           "min_value": 1,
           "max_value": 5

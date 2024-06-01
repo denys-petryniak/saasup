@@ -32,7 +32,7 @@ const getTestimonialsBackground = computed(() => {
     class="testimonials-section"
   >
     <div class="testimonials-section__head">
-      <BaseBadge>{{ blok.badge }}</BaseBadge>
+      <LabelBadge>{{ blok.badge }}</LabelBadge>
       <h2 class="testimonials-section__heading">
         {{ blok.heading }}
       </h2>
