@@ -16,60 +16,64 @@ const getSectionDescription = computed(() =>
     v-editable="blok"
     class="pricing-section"
   >
-    <div class="pricing-section__content">
-      <LabelBadge>{{ blok.badge }}</LabelBadge>
-      <h2 class="pricing-section__heading">
-        {{ blok.heading }}
-      </h2>
-      <div
-        class="pricing-section__description"
-        v-html="getSectionDescription"
-      />
-      <div class="payment pricing-section__payment">
-        <h3 class="payment__title">
-          {{ blok.payment_heading }}
-        </h3>
+    <div class="pricing-section__body">
+      <div class="pricing-section__content">
+        <LabelBadge>{{ blok.badge }}</LabelBadge>
+        <h2 class="pricing-section__heading">
+          {{ blok.heading }}
+        </h2>
         <div
-          v-if="blok.payment_images?.length"
-          class="payment__body"
-        >
+          class="pricing-section__description"
+          v-html="getSectionDescription"
+        />
+        <div class="payment pricing-section__payment">
+          <h3 class="payment__title">
+            {{ blok.payment_heading }}
+          </h3>
           <div
-            v-for="paymentImage in blok.payment_images"
-            :key="paymentImage.id"
-            class="payment__image-box"
+            v-if="blok.payment_images?.length"
+            class="payment__body"
           >
-            <img
-              :src="paymentImage.filename"
-              :width="480"
-              :height="480"
-              :alt="paymentImage.alt"
-              :title="paymentImage.alt"
-              loading="lazy"
-              class="payment__image"
+            <div
+              v-for="paymentImage in blok.payment_images"
+              :key="paymentImage.id"
+              class="payment__image-box"
             >
+              <img
+                :src="paymentImage.filename"
+                :width="480"
+                :height="480"
+                :alt="paymentImage.alt"
+                :title="paymentImage.alt"
+                loading="lazy"
+                class="payment__image"
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      v-if="blok.pricing_plans?.length"
-      class="pricing-section__plans"
-    >
-      <PricingPlan
-        v-for="pricingPlan in blok.pricing_plans"
-        :key="pricingPlan._uid"
-        :blok="pricingPlan"
-        class="pricing-section__plans-item"
-      />
+      <div
+        v-if="blok.pricing_plans?.length"
+        class="pricing-section__plans"
+      >
+        <PricingPlan
+          v-for="pricingPlan in blok.pricing_plans"
+          :key="pricingPlan._uid"
+          :blok="pricingPlan"
+          class="pricing-section__plans-item"
+        />
+      </div>
     </div>
   </BaseSection>
 </template>
 
 <style scoped lang="scss">
 .pricing-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $spacing--8xl;
+  &__body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing--8xl;
+  }
 
   &__content {
     text-align: center;
@@ -110,7 +114,9 @@ const getSectionDescription = computed(() =>
 
 @include breakpoint('lg') {
   .pricing-section {
-    grid-template-columns: 0.5fr 1fr;
+    &__body {
+      grid-template-columns: 0.5fr 1fr;
+    }
 
     &__content {
       text-align: start;

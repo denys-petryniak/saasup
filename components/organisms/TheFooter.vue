@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { LinkStoryblok } from '~/component-types-sb'
 import type { Footer } from '~/types'
 
 interface Props {
@@ -25,97 +24,97 @@ function getSocialLinkLogo(label: string | undefined): string {
 </script>
 
 <template>
-  <footer class="footer">
-    <LineDivider />
-    <BaseSection
-      tag="div"
-      class="footer__wrapper"
-    >
-      <div class="footer__section">
-        <AppLogoLink loading="lazy" />
-        <p class="footer__description">
-          {{ footer.description }}
-        </p>
-        <div class="footer__contacts">
-          <FooterContactBlock
-            v-if="footer.emails?.length"
-            type="email"
-            icon-name="carbon:email"
-            :links="footer.emails"
-          />
-          <FooterContactBlock
-            v-if="footer.phones?.length"
-            type="phone"
-            icon-name="carbon:phone"
-            :links="footer.phones"
+  <BaseContainer>
+    <footer class="footer">
+      <LineDivider />
+      <div class="footer__body">
+        <div class="footer__section">
+          <AppLogoLink loading="lazy" />
+          <p class="footer__description">
+            {{ footer.description }}
+          </p>
+          <div class="footer__contacts">
+            <FooterContactBlock
+              v-if="footer.emails?.length"
+              type="email"
+              icon-name="carbon:email"
+              :links="footer.emails"
+            />
+            <FooterContactBlock
+              v-if="footer.phones?.length"
+              type="phone"
+              icon-name="carbon:phone"
+              :links="footer.phones"
+            />
+          </div>
+        </div>
+        <nav class="navigation footer__section" aria-label="Primary">
+          <h4 class="navigation__headline">
+            {{ footer.headline }}
+          </h4>
+          <menu
+            v-if="footer.navigation?.length"
+            class="navigation__menu"
+          >
+            <li
+              v-for="navigationItem in footer.navigation"
+              :key="navigationItem._uid"
+              class="navigation__item"
+            >
+              <NuxtLink
+                :to="getNavigationSlug(navigationItem)"
+                class="navigation__link"
+              >
+                {{ navigationItem.label }}
+              </NuxtLink>
+            </li>
+          </menu>
+        </nav>
+        <div v-if="footer.widget" class="footer__section">
+          <DownloadWidget
+            :label="footer.widget.label"
+            :title="footer.widget.title"
+            :description="footer.widget.description"
+            :buttons="footer.widget.buttons"
           />
         </div>
       </div>
-      <nav class="navigation footer__section" aria-label="Primary">
-        <h4 class="navigation__headline">
-          {{ footer.headline }}
-        </h4>
-        <menu
-          v-if="footer.navigation?.length"
-          class="navigation__menu"
+      <LineDivider />
+      <div class="footer__copyright">
+        <p class="footer__copyright-text">
+          {{ footer.copyright }}
+        </p>
+        <div
+          v-if="footer.socialLinks?.length"
+          class="footer__social-links"
         >
-          <li
-            v-for="navigationItem in footer.navigation"
-            :key="navigationItem._uid"
-            class="navigation__item"
+          <NuxtLink
+            v-for="socialLink in footer.socialLinks"
+            :key="socialLink._uid"
+            :to="socialLink.link.url"
+            target="_blank"
+            class="footer__social-link"
+            :aria-label="`${socialLink.label} social link`"
           >
-            <NuxtLink
-              :to="getNavigationSlug(navigationItem)"
-              class="navigation__link"
-            >
-              {{ navigationItem.label }}
-            </NuxtLink>
-          </li>
-        </menu>
-      </nav>
-      <div v-if="footer.widget" class="footer__section">
-        <DownloadWidget
-          :label="footer.widget.label"
-          :title="footer.widget.title"
-          :description="footer.widget.description"
-          :buttons="footer.widget.buttons"
-        />
+            <Icon
+              :name="getSocialLinkLogo(socialLink.label)"
+              size="1.5em"
+            />
+          </NuxtLink>
+        </div>
       </div>
-    </BaseSection>
-    <LineDivider />
-    <div class="footer__copyright">
-      <p class="footer__copyright-text">
-        {{ footer.copyright }}
-      </p>
-      <div
-        v-if="footer.socialLinks?.length"
-        class="footer__social-links"
-      >
-        <NuxtLink
-          v-for="socialLink in footer.socialLinks"
-          :key="socialLink._uid"
-          :to="socialLink.link.url"
-          target="_blank"
-          class="footer__social-link"
-          :aria-label="`${socialLink.label} social link`"
-        >
-          <Icon
-            :name="getSocialLinkLogo(socialLink.label)"
-            size="1.5em"
-          />
-        </NuxtLink>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </BaseContainer>
 </template>
 
 <style scoped lang="scss">
 .footer {
-  &__wrapper {
+  &__body {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: $gap--sm;
     column-gap: $spacing--8xl;
+    padding: clamped($min-size: $gap--sm, $max-size: $gap--lg) 0;
   }
 
   &__description,
@@ -124,7 +123,7 @@ function getSocialLinkLogo(label: string | undefined): string {
   }
 
   &__copyright {
-    padding-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
+    padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl) 0;
     text-align: center;
   }
 
@@ -192,7 +191,7 @@ function getSocialLinkLogo(label: string | undefined): string {
 
 @include breakpoint('md') {
   .footer {
-    &__wrapper {
+    &__body {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -200,7 +199,7 @@ function getSocialLinkLogo(label: string | undefined): string {
 
 @include breakpoint('lg') {
   .footer {
-    &__wrapper {
+    &__body {
       grid-template-columns: 0.8fr 0.5fr 1fr;
     }
 

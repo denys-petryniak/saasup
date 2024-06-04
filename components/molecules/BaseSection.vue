@@ -15,12 +15,20 @@ withDefaults(defineProps<Props>(), {
     :is="tag"
     class="section"
   >
-    <slot />
+    <BaseContainer>
+      <slot />
+    </BaseContainer>
   </component>
 </template>
 
 <style scoped lang="scss">
+$padding--clamped: clamped(
+  $min-size: $gap--sm,
+  $max-size: $gap--lg,
+);
+
 .section {
-  padding: clamped($min-size: $gap--sm, $max-size: $gap--lg) 0;
+  padding-top: $padding--clamped;
+  padding-bottom: $padding--clamped;
 }
 </style>

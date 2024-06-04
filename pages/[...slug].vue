@@ -51,13 +51,10 @@ function initStoryblokBridge() {
 onMounted(() => {
   initStoryblokBridge()
 })
-
-const isHomePage = computed(() => story.value.name === 'Home')
 </script>
 
 <template>
   <div>
-    <BodyBackground v-if="isHomePage" />
     <StoryblokComponent
       v-if="story"
       :blok="story.content"

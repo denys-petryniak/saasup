@@ -16,55 +16,58 @@ const getHeroDescription = computed(() =>
     v-editable="blok"
     class="hero-section"
   >
-    <div class="hero-section__content">
-      <h1 class="hero-section__heading">
-        {{ blok.heading }}
-      </h1>
-      <div
-        class="hero-section__description"
-        v-html="getHeroDescription"
-      />
-      <div class="hero-section__buttons">
-        <BaseButton>
-          Get Started
-        </BaseButton>
-        <BaseButton
-          color="light-bordered"
-          class="hero-section__video-button"
-          aria-label="Play video button"
-        >
-          <span class="hero-section__video-button-text">Watch Video</span>
-          <Icon
-            class="hero-section__video-button-icon"
-            name="carbon:play-filled"
-          />
-        </BaseButton>
+    <div class="hero-section__body">
+      <div class="hero-section__content">
+        <h1 class="hero-section__heading">
+          {{ blok.heading }}
+        </h1>
+        <div
+          class="hero-section__description"
+          v-html="getHeroDescription"
+        />
+        <div class="hero-section__buttons">
+          <BaseButton>
+            Get Started
+          </BaseButton>
+          <BaseButton
+            color="light-bordered"
+            class="hero-section__video-button"
+            aria-label="Play video button"
+          >
+            <span class="hero-section__video-button-text">Watch Video</span>
+            <Icon
+              class="hero-section__video-button-icon"
+              name="carbon:play-filled"
+            />
+          </BaseButton>
+        </div>
       </div>
-    </div>
-    <div class="hero-section__image-box">
-      <!-- Width & height set manually because custom metadata (width & height)
-      for the asset is not available from the CMS.
-      This is due to limitations in the free plan. -->
-      <NuxtImg
-        v-if="blok.image?.filename"
-        :src="blok.image.filename"
-        :width="1541"
-        :height="1168"
-        :alt="blok.image.alt"
-        format="avif,webp"
-        sizes="sm:100vw xl:740px"
-        class="hero-section__image"
-      />
+      <div class="hero-section__image-box">
+        <!-- Width & height set manually because custom metadata (width & height)
+        for the asset is not available from the CMS. This is due to limitations in the free plan. -->
+        <NuxtImg
+          v-if="blok.image?.filename"
+          :src="blok.image.filename"
+          :width="1541"
+          :height="1168"
+          :alt="blok.image.alt"
+          format="avif,webp"
+          sizes="sm:100vw xl:740px"
+          class="hero-section__image"
+        />
+      </div>
     </div>
   </BaseSection>
 </template>
 
 <style scoped lang="scss">
 .hero-section {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: $spacing--4xl;
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing--4xl;
+  }
 
   &__content {
     flex: 1 1 convert(400px, 'rem');

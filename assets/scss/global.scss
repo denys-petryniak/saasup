@@ -29,15 +29,10 @@ body,
 #__nuxt,
 .layout {
   min-height: 100vh;
-}
-
-#__nuxt {
-  padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
   overflow-x: hidden;
 }
 
 body {
-  overflow-x: hidden;
   @include fluid-typography(
     $min-font-size: $text--lg,
     $max-font-size: $text--2xl,

@@ -63,7 +63,7 @@ $section-bg-z-index: -2;
 $section-bg-decor-z-index: -1;
 
 .testimonials-section {
-  position: relative;
+  background-color: $color-primary--light;
 
   &__head {
     text-align: center;
@@ -75,29 +75,9 @@ $section-bg-decor-z-index: -1;
   }
 
   @include breakpoint('lg') {
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0 0 0 50%;
-      transform: translate3d(-50%, 0, 0);
-      width: 100vw;
-      height: 100%;
-      z-index: $section-bg-decor-z-index;
-      background: v-bind(getTestimonialsBackground) no-repeat top right/cover;
-      pointer-events: none;
-    }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0 0 0 50%;
-    transform: translate3d(-50%, 0, 0);
-    width: 100vw;
-    height: 100%;
-    z-index: $section-bg-z-index;
-    background-color: $color-primary--light;
-    pointer-events: none;
+    background-image: v-bind(getTestimonialsBackground);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   &__carousel {

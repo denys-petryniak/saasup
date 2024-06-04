@@ -45,56 +45,58 @@ const getSectionBackground = computed(() => {
     v-editable="blok"
     class="cta-section"
   >
-    <div class="cta-section__content">
-      <h2 class="cta-section__heading">
-        {{ blok.heading }}
-      </h2>
-      <div
-        class="cta-section__description"
-        v-html="getSectionDescription"
-      />
-      <div
-        v-if="isSuccess"
-        class="cta-section__success-message"
-      >
-        Thank you! Your submission has been received!
-      </div>
-      <form
-        v-else
-        class="cta-section__form"
-        @submit.prevent="submitForm"
-      >
-        <BaseInput
-          v-model="formData.email"
-          type="email"
-          name="email"
-          placeholder="Your Email Here"
-          maxlength="256"
-          required
-          class="cta-section__email"
-          aria-label="Email field"
+    <div class="cta-section__body">
+      <div class="cta-section__content">
+        <h2 class="cta-section__heading">
+          {{ blok.heading }}
+        </h2>
+        <div
+          class="cta-section__description"
+          v-html="getSectionDescription"
         />
-        <BaseButton
-          type="submit"
-          color="light"
-          class="cta-section__button"
+        <div
+          v-if="isSuccess"
+          class="cta-section__success-message"
         >
-          Subscribe
-        </BaseButton>
-      </form>
-    </div>
-    <div class="cta-section__image-box">
-      <NuxtImg
-        v-if="blok.image?.filename"
-        :src="blok.image.filename"
-        :width="1336"
-        :height="988"
-        :alt="blok.image.alt"
-        format="avif,webp"
-        sizes="sm:100vw xl:670px"
-        loading="lazy"
-        class="cta-section__image"
-      />
+          Thank you! Your submission has been received!
+        </div>
+        <form
+          v-else
+          class="cta-section__form"
+          @submit.prevent="submitForm"
+        >
+          <BaseInput
+            v-model="formData.email"
+            type="email"
+            name="email"
+            placeholder="Your Email Here"
+            maxlength="256"
+            required
+            class="cta-section__email"
+            aria-label="Email field"
+          />
+          <BaseButton
+            type="submit"
+            color="light"
+            class="cta-section__button"
+          >
+            Subscribe
+          </BaseButton>
+        </form>
+      </div>
+      <div class="cta-section__image-box">
+        <NuxtImg
+          v-if="blok.image?.filename"
+          :src="blok.image.filename"
+          :width="1336"
+          :height="988"
+          :alt="blok.image.alt"
+          format="avif,webp"
+          sizes="sm:100vw xl:670px"
+          loading="lazy"
+          class="cta-section__image"
+        />
+      </div>
     </div>
   </BaseSection>
 </template>
@@ -114,13 +116,15 @@ $section-border-radius: clamped(
 );
 
 .cta-section {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: $spacing--4xl;
-  padding: $section-padding-y $section-padding-x;
-  border-radius: $section-border-radius;
-  background: v-bind(getSectionBackground) no-repeat 50% 50% / cover;
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing--4xl;
+    padding: $section-padding-y $section-padding-x;
+    border-radius: $section-border-radius;
+    background: v-bind(getSectionBackground) no-repeat 50% 50% / cover;
+  }
 
   &__content {
     flex: 1 1 convert(400px, 'rem');

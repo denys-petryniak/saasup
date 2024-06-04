@@ -54,123 +54,127 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
 </script>
 
 <template>
-  <header class="header">
-    <div class="header__head">
-      <AppLogoLink
-        v-if="header.logo"
-        :src="header.logo.filename"
-        :width="header.logo.meta_data?.width"
-        :height="header.logo.meta_data?.height"
-        :alt="header.logo.alt"
-      />
-    </div>
-    <div class="header__main">
-      <div class="header__buttons">
-        <BaseButton
-          color="light-bordered"
-          class="header__cart-button"
-        >
-          Cart (0)
-        </BaseButton>
-        <BaseButton
-          color="dark"
-          to="/pricing"
-          class="header__cta-button"
-        >
-          Get Started
-        </BaseButton>
-        <button
-          ref="menuButtonRef"
-          type="button"
-          class="header__menu-button"
-          :class="{ 'header__menu-button--active': isMenuVisible }"
-          aria-label="Toggle menu"
-          @click="toggleMenuVisibility"
-        >
-          <Icon
-            name="carbon:menu"
-            size="1.75em"
-          />
-        </button>
+  <BaseContainer>
+    <header class="header">
+      <div class="header__head">
+        <AppLogoLink
+          v-if="header.logo"
+          :src="header.logo.filename"
+          :width="header.logo.meta_data?.width"
+          :height="header.logo.meta_data?.height"
+          :alt="header.logo.alt"
+        />
       </div>
-      <nav
-        ref="navigationRef"
-        class="navigation header__navigation"
-        :class="{
-          'header__navigation--open': isMenuVisible,
-        }"
-        aria-label="Secondary"
-      >
-        <menu
-          v-if="header.navigation?.length"
-          class="navigation__menu"
-        >
-          <li
-            v-for="navigationItem in header.navigation"
-            :key="navigationItem._uid"
-            class="navigation__item"
-            @mouseover="handleMouseover(navigationItem as SubmenuStoryblok)"
-            @mouseleave="handleMouseleave(navigationItem as SubmenuStoryblok)"
+      <div class="header__main">
+        <div class="header__buttons">
+          <BaseButton
+            color="light-bordered"
+            class="header__cart-button"
           >
-            <template v-if="isSubmenuComponent(navigationItem as SubmenuStoryblok)">
+            Cart (0)
+          </BaseButton>
+          <BaseButton
+            color="dark"
+            to="/pricing"
+            class="header__cta-button"
+          >
+            Get Started
+          </BaseButton>
+          <button
+            ref="menuButtonRef"
+            type="button"
+            class="header__menu-button"
+            :class="{ 'header__menu-button--active': isMenuVisible }"
+            aria-label="Toggle menu"
+            @click="toggleMenuVisibility"
+          >
+            <Icon
+              name="carbon:menu"
+              size="1.75em"
+            />
+          </button>
+        </div>
+        <nav
+          ref="navigationRef"
+          class="navigation header__navigation"
+          :class="{
+            'header__navigation--open': isMenuVisible,
+          }"
+          aria-label="Secondary"
+        >
+          <menu
+            v-if="header.navigation?.length"
+            class="navigation__menu"
+          >
+            <li
+              v-for="navigationItem in header.navigation"
+              :key="navigationItem._uid"
+              class="navigation__item"
+              @mouseover="handleMouseover(navigationItem as SubmenuStoryblok)"
+              @mouseleave="handleMouseleave(navigationItem as SubmenuStoryblok)"
+            >
+              <template v-if="isSubmenuComponent(navigationItem as SubmenuStoryblok)">
+                <button
+                  type="button"
+                  class="navigation__submenu-button"
+                  :aria-label="`Toggle submenu for ${navigationItem.title}`"
+                  @click="toggleSubmenuVisibility"
+                >
+                  <span>{{ navigationItem.title }}</span>
+                  <Icon
+                    class="navigation__button-icon"
+                    name="material-symbols:keyboard-arrow-down"
+                    size="1.25em"
+                  />
+                </button>
+                <menu
+                  class="navigation__submenu"
+                  :class="{
+                    'navigation__submenu--open': isSubmenuVisible,
+                  }"
+                >
+                  <li
+                    v-for="submenuNavigationItem in (navigationItem as SubmenuStoryblok).links"
+                    :key="submenuNavigationItem._uid"
+                    class="navigation__item"
+                  >
+                    <NuxtLink
+                      :to="getNavigationSlug(submenuNavigationItem)"
+                      class="navigation__link"
+                    >
+                      {{ submenuNavigationItem.label }}
+                    </NuxtLink>
+                  </li>
+                </menu>
+              </template>
+              <template v-else>
+                <NuxtLink
+                  :to="getNavigationSlug(navigationItem as LinkStoryblok)"
+                  class="navigation__link"
+                >
+                  {{ (navigationItem as LinkStoryblok).label }}
+                </NuxtLink>
+              </template>
+            </li>
+            <li class="navigation__item">
               <button
                 type="button"
-                class="navigation__submenu-button"
-                :aria-label="`Toggle submenu for ${navigationItem.title}`"
-                @click="toggleSubmenuVisibility"
+                class="navigation__cart-button"
               >
-                <span>{{ navigationItem.title }}</span>
-                <Icon
-                  class="navigation__button-icon"
-                  name="material-symbols:keyboard-arrow-down"
-                  size="1.25em"
-                />
+                Cart (0)
               </button>
-              <menu
-                class="navigation__submenu"
-                :class="{
-                  'navigation__submenu--open': isSubmenuVisible,
-                }"
-              >
-                <li
-                  v-for="submenuNavigationItem in (navigationItem as SubmenuStoryblok).links"
-                  :key="submenuNavigationItem._uid"
-                  class="navigation__item"
-                >
-                  <NuxtLink
-                    :to="getNavigationSlug(submenuNavigationItem)"
-                    class="navigation__link"
-                  >
-                    {{ submenuNavigationItem.label }}
-                  </NuxtLink>
-                </li>
-              </menu>
-            </template>
-            <template v-else>
-              <NuxtLink
-                :to="getNavigationSlug(navigationItem as LinkStoryblok)"
-                class="navigation__link"
-              >
-                {{ (navigationItem as LinkStoryblok).label }}
-              </NuxtLink>
-            </template>
-          </li>
-          <li class="navigation__item">
-            <button
-              type="button"
-              class="navigation__cart-button"
-            >
-              Cart (0)
-            </button>
-          </li>
-        </menu>
-      </nav>
-    </div>
-  </header>
+            </li>
+          </menu>
+        </nav>
+      </div>
+    </header>
+  </BaseContainer>
 </template>
 
 <style scoped lang="scss">
 .header {
+  padding-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
+
   &__head {
     display: flex;
     justify-content: center;

@@ -34,6 +34,7 @@ defineProps<Props>()
 
 <style scoped lang="scss">
 $card-min-width: convert(250px, 'rem');
+
 .features-section {
   &__head {
     text-align: center;

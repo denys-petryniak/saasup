@@ -19,47 +19,49 @@ const getCostBlockDescription = computed(() =>
     v-editable="blok"
     class="platform-section"
   >
-    <div class="platform-section__content">
-      <h2 class="platform-section__heading">
-        {{ blok.heading }}
-      </h2>
-      <div
-        class="platform-section__description"
-        v-html="getSectionDescription"
-      />
-      <div class="cost platform-section__cost">
-        <img
-          v-if="blok.cost_image?.filename"
-          :src="blok.cost_image.filename"
-          :width="96"
-          :height="103"
-          :alt="blok.cost_image.alt"
-          loading="lazy"
-          class="cost__icon"
-        >
-        <div class="cost__text">
-          <h3 class="cost__heading">
-            {{ blok.cost_heading }}
-          </h3>
-          <div
-            class="cost__description"
-            v-html="getCostBlockDescription"
-          />
+    <div class="platform-section__body">
+      <div class="platform-section__content">
+        <h2 class="platform-section__heading">
+          {{ blok.heading }}
+        </h2>
+        <div
+          class="platform-section__description"
+          v-html="getSectionDescription"
+        />
+        <div class="cost platform-section__cost">
+          <img
+            v-if="blok.cost_image?.filename"
+            :src="blok.cost_image.filename"
+            :width="96"
+            :height="103"
+            :alt="blok.cost_image.alt"
+            loading="lazy"
+            class="cost__icon"
+          >
+          <div class="cost__text">
+            <h3 class="cost__heading">
+              {{ blok.cost_heading }}
+            </h3>
+            <div
+              class="cost__description"
+              v-html="getCostBlockDescription"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="platform-section__image-box">
-      <NuxtImg
-        v-if="blok.image?.filename"
-        :src="blok.image.filename"
-        :width="1541"
-        :height="1168"
-        :alt="blok.image.alt"
-        format="avif,webp"
-        sizes="sm:100vw xl:740px"
-        loading="lazy"
-        class="platform-section__image"
-      />
+      <div class="platform-section__image-box">
+        <NuxtImg
+          v-if="blok.image?.filename"
+          :src="blok.image.filename"
+          :width="1541"
+          :height="1168"
+          :alt="blok.image.alt"
+          format="avif,webp"
+          sizes="sm:100vw xl:740px"
+          loading="lazy"
+          class="platform-section__image"
+        />
+      </div>
     </div>
   </BaseSection>
 </template>
@@ -78,10 +80,14 @@ $section-bg-z-index: -2;
 
 .platform-section {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: $spacing--4xl;
+
+  &__body {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing--4xl;
+  }
 
   &__content {
     position: relative;
@@ -125,10 +131,9 @@ $section-bg-z-index: -2;
   &::after {
     content: '';
     position: absolute;
-    inset: 0 0 0 50%;
-    width: 100vw;
+    inset: 0 0 0 0;
+    width: 100%;
     height: 100%;
-    transform: translate3d(-50%, 0, 0);
     z-index: $section-bg-z-index;
     background-color: $color-primary--light;
     pointer-events: none;
@@ -157,19 +162,17 @@ $section-bg-z-index: -2;
 }
 
 @include breakpoint('lg') {
-  $section-content-overlap-size: 40%;
+  $section-content-overlap: 40%;
 
   .platform-section {
     &::after {
-      left: auto;
-      width: 100%;
-      transform: translate3d(85%, 0, 0);
+      left: 70%;
       border-radius: $rounded--3xl * 2;
     }
 
     &__content {
       &::after {
-        width: 100% + $section-content-overlap-size;
+        width: 100% + $section-content-overlap;
       }
     }
   }
