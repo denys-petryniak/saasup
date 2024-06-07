@@ -29,19 +29,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "all-articles",
-      "component_group_uuid": "4f963b32-e8de-47bf-b6d4-904645d78ddc",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
       "color": "#ff6159",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Blog"
+      "component_group_name": "organisms"
     },
     {
       "name": "article",
       "display_name": null,
       "created_at": "2023-08-17T18:42:56.203Z",
-      "updated_at": "2023-08-27T09:29:19.180Z",
+      "updated_at": "2024-06-01T08:23:04.097Z",
       "id": 4437519,
       "schema": {
         "date": {
@@ -49,6 +49,10 @@
           "pos": 0,
           "required": true,
           "disable_time": true
+        },
+        "link_text": {
+          "type": "text",
+          "required": true
         },
         "title": {
           "type": "text",
@@ -69,10 +73,6 @@
           ],
           "pos": 3,
           "required": true
-        },
-        "link_text": {
-          "type": "text",
-          "required": true
         }
       },
       "image": null,
@@ -83,19 +83,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "article",
-      "component_group_uuid": "4f963b32-e8de-47bf-b6d4-904645d78ddc",
+      "component_group_uuid": "f3344240-ff35-4f0a-94c9-2b236056c9b7",
       "color": "#2db47d",
-      "icon": "block-text-img-l",
+      "icon": "block-1-2block",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Blog"
+      "component_group_name": "templates"
     },
     {
       "name": "author",
       "display_name": null,
       "created_at": "2023-08-15T17:38:49.927Z",
-      "updated_at": "2023-08-27T10:35:17.672Z",
+      "updated_at": "2024-05-31T17:39:43.096Z",
       "id": 4426269,
       "schema": {
         "name": {
@@ -113,7 +113,7 @@
           "type": "text",
           "required": true
         },
-        "StarRating": {
+        "rating": {
           "type": "number",
           "min_value": 1,
           "max_value": 5
@@ -127,13 +127,13 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "author",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
-      "color": "#fbce41",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "molecules"
     },
     {
       "name": "blog-section",
@@ -170,19 +170,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "blog-section",
-      "component_group_uuid": "4f963b32-e8de-47bf-b6d4-904645d78ddc",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
       "color": "#ff6159",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Blog"
+      "component_group_name": "organisms"
     },
     {
       "name": "button",
       "display_name": null,
       "created_at": "2023-08-26T01:19:42.150Z",
-      "updated_at": "2023-08-26T01:29:08.508Z",
+      "updated_at": "2024-06-01T08:09:40.732Z",
       "id": 4478709,
       "schema": {
         "label": {
@@ -202,24 +202,69 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "button",
-      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
-      "color": "#395ece",
-      "icon": "block-arrow-pointer",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "General"
+      "component_group_name": "molecules"
     },
     {
       "name": "config",
-      "display_name": null,
+      "display_name": "Header & Footer",
       "created_at": "2023-08-25T15:38:51.769Z",
-      "updated_at": "2023-08-27T07:17:29.921Z",
+      "updated_at": "2024-06-01T08:23:12.567Z",
       "id": 4478042,
       "schema": {
+        "header_logo": {
+          "type": "asset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ],
+          "key": "header_logo"
+        },
+        "Navigation": {
+          "type": "section",
+          "keys": [
+            "header_nav"
+          ],
+          "pos": 1
+        },
+        "header_nav": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "submenu",
+            "link"
+          ],
+          "required": true,
+          "pos": 2,
+          "key": "header_nav"
+        },
+        "Buttons": {
+          "type": "section",
+          "keys": [
+            "header_buttons"
+          ],
+          "pos": 3
+        },
+        "header_buttons": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "button"
+          ],
+          "maximum": 2,
+          "pos": 4,
+          "key": "header_buttons"
+        },
         "footer_description": {
           "type": "textarea",
-          "pos": 0,
+          "pos": 5,
           "required": true
         },
         "navigation": {
@@ -229,11 +274,11 @@
             "footer_nav"
           ],
           "key": "navigation",
-          "pos": 1
+          "pos": 6
         },
         "footer_nav_headline": {
           "type": "text",
-          "pos": 2,
+          "pos": 7,
           "key": "footer_nav_headline",
           "required": true
         },
@@ -245,12 +290,12 @@
           "component_whitelist": [
             "link"
           ],
-          "pos": 3,
+          "pos": 8,
           "key": "footer_nav"
         },
         "contacts": {
           "type": "section",
-          "pos": 4,
+          "pos": 9,
           "keys": [
             "footer_emails",
             "footer_phones"
@@ -258,7 +303,7 @@
         },
         "footer_emails": {
           "type": "bloks",
-          "pos": 5,
+          "pos": 10,
           "restrict_type": "",
           "restrict_components": true,
           "component_whitelist": [
@@ -268,7 +313,7 @@
         },
         "footer_phones": {
           "type": "bloks",
-          "pos": 6,
+          "pos": 11,
           "restrict_type": "",
           "restrict_components": true,
           "component_whitelist": [
@@ -278,7 +323,7 @@
         },
         "social_links": {
           "type": "section",
-          "pos": 7,
+          "pos": 12,
           "keys": [
             "footer_social_links"
           ]
@@ -290,7 +335,7 @@
           "component_whitelist": [
             "link"
           ],
-          "pos": 8,
+          "pos": 13,
           "key": "footer_social_links",
           "required": true
         },
@@ -302,26 +347,26 @@
             "download_widget_description",
             "download_widget_buttons"
           ],
-          "pos": 9
+          "pos": 14
         },
         "download_widget_label": {
           "type": "text",
           "required": true,
-          "pos": 10
+          "pos": 15
         },
         "download_widget_title": {
           "type": "text",
-          "pos": 11,
+          "pos": 16,
           "required": true
         },
         "download_widget_description": {
           "type": "textarea",
-          "pos": 12,
+          "pos": 17,
           "required": true
         },
         "download_widget_buttons": {
           "type": "bloks",
-          "pos": 13,
+          "pos": 18,
           "required": true,
           "restrict_type": "",
           "restrict_components": true,
@@ -333,27 +378,7 @@
         "footer_copyright_text": {
           "type": "text",
           "required": true,
-          "pos": 14
-        },
-        "header_logo": {
-          "type": "asset",
-          "pos": 15,
-          "filetypes": [
-            "images"
-          ],
-          "key": "header_logo"
-        },
-        "header_nav": {
-          "type": "bloks",
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "submenu",
-            "link"
-          ],
-          "required": true,
-          "pos": 16,
-          "key": "header_nav"
+          "pos": 19
         },
         "tab-2bd30c4b-5e8c-4a0d-95d3-a9e0d5b83f67": {
           "display_name": "Header",
@@ -361,9 +386,11 @@
             "header_menu",
             "header_nav",
             "header_logo",
-            "header_buttons"
+            "header_buttons",
+            "Navigation",
+            "Buttons"
           ],
-          "pos": 17,
+          "pos": 20,
           "type": "tab",
           "name": "tab-2bd30c4b-5e8c-4a0d-95d3-a9e0d5b83f67",
           "key": "tab-2bd30c4b-5e8c-4a0d-95d3-a9e0d5b83f67"
@@ -389,21 +416,10 @@
             "download_widget_description",
             "download_widget_buttons"
           ],
-          "pos": 18,
+          "pos": 21,
           "type": "tab",
           "name": "tab-af7c469d-dded-4cb7-9a1b-f499b356ce6a",
           "key": "tab-af7c469d-dded-4cb7-9a1b-f499b356ce6a"
-        },
-        "header_buttons": {
-          "type": "bloks",
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "button"
-          ],
-          "maximum": 2,
-          "pos": 19,
-          "key": "header_buttons"
         }
       },
       "image": null,
@@ -413,20 +429,20 @@
       "is_nestable": false,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "config",
-      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
-      "color": "#1b243f",
-      "icon": "block-keyboard",
+      "real_name": "Header & Footer",
+      "component_group_uuid": "f3344240-ff35-4f0a-94c9-2b236056c9b7",
+      "color": "#2db47d",
+      "icon": "block-1-2block",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "General"
+      "component_group_name": "templates"
     },
     {
       "name": "cta-section",
       "display_name": "CTA Section",
       "created_at": "2023-08-17T18:15:22.241Z",
-      "updated_at": "2023-08-27T10:35:47.542Z",
+      "updated_at": "2024-06-01T08:41:34.522Z",
       "id": 4437467,
       "schema": {
         "heading": {
@@ -472,19 +488,19 @@
       ],
       "preset_id": 1870960,
       "real_name": "CTA Section",
-      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
-      "color": "#ff6159",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "General"
+      "component_group_name": "molecules"
     },
     {
       "name": "feature",
       "display_name": null,
       "created_at": "2023-08-09T04:49:59.506Z",
-      "updated_at": "2023-08-27T10:35:56.529Z",
+      "updated_at": "2024-05-31T17:39:53.030Z",
       "id": 4397071,
       "schema": {
         "image": {
@@ -519,13 +535,13 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "feature",
-      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
-      "color": "#fbce41",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "General"
+      "component_group_name": "molecules"
     },
     {
       "name": "features-section",
@@ -565,19 +581,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "features-section",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
       "color": "#ff6159",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "organisms"
     },
     {
       "name": "hero-section",
       "display_name": null,
       "created_at": "2023-08-07T18:08:05.468Z",
-      "updated_at": "2023-08-27T10:36:09.384Z",
+      "updated_at": "2024-06-01T08:41:45.959Z",
       "id": 4390334,
       "schema": {
         "heading": {
@@ -608,24 +624,94 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "hero-section",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
-      "color": "#ff6159",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "intro-section",
+      "display_name": null,
+      "created_at": "2024-06-05T20:46:05.033Z",
+      "updated_at": "2024-06-05T20:47:06.086Z",
+      "id": 5889699,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0,
+          "required": true
+        },
+        "description": {
+          "type": "richtext",
+          "pos": 1
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "intro-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "key-metrics-section",
+      "display_name": null,
+      "created_at": "2024-06-07T12:11:49.335Z",
+      "updated_at": "2024-06-07T12:18:09.237Z",
+      "id": 5898288,
+      "schema": {
+        "metrics": {
+          "type": "bloks",
+          "pos": 0,
+          "minimum": 2,
+          "maximum": 4,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "metric"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "key-metrics-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
     },
     {
       "name": "link",
       "display_name": null,
       "created_at": "2023-08-22T08:45:27.261Z",
-      "updated_at": "2023-08-27T10:37:48.627Z",
+      "updated_at": "2024-06-01T08:09:48.560Z",
       "id": 4456032,
       "schema": {
         "label": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "required": true,
+          "allow_target_blank": false
         },
         "link": {
           "type": "multilink",
@@ -646,24 +732,160 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "link",
-      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
-      "color": "#fbce41",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "General"
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "metric",
+      "display_name": null,
+      "created_at": "2024-06-07T12:15:17.379Z",
+      "updated_at": "2024-06-07T12:22:51.311Z",
+      "id": 5898308,
+      "schema": {
+        "value": {
+          "type": "richtext",
+          "pos": 0
+        },
+        "description": {
+          "type": "text",
+          "pos": 1
+        }
+      },
+      "image": null,
+      "preview_field": "description",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "metric",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "mission-section",
+      "display_name": null,
+      "created_at": "2024-06-07T14:40:41.790Z",
+      "updated_at": "2024-06-07T14:42:56.046Z",
+      "id": 5899307,
+      "schema": {
+        "heading": {
+          "type": "text",
+          "pos": 0,
+          "required": true
+        },
+        "description": {
+          "type": "richtext",
+          "pos": 1,
+          "required": true
+        },
+        "image": {
+          "type": "asset",
+          "pos": 2,
+          "filetypes": [
+            "images"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "mission-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "overview-section",
+      "display_name": null,
+      "created_at": "2024-06-05T22:03:37.929Z",
+      "updated_at": "2024-06-07T14:42:10.700Z",
+      "id": 5889891,
+      "schema": {
+        "images": {
+          "type": "multiasset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ],
+          "required": false,
+          "asset_folder_id": 570796
+        },
+        "tab-2e15032e-08be-43e8-b823-28b65fe09f9e": {
+          "display_name": "Style",
+          "keys": [
+            "noGapTop"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "heading": {
+          "type": "text",
+          "pos": 1,
+          "required": true
+        },
+        "description": {
+          "type": "richtext",
+          "pos": 2,
+          "required": true
+        },
+        "noGapTop": {
+          "type": "boolean",
+          "pos": 4
+        }
+      },
+      "image": null,
+      "preview_field": "heading",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "overview-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
     },
     {
       "name": "page",
       "display_name": null,
       "created_at": "2023-08-06T15:40:57.955Z",
-      "updated_at": "2023-08-22T08:18:49.464Z",
+      "updated_at": "2024-06-01T12:40:24.282Z",
       "id": 4385624,
       "schema": {
         "body": {
           "type": "bloks",
-          "required": true
+          "required": true,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "ccb5e043-7676-4f77-9848-767eab140da0",
+            "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+            "bf585e57-3326-4449-89ae-951ca6fe0c58"
+          ]
         }
       },
       "image": null,
@@ -674,19 +896,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "page",
-      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
+      "component_group_uuid": "f3344240-ff35-4f0a-94c9-2b236056c9b7",
       "color": "#2db47d",
-      "icon": "block-text-img-l",
+      "icon": "block-1-2block",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "General"
+      "component_group_name": "templates"
     },
     {
       "name": "platform-section",
       "display_name": null,
       "created_at": "2023-08-15T14:53:10.589Z",
-      "updated_at": "2023-08-27T10:36:16.543Z",
+      "updated_at": "2024-06-01T08:41:52.209Z",
       "id": 4425712,
       "schema": {
         "heading": {
@@ -740,19 +962,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "platform-section",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
-      "color": "#ff6159",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "molecules"
     },
     {
       "name": "pricing_plan",
       "display_name": null,
       "created_at": "2023-08-16T17:28:03.776Z",
-      "updated_at": "2023-08-27T10:36:22.542Z",
+      "updated_at": "2024-05-31T17:40:04.569Z",
       "id": 4432457,
       "schema": {
         "title": {
@@ -844,13 +1066,13 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "pricing_plan",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
-      "color": "#fbce41",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "molecules"
     },
     {
       "name": "pricing-section",
@@ -903,34 +1125,24 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "pricing-section",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
       "color": "#ff6159",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "organisms"
     },
     {
       "name": "step",
       "display_name": null,
       "created_at": "2023-08-15T15:19:42.133Z",
-      "updated_at": "2023-08-27T10:36:36.196Z",
+      "updated_at": "2024-05-31T17:40:13.971Z",
       "id": 4425814,
       "schema": {
         "name": {
           "type": "text",
           "pos": 0,
-          "required": true
-        },
-        "heading": {
-          "type": "text",
-          "pos": 1,
-          "required": true
-        },
-        "description": {
-          "type": "richtext",
-          "pos": 2,
           "required": true
         },
         "icon": {
@@ -946,6 +1158,16 @@
             "images"
           ],
           "required": true
+        },
+        "heading": {
+          "type": "text",
+          "pos": 1,
+          "required": true
+        },
+        "description": {
+          "type": "richtext",
+          "pos": 2,
+          "required": true
         }
       },
       "image": null,
@@ -956,13 +1178,13 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "step",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
-      "color": "#fbce41",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "molecules"
     },
     {
       "name": "steps-section",
@@ -999,19 +1221,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "steps-section",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
       "color": "#ff6159",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "organisms"
     },
     {
       "name": "submenu",
       "display_name": null,
       "created_at": "2023-08-22T18:31:09.153Z",
-      "updated_at": "2023-08-27T10:36:57.335Z",
+      "updated_at": "2024-05-31T17:40:27.793Z",
       "id": 4459519,
       "schema": {
         "title": {
@@ -1036,19 +1258,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "submenu",
-      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
-      "color": "#fbce41",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "General"
+      "component_group_name": "molecules"
     },
     {
       "name": "testimonial",
       "display_name": null,
       "created_at": "2023-08-15T17:31:08.285Z",
-      "updated_at": "2023-08-27T10:37:06.502Z",
+      "updated_at": "2024-06-01T08:41:59.707Z",
       "id": 4426265,
       "schema": {
         "text": {
@@ -1075,13 +1297,13 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "testimonial",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
-      "color": "#fbce41",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
+      "color": "#ff6159",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "organisms"
     },
     {
       "name": "testimonials-section",
@@ -1129,19 +1351,19 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "testimonials-section",
-      "component_group_uuid": "cab2a306-7e51-4330-883b-dfada4ba3988",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
       "color": "#ff6159",
       "icon": "block-share",
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "Home"
+      "component_group_name": "organisms"
     },
     {
       "name": "under-dev",
       "display_name": null,
       "created_at": "2023-08-09T01:28:49.750Z",
-      "updated_at": "2023-08-21T15:00:23.462Z",
+      "updated_at": "2024-05-31T17:42:29.675Z",
       "id": 4396322,
       "schema": {
         "heading": {
@@ -1171,13 +1393,13 @@
       ],
       "preset_id": null,
       "real_name": "under-dev",
-      "component_group_uuid": "f04e208a-7f72-43b8-acde-ac0c2a7957ce",
-      "color": null,
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
       "icon": null,
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
-      "component_group_name": "General"
+      "component_group_name": "molecules"
     }
   ]
 }

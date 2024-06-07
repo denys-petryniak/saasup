@@ -42,17 +42,15 @@ const getHeroDescription = computed(() =>
           </BaseButton>
         </div>
       </div>
-      <div class="hero-section__image-box">
+      <div v-if="blok.image?.filename" class="hero-section__image-box">
         <!-- Width & height set manually because custom metadata (width & height)
         for the asset is not available from the CMS. This is due to limitations in the free plan. -->
         <NuxtImg
-          v-if="blok.image?.filename"
           :src="blok.image.filename"
           :width="1541"
           :height="1168"
           :alt="blok.image.alt"
-          format="avif,webp"
-          sizes="sm:100vw xl:740px"
+          sizes="100vw xl:740px"
           class="hero-section__image"
         />
       </div>
