@@ -1400,6 +1400,89 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "molecules"
+    },
+    {
+      "name": "value-item",
+      "display_name": null,
+      "created_at": "2024-06-07T15:08:28.227Z",
+      "updated_at": "2024-06-07T15:15:17.495Z",
+      "id": 5899414,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "icon": {
+          "type": "asset",
+          "pos": 2,
+          "filetypes": [
+            "images"
+          ],
+          "asset_folder_id": 288995
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "value-item",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "values-section",
+      "display_name": null,
+      "created_at": "2024-06-07T15:06:58.071Z",
+      "updated_at": "2024-06-08T14:29:28.150Z",
+      "id": 5899411,
+      "schema": {
+        "badge": {
+          "type": "text",
+          "pos": 0
+        },
+        "heading": {
+          "type": "text",
+          "pos": 1
+        },
+        "values": {
+          "type": "bloks",
+          "pos": 2,
+          "minimum": 2,
+          "maximum": 8,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "value-item"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "values-section",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
+      "color": "#ff6159",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "organisms"
     }
   ]
 }

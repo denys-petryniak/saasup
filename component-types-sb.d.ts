@@ -239,6 +239,7 @@ export interface PageStoryblok {
     | StepStoryblok
     | SubmenuStoryblok
     | UnderDevStoryblok
+    | ValueItemStoryblok
     | AllArticlesStoryblok
     | BlogSectionStoryblok
     | FeaturesSectionStoryblok
@@ -246,6 +247,7 @@ export interface PageStoryblok {
     | StepsSectionStoryblok
     | TestimonialStoryblok
     | TestimonialsSectionStoryblok
+    | ValuesSectionStoryblok
   )[];
   _uid: string;
   component: "page";
@@ -350,5 +352,23 @@ export interface UnderDevStoryblok {
   description: RichtextStoryblok;
   _uid: string;
   component: "under-dev";
+  [k: string]: any;
+}
+
+export interface ValueItemStoryblok {
+  title?: string;
+  description?: string;
+  icon?: AssetStoryblok;
+  _uid: string;
+  component: "value-item";
+  [k: string]: any;
+}
+
+export interface ValuesSectionStoryblok {
+  badge?: string;
+  heading?: string;
+  values?: ValueItemStoryblok[];
+  _uid: string;
+  component: "values-section";
   [k: string]: any;
 }
