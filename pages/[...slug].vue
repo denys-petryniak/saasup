@@ -7,6 +7,7 @@ useHead({
 
 const resolveRelations = [
   'blog-section.articles',
+  'careers-section.vacancies',
 ]
 
 const storyVersion = getStoryVersion()

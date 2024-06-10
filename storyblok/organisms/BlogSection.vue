@@ -6,7 +6,17 @@ interface Props {
   blok: BlogSectionStoryblok
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+function isStoryblokStory(
+  article: string | StoryblokStory<ArticleStoryblok>,
+): article is StoryblokStory<ArticleStoryblok> {
+  return typeof article !== 'string'
+}
+
+const typeCheckedArticles = computed(() => {
+  return (props.blok.articles ?? []).filter(isStoryblokStory)
+})
 </script>
 
 <template>
@@ -22,14 +32,13 @@ defineProps<Props>()
     </div>
     <div
       v-if="blok.articles?.length"
-      class="blog-section__cards"
+      class="blog-section__articles"
     >
-      <!-- TODO: improve types -->
       <ArticleCard
-        v-for="article in blok.articles"
-        :key="(article as StoryblokStory<ArticleStoryblok>).uuid"
-        :article="(article as StoryblokStory<ArticleStoryblok>).content"
-        :slug="(article as StoryblokStory<ArticleStoryblok>).full_slug"
+        v-for="article in typeCheckedArticles"
+        :key="article.uuid"
+        :article="article.content"
+        :slug="article.full_slug"
       />
     </div>
   </BaseSection>
@@ -47,7 +56,7 @@ $card-min-width: convert(250px, 'rem');
     margin-top: $spacing--4xl;
   }
 
-  &__cards {
+  &__articles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax($card-min-width, 1fr));
     gap: $spacing--8xl;
