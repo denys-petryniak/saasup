@@ -28,3 +28,4 @@ logs
 # HTTPS Proxy certificates
 localhost.pem
 localhost-key.pem
+.vercel
