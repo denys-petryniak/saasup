@@ -22,23 +22,20 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
     v-editable="article"
     class="card"
   >
-    <div class="card__image-box">
-      <!-- TODO: replace with NuxtPicture (?) because of avif support -->
+    <div v-if="article.image?.filename" class="card__image-box">
       <NuxtImg
-        v-if="article.image?.filename"
         :src="article.image.filename"
         :width="1194"
         :height="676"
         :alt="article.image.alt"
-        format="avif,webp"
-        sizes="sm:100vw xl:580px"
+        sizes="100vw xl:580px"
         loading="lazy"
         class="card__image"
       />
       <BaseButton
+        :to="prependLeadingSlash(slug)"
         size="sm"
         color="light-branded"
-        :to="slug"
         class="card__button"
       >
         Social Media
@@ -47,7 +44,7 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
     <p class="card__date">
       {{ formattedDate }}
     </p>
-    <NuxtLink :to="slug">
+    <NuxtLink :to="prependLeadingSlash(slug)">
       <h3 class="card__title">
         {{ article.title }}
       </h3>
@@ -57,7 +54,7 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
       v-html="getDescription"
     />
     <NuxtLink
-      :to="slug"
+      :to="prependLeadingSlash(slug)"
       class="card__link"
     >
       {{ article.link_text }}

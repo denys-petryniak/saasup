@@ -97,6 +97,16 @@ export interface ButtonStoryblok {
   [k: string]: any;
 }
 
+export interface CareersSectionStoryblok {
+  badge?: string;
+  heading: string;
+  vacancies?: (StoryblokStory<VacancyStoryblok> | string)[];
+  show_top_divider?: boolean;
+  _uid: string;
+  component: "careers-section";
+  [k: string]: any;
+}
+
 export interface ConfigStoryblok {
   header_logo?: AssetStoryblok;
   Navigation?: any;
@@ -242,6 +252,7 @@ export interface PageStoryblok {
     | ValueItemStoryblok
     | AllArticlesStoryblok
     | BlogSectionStoryblok
+    | CareersSectionStoryblok
     | FeaturesSectionStoryblok
     | PricingSectionStoryblok
     | StepsSectionStoryblok
@@ -352,6 +363,17 @@ export interface UnderDevStoryblok {
   description: RichtextStoryblok;
   _uid: string;
   component: "under-dev";
+  [k: string]: any;
+}
+
+export interface VacancyStoryblok {
+  title?: string;
+  location?: string;
+  employment?: string;
+  description?: string;
+  content?: RichtextStoryblok;
+  _uid: string;
+  component: "vacancy";
   [k: string]: any;
 }
 

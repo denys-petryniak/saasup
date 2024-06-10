@@ -29,10 +29,11 @@ body,
 #__nuxt,
 .layout {
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 body {
+  // Using overflow-x: clip to prevent horizontal scroll while preserving sticky positioning for child elements
+  overflow-x: clip;
   @include fluid-typography(
     $min-font-size: $text--lg,
     $max-font-size: $text--2xl,
