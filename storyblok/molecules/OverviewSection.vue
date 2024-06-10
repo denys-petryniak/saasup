@@ -18,7 +18,7 @@ function isFirstOverviewImage(image: AssetStoryblok): boolean {
 <template>
   <BaseSection
     v-editable="blok"
-    :style="{ paddingTop: blok.noGapTop ? '0px' : null }"
+    :is-top-gap-hidden="blok.hide_top_gap"
     class="overview-section"
   >
     <div v-if="blok.images?.length" class="overview-section__images">
@@ -69,6 +69,10 @@ function isFirstOverviewImage(image: AssetStoryblok): boolean {
 
   &__description {
     margin-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
+
+    &::v-deep(p):last-of-type {
+      margin-bottom: 0;
+    }
   }
 }
 

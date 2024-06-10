@@ -223,6 +223,7 @@ export type MultiassetStoryblok = {
 
 export interface OverviewSectionStoryblok {
   images?: MultiassetStoryblok;
+  hide_top_gap?: boolean;
   heading: string;
   description: RichtextStoryblok;
   noGapTop?: boolean;
