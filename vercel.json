@@ -16,7 +16,7 @@
     {
       "source": "/:path*/",
       "destination": "/:path*",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }
