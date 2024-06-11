@@ -1,0 +1,22 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*/",
+      "destination": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "https"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*/",
+      "destination": "/:path*",
+      "permanent": true
+    }
+  ]
+}
