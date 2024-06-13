@@ -1,10 +1,12 @@
 import process from 'node:process'
 
+const IS_PROD = process.env.NUXT_PUBLIC_NODE_ENV === 'production'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
   // Enable SPA mode for preview env or SSR (SSG) mode for production env
-  ssr: process.env.NUXT_PUBLIC_NODE_ENV === 'production',
+  ssr: IS_PROD,
 
   app: {
     head: {
