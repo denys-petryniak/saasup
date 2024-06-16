@@ -56,6 +56,13 @@ export interface AuthorStoryblok {
   [k: string]: any;
 }
 
+export interface BlockDividerStoryblok {
+  color?: any;
+  _uid: string;
+  component: "block-divider";
+  [k: string]: any;
+}
+
 export interface BlogSectionStoryblok {
   badge: string;
   heading: string;
@@ -101,7 +108,6 @@ export interface CareersSectionStoryblok {
   badge?: string;
   heading: string;
   vacancies?: (StoryblokStory<VacancyStoryblok> | string)[];
-  show_top_divider?: boolean;
   _uid: string;
   component: "careers-section";
   [k: string]: any;
@@ -159,6 +165,26 @@ export interface FeaturesSectionStoryblok {
   features: FeatureStoryblok[];
   _uid: string;
   component: "features-section";
+  [k: string]: any;
+}
+
+export interface GridCardStoryblok {
+  image: AssetStoryblok;
+  title: string;
+  description: RichtextStoryblok;
+  link_label?: string;
+  link_url?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  _uid: string;
+  component: "grid-card";
+  [k: string]: any;
+}
+
+export interface GridSectionStoryblok {
+  badge: string;
+  heading: string;
+  cards?: GridCardStoryblok[];
+  _uid: string;
+  component: "grid-section";
   [k: string]: any;
 }
 
@@ -226,7 +252,6 @@ export interface OverviewSectionStoryblok {
   hide_top_gap?: boolean;
   heading: string;
   description: RichtextStoryblok;
-  noGapTop?: boolean;
   _uid: string;
   component: "overview-section";
   [k: string]: any;
@@ -235,9 +260,11 @@ export interface OverviewSectionStoryblok {
 export interface PageStoryblok {
   body: (
     | AuthorStoryblok
+    | BlockDividerStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
     | FeatureStoryblok
+    | GridCardStoryblok
     | HeroSectionStoryblok
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
@@ -255,6 +282,7 @@ export interface PageStoryblok {
     | BlogSectionStoryblok
     | CareersSectionStoryblok
     | FeaturesSectionStoryblok
+    | GridSectionStoryblok
     | PricingSectionStoryblok
     | StepsSectionStoryblok
     | TestimonialStoryblok

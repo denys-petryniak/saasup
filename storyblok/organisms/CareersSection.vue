@@ -25,9 +25,6 @@ const vacancyStaticData = {
 </script>
 
 <template>
-  <BaseContainer v-if="blok.show_top_divider">
-    <LineDivider />
-  </BaseContainer>
   <BaseSection
     v-editable="blok"
     class="careers-section"

@@ -63,10 +63,6 @@ const getDescription = computed(() =>
 
   &__description {
     margin-top: $spacing--4xl;
-
-    &::v-deep(p):last-of-type {
-      margin-bottom: 0;
-    }
   }
 
   &__image {

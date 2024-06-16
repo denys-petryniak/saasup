@@ -2,19 +2,19 @@
 import type { SectionTag } from '~/types'
 
 interface Props {
-  tag?: SectionTag
+  as?: SectionTag
   isTopGapHidden?: boolean
   isBottomGapHidden?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
-  tag: 'section',
+  as: 'section',
 })
 </script>
 
 <template>
   <component
-    :is="tag"
+    :is="as"
     :class="{
       'section--top-gap-hidden': isTopGapHidden,
       'section--bottom-gap-hidden': isBottomGapHidden,

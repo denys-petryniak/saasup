@@ -9,6 +9,7 @@ const resolveRelations = [
   'blog-section.articles',
   'careers-section.vacancies',
 ]
+const resolveLinks = 'url'
 
 const storyVersion = getStoryVersion()
 const isPreview = storyVersion === 'draft'
@@ -16,14 +17,14 @@ const isPreview = storyVersion === 'draft'
 const route = useRoute()
 const slug = route.params.slug
 const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
+const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
 
 const { data: story } = await useAsyncData(getSlug, async () => {
-  const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
-
   try {
     const { data } = await useStoryblokApi().get(apiEndpoint, {
       version: storyVersion,
       resolve_relations: resolveRelations,
+      resolve_links: resolveLinks,
     })
 
     return data.story

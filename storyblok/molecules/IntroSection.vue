@@ -39,11 +39,8 @@ const getIntroDescription = computed(() =>
   }
 
   &__description {
-    margin-top: $spacing--2xl;
-
-    &::v-deep(p):last-of-type {
-      margin-bottom: 0;
-    }
+    max-width: convert(800px, 'rem');
+    margin: $spacing--2xl auto 0 auto;
   }
 }
 </style>
