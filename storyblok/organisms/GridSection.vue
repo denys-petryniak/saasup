@@ -41,7 +41,9 @@ defineProps<Props>()
   }
 
   &__heading {
-    margin-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
+    max-width: convert(600px, 'rem');
+    margin: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl) auto 0
+      auto;
   }
 
   &__cards {
