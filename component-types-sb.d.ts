@@ -56,13 +56,6 @@ export interface AuthorStoryblok {
   [k: string]: any;
 }
 
-export interface BlockDividerStoryblok {
-  color?: any;
-  _uid: string;
-  component: "block-divider";
-  [k: string]: any;
-}
-
 export interface BlogSectionStoryblok {
   badge: string;
   heading: string;
@@ -260,7 +253,6 @@ export interface OverviewSectionStoryblok {
 export interface PageStoryblok {
   body: (
     | AuthorStoryblok
-    | BlockDividerStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
     | FeatureStoryblok
@@ -274,6 +266,7 @@ export interface PageStoryblok {
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
     | PricingPlanStoryblok
+    | SectionDividerStoryblok
     | StepStoryblok
     | SubmenuStoryblok
     | UnderDevStoryblok
@@ -338,6 +331,13 @@ export interface PricingSectionStoryblok {
   pricing_plans: PricingPlanStoryblok[];
   _uid: string;
   component: "pricing-section";
+  [k: string]: any;
+}
+
+export interface SectionDividerStoryblok {
+  color?: any;
+  _uid: string;
+  component: "section-divider";
   [k: string]: any;
 }
 

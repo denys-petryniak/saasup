@@ -136,35 +136,6 @@
       "component_group_name": "molecules"
     },
     {
-      "name": "block-divider",
-      "display_name": null,
-      "created_at": "2024-06-16T13:19:28.762Z",
-      "updated_at": "2024-06-16T13:39:22.630Z",
-      "id": 5934732,
-      "schema": {
-        "color": {
-          "type": "option",
-          "pos": 0,
-          "use_uuid": true
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "block-divider",
-      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
-      "color": "#ffac00",
-      "icon": "block-share",
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null,
-      "component_group_name": "molecules"
-    },
-    {
       "name": "blog-section",
       "display_name": null,
       "created_at": "2023-08-17T18:52:21.163Z",
@@ -1335,6 +1306,35 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "organisms"
+    },
+    {
+      "name": "section-divider",
+      "display_name": null,
+      "created_at": "2024-06-16T13:19:28.762Z",
+      "updated_at": "2024-06-17T12:37:35.266Z",
+      "id": 5934732,
+      "schema": {
+        "color": {
+          "type": "option",
+          "pos": 0,
+          "use_uuid": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "section-divider",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
     },
     {
       "name": "step",

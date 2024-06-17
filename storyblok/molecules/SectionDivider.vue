@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { BlockDividerStoryblok } from '~/component-types-sb'
+import type { SectionDividerStoryblok } from '~/component-types-sb'
 import BaseContainer from '~/components/atoms/BaseContainer.vue'
 
 interface Props {
-  blok: BlockDividerStoryblok
+  blok: SectionDividerStoryblok
 }
 
 defineProps<Props>()
