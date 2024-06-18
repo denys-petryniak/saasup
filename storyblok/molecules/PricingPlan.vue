@@ -31,6 +31,7 @@ defineProps<Props>()
       <LabelBadge
         size="sm"
         color="orange"
+        class="pricing-plan__badge"
       >
         {{ blok.billing_description }}
       </LabelBadge>
@@ -92,6 +93,10 @@ $card-padding-x: clamped(
     line-height: $leading--tight;
     font-weight: $font--extrabold;
     color: $color--secondary--extra-dark;
+  }
+
+  &__badge {
+    margin-top: $spacing--lg;
   }
 
   &__features {

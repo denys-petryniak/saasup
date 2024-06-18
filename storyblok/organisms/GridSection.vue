@@ -17,7 +17,7 @@ defineProps<Props>()
       <LabelBadge v-if="blok.badge">
         {{ blok.badge }}
       </LabelBadge>
-      <h2 class="grid-section__heading">
+      <h2 v-if="blok.heading" class="grid-section__heading">
         {{ blok.heading }}
       </h2>
     </template>
