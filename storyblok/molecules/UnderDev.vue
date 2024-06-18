@@ -15,11 +15,13 @@ const getDescription = computed(() =>
   <BaseSection
     v-editable="blok"
   >
-    <h1>
-      {{ blok.heading }}
-    </h1>
-    <div
-      v-html="getDescription"
-    />
+    <template #header>
+      <h1>
+        {{ blok.heading }}
+      </h1>
+      <div
+        v-html="getDescription"
+      />
+    </template>
   </BaseSection>
 </template>

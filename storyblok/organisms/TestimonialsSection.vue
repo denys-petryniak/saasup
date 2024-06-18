@@ -31,12 +31,12 @@ const getTestimonialsBackground = computed(() => {
     v-editable="blok"
     class="testimonials-section"
   >
-    <div class="testimonials-section__head">
+    <template #header>
       <LabelBadge>{{ blok.badge }}</LabelBadge>
       <h2 class="testimonials-section__heading">
         {{ blok.heading }}
       </h2>
-    </div>
+    </template>
     <Carousel
       v-bind="carouselSettings"
       class="testimonials-section__carousel"
@@ -64,10 +64,6 @@ $section-bg-decor-z-index: -1;
 
 .testimonials-section {
   background-color: $color-primary--light;
-
-  &__head {
-    text-align: center;
-  }
 
   &__heading {
     margin-top: $spacing--4xl;

@@ -16,7 +16,7 @@ const getIntroDescription = computed(() =>
     v-editable="blok"
     class="intro-section"
   >
-    <div class="intro-section__body">
+    <template #header>
       <h1 class="intro-section__title">
         {{ blok.title }}
       </h1>
@@ -24,23 +24,18 @@ const getIntroDescription = computed(() =>
         class="intro-section__description"
         v-html="getIntroDescription"
       />
-    </div>
+    </template>
   </BaseSection>
 </template>
 
 <style scoped lang="scss">
 .intro-section {
-  &__body {
-    text-align: center;
-  }
-
   &__title {
-    margin: 0;
+    margin-top: 0;
   }
 
   &__description {
-    max-width: convert(800px, 'rem');
-    margin: $spacing--2xl auto 0 auto;
+    margin-top: $spacing--2xl;
   }
 }
 </style>

@@ -9,6 +9,8 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   as: 'section',
+  isTopGapHidden: false,
+  isBottomGapHidden: false,
 })
 </script>
 
@@ -22,6 +24,9 @@ withDefaults(defineProps<Props>(), {
     class="section"
   >
     <BaseContainer>
+      <div v-if="$slots.header" class="section__header">
+        <slot name="header" />
+      </div>
       <slot />
     </BaseContainer>
   </component>
@@ -36,6 +41,12 @@ $padding--clamped: clamped(
 .section {
   padding-top: $padding--clamped;
   padding-bottom: $padding--clamped;
+
+  &__header {
+    max-width: convert(750px, 'rem');
+    margin-inline: auto;
+    text-align: center;
+  }
 
   &--top-gap-hidden {
     padding-top: 0;

@@ -13,12 +13,12 @@ defineProps<Props>()
     v-editable="blok"
     class="values-section"
   >
-    <div class="values-section__head">
+    <template #header>
       <LabelBadge>{{ blok.badge }}</LabelBadge>
-      <h2 class="values-section__heading">
+      <h2 class="heading values-section__heading">
         {{ blok.heading }}
       </h2>
-    </div>
+    </template>
     <div
       v-if="blok.values?.length"
       class="values-section__cards"
@@ -35,13 +35,8 @@ defineProps<Props>()
 
 <style scoped lang="scss">
 .values-section {
-  &__head {
-    text-align: center;
-  }
-
   &__heading {
-    max-width: convert(900px, 'rem');
-    margin: $spacing--4xl auto 0 auto;
+    margin-top: $spacing--4xl;
   }
 
   &__cards {

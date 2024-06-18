@@ -29,7 +29,7 @@ const getCardDescription = computed(() =>
       />
     </template>
     <template #default>
-      <h3 class="grid-card__heading">
+      <h3 class="grid-card__title">
         {{ blok.title }}
       </h3>
       <div
@@ -54,7 +54,7 @@ const getCardDescription = computed(() =>
 .grid-card {
   text-align: center;
 
-  &__heading {
+  &__title {
     margin: 0;
   }
 

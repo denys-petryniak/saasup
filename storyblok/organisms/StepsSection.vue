@@ -27,12 +27,12 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
     v-editable="blok"
     class="steps-section"
   >
-    <div class="steps-section__head">
+    <template #header>
       <LabelBadge>{{ blok.badge }}</LabelBadge>
       <h2 class="steps-section__heading">
         {{ blok.heading }}
       </h2>
-    </div>
+    </template>
     <div
       v-if="blok.steps?.length"
       class="steps-section__body"
@@ -66,10 +66,6 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
 
 <style scoped lang="scss">
 .steps-section {
-  &__head {
-    text-align: center;
-  }
-
   &__heading {
     margin-top: $spacing--4xl;
   }

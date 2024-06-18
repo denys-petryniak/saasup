@@ -24,12 +24,12 @@ const typeCheckedArticles = computed(() => {
     v-editable="blok"
     class="blog-section"
   >
-    <div class="blog-section__head">
+    <template #header>
       <LabelBadge>{{ blok.badge }}</LabelBadge>
       <h2 class="blog-section__heading">
         {{ blok.heading }}
       </h2>
-    </div>
+    </template>
     <div
       v-if="blok.articles?.length"
       class="blog-section__articles"
@@ -48,10 +48,6 @@ const typeCheckedArticles = computed(() => {
 $card-min-width: convert(250px, 'rem');
 
 .blog-section {
-  &__head {
-    text-align: center;
-  }
-
   &__heading {
     margin-top: $spacing--4xl;
   }

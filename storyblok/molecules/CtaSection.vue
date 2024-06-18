@@ -91,8 +91,7 @@ const getSectionBackground = computed(() => {
           :width="1336"
           :height="988"
           :alt="blok.image.alt"
-          format="avif,webp"
-          sizes="sm:100vw xl:670px"
+          sizes="100vw xl:670px"
           loading="lazy"
           class="cta-section__image"
         />
