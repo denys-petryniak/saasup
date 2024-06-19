@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { ArticleStoryblok, BlogSectionStoryblok } from '~/component-types-sb'
+import type { ArticleStoryblok, ArticlesSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: BlogSectionStoryblok
+  blok: ArticlesSectionStoryblok
 }
 
 const props = defineProps<Props>()
@@ -22,17 +22,21 @@ const typeCheckedArticles = computed(() => {
 <template>
   <BaseSection
     v-editable="blok"
-    class="blog-section"
+    :is-top-gap-hidden="blok.hide_top_gap"
+    class="articles-section"
   >
     <template #header>
-      <LabelBadge>{{ blok.badge }}</LabelBadge>
-      <h2 class="blog-section__heading">
+      <LabelBadge v-if="blok.badge">
+        {{ blok.badge }}
+      </LabelBadge>
+      <h2 v-if="blok.heading" class="articles-section__heading">
         {{ blok.heading }}
       </h2>
     </template>
-    <div
+    <GridBox
       v-if="blok.articles?.length"
-      class="blog-section__articles"
+      :columns="blok.columns"
+      class="articles-section__cards"
     >
       <ArticleCard
         v-for="article in typeCheckedArticles"
@@ -40,22 +44,17 @@ const typeCheckedArticles = computed(() => {
         :article="article.content"
         :slug="article.full_slug"
       />
-    </div>
+    </GridBox>
   </BaseSection>
 </template>
 
 <style scoped lang="scss">
-$card-min-width: convert(250px, 'rem');
-
-.blog-section {
+.articles-section {
   &__heading {
     margin-top: $spacing--4xl;
   }
 
-  &__articles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($card-min-width, 1fr));
-    gap: $spacing--8xl;
+  &__cards {
     margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }
 }

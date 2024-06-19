@@ -46,6 +46,17 @@ export interface ArticleStoryblok {
   [k: string]: any;
 }
 
+export interface ArticlesSectionStoryblok {
+  columns?: "2" | "3";
+  hide_top_gap?: boolean;
+  badge?: string;
+  heading?: string;
+  articles: (StoryblokStory<ArticleStoryblok> | string)[];
+  _uid: string;
+  component: "articles-section";
+  [k: string]: any;
+}
+
 export interface AuthorStoryblok {
   name: string;
   photo: AssetStoryblok;
@@ -53,15 +64,6 @@ export interface AuthorStoryblok {
   rating?: string;
   _uid: string;
   component: "author";
-  [k: string]: any;
-}
-
-export interface BlogSectionStoryblok {
-  badge: string;
-  heading: string;
-  articles: (StoryblokStory<ArticleStoryblok> | string)[];
-  _uid: string;
-  component: "blog-section";
   [k: string]: any;
 }
 
@@ -142,25 +144,6 @@ export interface CtaSectionStoryblok {
   [k: string]: any;
 }
 
-export interface FeatureStoryblok {
-  image: AssetStoryblok;
-  heading: string;
-  description: RichtextStoryblok;
-  linkText: string;
-  _uid: string;
-  component: "feature";
-  [k: string]: any;
-}
-
-export interface FeaturesSectionStoryblok {
-  badge: string;
-  heading: string;
-  features: FeatureStoryblok[];
-  _uid: string;
-  component: "features-section";
-  [k: string]: any;
-}
-
 export interface GridCardStoryblok {
   image: AssetStoryblok;
   title: string;
@@ -173,8 +156,8 @@ export interface GridCardStoryblok {
 }
 
 export interface GridSectionStoryblok {
-  badge: string;
-  heading: string;
+  badge?: string;
+  heading?: string;
   cards?: GridCardStoryblok[];
   _uid: string;
   component: "grid-section";
@@ -255,7 +238,6 @@ export interface PageStoryblok {
     | AuthorStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
-    | FeatureStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
     | IntroSectionStoryblok
@@ -272,9 +254,8 @@ export interface PageStoryblok {
     | UnderDevStoryblok
     | ValueItemStoryblok
     | AllArticlesStoryblok
-    | BlogSectionStoryblok
+    | ArticlesSectionStoryblok
     | CareersSectionStoryblok
-    | FeaturesSectionStoryblok
     | GridSectionStoryblok
     | PricingSectionStoryblok
     | StepsSectionStoryblok

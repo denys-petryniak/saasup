@@ -6,7 +6,7 @@ useHead({
 })
 
 const resolveRelations = [
-  'blog-section.articles',
+  'articles-section.articles',
   'careers-section.vacancies',
 ]
 const resolveLinks = 'url'

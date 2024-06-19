@@ -23,6 +23,7 @@ defineProps<Props>()
     </template>
     <GridBox
       v-if="blok.cards?.length"
+      :columns="blok.columns"
       class="grid-section__cards"
     >
       <GridCard
