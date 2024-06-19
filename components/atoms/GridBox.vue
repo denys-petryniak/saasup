@@ -10,15 +10,15 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // TODO: replace this approach with simplified and solid solution
-const cardMinWidthMap: { [key in ColumnsCount]: string } = {
-  2: convertPxToRem(450),
-  3: convertPxToRem(350),
-  4: convertPxToRem(300),
-}
+const cardMinWidthMap = new Map<ColumnsCount, string>([
+  ['2', convertPxToRem(500)],
+  ['3', convertPxToRem(400)],
+  ['4', convertPxToRem(300)],
+])
 const defaultCardMinWidth = convertPxToRem(350)
 
 const cardMinWidth = computed(() => {
-  return cardMinWidthMap[props.columns] ?? defaultCardMinWidth
+  return cardMinWidthMap.get(props.columns) || defaultCardMinWidth
 })
 </script>
 
