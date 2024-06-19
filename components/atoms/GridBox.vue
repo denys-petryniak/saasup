@@ -15,10 +15,9 @@ const cardMinWidthMap = new Map<ColumnsCount, string>([
   ['3', convertPxToRem(400)],
   ['4', convertPxToRem(300)],
 ])
-const defaultCardMinWidth = convertPxToRem(350)
 
 const cardMinWidth = computed(() => {
-  return cardMinWidthMap.get(props.columns) || defaultCardMinWidth
+  return cardMinWidthMap.get(props.columns)
 })
 </script>
 
