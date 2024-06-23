@@ -25,14 +25,13 @@ const typeCheckedArticles = computed(() => {
     :is-top-gap-hidden="blok.hide_top_gap"
     class="articles-section"
   >
-    <template #header>
-      <LabelBadge v-if="blok.badge">
-        {{ blok.badge }}
-      </LabelBadge>
-      <h2 v-if="blok.heading" class="articles-section__heading">
-        {{ blok.heading }}
-      </h2>
-    </template>
+    <ContentBlock
+      v-if="blok.heading"
+      :badge="blok.badge"
+      :heading="blok.heading"
+      :heading-level="blok.heading_level"
+      :align="blok.alignment ?? 'center'"
+    />
     <GridBox
       v-if="blok.articles?.length"
       :columns="blok.columns"
@@ -50,10 +49,6 @@ const typeCheckedArticles = computed(() => {
 
 <style scoped lang="scss">
 .articles-section {
-  &__heading {
-    margin-top: $spacing--4xl;
-  }
-
   &__cards {
     margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }

@@ -14,7 +14,7 @@ const carouselSettings = ref({
 
 const img = useImage()
 
-const getTestimonialsBackground = computed(() => {
+const testimonialsBackground = computed(() => {
   if (!props.blok.background?.filename)
     return
 
@@ -31,21 +31,26 @@ const getTestimonialsBackground = computed(() => {
     v-editable="blok"
     class="testimonials-section"
   >
-    <template #header>
-      <LabelBadge>{{ blok.badge }}</LabelBadge>
-      <h2 class="testimonials-section__heading">
-        {{ blok.heading }}
-      </h2>
-    </template>
+    <ContentBlock
+      v-if="blok.heading"
+      :badge="blok.badge"
+      :heading="blok.heading"
+      :heading-level="blok.heading_level"
+      :align="blok.alignment ?? 'center'"
+      class="testimonials-section__content"
+    />
     <Carousel
       v-bind="carouselSettings"
       class="testimonials-section__carousel"
     >
       <template #slides>
+        <!-- TODO: TestimonialsSection -> TestimonialSection -->
+        <!-- TODO: testimonial in blok.testimonials -> testimonial in blok.entries (?) -->
         <Slide
           v-for="testimonial in blok.testimonials"
           :key="testimonial._uid"
         >
+          <!-- TODO:  Testimonial -> TestimonialEntry -->
           <Testimonial
             :blok="testimonial"
           />
@@ -65,13 +70,14 @@ $section-bg-decor-z-index: -1;
 .testimonials-section {
   background-color: $color-primary--light;
 
-  &__heading {
-    margin-top: $spacing--4xl;
-    color: $color-white--regular;
+  &__content {
+    &::v-deep(.content-block__heading) {
+      color: $color-white--regular;
+    }
   }
 
   @include breakpoint('lg') {
-    background-image: v-bind(getTestimonialsBackground);
+    background-image: v-bind(testimonialsBackground);
     background-repeat: no-repeat;
     background-size: cover;
   }

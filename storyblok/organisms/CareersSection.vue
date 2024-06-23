@@ -22,6 +22,9 @@ const vacancyStaticData = {
   title: 'Can\'t find the position you are looking for?',
   description: 'Don\'t worry, get in touch with us , we are always looking for great team members to join with us.',
 }
+
+const { isMobileScreenSize, isTabletScreenSize } = useMedia()
+const contentBlockAlignment = computed(() => isMobileScreenSize.value || isTabletScreenSize.value ? 'center' : 'left')
 </script>
 
 <template>
@@ -30,12 +33,14 @@ const vacancyStaticData = {
     class="careers-section"
   >
     <div class="careers-section__body">
-      <div class="careers-section__head">
-        <LabelBadge>{{ blok.badge }}</LabelBadge>
-        <h2 class="careers-section__heading">
-          {{ blok.heading }}
-        </h2>
-      </div>
+      <ContentBlock
+        v-if="blok.heading"
+        :badge="blok.badge"
+        :heading="blok.heading"
+        :heading-level="blok.heading_level"
+        :align="contentBlockAlignment"
+        class="careers-section__head"
+      />
       <div
         v-if="blok.vacancies?.length"
         class="careers-section__vacancies"
@@ -61,14 +66,6 @@ const vacancyStaticData = {
     gap: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
   }
 
-  &__head {
-    text-align: center;
-  }
-
-  &__heading {
-    margin: $spacing--4xl 0 0 0;
-  }
-
   &__vacancies {
     display: flex;
     flex-direction: column;
@@ -87,7 +84,6 @@ const vacancyStaticData = {
       position: sticky;
       top: $spacing--8xl;
       left: 0;
-      text-align: start;
     }
   }
 }

@@ -13,14 +13,13 @@ defineProps<Props>()
     v-editable="blok"
     class="grid-section"
   >
-    <template #header>
-      <LabelBadge v-if="blok.badge">
-        {{ blok.badge }}
-      </LabelBadge>
-      <h2 v-if="blok.heading" class="grid-section__heading">
-        {{ blok.heading }}
-      </h2>
-    </template>
+    <ContentBlock
+      v-if="blok.heading"
+      :badge="blok.badge"
+      :heading="blok.heading"
+      :heading-level="blok.heading_level"
+      :align="blok.alignment ?? 'center'"
+    />
     <GridBox
       v-if="blok.cards?.length"
       :columns="blok.columns"
@@ -37,10 +36,6 @@ defineProps<Props>()
 
 <style scoped lang="scss">
 .grid-section {
-  &__heading {
-    margin-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
-  }
-
   &__cards {
     margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }

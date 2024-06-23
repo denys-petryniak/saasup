@@ -70,42 +70,6 @@ h6 {
   color: $color--secondary--extra-dark;
 }
 
-h1 {
-  @include fluid-typography(
-    $min-font-size: $text--4xl,
-    $max-font-size: $text--7xl,
-    $min-line-height: $leading--none,
-    $max-line-height: $leading--tight,
-  );
-}
-
-h2 {
-  @include fluid-typography(
-    $min-font-size: $text--3xl,
-    $max-font-size: $text--5xl,
-    $min-line-height: $leading--tight,
-    $max-line-height: $leading--condensed
-  );
-}
-
-h3 {
-  @include fluid-typography(
-    $min-font-size: $text--2xl,
-    $max-font-size: $text--3xl,
-    $min-line-height: $leading--tight,
-    $max-line-height: $leading--condensed
-  );
-}
-
-h4 {
-  @include fluid-typography(
-    $min-font-size: $text--2xl,
-    $max-font-size: $text--3xl,
-    $min-line-height: $leading--condensed,
-    $max-line-height: $leading--snug
-  );
-}
-
 p {
   margin: $spacing--2xl 0;
 

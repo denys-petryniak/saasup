@@ -7,7 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getIntroDescription = computed(() =>
+const introDescription = computed(() =>
   renderRichText(props.blok.description))
 </script>
 
@@ -16,26 +16,12 @@ const getIntroDescription = computed(() =>
     v-editable="blok"
     class="intro-section"
   >
-    <template #header>
-      <h1 class="intro-section__title">
-        {{ blok.title }}
-      </h1>
-      <div
-        class="intro-section__description"
-        v-html="getIntroDescription"
-      />
-    </template>
+    <ContentBlock
+      v-if="blok.title"
+      :heading="blok.title"
+      :heading-level="blok.title_level"
+      :description="introDescription"
+      :align="blok.alignment ?? 'center'"
+    />
   </BaseSection>
 </template>
-
-<style scoped lang="scss">
-.intro-section {
-  &__title {
-    margin-top: 0;
-  }
-
-  &__description {
-    margin-top: $spacing--2xl;
-  }
-}
-</style>

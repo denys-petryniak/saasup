@@ -95,7 +95,7 @@
       "name": "articles-section",
       "display_name": null,
       "created_at": "2023-08-17T18:52:21.163Z",
-      "updated_at": "2024-06-19T10:37:02.007Z",
+      "updated_at": "2024-06-23T15:33:14.466Z",
       "id": 4437547,
       "schema": {
         "columns": {
@@ -153,12 +153,52 @@
           "pos": 5
         },
         "tab-a314ba59-565c-444d-abcb-a35479abcb8e": {
-          "display_name": "Articles",
+          "display_name": "Cards",
           "keys": [
             "articles"
           ],
           "pos": 6,
           "type": "tab"
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 7,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "datasource_slug": "heading-levels",
+          "default_value": "h2",
+          "options": [
+            {
+              "_uid": "df9b9aab-26b9-4710-8a30-75938c478ca9",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "d2ed2b65-ddf6-465c-90d2-64e111170f45",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "f09665ce-f1d6-4e18-a3ab-c384dc5a3d64",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "9662489c-56ad-4640-ab96-8809c781f406",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "07f1d4b7-65d5-4bf7-bbce-38e88b683742",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "de6def04-8022-4542-b333-632868885940",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ]
         }
       },
       "image": null,
@@ -654,7 +694,7 @@
       "name": "grid-section",
       "display_name": null,
       "created_at": "2024-06-14T17:17:13.296Z",
-      "updated_at": "2024-06-18T01:22:29.764Z",
+      "updated_at": "2024-06-23T15:25:49.427Z",
       "id": 5931306,
       "schema": {
         "badge": {
@@ -677,7 +717,9 @@
         },
         "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3": {
           "display_name": "Style",
-          "keys": [],
+          "keys": [
+            "alignment"
+          ],
           "pos": 0,
           "type": "tab"
         },
@@ -690,6 +732,71 @@
             "grid-card"
           ],
           "minimum": 2
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "exclude_empty_option": true,
+          "default_value": "h2",
+          "options": [
+            {
+              "_uid": "676fe6df-c6d0-4bf1-9ee1-1018f064dbac",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "ecd0d446-3f8e-4a85-a8d0-26f71c2c0484",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "1af74bdd-dcbf-424c-9990-f1f8c0eab6f6",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "0affae5c-1f23-4155-83f6-31491cce78fa",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "c8f525b5-529b-4823-a3bc-b841fc4f80f1",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "c77d473a-afc9-4165-b2a9-f7a06ceb4c05",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ]
+        },
+        "alignment": {
+          "type": "option",
+          "pos": 6,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "39d7babd-9036-4939-8835-90ae3f26c58a",
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "_uid": "762a350f-7e82-4bd4-a78d-55fabe6d9ee3",
+              "value": "center",
+              "name": "Center"
+            },
+            {
+              "_uid": "05bc8deb-6961-48d5-8767-aad64416003c",
+              "value": "right",
+              "name": "Right"
+            }
+          ],
+          "default_value": "center",
+          "exclude_empty_option": true,
+          "datasource_slug": "alignment"
         }
       },
       "image": null,
@@ -712,7 +819,7 @@
       "name": "hero-section",
       "display_name": null,
       "created_at": "2023-08-07T18:08:05.468Z",
-      "updated_at": "2024-06-01T08:41:45.959Z",
+      "updated_at": "2024-06-23T15:23:38.618Z",
       "id": 4390334,
       "schema": {
         "heading": {
@@ -721,9 +828,49 @@
           "pos": 0,
           "required": true
         },
+        "heading_level": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "default_value": "h1",
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "538bdcd9-1bea-4740-9a20-9420caca9540",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "a611c2fb-25a8-456c-8707-e4e81d12a44c",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "83fcd873-f32c-4f38-805f-8cf675e7962a",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "13d50fc9-0b3d-42b8-b27e-24f0c33dd83e",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "2ae698d8-2128-48dc-9e55-950ff47733cd",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "34349cab-48ed-4b70-94ca-2b1d9b39ec7e",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ]
+        },
         "description": {
           "type": "richtext",
-          "pos": 1,
+          "pos": 2,
           "required": true
         },
         "image": {
@@ -731,7 +878,7 @@
           "filetypes": [
             "images"
           ],
-          "pos": 2,
+          "pos": 3,
           "required": true
         }
       },
@@ -755,7 +902,7 @@
       "name": "intro-section",
       "display_name": null,
       "created_at": "2024-06-05T20:46:05.033Z",
-      "updated_at": "2024-06-05T20:47:06.086Z",
+      "updated_at": "2024-06-23T15:34:24.467Z",
       "id": 5889699,
       "schema": {
         "title": {
@@ -763,9 +910,82 @@
           "pos": 0,
           "required": true
         },
+        "title_level": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "exclude_empty_option": true,
+          "default_value": "h1",
+          "options": [
+            {
+              "_uid": "f5575b83-40ab-4df2-832d-332da2ed029f",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "a69ea1c5-b47f-4c8e-a906-da02d7f835d5",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "4718ba11-9af4-4c41-a165-19a03869b8fb",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "51c42db9-4a07-47b5-8b4b-a2b1066b50fc",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "3636ee80-3b18-4264-96a2-aedaefa1589d",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "936db5fe-5c3d-4a3d-b1c0-2498a8369dcc",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ]
+        },
         "description": {
           "type": "richtext",
-          "pos": 1
+          "pos": 2
+        },
+        "alignment": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "7814eb2a-78d0-49fb-bfbb-222852bf9651",
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "_uid": "cbf18e95-a49e-4996-91aa-a235a0b9a1d3",
+              "value": "center",
+              "name": "Center"
+            },
+            {
+              "_uid": "a328f762-09bd-4942-9762-056a439742f5",
+              "value": "right",
+              "name": "Right"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "center",
+          "datasource_slug": "alignment"
+        },
+        "tab-91b9931e-6960-4a0c-ab0c-3bc5da73996f": {
+          "display_name": "Style",
+          "keys": [
+            "alignment"
+          ],
+          "pos": 4,
+          "type": "tab"
         }
       },
       "image": null,
@@ -1203,32 +1423,13 @@
       "name": "pricing-section",
       "display_name": null,
       "created_at": "2023-08-16T15:45:16.196Z",
-      "updated_at": "2023-08-27T10:36:30.060Z",
+      "updated_at": "2024-06-23T15:32:06.048Z",
       "id": 4431923,
       "schema": {
         "badge": {
           "type": "text",
-          "required": true
-        },
-        "heading": {
-          "type": "text",
-          "required": true
-        },
-        "description": {
-          "type": "richtext",
-          "required": true
-        },
-        "payment_heading": {
-          "type": "text",
-          "required": false
-        },
-        "payment_images": {
-          "type": "multiasset",
-          "filetypes": [
-            "images"
-          ],
-          "asset_folder_id": 288993,
-          "required": false
+          "required": true,
+          "pos": 0
         },
         "pricing_plans": {
           "type": "bloks",
@@ -1239,7 +1440,79 @@
           "component_whitelist": [
             "pricing_plan"
           ],
-          "required": true
+          "required": true,
+          "pos": 1
+        },
+        "heading": {
+          "type": "text",
+          "required": true,
+          "pos": 2
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "bd09a086-6cd3-4a38-8865-1754d62867bc",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "87a5e0be-2ba3-42ba-ab9e-60ed80e8070f",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "95a91e26-bcbb-42ae-b88f-33ec03bd12fb",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "19374a7f-5f66-4aad-afff-f80673f34a72",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "7b41bc01-4a03-4dc4-9890-ef90428c9d1e",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "852d2191-4272-42a2-b4b3-8c4479a85182",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "default_value": "h2"
+        },
+        "description": {
+          "type": "richtext",
+          "required": true,
+          "pos": 4
+        },
+        "payment_heading": {
+          "type": "text",
+          "required": false,
+          "pos": 5
+        },
+        "payment_images": {
+          "type": "multiasset",
+          "filetypes": [
+            "images"
+          ],
+          "asset_folder_id": 288993,
+          "required": false,
+          "pos": 6
+        },
+        "tab-2ceaa28d-b880-492d-a1e5-14ea633ff7a5": {
+          "display_name": "Cards",
+          "keys": [
+            "pricing_plans"
+          ],
+          "pos": 7,
+          "type": "tab"
         }
       },
       "image": null,
@@ -1344,16 +1617,66 @@
       "name": "steps-section",
       "display_name": null,
       "created_at": "2023-08-15T15:12:24.585Z",
-      "updated_at": "2023-08-27T10:36:43.232Z",
+      "updated_at": "2024-06-23T15:27:31.928Z",
       "id": 4425763,
       "schema": {
         "badge": {
           "type": "text",
-          "required": true
+          "required": true,
+          "pos": 0
+        },
+        "tab-257b0fce-9539-49e9-a91f-2be1e0c1d05b": {
+          "display_name": "Style",
+          "keys": [
+            "alignment"
+          ],
+          "pos": 0,
+          "type": "tab"
         },
         "heading": {
           "type": "text",
-          "required": true
+          "required": true,
+          "pos": 1
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "exclude_empty_option": true,
+          "default_value": "h2",
+          "options": [
+            {
+              "_uid": "e0bd05e4-d277-4fd0-b332-0a9df8726315",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "6a716e3c-aefb-4e84-8aef-0a72bb949993",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "5dfaf708-de61-43d6-9504-94292c452d50",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "c29720aa-301f-41b8-a6e4-594949c52d3b",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "2c805065-448e-4131-9ee6-6647adc4cf22",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "6b568904-d581-4656-93d5-1cb879b5053b",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ]
         },
         "steps": {
           "type": "bloks",
@@ -1364,7 +1687,41 @@
           "component_whitelist": [
             "step"
           ],
-          "required": true
+          "required": true,
+          "pos": 3
+        },
+        "tab-8b6eca43-0589-47de-897e-8f8066422d02": {
+          "display_name": "Tabs",
+          "keys": [
+            "steps"
+          ],
+          "pos": 4,
+          "type": "tab"
+        },
+        "alignment": {
+          "type": "option",
+          "pos": 6,
+          "use_uuid": true,
+          "datasource_slug": "alignment",
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "77ceceec-fcd1-4936-a9d4-a06f55e32331",
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "_uid": "1b63150e-dc9b-4a18-9993-2d7a46e8e0e5",
+              "value": "center",
+              "name": "Center"
+            },
+            {
+              "_uid": "8aecbd6c-e6cd-404f-bbd8-6cafdc88e532",
+              "value": "right",
+              "name": "Right"
+            }
+          ],
+          "default_value": "center"
         }
       },
       "image": null,
@@ -1463,26 +1820,13 @@
       "name": "testimonials-section",
       "display_name": null,
       "created_at": "2023-08-15T17:14:12.383Z",
-      "updated_at": "2023-08-27T10:37:13.421Z",
+      "updated_at": "2024-06-23T15:29:38.076Z",
       "id": 4426248,
       "schema": {
         "badge": {
           "type": "text",
           "pos": 0,
           "required": true
-        },
-        "heading": {
-          "type": "text",
-          "pos": 1,
-          "required": true
-        },
-        "background": {
-          "type": "asset",
-          "pos": 2,
-          "filetypes": [
-            "images"
-          ],
-          "required": false
         },
         "testimonials": {
           "type": "bloks",
@@ -1493,8 +1837,68 @@
           "component_whitelist": [
             "testimonial"
           ],
-          "pos": 3,
+          "pos": 1,
           "required": true
+        },
+        "heading": {
+          "type": "text",
+          "pos": 2,
+          "required": true
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "9e1e6c1f-af69-4554-b399-4d1480a9058d",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "2e46372a-ba23-4b55-bfdc-c879856e2988",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "bbf894fd-0e92-4b26-8dcf-01f5b1c7af57",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "ece269aa-a17a-4151-8184-fc6e576ba667",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "a6f94b12-8ef3-4d77-8e9f-c730afdb5b37",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "0c56ab20-40ba-4637-aa30-e317b5488bf5",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "h2"
+        },
+        "background": {
+          "type": "asset",
+          "pos": 4,
+          "filetypes": [
+            "images"
+          ],
+          "required": false
+        },
+        "tab-89ea9294-e2d4-4af3-aff8-914493cf767f": {
+          "display_name": "Entries",
+          "keys": [
+            "testimonials"
+          ],
+          "pos": 5,
+          "type": "tab"
         }
       },
       "image": null,

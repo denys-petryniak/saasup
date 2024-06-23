@@ -7,7 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getDescription = computed(() =>
+const description = computed(() =>
   renderRichText(props.blok.description))
 </script>
 
@@ -15,13 +15,12 @@ const getDescription = computed(() =>
   <BaseSection
     v-editable="blok"
   >
-    <template #header>
-      <h1>
-        {{ blok.heading }}
-      </h1>
-      <div
-        v-html="getDescription"
-      />
-    </template>
+    <ContentBlock
+      v-if="blok.heading"
+      :heading="blok.heading"
+      :heading-level="blok.heading_level ?? 'h1'"
+      :description="description"
+      :align="blok.alignment ?? 'center'"
+    />
   </BaseSection>
 </template>

@@ -7,8 +7,11 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getSectionDescription = computed(() =>
+const sectionDescription = computed(() =>
   renderRichText(props.blok.description))
+
+const { isMobileScreenSize, isTabletScreenSize } = useMedia()
+const contentBlockAlignment = computed(() => isMobileScreenSize.value || isTabletScreenSize.value ? 'center' : 'left')
 </script>
 
 <template>
@@ -17,41 +20,42 @@ const getSectionDescription = computed(() =>
     class="pricing-section"
   >
     <div class="pricing-section__body">
-      <div class="pricing-section__content">
-        <LabelBadge>{{ blok.badge }}</LabelBadge>
-        <h2 class="pricing-section__heading">
-          {{ blok.heading }}
-        </h2>
-        <div
-          class="pricing-section__description"
-          v-html="getSectionDescription"
-        />
-        <div class="payment pricing-section__payment">
-          <h3 class="payment__title">
-            {{ blok.payment_heading }}
-          </h3>
-          <div
-            v-if="blok.payment_images?.length"
-            class="payment__body"
-          >
+      <ContentBlock
+        v-if="blok.heading"
+        :badge="blok.badge"
+        :heading="blok.heading"
+        :heading-level="blok.heading_level"
+        :description="sectionDescription"
+        :align="contentBlockAlignment"
+      >
+        <template #footer>
+          <div class="payment pricing-section__payment">
+            <h3 class="payment__title">
+              {{ blok.payment_heading }}
+            </h3>
             <div
-              v-for="paymentImage in blok.payment_images"
-              :key="paymentImage.id"
-              class="payment__image-box"
+              v-if="blok.payment_images?.length"
+              class="payment__body"
             >
-              <img
-                :src="paymentImage.filename"
-                :width="480"
-                :height="480"
-                :alt="paymentImage.alt"
-                :title="paymentImage.alt"
-                loading="lazy"
-                class="payment__image"
+              <div
+                v-for="paymentImage in blok.payment_images"
+                :key="paymentImage.id"
+                class="payment__image-box"
               >
+                <img
+                  :src="paymentImage.filename"
+                  :width="480"
+                  :height="480"
+                  :alt="paymentImage.alt"
+                  :title="paymentImage.alt"
+                  loading="lazy"
+                  class="payment__image"
+                >
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </template>
+      </ContentBlock>
       <div
         v-if="blok.pricing_plans?.length"
         class="pricing-section__plans"
@@ -75,10 +79,6 @@ const getSectionDescription = computed(() =>
     gap: $spacing--8xl;
   }
 
-  &__content {
-    text-align: center;
-  }
-
   &__plans {
     display: flex;
     align-items: flex-start;
@@ -89,15 +89,9 @@ const getSectionDescription = computed(() =>
   &__plans-item {
     flex: 1 1 convert(250px, 'rem');
   }
-
-  &__heading {
-    margin-top: $spacing--4xl;
-  }
 }
 
 .payment {
-  margin-top: $spacing--4xl;
-
   &__body {
     display: flex;
     justify-content: center;
@@ -116,10 +110,6 @@ const getSectionDescription = computed(() =>
   .pricing-section {
     &__body {
       grid-template-columns: 0.5fr 1fr;
-    }
-
-    &__content {
-      text-align: start;
     }
   }
 }

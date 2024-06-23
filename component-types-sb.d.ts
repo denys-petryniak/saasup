@@ -52,6 +52,7 @@ export interface ArticlesSectionStoryblok {
   badge?: string;
   heading?: string;
   articles: (StoryblokStory<ArticleStoryblok> | string)[];
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
   component: "articles-section";
   [k: string]: any;
@@ -159,6 +160,8 @@ export interface GridSectionStoryblok {
   badge?: string;
   heading?: string;
   cards?: GridCardStoryblok[];
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  alignment?: "left" | "center" | "right";
   _uid: string;
   component: "grid-section";
   [k: string]: any;
@@ -166,6 +169,7 @@ export interface GridSectionStoryblok {
 
 export interface HeroSectionStoryblok {
   heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;
   image: AssetStoryblok;
   _uid: string;
@@ -175,7 +179,9 @@ export interface HeroSectionStoryblok {
 
 export interface IntroSectionStoryblok {
   title: string;
+  title_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description?: RichtextStoryblok;
+  alignment?: "left" | "center" | "right";
   _uid: string;
   component: "intro-section";
   [k: string]: any;
@@ -305,11 +311,12 @@ export interface PricingPlanStoryblok {
 
 export interface PricingSectionStoryblok {
   badge: string;
+  pricing_plans: PricingPlanStoryblok[];
   heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;
   payment_heading?: string;
   payment_images?: MultiassetStoryblok;
-  pricing_plans: PricingPlanStoryblok[];
   _uid: string;
   component: "pricing-section";
   [k: string]: any;
@@ -336,7 +343,9 @@ export interface StepStoryblok {
 export interface StepsSectionStoryblok {
   badge: string;
   heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   steps: StepStoryblok[];
+  alignment?: "left" | "center" | "right";
   _uid: string;
   component: "steps-section";
   [k: string]: any;
@@ -360,9 +369,10 @@ export interface TestimonialStoryblok {
 
 export interface TestimonialsSectionStoryblok {
   badge: string;
-  heading: string;
-  background?: AssetStoryblok;
   testimonials: TestimonialStoryblok[];
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  background?: AssetStoryblok;
   _uid: string;
   component: "testimonials-section";
   [k: string]: any;

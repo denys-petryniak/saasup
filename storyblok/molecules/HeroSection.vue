@@ -7,8 +7,11 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getHeroDescription = computed(() =>
+const heroDescription = computed(() =>
   renderRichText(props.blok.description))
+
+const { isMobileScreenSize, isTabletScreenSize } = useMedia()
+const contentBlockAlignment = computed(() => isMobileScreenSize.value || isTabletScreenSize.value ? 'center' : 'left')
 </script>
 
 <template>
@@ -18,29 +21,32 @@ const getHeroDescription = computed(() =>
   >
     <div class="hero-section__body">
       <div class="hero-section__content">
-        <h1 class="hero-section__heading">
-          {{ blok.heading }}
-        </h1>
-        <div
-          class="hero-section__description"
-          v-html="getHeroDescription"
-        />
-        <div class="hero-section__buttons">
-          <BaseButton>
-            Get Started
-          </BaseButton>
-          <BaseButton
-            color="light-bordered"
-            class="hero-section__video-button"
-            aria-label="Play video button"
-          >
-            <span class="hero-section__video-button-text">Watch Video</span>
-            <Icon
-              class="hero-section__video-button-icon"
-              name="carbon:play-filled"
-            />
-          </BaseButton>
-        </div>
+        <ContentBlock
+          v-if="blok.heading"
+          :heading="blok.heading"
+          :heading-level="blok.heading_level ?? 'h1'"
+          :description="heroDescription"
+          :align="contentBlockAlignment"
+        >
+          <template #footer>
+            <div class="hero-section__buttons">
+              <BaseButton>
+                Get Started
+              </BaseButton>
+              <BaseButton
+                color="light-bordered"
+                class="hero-section__video-button"
+                aria-label="Play video button"
+              >
+                <span class="hero-section__video-button-text">Watch Video</span>
+                <Icon
+                  class="hero-section__video-button-icon"
+                  name="carbon:play-filled"
+                />
+              </BaseButton>
+            </div>
+          </template>
+        </ContentBlock>
       </div>
       <div v-if="blok.image?.filename" class="hero-section__image-box">
         <!-- Width & height set manually because custom metadata (width & height)
@@ -68,6 +74,7 @@ const getHeroDescription = computed(() =>
   }
 
   &__content {
+    // TODO: increase accuracy here
     flex: 1 1 convert(400px, 'rem');
   }
 
@@ -75,20 +82,11 @@ const getHeroDescription = computed(() =>
     flex: 1 1 convert(500px, 'rem');
   }
 
-  &__heading {
-    margin: 0;
-  }
-
-  &__description {
-    margin-top: $spacing--4xl;
-  }
-
   &__buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: $spacing--lg;
-    margin-top: $spacing--4xl;
   }
 
   &__video-button {
