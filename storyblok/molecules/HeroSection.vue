@@ -25,7 +25,7 @@ const contentBlockAlignment = computed(() => isMobileScreenSize.value || isTable
           v-if="blok.heading"
           :heading="blok.heading"
           :heading-level="blok.heading_level ?? 'h1'"
-          :description="heroDescription"
+          :header-description="heroDescription"
           :align="contentBlockAlignment"
         >
           <template #footer>

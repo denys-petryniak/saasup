@@ -25,9 +25,9 @@ const contentBlockAlignment = computed(() => isMobileScreenSize.value || isTable
         :badge="blok.badge"
         :heading="blok.heading"
         :heading-level="blok.heading_level"
-        :description="sectionDescription"
         :align="contentBlockAlignment"
       >
+        <div v-html="sectionDescription" />
         <template #footer>
           <div class="payment pricing-section__payment">
             <h3 class="payment__title">

@@ -5,7 +5,7 @@ interface Props {
   heading: string
   headingLevel?: HeadingLevel
   badge?: string
-  description?: string
+  headerDescription?: string
   align?: Alignment
 }
 
@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
     class="content-block"
     :class="`content-block--${align}`"
   >
-    <div class="content-block__body">
+    <div class="content-block__header">
       <LabelBadge
         v-if="badge"
         class="content-block__badge"
@@ -34,30 +34,34 @@ withDefaults(defineProps<Props>(), {
         {{ heading }}
       </DynamicHeading>
       <div
-        v-if="description"
+        v-if="headerDescription"
         class="content-block__description"
-        v-html="description"
+        v-html="headerDescription"
       />
     </div>
-    <div
-      v-if="$slots.footer"
-      class="content-block__footer"
-    >
+    <div v-if="$slots.default" class="content-block__body">
+      <slot />
+    </div>
+    <div v-if="$slots.footer" class="content-block__footer">
       <slot name="footer" />
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-$text-width--max: convert(750px, 'rem');
+$header-text-width--max: convert(750px, 'rem');
 
 .content-block {
   $parent: &;
 
-  &__body {
+  &__header {
     display: flex;
     flex-direction: column;
     gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
+  }
+
+  &__body {
+    margin-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
   }
 
   &__footer {
@@ -66,7 +70,7 @@ $text-width--max: convert(750px, 'rem');
 
   &__heading,
   &__description {
-    max-width: $text-width--max;
+    max-width: $header-text-width--max;
   }
 
   &__heading {
@@ -80,7 +84,7 @@ $text-width--max: convert(750px, 'rem');
   &--left {
     text-align: left;
 
-    #{$parent}__body {
+    #{$parent}__header {
       align-items: flex-start;
     }
   }
@@ -88,7 +92,7 @@ $text-width--max: convert(750px, 'rem');
   &--center {
     text-align: center;
 
-    #{$parent}__body {
+    #{$parent}__header {
       align-items: center;
     }
   }
@@ -96,7 +100,7 @@ $text-width--max: convert(750px, 'rem');
   &--right {
     text-align: right;
 
-    #{$parent}__body {
+    #{$parent}__header {
       align-items: flex-end;
     }
   }

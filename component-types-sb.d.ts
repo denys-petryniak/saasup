@@ -372,8 +372,8 @@ export interface TestimonialEntryStoryblok {
 }
 
 export interface TestimonialSectionStoryblok {
-  badge: string;
   entries: (TestimonialStoryblok | TestimonialEntryStoryblok)[];
+  badge: string;
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   background?: AssetStoryblok;
@@ -414,7 +414,7 @@ export interface ValuesSectionStoryblok {
   badge?: string;
   heading?: string;
   values?: ValueItemStoryblok[];
-  heading_level?: "" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
   component: "values-section";
   [k: string]: any;
