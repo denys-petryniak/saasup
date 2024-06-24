@@ -7,7 +7,7 @@ import type {
 
 export type Alignment = 'left' | 'center' | 'right'
 
-export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 export type ImageLoading = 'lazy' | 'eager'
 

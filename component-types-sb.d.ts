@@ -101,9 +101,10 @@ export interface ButtonStoryblok {
 }
 
 export interface CareersSectionStoryblok {
+  vacancies?: (StoryblokStory<VacancyStoryblok> | string)[];
   badge?: string;
   heading: string;
-  vacancies?: (StoryblokStory<VacancyStoryblok> | string)[];
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
   component: "careers-section";
   [k: string]: any;
@@ -212,6 +213,7 @@ export interface MetricStoryblok {
 
 export interface MissionSectionStoryblok {
   heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;
   image?: AssetStoryblok;
   _uid: string;
@@ -231,9 +233,10 @@ export type MultiassetStoryblok = {
 
 export interface OverviewSectionStoryblok {
   images?: MultiassetStoryblok;
-  hide_top_gap?: boolean;
   heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;
+  hide_top_gap?: boolean;
   _uid: string;
   component: "overview-section";
   [k: string]: any;
@@ -255,8 +258,8 @@ export interface PageStoryblok {
     | PlatformSectionStoryblok
     | PricingPlanStoryblok
     | SectionDividerStoryblok
-    | StepStoryblok
     | SubmenuStoryblok
+    | TabbedContentEntryStoryblok
     | UnderDevStoryblok
     | ValueItemStoryblok
     | AllArticlesStoryblok
@@ -264,7 +267,7 @@ export interface PageStoryblok {
     | CareersSectionStoryblok
     | GridSectionStoryblok
     | PricingSectionStoryblok
-    | StepsSectionStoryblok
+    | TabbedContentSectionStoryblok
     | TestimonialStoryblok
     | TestimonialsSectionStoryblok
     | ValuesSectionStoryblok
@@ -329,33 +332,34 @@ export interface SectionDividerStoryblok {
   [k: string]: any;
 }
 
-export interface StepStoryblok {
-  name: string;
-  icon: AssetStoryblok;
-  image: AssetStoryblok;
-  heading: string;
-  description: RichtextStoryblok;
-  _uid: string;
-  component: "step";
-  [k: string]: any;
-}
-
-export interface StepsSectionStoryblok {
-  badge: string;
-  heading: string;
-  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  steps: StepStoryblok[];
-  alignment?: "left" | "center" | "right";
-  _uid: string;
-  component: "steps-section";
-  [k: string]: any;
-}
-
 export interface SubmenuStoryblok {
   title: string;
   links: LinkStoryblok[];
   _uid: string;
   component: "submenu";
+  [k: string]: any;
+}
+
+export interface TabbedContentEntryStoryblok {
+  name: string;
+  icon: AssetStoryblok;
+  image: AssetStoryblok;
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  description: RichtextStoryblok;
+  _uid: string;
+  component: "tabbed-content-entry";
+  [k: string]: any;
+}
+
+export interface TabbedContentSectionStoryblok {
+  entries: (StepStoryblok | TabbedContentEntryStoryblok)[];
+  badge: string;
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  alignment?: "left" | "center" | "right";
+  _uid: string;
+  component: "tabbed-content-section";
   [k: string]: any;
 }
 
@@ -410,6 +414,7 @@ export interface ValuesSectionStoryblok {
   badge?: string;
   heading?: string;
   values?: ValueItemStoryblok[];
+  heading_level?: "" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
   component: "values-section";
   [k: string]: any;

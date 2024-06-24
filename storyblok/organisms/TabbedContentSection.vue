@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import type { StepsSectionStoryblok } from '~/component-types-sb'
+import type { TabbedContentSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: StepsSectionStoryblok
+  blok: TabbedContentSectionStoryblok
 }
 
 defineProps<Props>()
 
-const activeStepIndex = ref(0)
+const activeTabIndex = ref(0)
 
-function changeStep(index: number): void {
-  activeStepIndex.value = index
+function changeTab(index: number): void {
+  activeTabIndex.value = index
 }
 
-function getFormattedStepIndex(index: number): string {
+function getFormattedTabIndex(index: number): string {
   return `0${index + 1}.`
 }
 
 function getStepButtonText({ index, text }: { index: number, text: string | undefined }): string {
-  return `${getFormattedStepIndex(index)} ${text}`
+  return `${getFormattedTabIndex(index)} ${text}`
 }
 </script>
 
 <template>
   <BaseSection
     v-editable="blok"
-    class="steps-section"
+    class="tabbed-content-section"
   >
     <ContentBlock
       v-if="blok.heading"
@@ -35,29 +35,29 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
       :align="blok.alignment ?? 'center'"
     />
     <div
-      v-if="blok.steps?.length"
-      class="steps-section__body"
+      v-if="blok.entries?.length"
+      class="tabbed-content-section__body"
     >
-      <div class="steps-section__buttons">
+      <div class="tabbed-content-section__buttons">
         <button
-          v-for="(step, stepIndex) in blok.steps"
-          :key="step.name"
+          v-for="(tab, tabIndex) in blok.entries"
+          :key="tab.name"
           type="button"
-          class="steps-section__button"
-          :class="{ 'steps-section__button--active': stepIndex === activeStepIndex }"
-          @click="changeStep(stepIndex)"
+          class="tabbed-content-section__button"
+          :class="{ 'tabbed-content-section__button--active': tabIndex === activeTabIndex }"
+          @click="changeTab(tabIndex)"
         >
-          {{ getStepButtonText({ index: stepIndex, text: step.name }) }}
+          {{ getStepButtonText({ index: tabIndex, text: tab.name }) }}
         </button>
       </div>
       <KeepAlive>
         <template
-          v-for="(step, stepIndex) in blok.steps"
-          :key="step._uid"
+          v-for="(tab, tabIndex) in blok.entries"
+          :key="tab._uid"
         >
-          <Step
-            v-if="stepIndex === activeStepIndex"
-            :blok="step"
+          <TabbedContentEntry
+            v-if="tabIndex === activeTabIndex"
+            :blok="tab"
           />
         </template>
       </KeepAlive>
@@ -66,7 +66,7 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
 </template>
 
 <style scoped lang="scss">
-.steps-section {
+.tabbed-content-section {
   &__body {
     margin-top: clamped($min-size: $gap--sm, $max-size: $gap--md);
   }
@@ -97,7 +97,7 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
 }
 
 @include breakpoint('md') {
-  .steps-section {
+  .tabbed-content-section {
     &__button {
       text-align: center;
     }

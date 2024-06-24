@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { HeadingTag } from '~/types'
+import type { HeadingLevel } from '~/types'
 
 interface Props {
-  as?: HeadingTag
+  as?: HeadingLevel
 }
 
 withDefaults(defineProps<Props>(), {

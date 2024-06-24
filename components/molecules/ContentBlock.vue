@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Alignment, HeadingTag } from '~/types'
+import type { Alignment, HeadingLevel } from '~/types'
 
 interface Props {
   heading: string
-  headingLevel?: HeadingTag
+  headingLevel?: HeadingLevel
   badge?: string
   description?: string
   align?: Alignment

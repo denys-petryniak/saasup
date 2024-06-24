@@ -297,27 +297,12 @@
       "name": "careers-section",
       "display_name": null,
       "created_at": "2024-06-08T14:46:14.078Z",
-      "updated_at": "2024-06-16T13:51:43.638Z",
+      "updated_at": "2024-06-24T00:00:34.849Z",
       "id": 5901661,
       "schema": {
-        "badge": {
-          "type": "text",
-          "pos": 0
-        },
-        "tab-72054aab-2705-42bf-b1a1-5e4de6a5d7dc": {
-          "display_name": "Style",
-          "keys": [],
-          "pos": 0,
-          "type": "tab"
-        },
-        "heading": {
-          "type": "text",
-          "pos": 1,
-          "required": true
-        },
         "vacancies": {
           "type": "options",
-          "pos": 2,
+          "pos": 0,
           "source": "internal_stories",
           "folder_slug": "careers/",
           "filter_content_type": [
@@ -325,6 +310,68 @@
           ],
           "min_options": "1",
           "max_options": "10"
+        },
+        "badge": {
+          "type": "text",
+          "pos": 1
+        },
+        "heading": {
+          "type": "text",
+          "pos": 2,
+          "required": true
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "3d369f48-bba1-4bd8-9eb3-01d878fe4865",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "f36f205f-5485-4b94-a1e4-33f744f84921",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "96f1e70e-7df4-451a-91a4-f776e6e2f711",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "a515ac79-2709-4a3e-8426-36ec76407e2a",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "403075fc-9e85-48e8-b07f-e424f7f11e4d",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "17f098c1-4fa2-445e-ba8a-f260cb2d6360",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "h2"
+        },
+        "tab-86ec353e-f140-40a6-b649-135517d4a505": {
+          "display_name": "Cards",
+          "keys": [
+            "vacancies"
+          ],
+          "pos": 4,
+          "type": "tab"
+        },
+        "tab-72054aab-2705-42bf-b1a1-5e4de6a5d7dc": {
+          "display_name": "Style",
+          "keys": [],
+          "pos": 5,
+          "type": "tab"
         }
       },
       "image": null,
@@ -1115,7 +1162,7 @@
       "name": "mission-section",
       "display_name": null,
       "created_at": "2024-06-07T14:40:41.790Z",
-      "updated_at": "2024-06-07T14:42:56.046Z",
+      "updated_at": "2024-06-24T00:04:26.647Z",
       "id": 5899307,
       "schema": {
         "heading": {
@@ -1123,14 +1170,53 @@
           "pos": 0,
           "required": true
         },
+        "heading_level": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "4ca2ac10-bb3d-4adc-8f29-ad911bad2214",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "2e5311bf-c214-4646-b2cb-2a1f1f3d827b",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "421a93bb-f5be-48ca-93f9-794c26b64411",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "ab07344e-2627-4f08-b538-a804c0bb9a7d",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "92c44977-7e22-401b-af5b-b009e46c5637",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "41244ee5-4167-4b93-b38d-67ead2ba9bf6",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "h2"
+        },
         "description": {
           "type": "richtext",
-          "pos": 1,
+          "pos": 2,
           "required": true
         },
         "image": {
           "type": "asset",
-          "pos": 2,
+          "pos": 3,
           "filetypes": [
             "images"
           ]
@@ -1156,7 +1242,7 @@
       "name": "overview-section",
       "display_name": null,
       "created_at": "2024-06-05T22:03:37.929Z",
-      "updated_at": "2024-06-10T07:52:43.815Z",
+      "updated_at": "2024-06-24T00:06:03.163Z",
       "id": 5889891,
       "schema": {
         "images": {
@@ -1169,16 +1255,50 @@
           "asset_folder_id": 570796,
           "key": "images"
         },
-        "hide_top_gap": {
-          "type": "boolean",
-          "pos": 1,
-          "key": "hide_top_section_gap"
-        },
         "heading": {
           "type": "text",
-          "pos": 2,
+          "pos": 1,
           "required": true,
           "key": "heading"
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "41afdbb0-2287-4b32-9846-87256b13d5c8",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "50a2e183-a5c3-45ff-bc21-cc93c529126d",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "cc248462-3b7b-45f8-92dc-06ee499a3b92",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "257315d8-a7a9-4763-958f-1e554a78aed2",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "03e4287e-23e3-43b7-8a7f-66ee9c422d80",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "a39e1cc1-c070-48f9-89d5-2ea11fea7ae7",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "h2"
         },
         "description": {
           "type": "richtext",
@@ -1186,13 +1306,18 @@
           "required": true,
           "key": "description"
         },
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 4,
+          "key": "hide_top_section_gap"
+        },
         "tab-2e15032e-08be-43e8-b823-28b65fe09f9e": {
           "display_name": "Style",
           "keys": [
             "hide_top_section_gap",
             "hide_top_gap"
           ],
-          "pos": 4,
+          "pos": 5,
           "type": "tab",
           "key": "tab-2e15032e-08be-43e8-b823-28b65fe09f9e"
         }
@@ -1561,186 +1686,6 @@
       "component_group_name": "molecules"
     },
     {
-      "name": "step",
-      "display_name": null,
-      "created_at": "2023-08-15T15:19:42.133Z",
-      "updated_at": "2024-05-31T17:40:13.971Z",
-      "id": 4425814,
-      "schema": {
-        "name": {
-          "type": "text",
-          "pos": 0,
-          "required": true
-        },
-        "icon": {
-          "type": "asset",
-          "filetypes": [
-            "images"
-          ],
-          "required": true
-        },
-        "image": {
-          "type": "asset",
-          "filetypes": [
-            "images"
-          ],
-          "required": true
-        },
-        "heading": {
-          "type": "text",
-          "pos": 1,
-          "required": true
-        },
-        "description": {
-          "type": "richtext",
-          "pos": 2,
-          "required": true
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "step",
-      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
-      "color": "#ffac00",
-      "icon": "block-share",
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null,
-      "component_group_name": "molecules"
-    },
-    {
-      "name": "steps-section",
-      "display_name": null,
-      "created_at": "2023-08-15T15:12:24.585Z",
-      "updated_at": "2024-06-23T15:27:31.928Z",
-      "id": 4425763,
-      "schema": {
-        "badge": {
-          "type": "text",
-          "required": true,
-          "pos": 0
-        },
-        "tab-257b0fce-9539-49e9-a91f-2be1e0c1d05b": {
-          "display_name": "Style",
-          "keys": [
-            "alignment"
-          ],
-          "pos": 0,
-          "type": "tab"
-        },
-        "heading": {
-          "type": "text",
-          "required": true,
-          "pos": 1
-        },
-        "heading_level": {
-          "type": "option",
-          "pos": 2,
-          "use_uuid": true,
-          "datasource_slug": "heading-levels",
-          "exclude_empty_option": true,
-          "default_value": "h2",
-          "options": [
-            {
-              "_uid": "e0bd05e4-d277-4fd0-b332-0a9df8726315",
-              "name": "Heading 1",
-              "value": "h1"
-            },
-            {
-              "_uid": "6a716e3c-aefb-4e84-8aef-0a72bb949993",
-              "value": "h2",
-              "name": "Heading 2"
-            },
-            {
-              "_uid": "5dfaf708-de61-43d6-9504-94292c452d50",
-              "value": "h3",
-              "name": "Heading 3"
-            },
-            {
-              "_uid": "c29720aa-301f-41b8-a6e4-594949c52d3b",
-              "value": "h4",
-              "name": "Heading 4"
-            },
-            {
-              "_uid": "2c805065-448e-4131-9ee6-6647adc4cf22",
-              "value": "h5",
-              "name": "Heading 5"
-            },
-            {
-              "_uid": "6b568904-d581-4656-93d5-1cb879b5053b",
-              "value": "h6",
-              "name": "Heading 6"
-            }
-          ]
-        },
-        "steps": {
-          "type": "bloks",
-          "minimum": 1,
-          "maximum": 3,
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "step"
-          ],
-          "required": true,
-          "pos": 3
-        },
-        "tab-8b6eca43-0589-47de-897e-8f8066422d02": {
-          "display_name": "Tabs",
-          "keys": [
-            "steps"
-          ],
-          "pos": 4,
-          "type": "tab"
-        },
-        "alignment": {
-          "type": "option",
-          "pos": 6,
-          "use_uuid": true,
-          "datasource_slug": "alignment",
-          "exclude_empty_option": true,
-          "options": [
-            {
-              "_uid": "77ceceec-fcd1-4936-a9d4-a06f55e32331",
-              "name": "Left",
-              "value": "left"
-            },
-            {
-              "_uid": "1b63150e-dc9b-4a18-9993-2d7a46e8e0e5",
-              "value": "center",
-              "name": "Center"
-            },
-            {
-              "_uid": "8aecbd6c-e6cd-404f-bbd8-6cafdc88e532",
-              "value": "right",
-              "name": "Right"
-            }
-          ],
-          "default_value": "center"
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "steps-section",
-      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
-      "color": "#ff6159",
-      "icon": "block-share",
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null,
-      "component_group_name": "organisms"
-    },
-    {
       "name": "submenu",
       "display_name": null,
       "created_at": "2023-08-22T18:31:09.153Z",
@@ -1776,6 +1721,235 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "molecules"
+    },
+    {
+      "name": "tabbed-content-entry",
+      "display_name": null,
+      "created_at": "2023-08-15T15:19:42.133Z",
+      "updated_at": "2024-06-24T00:30:40.454Z",
+      "id": 4425814,
+      "schema": {
+        "name": {
+          "type": "text",
+          "pos": 0,
+          "required": true
+        },
+        "icon": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "required": true,
+          "pos": 1
+        },
+        "image": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "required": true,
+          "pos": 2
+        },
+        "heading": {
+          "type": "text",
+          "pos": 3,
+          "required": true
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 4,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "bff88173-b17a-484c-b776-14c8ef5c9875",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "a87761a0-64a7-4ac3-afca-1df2f27807fa",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "2f58ea3b-75bc-4ae1-b5a2-5e58040c86af",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "ecbca79b-ba52-491f-931a-e4f2c76f697c",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "8421ec11-19ef-4d4b-a62d-155a496a3b5a",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "55b802c6-c4b0-423f-a145-71bd7f19f3e2",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "exclude_empty_option": true
+        },
+        "description": {
+          "type": "richtext",
+          "pos": 5,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "tabbed-content-entry",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "tabbed-content-section",
+      "display_name": null,
+      "created_at": "2023-08-15T15:12:24.585Z",
+      "updated_at": "2024-06-24T00:21:22.441Z",
+      "id": 4425763,
+      "schema": {
+        "entries": {
+          "type": "bloks",
+          "minimum": 1,
+          "maximum": 3,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "step",
+            "tabbed-content-entry"
+          ],
+          "required": true,
+          "pos": 0,
+          "key": "steps"
+        },
+        "badge": {
+          "type": "text",
+          "required": true,
+          "pos": 1,
+          "key": "badge"
+        },
+        "heading": {
+          "type": "text",
+          "required": true,
+          "pos": 2,
+          "key": "heading"
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "exclude_empty_option": true,
+          "default_value": "h2",
+          "options": [
+            {
+              "_uid": "e0bd05e4-d277-4fd0-b332-0a9df8726315",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "6a716e3c-aefb-4e84-8aef-0a72bb949993",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "5dfaf708-de61-43d6-9504-94292c452d50",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "c29720aa-301f-41b8-a6e4-594949c52d3b",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "2c805065-448e-4131-9ee6-6647adc4cf22",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "6b568904-d581-4656-93d5-1cb879b5053b",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "key": "heading_level"
+        },
+        "tab-257b0fce-9539-49e9-a91f-2be1e0c1d05b": {
+          "display_name": "Style",
+          "keys": [
+            "alignment"
+          ],
+          "pos": 4,
+          "type": "tab",
+          "key": "tab-257b0fce-9539-49e9-a91f-2be1e0c1d05b"
+        },
+        "tab-8b6eca43-0589-47de-897e-8f8066422d02": {
+          "display_name": "Tabs",
+          "keys": [
+            "steps",
+            "entries"
+          ],
+          "pos": 5,
+          "type": "tab",
+          "key": "tab-8b6eca43-0589-47de-897e-8f8066422d02"
+        },
+        "alignment": {
+          "type": "option",
+          "pos": 6,
+          "use_uuid": true,
+          "datasource_slug": "alignment",
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "77ceceec-fcd1-4936-a9d4-a06f55e32331",
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "_uid": "1b63150e-dc9b-4a18-9993-2d7a46e8e0e5",
+              "value": "center",
+              "name": "Center"
+            },
+            {
+              "_uid": "8aecbd6c-e6cd-404f-bbd8-6cafdc88e532",
+              "value": "right",
+              "name": "Right"
+            }
+          ],
+          "default_value": "center",
+          "key": "alignment"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "tabbed-content-section",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
+      "color": "#ff6159",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "organisms"
     },
     {
       "name": "testimonial",
@@ -2047,7 +2221,7 @@
       "name": "values-section",
       "display_name": null,
       "created_at": "2024-06-07T15:06:58.071Z",
-      "updated_at": "2024-06-08T14:29:28.150Z",
+      "updated_at": "2024-06-24T00:03:01.220Z",
       "id": 5899411,
       "schema": {
         "badge": {
@@ -2068,6 +2242,52 @@
           "component_whitelist": [
             "value-item"
           ]
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "8e728645-7aa1-4ec7-8581-27a919cde8d7",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "7ffba6c7-5e15-4a49-b5ee-ef88441c22ff",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "562ea77f-209a-42af-bac2-6fe69ecd4327",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "a669a7d1-e2e8-42ff-a137-525419f1db14",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "e189df5c-3af1-483d-bacf-35adcf7bda46",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "c4e913e3-5841-4146-9bdc-52c0d7ccf9d1",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "default_value": "h2"
+        },
+        "tab-7a615c7a-0707-4c9c-8242-fae3089c8dfd": {
+          "display_name": "Cards",
+          "keys": [
+            "values"
+          ],
+          "pos": 4,
+          "type": "tab"
         }
       },
       "image": null,

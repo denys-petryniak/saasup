@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import type { StepStoryblok } from '~/component-types-sb'
+import type { TabbedContentEntryStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: StepStoryblok
+  blok: TabbedContentEntryStoryblok
 }
 
 const props = defineProps<Props>()
 
-const getDescription = computed(() =>
+const description = computed(() =>
   renderRichText(props.blok.description))
 </script>
 
 <template>
   <div
     v-editable="blok"
-    class="step"
+    class="tabbed-content-entry"
   >
-    <div class="step__main">
-      <div class="step__head">
+    <div class="tabbed-content-entry__main">
+      <!-- TODO: use ContentBlock component here (?) -->
+      <div class="tabbed-content-entry__head">
         <img
           v-if="blok.icon?.filename"
           :src="blok.icon.filename"
@@ -25,38 +26,42 @@ const getDescription = computed(() =>
           :height="116"
           :alt="blok.icon.alt"
           loading="lazy"
-          class="step__icon"
+          class="tabbed-content-entry__icon"
         >
-        <h3 class="step__title">
+        <DynamicHeading
+          :as="blok.heading_level ?? 'h3'"
+          class="tabbed-content-entry__title"
+        >
           {{ blok.heading }}
-        </h3>
+        </DynamicHeading>
       </div>
-      <div v-html="getDescription" />
+      <div v-html="description" />
       <BaseButton
         color="dark"
-        class="step__button"
+        class="tabbed-content-entry__button"
       >
         Get Started
       </BaseButton>
     </div>
-    <div class="step__image-box">
+    <div
+      v-if="blok.image?.filename"
+      class="tabbed-content-entry__image-box"
+    >
       <NuxtImg
-        v-if="blok.image?.filename"
         :src="blok.image.filename"
         :width="602"
         :height="339"
         :alt="blok.image.alt"
-        format="avif,webp"
-        sizes="sm:100vw xl:602px"
+        sizes="100vw xl:602px"
         loading="lazy"
-        class="step__image"
+        class="tabbed-content-entry__image"
       />
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.step {
+.tabbed-content-entry {
   display: flex;
   flex-wrap: wrap;
   gap: $spacing--8xl;
