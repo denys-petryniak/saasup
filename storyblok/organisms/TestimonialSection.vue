@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { TestimonialsSectionStoryblok } from '~/component-types-sb'
+import type { TestimonialSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: TestimonialsSectionStoryblok
+  blok: TestimonialSectionStoryblok
 }
 
 const props = defineProps<Props>()
@@ -14,7 +14,7 @@ const carouselSettings = ref({
 
 const img = useImage()
 
-const testimonialsBackground = computed(() => {
+const testimonialBackground = computed(() => {
   if (!props.blok.background?.filename)
     return
 
@@ -29,7 +29,7 @@ const testimonialsBackground = computed(() => {
 <template>
   <BaseSection
     v-editable="blok"
-    class="testimonials-section"
+    class="testimonial-section"
   >
     <ContentBlock
       v-if="blok.heading"
@@ -37,21 +37,18 @@ const testimonialsBackground = computed(() => {
       :heading="blok.heading"
       :heading-level="blok.heading_level"
       :align="blok.alignment ?? 'center'"
-      class="testimonials-section__content"
+      class="testimonial-section__content"
     />
     <Carousel
       v-bind="carouselSettings"
-      class="testimonials-section__carousel"
+      class="testimonial-section__carousel"
     >
       <template #slides>
-        <!-- TODO: TestimonialsSection -> TestimonialSection -->
-        <!-- TODO: testimonial in blok.testimonials -> testimonial in blok.entries (?) -->
         <Slide
-          v-for="testimonial in blok.testimonials"
+          v-for="testimonial in blok.entries"
           :key="testimonial._uid"
         >
-          <!-- TODO:  Testimonial -> TestimonialEntry -->
-          <Testimonial
+          <TestimonialEntry
             :blok="testimonial"
           />
         </Slide>
@@ -67,7 +64,7 @@ const testimonialsBackground = computed(() => {
 $section-bg-z-index: -2;
 $section-bg-decor-z-index: -1;
 
-.testimonials-section {
+.testimonial-section {
   background-color: $color-primary--light;
 
   &__content {
@@ -77,7 +74,7 @@ $section-bg-decor-z-index: -1;
   }
 
   @include breakpoint('lg') {
-    background-image: v-bind(testimonialsBackground);
+    background-image: v-bind(testimonialBackground);
     background-repeat: no-repeat;
     background-size: cover;
   }

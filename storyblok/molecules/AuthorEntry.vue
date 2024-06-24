@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import type { AuthorStoryblok } from '~/component-types-sb'
+import type { AuthorEntryStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: AuthorStoryblok
+  blok: AuthorEntryStoryblok
 }
 
 const props = defineProps<Props>()
 
-const getAuthorRating = computed(() => {
-  return Number(props.blok.rating)
-})
+const authorRating = computed(() => Number(props.blok.rating))
 </script>
 
 <template>
@@ -34,7 +32,7 @@ const getAuthorRating = computed(() => {
       {{ blok.job }}
     </p>
     <StarRating
-      :rating="getAuthorRating"
+      :rating="authorRating"
       class="author__rating"
     />
   </div>

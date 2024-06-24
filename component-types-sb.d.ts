@@ -58,13 +58,13 @@ export interface ArticlesSectionStoryblok {
   [k: string]: any;
 }
 
-export interface AuthorStoryblok {
+export interface AuthorEntryStoryblok {
   name: string;
   photo: AssetStoryblok;
   job: string;
   rating?: string;
   _uid: string;
-  component: "author";
+  component: "author-entry";
   [k: string]: any;
 }
 
@@ -244,7 +244,7 @@ export interface OverviewSectionStoryblok {
 
 export interface PageStoryblok {
   body: (
-    | AuthorStoryblok
+    | AuthorEntryStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
     | GridCardStoryblok
@@ -268,8 +268,8 @@ export interface PageStoryblok {
     | GridSectionStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
-    | TestimonialStoryblok
-    | TestimonialsSectionStoryblok
+    | TestimonialEntryStoryblok
+    | TestimonialSectionStoryblok
     | ValuesSectionStoryblok
   )[];
   _uid: string;
@@ -363,22 +363,22 @@ export interface TabbedContentSectionStoryblok {
   [k: string]: any;
 }
 
-export interface TestimonialStoryblok {
+export interface TestimonialEntryStoryblok {
   text: RichtextStoryblok;
-  authors: AuthorStoryblok[];
+  authors: AuthorEntryStoryblok[];
   _uid: string;
-  component: "testimonial";
+  component: "testimonial-entry";
   [k: string]: any;
 }
 
-export interface TestimonialsSectionStoryblok {
+export interface TestimonialSectionStoryblok {
   badge: string;
-  testimonials: TestimonialStoryblok[];
+  entries: (TestimonialStoryblok | TestimonialEntryStoryblok)[];
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   background?: AssetStoryblok;
   _uid: string;
-  component: "testimonials-section";
+  component: "testimonial-section";
   [k: string]: any;
 }
 

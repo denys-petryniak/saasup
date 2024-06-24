@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { TestimonialStoryblok } from '~/component-types-sb'
+import type { TestimonialEntryStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: TestimonialStoryblok
+  blok: TestimonialEntryStoryblok
 }
 
 const props = defineProps<Props>()
 
-const getTestimonialText = computed(() =>
+const testimonialText = computed(() =>
   renderRichText(props.blok.text))
 </script>
 
@@ -18,12 +18,12 @@ const getTestimonialText = computed(() =>
   >
     <div
       class="testimonial__text"
-      v-html="getTestimonialText"
+      v-html="testimonialText"
     />
     <template
       v-if="blok.authors?.length"
     >
-      <Author
+      <AuthorEntry
         v-for="author in blok.authors"
         :key="author._uid"
         :blok="author"
@@ -33,8 +33,6 @@ const getTestimonialText = computed(() =>
 </template>
 
 <style scoped lang="scss">
-$testimonial-quote-icon-size: convert(40px, 'rem');
-
 .testimonial {
   position: relative;
   color: $color-white--regular;
@@ -44,8 +42,8 @@ $testimonial-quote-icon-size: convert(40px, 'rem');
     position: absolute;
     inset: 0 0 0 50%;
     transform: translate3d(-50%, 0, 0);
-    width: $testimonial-quote-icon-size;
-    height: $testimonial-quote-icon-size;
+    width: 40px;
+    height: 40px;
     background: url('/images/quote.svg') no-repeat center/contain;
   }
 
