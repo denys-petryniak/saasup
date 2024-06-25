@@ -946,6 +946,98 @@
       "component_group_name": "molecules"
     },
     {
+      "name": "image-text-section",
+      "display_name": null,
+      "created_at": "2024-06-07T14:40:41.790Z",
+      "updated_at": "2024-06-24T03:56:26.494Z",
+      "id": 5899307,
+      "schema": {
+        "image": {
+          "type": "asset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "reverse_layout": {
+          "type": "boolean",
+          "pos": 1
+        },
+        "heading": {
+          "type": "text",
+          "pos": 2,
+          "required": true
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "4ca2ac10-bb3d-4adc-8f29-ad911bad2214",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "2e5311bf-c214-4646-b2cb-2a1f1f3d827b",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "421a93bb-f5be-48ca-93f9-794c26b64411",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "ab07344e-2627-4f08-b538-a804c0bb9a7d",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "92c44977-7e22-401b-af5b-b009e46c5637",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "41244ee5-4167-4b93-b38d-67ead2ba9bf6",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "h2"
+        },
+        "description": {
+          "type": "richtext",
+          "pos": 4,
+          "required": true
+        },
+        "tab-bca67ad4-e472-49da-be7f-b37499325bac": {
+          "display_name": "Style",
+          "keys": [
+            "reverse_layout"
+          ],
+          "pos": 5,
+          "type": "tab"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "image-text-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
       "name": "intro-section",
       "display_name": null,
       "created_at": "2024-06-05T20:46:05.033Z",
@@ -1150,86 +1242,6 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "metric",
-      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
-      "color": "#ffac00",
-      "icon": "block-share",
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null,
-      "component_group_name": "molecules"
-    },
-    {
-      "name": "mission-section",
-      "display_name": null,
-      "created_at": "2024-06-07T14:40:41.790Z",
-      "updated_at": "2024-06-24T00:04:26.647Z",
-      "id": 5899307,
-      "schema": {
-        "heading": {
-          "type": "text",
-          "pos": 0,
-          "required": true
-        },
-        "heading_level": {
-          "type": "option",
-          "pos": 1,
-          "use_uuid": true,
-          "options": [
-            {
-              "_uid": "4ca2ac10-bb3d-4adc-8f29-ad911bad2214",
-              "name": "Heading 1",
-              "value": "h1"
-            },
-            {
-              "_uid": "2e5311bf-c214-4646-b2cb-2a1f1f3d827b",
-              "value": "h2",
-              "name": "Heading 2"
-            },
-            {
-              "_uid": "421a93bb-f5be-48ca-93f9-794c26b64411",
-              "value": "h3",
-              "name": "Heading 3"
-            },
-            {
-              "_uid": "ab07344e-2627-4f08-b538-a804c0bb9a7d",
-              "value": "h4",
-              "name": "Heading 4"
-            },
-            {
-              "_uid": "92c44977-7e22-401b-af5b-b009e46c5637",
-              "value": "h5",
-              "name": "Heading 5"
-            },
-            {
-              "_uid": "41244ee5-4167-4b93-b38d-67ead2ba9bf6",
-              "value": "h6",
-              "name": "Heading 6"
-            }
-          ],
-          "exclude_empty_option": true,
-          "default_value": "h2"
-        },
-        "description": {
-          "type": "richtext",
-          "pos": 2,
-          "required": true
-        },
-        "image": {
-          "type": "asset",
-          "pos": 3,
-          "filetypes": [
-            "images"
-          ]
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "mission-section",
       "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
       "color": "#ffac00",
       "icon": "block-share",

@@ -10,8 +10,8 @@ const props = defineProps<Props>()
 const sectionDescription = computed(() =>
   renderRichText(props.blok.description))
 
-const { isMobileScreenSize, isTabletScreenSize } = useMedia()
-const contentBlockAlignment = computed(() => isMobileScreenSize.value || isTabletScreenSize.value ? 'center' : 'left')
+const { isTabletScreenSizeAndSmaller } = useMedia()
+const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller ? 'center' : 'left')
 </script>
 
 <template>

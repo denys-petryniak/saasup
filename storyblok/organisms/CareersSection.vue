@@ -23,8 +23,8 @@ const vacancyStaticData = {
   description: 'Don\'t worry, get in touch with us , we are always looking for great team members to join with us.',
 }
 
-const { isMobileScreenSize, isTabletScreenSize } = useMedia()
-const contentBlockAlignment = computed(() => isMobileScreenSize.value || isTabletScreenSize.value ? 'center' : 'left')
+const { isTabletScreenSizeAndSmaller } = useMedia()
+const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller ? 'center' : 'left')
 </script>
 
 <template>

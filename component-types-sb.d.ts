@@ -178,6 +178,17 @@ export interface HeroSectionStoryblok {
   [k: string]: any;
 }
 
+export interface ImageTextSectionStoryblok {
+  image?: AssetStoryblok;
+  reverse_layout?: boolean;
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  description: RichtextStoryblok;
+  _uid: string;
+  component: "image-text-section";
+  [k: string]: any;
+}
+
 export interface IntroSectionStoryblok {
   title: string;
   title_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -211,16 +222,6 @@ export interface MetricStoryblok {
   [k: string]: any;
 }
 
-export interface MissionSectionStoryblok {
-  heading: string;
-  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  description: RichtextStoryblok;
-  image?: AssetStoryblok;
-  _uid: string;
-  component: "mission-section";
-  [k: string]: any;
-}
-
 export type MultiassetStoryblok = {
   alt?: string;
   copyright?: string;
@@ -249,11 +250,11 @@ export interface PageStoryblok {
     | CtaSectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
+    | ImageTextSectionStoryblok
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
     | MetricStoryblok
-    | MissionSectionStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
     | PricingPlanStoryblok

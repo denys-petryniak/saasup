@@ -8,10 +8,13 @@ export function useMedia() {
   const isLaptopScreenSize = breakpoints.between('lg', 'xl') // 1024px - 1279px
   const isDesktopScreenSize = breakpoints.greaterOrEqual('xl') // 1280px - infinity
 
+  const isTabletScreenSizeAndSmaller = breakpoints.smaller('lg') // 0 - 1023px
+
   return {
     isMobileScreenSize,
     isTabletScreenSize,
     isLaptopScreenSize,
     isDesktopScreenSize,
+    isTabletScreenSizeAndSmaller,
   }
 }
