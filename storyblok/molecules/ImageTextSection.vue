@@ -23,7 +23,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
       <ContentBlock
         v-if="blok.heading"
         :heading="blok.heading"
-        :heading-level="blok.title_level"
+        :heading-level="blok.heading_level"
         :align="contentBlockAlignment"
         class="image-text-section__content"
       >
