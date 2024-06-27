@@ -12,6 +12,11 @@ export default withNuxt(
        */
       css: true,
     },
+    // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+    ignores: [
+      '**/component-types-sb.d.ts',
+      '**/components.245408.json',
+      // ...globs
+    ],
   }),
-  // ...your other rules
 )

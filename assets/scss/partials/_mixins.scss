@@ -38,7 +38,7 @@ $breakpoints: (
   $min-font-size,
   $max-font-size,
   $min-line-height: null,
-  $max-line-height: null,
+  $max-line-height: null
 ) {
   // Calculate the clamped font size
   font-size: fn.clamped($min-size: $min-font-size, $max-size: $max-font-size);
@@ -64,7 +64,3 @@ $breakpoints: (
 // Articles:
 // https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
 // https://www.smashingmagazine.com/2023/11/addressing-accessibility-concerns-fluid-type/
-
-
-
-
