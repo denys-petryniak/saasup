@@ -37,6 +37,7 @@ const testimonialBackground = computed(() => {
       :heading="blok.heading"
       :heading-level="blok.heading_level"
       :align="blok.alignment ?? 'center'"
+      theme="light"
       class="testimonial-section__content"
     />
     <Carousel
@@ -66,12 +67,6 @@ $section-bg-decor-z-index: -1;
 
 .testimonial-section {
   background-color: $color-primary--light;
-
-  &__content {
-    &::v-deep(.content-block__heading) {
-      color: $color-white--regular;
-    }
-  }
 
   @include breakpoint('lg') {
     background-image: v-bind(testimonialBackground);

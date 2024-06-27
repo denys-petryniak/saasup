@@ -7,11 +7,8 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getSectionDescription = computed(() =>
-  renderRichText(props.blok.description))
-
-const getCostBlockDescription = computed(() =>
-  renderRichText(props.blok.cost_description))
+const sectionDescription = computed(() => renderRichText(props.blok.description))
+const costBlockDescription = computed(() => renderRichText(props.blok.cost_description))
 </script>
 
 <template>
@@ -20,44 +17,46 @@ const getCostBlockDescription = computed(() =>
     class="platform-section"
   >
     <div class="platform-section__body">
-      <div class="platform-section__content">
-        <h2 class="platform-section__heading">
-          {{ blok.heading }}
-        </h2>
-        <div
-          class="platform-section__description"
-          v-html="getSectionDescription"
-        />
-        <div class="cost platform-section__cost">
-          <img
-            v-if="blok.cost_image?.filename"
-            :src="blok.cost_image.filename"
-            :width="96"
-            :height="103"
-            :alt="blok.cost_image.alt"
-            loading="lazy"
-            class="cost__icon"
-          >
-          <div class="cost__text">
-            <h3 class="cost__heading">
-              {{ blok.cost_heading }}
-            </h3>
-            <div
-              class="cost__description"
-              v-html="getCostBlockDescription"
-            />
+      <ContentBlock
+        v-if="blok.heading"
+        :heading="blok.heading"
+        :heading-level="blok.heading_level"
+        class="platform-section__content"
+      >
+        <div v-html="sectionDescription" />
+        <template #footer>
+          <div class="cost platform-section__cost">
+            <img
+              v-if="blok.cost_image?.filename"
+              :src="blok.cost_image.filename"
+              :width="96"
+              :height="103"
+              :alt="blok.cost_image.alt"
+              loading="lazy"
+              class="cost__icon"
+            >
+            <div class="cost__text">
+              <h3 class="cost__heading">
+                {{ blok.cost_heading }}
+              </h3>
+              <div
+                class="cost__description"
+                v-html="costBlockDescription"
+              />
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="platform-section__image-box">
+        </template>
+      </ContentBlock>
+      <div
+        v-if="blok.image?.filename"
+        class="platform-section__image-box"
+      >
         <NuxtImg
-          v-if="blok.image?.filename"
           :src="blok.image.filename"
           :width="1541"
           :height="1168"
           :alt="blok.image.alt"
-          format="avif,webp"
-          sizes="sm:100vw xl:740px"
+          sizes="100vw lg:50vw"
           loading="lazy"
           class="platform-section__image"
         />
@@ -82,16 +81,17 @@ $section-bg-z-index: -2;
   position: relative;
 
   &__body {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    @include breakpoint('lg') {
+      grid-template-columns: 0.8fr 1fr;
+    }
     align-items: center;
-    gap: $spacing--4xl;
+    gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }
 
   &__content {
     position: relative;
-    flex: 1 1 convert(400px, 'rem');
     padding: $section-content-padding-y $section-content-padding-x;
 
     &::after {
@@ -107,21 +107,9 @@ $section-bg-z-index: -2;
     }
   }
 
-  &__image-box {
-    flex: 1 1 convert(500px, 'rem');
-  }
-
   &__image {
     border-radius: $rounded--3xl * 2;
     box-shadow: $shadow--regular;
-  }
-
-  &__heading {
-    margin: 0;
-  }
-
-  &__description {
-    margin-top: $spacing--4xl;
   }
 
   &__cost {

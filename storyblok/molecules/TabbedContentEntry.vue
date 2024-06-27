@@ -7,8 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const description = computed(() =>
-  renderRichText(props.blok.description))
+const description = computed(() => renderRichText(props.blok.description))
 </script>
 
 <template>
@@ -16,33 +15,32 @@ const description = computed(() =>
     v-editable="blok"
     class="tabbed-content-entry"
   >
-    <div class="tabbed-content-entry__main">
-      <!-- TODO: use ContentBlock component here (?) -->
-      <div class="tabbed-content-entry__head">
-        <img
-          v-if="blok.icon?.filename"
-          :src="blok.icon.filename"
-          :width="116"
-          :height="116"
-          :alt="blok.icon.alt"
-          loading="lazy"
-          class="tabbed-content-entry__icon"
-        >
-        <DynamicHeading
-          :as="blok.heading_level ?? 'h3'"
-          class="tabbed-content-entry__title"
-        >
-          {{ blok.heading }}
-        </DynamicHeading>
-      </div>
+    <ContentBlock v-if="blok.heading">
+      <template #heading>
+        <div class="tabbed-content-entry__heading-box">
+          <img
+            v-if="blok.icon?.filename"
+            :src="blok.icon.filename"
+            :width="116"
+            :height="116"
+            alt=""
+            loading="lazy"
+          >
+          <DynamicHeading
+            :as="blok.heading_level ?? 'h3'"
+            class="tabbed-content-entry__heading"
+          >
+            {{ blok.heading }}
+          </DynamicHeading>
+        </div>
+      </template>
       <div v-html="description" />
-      <BaseButton
-        color="dark"
-        class="tabbed-content-entry__button"
-      >
-        Get Started
-      </BaseButton>
-    </div>
+      <template #footer>
+        <BaseButton color="dark">
+          Get Started
+        </BaseButton>
+      </template>
+    </ContentBlock>
     <div
       v-if="blok.image?.filename"
       class="tabbed-content-entry__image-box"
@@ -52,7 +50,7 @@ const description = computed(() =>
         :width="602"
         :height="339"
         :alt="blok.image.alt"
-        sizes="100vw xl:602px"
+        sizes="100vw lg:50vw"
         loading="lazy"
         class="tabbed-content-entry__image"
       />
@@ -62,39 +60,29 @@ const description = computed(() =>
 
 <style scoped lang="scss">
 .tabbed-content-entry {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing--8xl;
+  display: grid;
+  grid-template-columns: 1fr;
+  @include breakpoint('lg') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   margin-top: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
   padding: 0 clamped($min-size: $spacing--xs, $max-size: $spacing--12xl);
 
-  &__main {
-    flex: 1 1 convert(500px, 'rem');
-  }
-
-  &__image-box {
-    flex: 1 1 convert(500px, 'rem');
-  }
-
-  &__head {
+  &__heading-box {
     display: flex;
     flex-wrap: wrap;
     gap: $spacing--2xl;
   }
 
-  &__title {
+  &__heading {
     margin: 0;
-    max-width: convert(500px, 'rem');
-    flex: 1 1 convert(350px, 'rem');
-  }
-
-  &__button {
-    display: block;
-    margin-top: $spacing--4xl;
+    flex: 1 1 convert(300px, 'rem');
   }
 
   &__image {
     border-radius: $rounded--2xl * 2;
+    box-shadow: $shadow--regular;
   }
 }
 </style>

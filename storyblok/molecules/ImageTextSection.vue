@@ -54,7 +54,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
     display: grid;
     grid-template-columns: 1fr;
     @include breakpoint('lg') {
-      grid-template-columns: 0.75fr 1fr;
+      grid-template-columns: 0.8fr 1fr;
     }
     gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }

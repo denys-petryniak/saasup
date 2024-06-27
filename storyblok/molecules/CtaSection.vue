@@ -7,7 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getSectionDescription = computed(() =>
+const sectionDescription = computed(() =>
   renderRichText(props.blok.description))
 
 const formData = reactive({
@@ -28,7 +28,7 @@ function submitForm() {
 
 const img = useImage()
 
-const getSectionBackground = computed(() => {
+const sectionBackground = computed(() => {
   if (!props.blok.background_image)
     return
 
@@ -46,52 +46,53 @@ const getSectionBackground = computed(() => {
     class="cta-section"
   >
     <div class="cta-section__body">
-      <div class="cta-section__content">
-        <h2 class="cta-section__heading">
-          {{ blok.heading }}
-        </h2>
-        <div
-          class="cta-section__description"
-          v-html="getSectionDescription"
-        />
-        <div
-          v-if="isSuccess"
-          class="cta-section__success-message"
-        >
-          Thank you! Your submission has been received!
-        </div>
-        <form
-          v-else
-          class="cta-section__form"
-          @submit.prevent="submitForm"
-        >
-          <BaseInput
-            v-model="formData.email"
-            type="email"
-            name="email"
-            placeholder="Your Email Here"
-            maxlength="256"
-            required
-            class="cta-section__email"
-            aria-label="Email field"
-          />
-          <BaseButton
-            type="submit"
-            color="light"
-            class="cta-section__button"
+      <ContentBlock
+        v-if="blok.heading"
+        :heading="blok.heading"
+        :heading-level="blok.heading_level"
+        theme="light"
+        class="cta-section__content"
+      >
+        <div class="cta-section__description" v-html="sectionDescription" />
+        <template #footer>
+          <div
+            v-if="isSuccess"
+            class="cta-section__success-message"
           >
-            Subscribe
-          </BaseButton>
-        </form>
-      </div>
-      <div class="cta-section__image-box">
+            Thank you! Your submission has been received!
+          </div>
+          <form
+            v-else
+            class="cta-section__form"
+            @submit.prevent="submitForm"
+          >
+            <BaseInput
+              v-model="formData.email"
+              type="email"
+              name="email"
+              placeholder="Your Email Here"
+              maxlength="256"
+              required
+              class="cta-section__email"
+              aria-label="Email field"
+            />
+            <BaseButton
+              type="submit"
+              color="light"
+              class="cta-section__button"
+            >
+              Subscribe
+            </BaseButton>
+          </form>
+        </template>
+      </ContentBlock>
+      <div v-if="blok.image?.filename" class="cta-section__image-box">
         <NuxtImg
-          v-if="blok.image?.filename"
           :src="blok.image.filename"
           :width="1336"
           :height="988"
           :alt="blok.image.alt"
-          sizes="100vw xl:670px"
+          sizes="100vw lg:50vw"
           loading="lazy"
           class="cta-section__image"
         />
@@ -116,66 +117,40 @@ $section-border-radius: clamped(
 
 .cta-section {
   &__body {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    @include breakpoint('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
     align-items: center;
-    gap: $spacing--4xl;
+    gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
     padding: $section-padding-y $section-padding-x;
     border-radius: $section-border-radius;
-    background: v-bind(getSectionBackground) no-repeat 50% 50% / cover;
-  }
-
-  &__content {
-    flex: 1 1 convert(400px, 'rem');
-  }
-
-  &__image-box {
-    flex: 1 1 convert(500px, 'rem');
-  }
-
-  &__heading {
-    margin: 0;
-    color: $color-white--regular;
+    background: v-bind(sectionBackground) no-repeat 50% 50% / cover;
   }
 
   &__description {
-    margin-top: $spacing--2xl;
     color: $color-white--regular;
   }
 
   &__form {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: $spacing--2xl;
-    margin-top: $spacing--4xl;
   }
 
-  &__email,
+  &__email {
+    flex: 2 1 convert(300px, 'rem');
+  }
+
   &__button {
-    width: 100%;
+    flex: 1 1 convert(180px, 'rem');
   }
 
   &__success-message {
     padding: $spacing--lg $spacing--2xl;
     border-radius: $rounded--lg;
     background-color: $color-white--regular;
-  }
-}
-
-@include breakpoint('sm') {
-  .cta-section {
-    &__form {
-      flex-direction: row;
-    }
-
-    &__email,
-    &__button {
-      width: auto;
-    }
-
-    &__email {
-      flex: 1;
-    }
   }
 }
 </style>

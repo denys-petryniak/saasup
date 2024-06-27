@@ -11,7 +11,7 @@ const sectionDescription = computed(() =>
   renderRichText(props.blok.description))
 
 const { isTabletScreenSizeAndSmaller } = useMedia()
-const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller ? 'center' : 'left')
+const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value ? 'center' : 'left')
 </script>
 
 <template>
@@ -56,6 +56,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller ? 'cen
           </div>
         </template>
       </ContentBlock>
+      <!-- TODO: use GridBox component here -->
       <div
         v-if="blok.pricing_plans?.length"
         class="pricing-section__plans"
@@ -76,7 +77,10 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller ? 'cen
   &__body {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $spacing--8xl;
+    @include breakpoint('lg') {
+      grid-template-columns: 0.5fr 1fr;
+    }
+    gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }
 
   &__plans {
@@ -103,14 +107,6 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller ? 'cen
 
   &__image-box {
     max-width: convert(80px, 'rem');
-  }
-}
-
-@include breakpoint('lg') {
-  .pricing-section {
-    &__body {
-      grid-template-columns: 0.5fr 1fr;
-    }
   }
 }
 </style>

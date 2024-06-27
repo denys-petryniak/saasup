@@ -19,7 +19,7 @@ const description = computed(() =>
       v-if="blok.heading"
       :heading="blok.heading"
       :heading-level="blok.heading_level ?? 'h1'"
-      :header-description="description"
+      :description="description"
       :align="blok.alignment ?? 'center'"
     />
   </BaseSection>

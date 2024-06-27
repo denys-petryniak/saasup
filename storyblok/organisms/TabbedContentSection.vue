@@ -17,7 +17,7 @@ function getFormattedTabIndex(index: number): string {
   return `0${index + 1}.`
 }
 
-function getStepButtonText({ index, text }: { index: number, text: string | undefined }): string {
+function getTabButtonText({ index, text = 'Tab' }: { index: number, text: string | undefined }): string {
   return `${getFormattedTabIndex(index)} ${text}`
 }
 </script>
@@ -47,7 +47,7 @@ function getStepButtonText({ index, text }: { index: number, text: string | unde
           :class="{ 'tabbed-content-section__button--active': tabIndex === activeTabIndex }"
           @click="changeTab(tabIndex)"
         >
-          {{ getStepButtonText({ index: tabIndex, text: tab.name }) }}
+          {{ getTabButtonText({ index: tabIndex, text: tab.name }) }}
         </button>
       </div>
       <KeepAlive>

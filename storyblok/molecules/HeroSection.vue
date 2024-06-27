@@ -25,7 +25,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
           v-if="blok.heading"
           :heading="blok.heading"
           :heading-level="blok.heading_level ?? 'h1'"
-          :header-description="heroDescription"
+          :description="heroDescription"
           :align="contentBlockAlignment"
         >
           <template #footer>
@@ -48,7 +48,10 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
           </template>
         </ContentBlock>
       </div>
-      <div v-if="blok.image?.filename" class="hero-section__image-box">
+      <div
+        v-if="blok.image?.filename"
+        class="hero-section__image-box"
+      >
         <!-- Width & height set manually because custom metadata (width & height)
         for the asset is not available from the CMS. This is due to limitations in the free plan. -->
         <NuxtImg
@@ -56,7 +59,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
           :width="1541"
           :height="1168"
           :alt="blok.image.alt"
-          sizes="100vw xl:740px"
+          sizes="100vw lg:50vw"
           class="hero-section__image"
         />
       </div>
@@ -67,25 +70,26 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
 <style scoped lang="scss">
 .hero-section {
   &__body {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: $spacing--4xl;
+    display: grid;
+    grid-template-columns: 1fr;
+    @include breakpoint('lg') {
+      grid-template-columns: 0.8fr 1fr;
+    }
+    gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }
 
-  &__content {
-    // TODO: increase accuracy here
-    flex: 1 1 convert(400px, 'rem');
-  }
-
-  &__image-box {
-    flex: 1 1 convert(500px, 'rem');
+  &__image {
+    border-radius: $rounded--3xl;
+    box-shadow: $shadow--regular;
   }
 
   &__buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    @include breakpoint('lg') {
+      justify-content: flex-start;
+    }
     gap: $spacing--lg;
   }
 
@@ -105,19 +109,6 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
     width: 30%;
     height: 100%;
     padding: $spacing--xs;
-  }
-
-  &__image {
-    border-radius: $rounded--3xl;
-    box-shadow: $shadow--regular;
-  }
-}
-
-@include breakpoint('lg') {
-  .hero-section {
-    &__buttons {
-      justify-content: flex-start;
-    }
   }
 }
 </style>

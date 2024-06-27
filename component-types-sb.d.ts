@@ -281,11 +281,12 @@ export interface PageStoryblok {
 
 export interface PlatformSectionStoryblok {
   heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;
   image: AssetStoryblok;
-  cost_heading?: string;
-  cost_description?: RichtextStoryblok;
   cost_image?: AssetStoryblok;
+  cost_description?: RichtextStoryblok;
+  cost_heading?: string;
   _uid: string;
   component: "platform-section";
   [k: string]: any;

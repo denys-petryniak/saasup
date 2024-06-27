@@ -1,24 +1,33 @@
 <script setup lang="ts">
-import type { Alignment, HeadingLevel } from '~/types'
+import type { Alignment, HeadingLevel, Theme } from '~/types'
 
 interface Props {
-  heading: string
-  headingLevel?: HeadingLevel
   badge?: string
-  headerDescription?: string
+  heading?: string
+  headingLevel?: HeadingLevel
+  description?: string
   align?: Alignment
+  theme?: Theme
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   headingLevel: 'h2',
   align: 'left',
 })
+
+const contentBlockClasses = computed(() => ({
+  'content-block--left': props.align === 'left',
+  'content-block--center': props.align === 'center',
+  'content-block--right': props.align === 'right',
+  'content-block--dark': props.theme === 'dark',
+  'content-block--light': props.theme === 'light',
+}))
 </script>
 
 <template>
   <div
     class="content-block"
-    :class="`content-block--${align}`"
+    :class="contentBlockClasses"
   >
     <div class="content-block__header">
       <LabelBadge
@@ -27,17 +36,27 @@ withDefaults(defineProps<Props>(), {
       >
         {{ badge }}
       </LabelBadge>
+      <template v-else>
+        <slot name="badge" />
+      </template>
       <DynamicHeading
+        v-if="heading"
         :as="headingLevel"
         class="content-block__heading"
       >
         {{ heading }}
       </DynamicHeading>
+      <template v-else>
+        <slot name="heading" />
+      </template>
       <div
-        v-if="headerDescription"
+        v-if="description"
         class="content-block__description"
-        v-html="headerDescription"
+        v-html="description"
       />
+      <template v-else>
+        <slot name="description" />
+      </template>
     </div>
     <div v-if="$slots.default" class="content-block__body">
       <slot />
@@ -102,6 +121,13 @@ $header-text-width--max: convert(750px, 'rem');
 
     #{$parent}__header {
       align-items: flex-end;
+    }
+  }
+
+  &--light {
+    #{$parent}__heading,
+    #{$parent}__description {
+      color: $color-white--regular;
     }
   }
 }

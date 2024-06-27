@@ -1390,7 +1390,7 @@
       "name": "platform-section",
       "display_name": null,
       "created_at": "2023-08-15T14:53:10.589Z",
-      "updated_at": "2024-06-01T08:41:52.209Z",
+      "updated_at": "2024-06-26T01:17:31.106Z",
       "id": 4425712,
       "schema": {
         "heading": {
@@ -1399,10 +1399,48 @@
           "pos": 0,
           "required": true
         },
+        "heading_level": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "3829064d-9a77-4be3-bfcb-91b5d9b1d281",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "0467b1fb-a962-4567-8387-159628ad1450",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "f67ee064-6830-4fd1-ab76-dad01395b817",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "30515db8-7654-41f7-839e-2db5cf682bda",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "faea4b6d-b150-41ee-b893-c9b71e3f0531",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "d93409a4-3b4b-446d-8a19-87f7de30e828",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ]
+        },
         "description": {
           "type": "richtext",
           "key": "description",
-          "pos": 1,
+          "pos": 2,
           "required": true
         },
         "image": {
@@ -1411,29 +1449,39 @@
             "images"
           ],
           "key": "image",
-          "pos": 2,
-          "required": true
-        },
-        "cost_heading": {
-          "type": "text",
-          "key": "cost_heading",
           "pos": 3,
-          "required": false
-        },
-        "cost_description": {
-          "type": "richtext",
-          "key": "cost_description",
-          "pos": 4,
-          "required": false
+          "required": true
         },
         "cost_image": {
           "type": "asset",
           "key": "cpst_image",
-          "pos": 5,
+          "pos": 4,
           "filetypes": [
             "images"
           ],
           "asset_folder_id": 288993
+        },
+        "cost_description": {
+          "type": "richtext",
+          "key": "cost_description",
+          "pos": 5,
+          "required": false
+        },
+        "cost_heading": {
+          "type": "text",
+          "key": "cost_heading",
+          "pos": 6,
+          "required": false
+        },
+        "tab-f3f7e59a-7323-4fd5-bb51-2a13480b8a0a": {
+          "display_name": "Cost Block",
+          "keys": [
+            "cost_heading",
+            "cost_description",
+            "cost_image"
+          ],
+          "pos": 7,
+          "type": "tab"
         }
       },
       "image": null,
