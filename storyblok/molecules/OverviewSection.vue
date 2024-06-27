@@ -7,7 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getOverviewDescription = computed(() =>
+const overviewDescription = computed(() =>
   renderRichText(props.blok.description))
 
 function isFirstOverviewImage(image: AssetStoryblok): boolean {
@@ -33,13 +33,16 @@ function isFirstOverviewImage(image: AssetStoryblok): boolean {
         class="overview-section__image"
       />
     </div>
-    <div class="overview-section__text">
-      <h2 class="overview-section__heading">
+    <div class="overview-section__content">
+      <DynamicHeading
+        :as="blok.heading_level"
+        class="overview-section__heading"
+      >
         {{ blok.heading }}
-      </h2>
+      </DynamicHeading>
       <div
         class="overview-section__description"
-        v-html="getOverviewDescription"
+        v-html="overviewDescription"
       />
     </div>
   </BaseSection>
@@ -50,16 +53,30 @@ function isFirstOverviewImage(image: AssetStoryblok): boolean {
   &__images {
     display: grid;
     grid-template-columns: 1fr;
+    @include breakpoint('md') {
+      grid-template-columns: 1fr 0.5fr;
+    }
+    align-items: stretch;
     gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
   }
 
   &__image {
+    aspect-ratio: 1 / 1;
+    @include breakpoint('md') {
+      aspect-ratio: initial;
+    }
     border-radius: $rounded--3xl;
     box-shadow: $shadow--regular;
     object-fit: cover;
   }
 
-  &__text {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    @include breakpoint('md') {
+      grid-template-columns: 0.5fr 1fr;
+    }
+    gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
     margin-top: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
   }
 
@@ -67,18 +84,8 @@ function isFirstOverviewImage(image: AssetStoryblok): boolean {
     margin: 0;
   }
 
-  &__description {
-    margin-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
-  }
-}
-
-@include breakpoint('md') {
-  .overview-section {
-    &__images {
-      grid-template-columns: 1.75fr 1fr;
-      grid-template-rows: auto;
-      align-items: stretch;
-    }
+  &__description::v-deep(p:first-of-type) {
+    margin-top: 0;
   }
 }
 </style>
