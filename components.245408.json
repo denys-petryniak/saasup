@@ -784,24 +784,67 @@
       "name": "grid-section",
       "display_name": null,
       "created_at": "2024-06-14T17:17:13.296Z",
-      "updated_at": "2024-06-27T14:07:32.703Z",
+      "updated_at": "2024-06-27T15:12:31.936Z",
       "id": 5931306,
       "schema": {
+        "columns": {
+          "type": "option",
+          "pos": 0,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "14e448bd-727d-4a95-b224-f2ae0ce950d4",
+              "name": "Two",
+              "value": "2"
+            },
+            {
+              "_uid": "bf4827ba-85c0-41f3-a8ce-aa766e7889c3",
+              "value": "3",
+              "name": "Three"
+            }
+          ],
+          "exclude_empty_option": true
+        },
+        "alignment": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "39d7babd-9036-4939-8835-90ae3f26c58a",
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "_uid": "762a350f-7e82-4bd4-a78d-55fabe6d9ee3",
+              "value": "center",
+              "name": "Center"
+            },
+            {
+              "_uid": "05bc8deb-6961-48d5-8767-aad64416003c",
+              "value": "right",
+              "name": "Right"
+            }
+          ],
+          "default_value": "center",
+          "exclude_empty_option": true,
+          "datasource_slug": "alignment"
+        },
         "headline": {
           "type": "text",
           "default_value": "",
           "required": false,
-          "pos": 0
+          "pos": 2
         },
         "heading": {
           "type": "text",
           "default_value": "",
           "required": false,
-          "pos": 1
+          "pos": 3
         },
         "heading_level": {
           "type": "option",
-          "pos": 2,
+          "pos": 4,
           "use_uuid": true,
           "datasource_slug": "heading-levels",
           "exclude_empty_option": true,
@@ -844,51 +887,28 @@
           "keys": [
             "cards"
           ],
-          "pos": 3,
+          "pos": 5,
           "type": "tab"
         },
         "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3": {
           "display_name": "Style",
           "keys": [
-            "alignment"
+            "alignment",
+            "columns"
           ],
-          "pos": 4,
+          "pos": 6,
           "type": "tab"
         },
         "cards": {
           "type": "bloks",
-          "pos": 5,
+          "pos": 7,
           "restrict_type": "",
           "restrict_components": true,
           "component_whitelist": [
-            "grid-card"
+            "grid-card",
+            "info-card"
           ],
           "minimum": 2
-        },
-        "alignment": {
-          "type": "option",
-          "pos": 6,
-          "use_uuid": true,
-          "options": [
-            {
-              "_uid": "39d7babd-9036-4939-8835-90ae3f26c58a",
-              "name": "Left",
-              "value": "left"
-            },
-            {
-              "_uid": "762a350f-7e82-4bd4-a78d-55fabe6d9ee3",
-              "value": "center",
-              "name": "Center"
-            },
-            {
-              "_uid": "05bc8deb-6961-48d5-8767-aad64416003c",
-              "value": "right",
-              "name": "Right"
-            }
-          ],
-          "default_value": "center",
-          "exclude_empty_option": true,
-          "datasource_slug": "alignment"
         }
       },
       "image": null,
@@ -1074,6 +1094,46 @@
       "all_presets": [],
       "preset_id": null,
       "real_name": "image-text-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "info-card",
+      "display_name": null,
+      "created_at": "2024-06-27T14:51:11.807Z",
+      "updated_at": "2024-06-27T15:18:21.473Z",
+      "id": 5987009,
+      "schema": {
+        "icon": {
+          "type": "asset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ],
+          "asset_folder_id": 288995
+        },
+        "title": {
+          "type": "text",
+          "pos": 1
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 2
+        }
+      },
+      "image": null,
+      "preview_field": "title",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "info-card",
       "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
       "color": "#ffac00",
       "icon": "block-share",

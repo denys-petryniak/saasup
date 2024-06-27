@@ -1,30 +1,31 @@
 <script setup lang="ts">
-import type { ValueItemStoryblok } from '~/component-types-sb'
+import type { InfoCardStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: ValueItemStoryblok
+  blok: InfoCardStoryblok
 }
 
 defineProps<Props>()
 </script>
 
 <template>
-  <div class="value">
-    <div v-if="blok.icon?.filename" class="value__image-box">
+  <div class="info-card">
+    <div v-if="blok.icon?.filename" class="info-card__image-box">
       <img
         :src="blok.icon.filename"
         :width="50"
         :height="50"
         alt=""
         loading="lazy"
-        class="value__icon"
+        class="info-card__icon"
       >
     </div>
-    <div class="value__body">
-      <h3 class="value__title">
+    <div class="info-card__body">
+      <!-- TODO: use DynamicHeading component here -->
+      <h3 class="info-card__title">
         {{ blok.title }}
       </h3>
-      <p class="value__description">
+      <p class="info-card__description">
         {{ blok.description }}
       </p>
     </div>
@@ -32,7 +33,7 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-.value {
+.info-card {
   flex: 1 1 convert(450px, 'rem');
   display: flex;
   flex-wrap: wrap;

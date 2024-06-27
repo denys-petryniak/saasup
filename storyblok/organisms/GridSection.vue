@@ -25,7 +25,8 @@ defineProps<Props>()
       :columns="blok.columns"
       class="grid-section__cards"
     >
-      <GridCard
+      <component
+        :is="card.component"
         v-for="card in blok.cards"
         :key="card._uid"
         :blok="card"

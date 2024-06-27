@@ -159,11 +159,12 @@ export interface GridCardStoryblok {
 }
 
 export interface GridSectionStoryblok {
+  columns?: "2" | "3";
+  alignment?: "left" | "center" | "right";
   headline?: string;
   heading?: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  cards?: GridCardStoryblok[];
-  alignment?: "left" | "center" | "right";
+  cards?: (GridCardStoryblok | InfoCardStoryblok)[];
   _uid: string;
   component: "grid-section";
   [k: string]: any;
@@ -187,6 +188,15 @@ export interface ImageTextSectionStoryblok {
   description: RichtextStoryblok;
   _uid: string;
   component: "image-text-section";
+  [k: string]: any;
+}
+
+export interface InfoCardStoryblok {
+  icon?: AssetStoryblok;
+  title?: string;
+  description?: string;
+  _uid: string;
+  component: "info-card";
   [k: string]: any;
 }
 
@@ -252,6 +262,7 @@ export interface PageStoryblok {
     | GridCardStoryblok
     | HeroSectionStoryblok
     | ImageTextSectionStoryblok
+    | InfoCardStoryblok
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok

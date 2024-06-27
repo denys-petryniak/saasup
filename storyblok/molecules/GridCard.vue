@@ -29,6 +29,7 @@ const getCardDescription = computed(() =>
       />
     </template>
     <template #default>
+      <!-- TODO: use DynamicHeading component here -->
       <h3 class="grid-card__title">
         {{ blok.title }}
       </h3>
