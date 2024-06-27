@@ -17,24 +17,24 @@ defineProps<Props>()
       <h3 class="pricing-plan__title">
         {{ blok.title }}
       </h3>
-      <LabelBadge
+      <HeadlineBadge
         size="sm"
         :color="blok.popular ? 'purple' : 'white'"
       >
-        {{ blok.caption }}
-      </LabelBadge>
+        {{ blok.headline }}
+      </HeadlineBadge>
     </div>
     <div class="pricing-plan__price-container">
       <p class="pricing-plan__price">
         {{ blok.price }}
       </p>
-      <LabelBadge
+      <HeadlineBadge
         size="sm"
         color="orange"
-        class="pricing-plan__badge"
+        class="pricing-plan__headline"
       >
         {{ blok.billing_description }}
-      </LabelBadge>
+      </HeadlineBadge>
     </div>
     <ul
       v-if="blok.features?.length"
@@ -95,7 +95,7 @@ $card-padding-x: clamped(
     color: $color--secondary--extra-dark;
   }
 
-  &__badge {
+  &__headline {
     margin-top: $spacing--lg;
   }
 

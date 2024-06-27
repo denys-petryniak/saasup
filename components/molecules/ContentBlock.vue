@@ -2,7 +2,7 @@
 import type { Alignment, HeadingLevel, Theme } from '~/types'
 
 interface Props {
-  badge?: string
+  headline?: string
   heading?: string
   headingLevel?: HeadingLevel
   description?: string
@@ -15,13 +15,12 @@ const props = withDefaults(defineProps<Props>(), {
   align: 'left',
 })
 
-const contentBlockClasses = computed(() => ({
-  'content-block--left': props.align === 'left',
-  'content-block--center': props.align === 'center',
-  'content-block--right': props.align === 'right',
-  'content-block--dark': props.theme === 'dark',
-  'content-block--light': props.theme === 'light',
-}))
+const contentBlockClasses = computed(() => {
+  const positionClass = props.align ? `content-block--${props.align}` : null
+  const themeClass = props.theme ? `content-block--${props.theme}` : null
+
+  return [positionClass, themeClass]
+})
 </script>
 
 <template>
@@ -30,14 +29,14 @@ const contentBlockClasses = computed(() => ({
     :class="contentBlockClasses"
   >
     <div class="content-block__header">
-      <LabelBadge
-        v-if="badge"
-        class="content-block__badge"
+      <HeadlineBadge
+        v-if="headline"
+        class="content-block__headline"
       >
-        {{ badge }}
-      </LabelBadge>
+        {{ headline }}
+      </HeadlineBadge>
       <template v-else>
-        <slot name="badge" />
+        <slot name="headline" />
       </template>
       <DynamicHeading
         v-if="heading"

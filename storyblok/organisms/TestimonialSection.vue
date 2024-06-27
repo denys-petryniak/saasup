@@ -33,7 +33,7 @@ const testimonialBackground = computed(() => {
   >
     <ContentBlock
       v-if="blok.heading"
-      :badge="blok.badge"
+      :headline="blok.headline"
       :heading="blok.heading"
       :heading-level="blok.heading_level"
       :align="blok.alignment ?? 'center'"

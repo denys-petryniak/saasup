@@ -49,7 +49,7 @@ export interface ArticleStoryblok {
 export interface ArticlesSectionStoryblok {
   columns?: "2" | "3";
   hide_top_gap?: boolean;
-  badge?: string;
+  headline?: string;
   heading?: string;
   articles: (StoryblokStory<ArticleStoryblok> | string)[];
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -102,7 +102,7 @@ export interface ButtonStoryblok {
 
 export interface CareersSectionStoryblok {
   vacancies?: (StoryblokStory<VacancyStoryblok> | string)[];
-  badge?: string;
+  headline?: string;
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
@@ -138,6 +138,7 @@ export interface ConfigStoryblok {
 
 export interface CtaSectionStoryblok {
   heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;
   image: AssetStoryblok;
   background_image: AssetStoryblok;
@@ -158,10 +159,10 @@ export interface GridCardStoryblok {
 }
 
 export interface GridSectionStoryblok {
-  badge?: string;
+  headline?: string;
   heading?: string;
-  cards?: GridCardStoryblok[];
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  cards?: GridCardStoryblok[];
   alignment?: "left" | "center" | "right";
   _uid: string;
   component: "grid-section";
@@ -294,7 +295,7 @@ export interface PlatformSectionStoryblok {
 
 export interface PricingPlanStoryblok {
   title: string;
-  caption: string;
+  headline: string;
   price: string;
   billing_description?: string;
   popular?: boolean;
@@ -315,7 +316,7 @@ export interface PricingPlanStoryblok {
 }
 
 export interface PricingSectionStoryblok {
-  badge: string;
+  headline?: string;
   pricing_plans: PricingPlanStoryblok[];
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -356,7 +357,7 @@ export interface TabbedContentEntryStoryblok {
 
 export interface TabbedContentSectionStoryblok {
   entries: (StepStoryblok | TabbedContentEntryStoryblok)[];
-  badge: string;
+  headline?: string;
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   alignment?: "left" | "center" | "right";
@@ -375,7 +376,7 @@ export interface TestimonialEntryStoryblok {
 
 export interface TestimonialSectionStoryblok {
   entries: (TestimonialStoryblok | TestimonialEntryStoryblok)[];
-  badge: string;
+  headline?: string;
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   background?: AssetStoryblok;
@@ -413,7 +414,7 @@ export interface ValueItemStoryblok {
 }
 
 export interface ValuesSectionStoryblok {
-  badge?: string;
+  headline?: string;
   heading?: string;
   values?: ValueItemStoryblok[];
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

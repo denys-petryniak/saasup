@@ -95,7 +95,7 @@
       "name": "articles-section",
       "display_name": null,
       "created_at": "2023-08-17T18:52:21.163Z",
-      "updated_at": "2024-06-23T15:33:14.466Z",
+      "updated_at": "2024-06-27T14:16:03.065Z",
       "id": 4437547,
       "schema": {
         "columns": {
@@ -121,7 +121,7 @@
           "type": "boolean",
           "pos": 1
         },
-        "badge": {
+        "headline": {
           "type": "text",
           "required": false,
           "pos": 2
@@ -297,7 +297,7 @@
       "name": "careers-section",
       "display_name": null,
       "created_at": "2024-06-08T14:46:14.078Z",
-      "updated_at": "2024-06-24T00:00:34.849Z",
+      "updated_at": "2024-06-27T14:18:06.120Z",
       "id": 5901661,
       "schema": {
         "vacancies": {
@@ -311,7 +311,7 @@
           "min_options": "1",
           "max_options": "10"
         },
-        "badge": {
+        "headline": {
           "type": "text",
           "pos": 1
         },
@@ -375,7 +375,7 @@
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "heading",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -622,32 +622,75 @@
       "name": "cta-section",
       "display_name": "CTA Section",
       "created_at": "2023-08-17T18:15:22.241Z",
-      "updated_at": "2024-06-01T08:41:34.522Z",
+      "updated_at": "2024-06-27T08:00:24.284Z",
       "id": 4437467,
       "schema": {
         "heading": {
           "type": "text",
           "default_value": "",
-          "required": true
+          "required": true,
+          "pos": 0
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "68013eb8-f174-4232-b857-b75f9c7813c8",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "791a0d8f-edb9-4fbf-b60b-bb006771dfbc",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "ba4ac4e6-0cbc-47b3-9bca-ea6b7eb81e19",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "8e85d6f0-2d8c-4b4f-80a7-25b05ead776c",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "08602cc8-353f-4045-ac4e-2f9d4ae2826e",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "0291a549-c46a-433c-b432-ec12fc5144c7",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "default_value": "h2"
         },
         "description": {
           "type": "richtext",
           "description": "",
-          "required": true
+          "required": true,
+          "pos": 2
         },
         "image": {
           "type": "asset",
           "filetypes": [
             "images"
           ],
-          "required": true
+          "required": true,
+          "pos": 3
         },
         "background_image": {
           "type": "asset",
           "filetypes": [
             "images"
           ],
-          "required": true
+          "required": true,
+          "pos": 4
         }
       },
       "image": null,
@@ -741,48 +784,24 @@
       "name": "grid-section",
       "display_name": null,
       "created_at": "2024-06-14T17:17:13.296Z",
-      "updated_at": "2024-06-23T15:25:49.427Z",
+      "updated_at": "2024-06-27T14:07:32.703Z",
       "id": 5931306,
       "schema": {
-        "badge": {
+        "headline": {
           "type": "text",
           "default_value": "",
-          "required": false
+          "required": false,
+          "pos": 0
         },
         "heading": {
           "type": "text",
           "default_value": "",
-          "required": false
-        },
-        "tab-ebe0bdf5-5eed-4927-9c70-e4d03a047e41": {
-          "display_name": "Cards",
-          "keys": [
-            "cards"
-          ],
-          "pos": 0,
-          "type": "tab"
-        },
-        "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3": {
-          "display_name": "Style",
-          "keys": [
-            "alignment"
-          ],
-          "pos": 0,
-          "type": "tab"
-        },
-        "cards": {
-          "type": "bloks",
-          "pos": 4,
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "grid-card"
-          ],
-          "minimum": 2
+          "required": false,
+          "pos": 1
         },
         "heading_level": {
           "type": "option",
-          "pos": 5,
+          "pos": 2,
           "use_uuid": true,
           "datasource_slug": "heading-levels",
           "exclude_empty_option": true,
@@ -820,6 +839,32 @@
             }
           ]
         },
+        "tab-ebe0bdf5-5eed-4927-9c70-e4d03a047e41": {
+          "display_name": "Cards",
+          "keys": [
+            "cards"
+          ],
+          "pos": 3,
+          "type": "tab"
+        },
+        "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3": {
+          "display_name": "Style",
+          "keys": [
+            "alignment"
+          ],
+          "pos": 4,
+          "type": "tab"
+        },
+        "cards": {
+          "type": "bloks",
+          "pos": 5,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "grid-card"
+          ],
+          "minimum": 2
+        },
         "alignment": {
           "type": "option",
           "pos": 6,
@@ -847,7 +892,7 @@
         }
       },
       "image": null,
-      "preview_field": "badge",
+      "preview_field": "headline",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -1504,7 +1549,7 @@
       "name": "pricing_plan",
       "display_name": null,
       "created_at": "2023-08-16T17:28:03.776Z",
-      "updated_at": "2024-05-31T17:40:04.569Z",
+      "updated_at": "2024-06-27T14:13:27.714Z",
       "id": 4432457,
       "schema": {
         "title": {
@@ -1513,7 +1558,7 @@
           "pos": 0,
           "required": true
         },
-        "caption": {
+        "headline": {
           "type": "text",
           "key": "caption",
           "pos": 1,
@@ -1533,7 +1578,7 @@
         },
         "popular": {
           "type": "boolean",
-          "key": "is_popular",
+          "key": "popular",
           "pos": 4
         },
         "features": {
@@ -1608,12 +1653,12 @@
       "name": "pricing-section",
       "display_name": null,
       "created_at": "2023-08-16T15:45:16.196Z",
-      "updated_at": "2024-06-23T15:32:06.048Z",
+      "updated_at": "2024-06-27T14:14:37.868Z",
       "id": 4431923,
       "schema": {
-        "badge": {
+        "headline": {
           "type": "text",
-          "required": true,
+          "required": false,
           "pos": 0
         },
         "pricing_plans": {
@@ -1626,12 +1671,14 @@
             "pricing_plan"
           ],
           "required": true,
-          "pos": 1
+          "pos": 1,
+          "key": "pricing_plans"
         },
         "heading": {
           "type": "text",
           "required": true,
-          "pos": 2
+          "pos": 2,
+          "key": "heading"
         },
         "heading_level": {
           "type": "option",
@@ -1670,17 +1717,20 @@
               "name": "Heading 6"
             }
           ],
-          "default_value": "h2"
+          "default_value": "h2",
+          "key": "heading_level"
         },
         "description": {
           "type": "richtext",
           "required": true,
-          "pos": 4
+          "pos": 4,
+          "key": "description"
         },
         "payment_heading": {
           "type": "text",
           "required": false,
-          "pos": 5
+          "pos": 5,
+          "key": "payment_heading"
         },
         "payment_images": {
           "type": "multiasset",
@@ -1689,7 +1739,8 @@
           ],
           "asset_folder_id": 288993,
           "required": false,
-          "pos": 6
+          "pos": 6,
+          "key": "payment_images"
         },
         "tab-2ceaa28d-b880-492d-a1e5-14ea633ff7a5": {
           "display_name": "Cards",
@@ -1697,11 +1748,12 @@
             "pricing_plans"
           ],
           "pos": 7,
-          "type": "tab"
+          "type": "tab",
+          "key": "tab-2ceaa28d-b880-492d-a1e5-14ea633ff7a5"
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "heading",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -1879,7 +1931,7 @@
       "name": "tabbed-content-section",
       "display_name": null,
       "created_at": "2023-08-15T15:12:24.585Z",
-      "updated_at": "2024-06-24T00:21:22.441Z",
+      "updated_at": "2024-06-27T14:10:09.635Z",
       "id": 4425763,
       "schema": {
         "entries": {
@@ -1896,9 +1948,9 @@
           "pos": 0,
           "key": "steps"
         },
-        "badge": {
+        "headline": {
           "type": "text",
-          "required": true,
+          "required": false,
           "pos": 1,
           "key": "badge"
         },
@@ -1996,7 +2048,7 @@
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "headline",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -2054,7 +2106,7 @@
       "name": "testimonial-section",
       "display_name": null,
       "created_at": "2023-08-15T17:14:12.383Z",
-      "updated_at": "2024-06-24T01:22:32.494Z",
+      "updated_at": "2024-06-27T14:11:58.667Z",
       "id": 4426248,
       "schema": {
         "entries": {
@@ -2070,10 +2122,10 @@
           "pos": 0,
           "required": true
         },
-        "badge": {
+        "headline": {
           "type": "text",
           "pos": 1,
-          "required": true,
+          "required": false,
           "key": "badge"
         },
         "heading": {
@@ -2143,7 +2195,7 @@
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "heading",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -2288,10 +2340,10 @@
       "name": "values-section",
       "display_name": null,
       "created_at": "2024-06-07T15:06:58.071Z",
-      "updated_at": "2024-06-24T03:44:24.727Z",
+      "updated_at": "2024-06-27T14:17:16.965Z",
       "id": 5899411,
       "schema": {
-        "badge": {
+        "headline": {
           "type": "text",
           "pos": 0
         },
@@ -2359,7 +2411,7 @@
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "heading",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,

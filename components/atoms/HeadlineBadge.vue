@@ -11,9 +11,9 @@ const props = withDefaults(defineProps<Props>(), {
   color: 'purple',
 })
 
-const getBadgeClasses = computed(() => {
-  const sizeClass = `badge--${props.size}`
-  const colorClass = `badge--${props.color}`
+const badgeClasses = computed(() => {
+  const sizeClass = props.size ? `badge--${props.size}` : null
+  const colorClass = props.color ? `badge--${props.color}` : null
 
   return [sizeClass, colorClass]
 })
@@ -22,7 +22,7 @@ const getBadgeClasses = computed(() => {
 <template>
   <div
     class="badge"
-    :class="getBadgeClasses"
+    :class="badgeClasses"
   >
     <slot />
   </div>

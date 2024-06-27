@@ -35,7 +35,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
     <div class="careers-section__body">
       <ContentBlock
         v-if="blok.heading"
-        :badge="blok.badge"
+        :headline="blok.headline"
         :heading="blok.heading"
         :heading-level="blok.heading_level"
         :align="contentBlockAlignment"
