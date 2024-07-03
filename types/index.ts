@@ -24,6 +24,9 @@ export type SectionTag = 'div' | 'section' | 'article'
 
 export type StoryVersion = 'draft' | 'published'
 
+export type ScreenSizeName = 'mobile' | 'tablet' | 'laptop' | 'desktop'
+export type ColumnCount = '1' | '2' | '3' | '4'
+
 export interface Header {
   navigation: (LinkStoryblok | SubmenuStoryblok)[]
   logo?: AssetStoryblok
