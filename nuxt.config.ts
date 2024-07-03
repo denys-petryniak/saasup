@@ -4,7 +4,6 @@ const IS_PROD = process.env.NUXT_PUBLIC_NODE_ENV === 'production'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-
   // Enable SPA mode for preview env or SSR (SSG) mode for production env
   ssr: IS_PROD,
 
@@ -84,7 +83,12 @@ export default defineNuxtConfig({
     // https://www.npmjs.com/package/@vueuse/nuxt
     '@vueuse/nuxt',
     // https://github.com/nuxt-modules/icon
-    'nuxt-icon',
+    [
+      '@nuxt/icon',
+      {
+        class: 'icon',
+      },
+    ],
     // https://github.com/nuxt/image
     [
       '@nuxt/image',
@@ -148,4 +152,6 @@ export default defineNuxtConfig({
     // Fully typed routing 💪
     typedPages: true,
   },
+
+  compatibilityDate: '2024-07-03',
 })

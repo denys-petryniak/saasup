@@ -122,7 +122,6 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
                 >
                   <span>{{ navigationItem.title }}</span>
                   <Icon
-                    class="navigation__button-icon"
                     name="material-symbols:keyboard-arrow-down"
                     size="1.25em"
                   />
@@ -279,10 +278,6 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
         color: $color-primary--light;
       }
     }
-  }
-
-  &__button-icon {
-    margin-left: $spacing--xs;
   }
 
   &__cart-button {

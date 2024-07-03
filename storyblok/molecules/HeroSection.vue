@@ -97,6 +97,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
     position: relative;
   }
 
+  //TODO: improve styles for video button
   &__video-button-text {
     margin-right: $spacing--2xl;
   }
@@ -107,8 +108,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
     right: 0;
     transform: translate3d(0, -50%, 0);
     width: 30%;
-    height: 100%;
-    padding: $spacing--xs;
+    height: 90%;
   }
 }
 </style>

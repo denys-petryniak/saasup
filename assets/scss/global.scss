@@ -118,6 +118,12 @@ li {
   color: $color-primary--light !important;
 }
 
+span {
+  &.icon {
+    vertical-align: middle;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   :focus-visible {
     transition: outline-offset 0.75s ease-out;
