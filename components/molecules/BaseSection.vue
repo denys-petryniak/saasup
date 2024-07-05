@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SectionTag } from '~/types'
+type SectionTag = 'div' | 'section' | 'article'
 
 interface Props {
   as?: SectionTag

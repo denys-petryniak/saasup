@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { BadgeColor, BadgeSize } from '~/types'
+type BadgeSize = 'sm' | 'md'
+type BadgeColor = 'purple' | 'white' | 'orange'
 
 interface Props {
   size?: BadgeSize

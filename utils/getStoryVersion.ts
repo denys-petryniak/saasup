@@ -1,4 +1,4 @@
-import type { StoryVersion } from '~/types'
+type StoryVersion = 'draft' | 'published'
 
 export default function (): StoryVersion {
   const isProduction = useRuntimeConfig().public.NODE_ENV === 'production'

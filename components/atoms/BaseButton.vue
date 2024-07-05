@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { RouteLocation } from '#vue-router'
-import type { ButtonColor, ButtonSize, ButtonWidth } from '~/types'
+
+type ButtonWidth = 'full'
+type ButtonSize = 'sm' | 'md'
+type ButtonColor = 'branded' | 'light' | 'light-branded' | 'light-bordered' | 'dark' | 'dark-branded'
 
 interface Props {
   width?: ButtonWidth

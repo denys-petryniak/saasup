@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ColumnCount, ScreenSizeName } from '~/types'
+type ColumnCount = '1' | '2' | '3' | '4'
 
 interface Props {
   columns?: ColumnCount
@@ -9,6 +9,7 @@ const props = withDefaults(defineProps<Props>(), {
   columns: '3',
 })
 
+type ScreenSizeName = 'mobile' | 'tablet' | 'laptop' | 'desktop'
 type ColumnsByScreenSize = Record<ScreenSizeName, ColumnCount>
 
 const columnMapping = new Map<ColumnCount, ColumnsByScreenSize>([
