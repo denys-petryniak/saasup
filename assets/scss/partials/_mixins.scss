@@ -77,7 +77,7 @@ $column-width--max: fn.convert(700px, 'rem');
   );
 
   @if $col >= 2 {
-    @include breakpoint('sm') {
+    @include breakpoint('md') {
       grid-template-columns: repeat(
         2,
         minmax(min(100%, $column-width--min), $column-width--max)
