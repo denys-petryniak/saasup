@@ -64,3 +64,42 @@ $breakpoints: (
 // Articles:
 // https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
 // https://www.smashingmagazine.com/2023/11/addressing-accessibility-concerns-fluid-type/
+
+// *** GRID LAYOUT ***
+
+$column-width--min: fn.convert(250px, 'rem');
+$column-width--max: fn.convert(700px, 'rem');
+
+@mixin grid-columns($col) {
+  grid-template-columns: minmax(
+    min(100%, $column-width--min),
+    $column-width--max
+  );
+
+  @if $col >= 2 {
+    @include breakpoint('sm') {
+      grid-template-columns: repeat(
+        2,
+        minmax(min(100%, $column-width--min), $column-width--max)
+      );
+    }
+  }
+
+  @if $col >= 3 {
+    @include breakpoint('lg') {
+      grid-template-columns: repeat(
+        3,
+        minmax(min(100%, $column-width--min), $column-width--max)
+      );
+    }
+  }
+
+  @if $col == 4 {
+    @include breakpoint('xl') {
+      grid-template-columns: repeat(
+        4,
+        minmax(min(100%, $column-width--min), $column-width--max)
+      );
+    }
+  }
+}

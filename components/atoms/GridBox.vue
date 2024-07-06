@@ -1,42 +1,12 @@
 <script setup lang="ts">
-type ColumnCount = '1' | '2' | '3' | '4'
+type ColumnCount = '2' | '3' | '4'
 
 interface Props {
   columns?: ColumnCount
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   columns: '3',
-})
-
-type ScreenSizeName = 'mobile' | 'tablet' | 'laptop' | 'desktop'
-type ColumnsByScreenSize = Record<ScreenSizeName, ColumnCount>
-
-const columnMapping = new Map<ColumnCount, ColumnsByScreenSize>([
-  ['4', { mobile: '1', tablet: '2', laptop: '3', desktop: '4' }],
-  ['3', { mobile: '1', tablet: '2', laptop: '2', desktop: '3' }],
-  ['2', { mobile: '1', tablet: '1', laptop: '2', desktop: '2' }],
-  ['1', { mobile: '1', tablet: '1', laptop: '1', desktop: '1' }],
-])
-
-const { isMobileScreenSize, isTabletScreenSize, isLaptopScreenSize, isDesktopScreenSize } = useMedia()
-
-interface ScreenSize {
-  name: ScreenSizeName
-  isActive: boolean
-}
-
-const responsiveColumns = computed(() => {
-  const screenSizes: ScreenSize[] = [
-    { name: 'mobile', isActive: isMobileScreenSize.value },
-    { name: 'tablet', isActive: isTabletScreenSize.value },
-    { name: 'laptop', isActive: isLaptopScreenSize.value },
-    { name: 'desktop', isActive: isDesktopScreenSize.value },
-  ]
-
-  const currentSize = screenSizes.find(screenSize => screenSize.isActive)
-
-  return currentSize ? columnMapping.get(props.columns)?.[currentSize.name] : '1'
 })
 
 // Another approach using auto-fit & min-width (less flexible), here as example only
@@ -59,22 +29,30 @@ const responsiveColumns = computed(() => {
 </script>
 
 <template>
-  <div class="grid-box">
+  <div
+    class="grid-box"
+    :class="columns ? `grid-box--cols-${columns}` : null"
+  >
     <slot />
   </div>
 </template>
 
 <style scoped lang="scss">
-$column-width--min: convert(250px, 'rem');
-$column-width--max: convert(700px, 'rem');
-
 .grid-box {
   display: grid;
-  grid-template-columns: repeat(
-    v-bind(responsiveColumns),
-    minmax(min(100%, $column-width--min), $column-width--max)
-  );
   justify-content: center;
   gap: clamped($min-size: $spacing--xl, $max-size: $spacing--2xl);
+
+  &--cols-2 {
+    @include grid-columns(2);
+  }
+
+  &--cols-3 {
+    @include grid-columns(3);
+  }
+
+  &--cols-4 {
+    @include grid-columns(4);
+  }
 }
 </style>
