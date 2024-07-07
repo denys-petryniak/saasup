@@ -149,7 +149,8 @@ export interface CtaSectionStoryblok {
 
 export interface GridCardStoryblok {
   image: AssetStoryblok;
-  title: string;
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;
   link_label?: string;
   link_url?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
@@ -192,8 +193,11 @@ export interface ImageTextSectionStoryblok {
 }
 
 export interface InfoCardStoryblok {
+  orientation?: "vertical" | "horizontal";
+  shadow?: boolean;
   icon?: AssetStoryblok;
-  title?: string;
+  heading?: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description?: string;
   _uid: string;
   component: "info-card";
@@ -201,8 +205,8 @@ export interface InfoCardStoryblok {
 }
 
 export interface IntroSectionStoryblok {
-  title: string;
-  title_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description?: RichtextStoryblok;
   alignment?: "left" | "center" | "right";
   _uid: string;
@@ -274,7 +278,6 @@ export interface PageStoryblok {
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
     | UnderDevStoryblok
-    | ValueItemStoryblok
     | AllArticlesStoryblok
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
@@ -283,7 +286,6 @@ export interface PageStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
-    | ValuesSectionStoryblok
   )[];
   _uid: string;
   component: "page";
@@ -412,24 +414,5 @@ export interface VacancyStoryblok {
   content?: RichtextStoryblok;
   _uid: string;
   component: "vacancy";
-  [k: string]: any;
-}
-
-export interface ValueItemStoryblok {
-  title?: string;
-  description?: string;
-  icon?: AssetStoryblok;
-  _uid: string;
-  component: "value-item";
-  [k: string]: any;
-}
-
-export interface ValuesSectionStoryblok {
-  headline?: string;
-  heading?: string;
-  values?: ValueItemStoryblok[];
-  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  _uid: string;
-  component: "values-section";
   [k: string]: any;
 }

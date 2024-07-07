@@ -7,8 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getCardDescription = computed(() =>
-  renderRichText(props.blok.description))
+const cardDescription = computed(() => renderRichText(props.blok.description))
 </script>
 
 <template>
@@ -23,19 +22,22 @@ const getCardDescription = computed(() =>
         :width="2000"
         :height="1500"
         :alt="blok.image.alt"
-        sizes="100vw md:340px"
+        sizes="100vw md:360px"
         loading="lazy"
         class="grid-card__image"
       />
     </template>
     <template #default>
-      <!-- TODO: use DynamicHeading component here -->
-      <h3 class="grid-card__title">
-        {{ blok.title }}
-      </h3>
+      <DynamicHeading
+        v-if="blok.heading"
+        :as="blok.heading_level"
+        class="grid-card__heading"
+      >
+        {{ blok.heading }}
+      </DynamicHeading>
       <div
         class="grid-card__description"
-        v-html="getCardDescription"
+        v-html="cardDescription"
       />
     </template>
     <template #footer>
@@ -55,12 +57,13 @@ const getCardDescription = computed(() =>
 .grid-card {
   text-align: center;
 
-  &__title {
+  &__heading {
     margin: 0;
   }
 
   &__link {
     display: inline-block;
+    font-weight: $font--bold;
     text-decoration: underline;
   }
 }

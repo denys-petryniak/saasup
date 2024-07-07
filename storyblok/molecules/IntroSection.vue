@@ -17,9 +17,9 @@ const introDescription = computed(() =>
     class="intro-section"
   >
     <ContentBlock
-      v-if="blok.title"
-      :heading="blok.title"
-      :heading-level="blok.title_level"
+      v-if="blok.heading"
+      :heading="blok.heading"
+      :heading-level="blok.heading_level"
       :description="introDescription"
       :align="blok.alignment ?? 'center'"
     />

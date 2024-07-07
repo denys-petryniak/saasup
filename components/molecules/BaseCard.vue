@@ -31,21 +31,35 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style scoped lang="scss">
-$card-padding-y--clamped: clamped(
-  $min-size: $spacing--4xl,
-  $max-size: $spacing--12xl,
-);
-$card-padding-x--clamped: clamped(
-  $min-size: $spacing--2xl,
-  $max-size: $spacing--8xl,
-);
-
 .card {
-  display: flex;
-  flex-direction: column;
-  gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
-  padding: $card-padding-y--clamped $card-padding-x--clamped;
+  $parent: &;
   border-radius: $rounded--3xl * 2;
+
+  &__header {
+    /* top | left and right | bottom */
+    padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--12xl)
+      clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl)
+      clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
+
+    & + #{$parent}__body {
+      padding-top: 0;
+    }
+  }
+
+  &__body {
+    padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
+
+    & + #{$parent}__footer {
+      padding-top: 0;
+    }
+  }
+
+  &__footer {
+    /* top | left and right | bottom */
+    padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl)
+      clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl)
+      clamped($min-size: $spacing--4xl, $max-size: $spacing--12xl);
+  }
 
   @media (hover: none) {
     background-color: $color--secondary--extra-light;
