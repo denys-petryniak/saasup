@@ -1,8 +1,8 @@
 import {StoryblokStory} from 'storyblok-generate-ts'
 
 export interface AllArticlesStoryblok {
-  title?: string;
-  articles: (StoryblokStory<ArticleStoryblok> | string)[];
+  columns?: "2" | "3";
+  hide_top_gap?: boolean;
   _uid: string;
   component: "all-articles";
   [k: string]: any;
@@ -38,7 +38,8 @@ export interface AssetStoryblok {
 export interface ArticleStoryblok {
   date: string;
   link_text: string;
-  title: string;
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   content: RichtextStoryblok;
   image: AssetStoryblok;
   _uid: string;

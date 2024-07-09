@@ -8,7 +8,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const getDescription = computed(() =>
+const articleCardDescription = computed(() =>
   renderRichText(props.article.content))
 
 const dateFormatter = ref('MMMM DD, YYYY')
@@ -18,66 +18,72 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
 </script>
 
 <template>
-  <div
+  <BaseCard
     v-editable="article"
-    class="card"
+    class="article-card"
   >
-    <div v-if="article.image?.filename" class="card__image-box">
-      <NuxtImg
-        :src="article.image.filename"
-        :width="1194"
-        :height="676"
-        :alt="article.image.alt"
-        sizes="100vw xl:580px"
-        loading="lazy"
-        class="card__image"
-      />
-      <BaseButton
-        :to="prependLeadingSlash(slug)"
-        size="sm"
-        color="light-branded"
-        class="card__button"
+    <template #header>
+      <div
+        v-if="article.image?.filename"
+        class="article-card__image-box"
       >
-        Social Media
-      </BaseButton>
-    </div>
-    <p class="card__date">
-      {{ formattedDate }}
-    </p>
-    <NuxtLink :to="prependLeadingSlash(slug)">
-      <h3 class="card__title">
-        {{ article.title }}
-      </h3>
-    </NuxtLink>
-    <div
-      class="card__description"
-      v-html="getDescription"
-    />
-    <NuxtLink
-      :to="prependLeadingSlash(slug)"
-      class="card__link"
-    >
-      {{ article.link_text }}
-    </NuxtLink>
-  </div>
+        <NuxtImg
+          :src="article.image.filename"
+          :width="1194"
+          :height="676"
+          :alt="article.image.alt"
+          sizes="100vw md:50vw"
+          loading="lazy"
+          class="article-card__image"
+        />
+        <BaseButton
+          :to="prependLeadingSlash(slug)"
+          size="sm"
+          color="light-branded"
+          class="article-card__button"
+        >
+          Social Media
+        </BaseButton>
+      </div>
+    </template>
+    <template #default>
+      <p class="article-card__date">
+        {{ formattedDate }}
+      </p>
+      <DynamicHeading
+        v-if="article.heading"
+        :as="article.heading_level"
+        class="article-card__heading"
+      >
+        {{ article.heading }}
+      </DynamicHeading>
+      <div
+        class="article-card__description"
+        v-html="articleCardDescription"
+      />
+    </template>
+    <template #footer>
+      <NuxtLink
+        :to="prependLeadingSlash(slug)"
+        class="article-card__link"
+      >
+        {{ article.link_text }}
+      </NuxtLink>
+    </template>
+  </BaseCard>
 </template>
 
 <style scoped lang="scss">
-$card-padding: clamped(
-  $min-size: $spacing--2xl,
-  $max-size: $spacing--8xl,
-);
-// outer radius = inner radius + gap
+// outer radius = inner radius + gap -> inner radius = outer radius - gap
 // source: https://cloudfour.com/thinks/the-math-behind-nesting-rounded-corners/
-$card-image-border-radius: $rounded--2xl * 2;
-$card-border-radius: clamped(
-  $min-size: $card-image-border-radius + $spacing--2xl,
-  $max-size: $card-image-border-radius + $spacing--8xl,
+$article-card-border-radius: $rounded--3xl * 2;
+$article-card-image-border-radius: clamped(
+  $min-size: $article-card-border-radius - $spacing--2xl,
+  $max-size: $article-card-border-radius - $spacing--8xl,
 );
 
-.card {
-  padding: $card-padding;
-  border-radius: $card-border-radius;
+.article-card {
+  border-radius: $article-card-border-radius;
   background-color: $color--secondary--extra-light;
 
   &__image-box {
@@ -85,7 +91,7 @@ $card-border-radius: clamped(
   }
 
   &__image {
-    border-radius: $card-image-border-radius;
+    border-radius: $article-card-image-border-radius;
   }
 
   &__button {
@@ -96,7 +102,7 @@ $card-border-radius: clamped(
   }
 
   &__date {
-    margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
+    margin: 0;
     @include fluid-typography(
       $min-font-size: $text--base,
       $max-font-size: $text--lg,
@@ -105,17 +111,18 @@ $card-border-radius: clamped(
     );
   }
 
-  &__title {
+  &__heading {
     margin-top: $spacing--2xl;
-  }
-
-  &__description {
-    margin: $spacing--2xl 0 0 0;
+    @include fluid-typography(
+      $min-font-size: $text--2xl,
+      $max-font-size: $text--3xl,
+      $min-line-height: $leading--tight,
+      $max-line-height: $leading--condensed
+    );
   }
 
   &__link {
     display: inline-block;
-    margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
     font-weight: $font--bold;
     text-decoration: underline;
   }

@@ -4,25 +4,35 @@
       "name": "all-articles",
       "display_name": null,
       "created_at": "2023-08-27T18:21:57.939Z",
-      "updated_at": "2023-09-24T20:32:47.777Z",
+      "updated_at": "2024-07-08T18:24:29.667Z",
       "id": 4482124,
       "schema": {
-        "title": {
-          "type": "text"
-        },
-        "articles": {
-          "type": "options",
-          "required": true,
-          "source": "internal_stories",
-          "folder_slug": "blog/",
-          "filter_content_type": [
-            "article"
+        "columns": {
+          "type": "option",
+          "pos": 0,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "c46544ef-7d89-41df-9a18-8aa8d3f201c5",
+              "name": "Two",
+              "value": "2"
+            },
+            {
+              "_uid": "1a9b67ec-423e-44f9-b2ac-c8a929718526",
+              "value": "3",
+              "name": "Three"
+            }
           ],
-          "min_options": "3"
+          "default_value": "2"
+        },
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 1
         }
       },
       "image": null,
-      "preview_field": null,
+      "preview_field": "columns",
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
@@ -41,7 +51,7 @@
       "name": "article",
       "display_name": null,
       "created_at": "2023-08-17T18:42:56.203Z",
-      "updated_at": "2024-06-01T08:23:04.097Z",
+      "updated_at": "2024-07-08T18:25:49.125Z",
       "id": 4437519,
       "schema": {
         "date": {
@@ -52,18 +62,58 @@
         },
         "link_text": {
           "type": "text",
-          "required": true
+          "required": true,
+          "pos": 1
         },
-        "title": {
+        "heading": {
           "type": "text",
           "key": "title",
-          "pos": 1,
+          "pos": 2,
           "required": true
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "849c51e1-1b28-4a7d-ae50-f304993f4dc9",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "a685ed87-192b-4263-be98-0ac2f0a0234e",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "3bd3a7dd-d849-4062-9450-3ef8badef881",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "4c935c00-062a-4e0c-80db-49ac20c3bf72",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "a2ad4e2a-7563-4282-944a-6d3e2fd075b6",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "57412b86-5476-4203-b6dc-9abc636ef280",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "default_value": "h2"
         },
         "content": {
           "type": "richtext",
           "key": "description",
-          "pos": 2,
+          "pos": 4,
           "required": true
         },
         "image": {
@@ -71,7 +121,7 @@
           "filetypes": [
             "images"
           ],
-          "pos": 3,
+          "pos": 5,
           "required": true
         }
       },
@@ -95,7 +145,7 @@
       "name": "articles-section",
       "display_name": null,
       "created_at": "2023-08-17T18:52:21.163Z",
-      "updated_at": "2024-06-27T14:16:03.065Z",
+      "updated_at": "2024-07-08T13:56:01.314Z",
       "id": 4437547,
       "schema": {
         "columns": {
@@ -148,7 +198,7 @@
             "article"
           ],
           "min_options": "2",
-          "max_options": "20",
+          "max_options": "6",
           "required": true,
           "pos": 5
         },

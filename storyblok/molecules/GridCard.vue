@@ -55,6 +55,7 @@ const cardDescription = computed(() => renderRichText(props.blok.description))
 
 <style scoped lang="scss">
 .grid-card {
+  border-radius: $rounded--3xl * 2;
   text-align: center;
 
   &__heading {
@@ -65,6 +66,16 @@ const cardDescription = computed(() => renderRichText(props.blok.description))
     display: inline-block;
     font-weight: $font--bold;
     text-decoration: underline;
+  }
+
+  @media (hover: none) {
+    background-color: $color--secondary--extra-light;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: $color--secondary--extra-light;
+    }
   }
 }
 </style>

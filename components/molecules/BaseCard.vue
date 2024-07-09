@@ -33,42 +33,19 @@ withDefaults(defineProps<Props>(), {
 <style scoped lang="scss">
 .card {
   $parent: &;
-  border-radius: $rounded--3xl * 2;
 
-  &__header {
-    /* top | left and right | bottom */
-    padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--12xl)
-      clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl)
-      clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
-
-    & + #{$parent}__body {
-      padding-top: 0;
-    }
-  }
-
-  &__body {
-    padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
-
-    & + #{$parent}__footer {
-      padding-top: 0;
-    }
-  }
-
+  &__header,
+  &__body,
   &__footer {
-    /* top | left and right | bottom */
-    padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl)
-      clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl)
-      clamped($min-size: $spacing--4xl, $max-size: $spacing--12xl);
+    padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
   }
 
-  @media (hover: none) {
-    background-color: $color--secondary--extra-light;
+  &__header + #{$parent}__body {
+    padding-top: 0;
   }
 
-  @media (hover: hover) {
-    &:hover {
-      background-color: $color--secondary--extra-light;
-    }
+  &__body + #{$parent}__footer {
+    padding-top: 0;
   }
 }
 </style>

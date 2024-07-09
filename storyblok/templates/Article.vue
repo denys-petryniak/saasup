@@ -7,14 +7,19 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const resolvedRichText = computed(() => renderRichText(props.blok.content))
+const articleContent = computed(() => renderRichText(props.blok.content))
 </script>
 
 <template>
   <article v-editable="blok">
     <BaseSection>
-      <h1>{{ blok.title }}</h1>
-      <div v-html="resolvedRichText" />
+      <DynamicHeading
+        v-if="blok.heading"
+        :as="blok.heading_level"
+      >
+        {{ blok.heading }}
+      </DynamicHeading>
+      <div v-html="articleContent" />
     </BaseSection>
   </article>
 </template>
