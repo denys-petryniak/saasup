@@ -38,15 +38,16 @@ const articleContent = computed(() => renderRichText(props.blok.content))
       margin: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl) 0;
       padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--12xl);
       border-left: 60px solid $color-primary--light;
+      border-radius: $rounded--3xl;
+      color: $color--secondary--extra-dark;
+      background-color: rgba($color--secondary--dark, 0.05);
+
       @include breakpoint('sm') {
         border-left-width: 80px;
       }
       @include breakpoint('md') {
         border-left-width: 100px;
       }
-      border-radius: $rounded--3xl;
-      color: $color--secondary--extra-dark;
-      background-color: rgba($color--secondary--dark, 0.05);
 
       p:first-of-type {
         margin-top: 0;

@@ -62,12 +62,13 @@ const description = computed(() => renderRichText(props.blok.description))
 .tabbed-content-entry {
   display: grid;
   grid-template-columns: 1fr;
-  @include breakpoint('lg') {
-    grid-template-columns: repeat(2, 1fr);
-  }
   gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   margin-top: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
   padding: 0 clamped($min-size: $spacing--xs, $max-size: $spacing--12xl);
+
+  @include breakpoint('lg') {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   &__heading-box {
     display: flex;

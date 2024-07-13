@@ -82,12 +82,13 @@ const { formattedArticleDate } = useArticleDate(props.blok.article_date)
   &__content {
     display: flex;
     flex-direction: column;
+    gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
+    margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
+
     @include breakpoint('lg') {
       flex-direction: row;
       justify-content: space-between;
     }
-    gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
-    margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }
 
   &__heading {

@@ -89,17 +89,13 @@ function getTabButtonText({ index, text = 'Tab' }: { index: number, text: string
     text-align: start;
     font-weight: $font--bold;
 
+    @include breakpoint('md') {
+      text-align: center;
+    }
+
     &--active {
       background-color: $color-primary--light;
       color: $color-white--regular;
-    }
-  }
-}
-
-@include breakpoint('md') {
-  .tabbed-content-section {
-    &__button {
-      text-align: center;
     }
   }
 }

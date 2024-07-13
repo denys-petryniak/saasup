@@ -119,14 +119,15 @@ $section-border-radius: clamped(
   &__body {
     display: grid;
     grid-template-columns: 1fr;
-    @include breakpoint('lg') {
-      grid-template-columns: repeat(2, 1fr);
-    }
     align-items: center;
     gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
     padding: $section-padding-y $section-padding-x;
     border-radius: $section-border-radius;
     background: v-bind(sectionBackground) no-repeat 50% 50% / cover;
+
+    @include breakpoint('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__description {
@@ -140,6 +141,7 @@ $section-border-radius: clamped(
   }
 
   &__email {
+    width: 100%;
     flex: 2 1 convert(300px, 'rem');
   }
 

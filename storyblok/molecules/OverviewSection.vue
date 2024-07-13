@@ -53,31 +53,34 @@ function isFirstOverviewImage(image: AssetStoryblok): boolean {
   &__images {
     display: grid;
     grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
+
     @include breakpoint('md') {
       grid-template-columns: 1fr 0.5fr;
     }
-    align-items: stretch;
-    gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
   }
 
   &__image {
     aspect-ratio: 1 / 1;
-    @include breakpoint('md') {
-      aspect-ratio: initial;
-    }
     border-radius: $rounded--3xl;
     box-shadow: $shadow--regular;
     object-fit: cover;
+
+    @include breakpoint('md') {
+      aspect-ratio: initial;
+    }
   }
 
   &__content {
     display: grid;
     grid-template-columns: 1fr;
+    gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
+    margin-top: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
+
     @include breakpoint('md') {
       grid-template-columns: 0.5fr 1fr;
     }
-    gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
-    margin-top: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
   }
 
   &__heading {

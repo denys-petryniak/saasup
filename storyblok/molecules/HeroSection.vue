@@ -72,10 +72,11 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
   &__body {
     display: grid;
     grid-template-columns: 1fr;
+    gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
+
     @include breakpoint('lg') {
       grid-template-columns: 0.8fr 1fr;
     }
-    gap: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }
 
   &__image {
@@ -87,10 +88,11 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: $spacing--lg;
+
     @include breakpoint('lg') {
       justify-content: flex-start;
     }
-    gap: $spacing--lg;
   }
 
   &__video-button {
