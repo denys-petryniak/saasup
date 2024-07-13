@@ -136,7 +136,7 @@ $section-bg-z-index: -2;
   gap: $spacing--lg;
 
   &__text {
-    flex: 1 1 convert(374px, 'rem');
+    flex: 1 1 toRem(374px);
   }
 
   &__heading {

@@ -3,27 +3,27 @@
 // based on tailwind default spacing scale -
 // https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale
 
-$spacing--xs: fn.convert(4px, 'rem');
-$spacing--sm: fn.convert(8px, 'rem');
-$spacing--md: fn.convert(12px, 'rem');
-$spacing--lg: fn.convert(16px, 'rem');
-$spacing--xl: fn.convert(20px, 'rem');
-$spacing--2xl: fn.convert(24px, 'rem');
-$spacing--3xl: fn.convert(28px, 'rem');
-$spacing--4xl: fn.convert(32px, 'rem');
-$spacing--5xl: fn.convert(36px, 'rem');
-$spacing--6xl: fn.convert(40px, 'rem');
-$spacing--7xl: fn.convert(44px, 'rem');
-$spacing--8xl: fn.convert(48px, 'rem');
-$spacing--9xl: fn.convert(52px, 'rem');
-$spacing--10xl: fn.convert(56px, 'rem');
-$spacing--11xl: fn.convert(60px, 'rem');
-$spacing--12xl: fn.convert(64px, 'rem');
+$spacing--xs: fn.toRem(4px);
+$spacing--sm: fn.toRem(8px);
+$spacing--md: fn.toRem(12px);
+$spacing--lg: fn.toRem(16px);
+$spacing--xl: fn.toRem(20px);
+$spacing--2xl: fn.toRem(24px);
+$spacing--3xl: fn.toRem(28px);
+$spacing--4xl: fn.toRem(32px);
+$spacing--5xl: fn.toRem(36px);
+$spacing--6xl: fn.toRem(40px);
+$spacing--7xl: fn.toRem(44px);
+$spacing--8xl: fn.toRem(48px);
+$spacing--9xl: fn.toRem(52px);
+$spacing--10xl: fn.toRem(56px);
+$spacing--11xl: fn.toRem(60px);
+$spacing--12xl: fn.toRem(64px);
 
-$gap--sm: fn.convert(60px, 'rem');
-$gap--md: fn.convert(80px, 'rem');
-$gap--lg: fn.convert(100px, 'rem');
+$gap--sm: fn.toRem(60px);
+$gap--md: fn.toRem(80px);
+$gap--lg: fn.toRem(100px);
 
-$container-width--xs: fn.convert(320px, 'rem');
-$container-width--lg: fn.convert(1000px, 'rem');
-$container-width--xl: fn.convert(1400px, 'rem');
+$container-width--xs: fn.toRem(320px);
+$container-width--lg: fn.toRem(1000px);
+$container-width--xl: fn.toRem(1400px);

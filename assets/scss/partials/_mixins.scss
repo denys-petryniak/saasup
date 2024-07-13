@@ -67,8 +67,8 @@ $breakpoints: (
 
 // *** GRID LAYOUT ***
 
-$column-width--min: fn.convert(250px, 'rem');
-$column-width--max: fn.convert(700px, 'rem');
+$column-width--min: fn.toRem(250px);
+$column-width--max: fn.toRem(700px);
 
 @mixin grid-columns($col) {
   grid-template-columns: minmax(

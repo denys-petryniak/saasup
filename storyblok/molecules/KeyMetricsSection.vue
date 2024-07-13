@@ -40,7 +40,7 @@ defineProps<Props>()
   }
 
   &__metric {
-    flex: 1 1 convert(220px, 'rem');
+    flex: 1 1 toRem(220px);
   }
 }
 

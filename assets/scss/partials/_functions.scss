@@ -1,25 +1,35 @@
 @use 'sass:math';
 
-/// Converts PX to REM or EM
+/// Converts PX to REM
 /// @access public
 /// @param {string} $size - Value to be converted in PX.
-/// @param {string} $unit - Target unit: "rem" or "em".
 /// @returns {string} - Returns converted value with the specified unit.
-/// @example font-size: convert(24px, "rem");
+/// @example font-size: toRem(24px);
 /// @returns font-size: 1.5rem;
-@function convert($size, $unit) {
-  $browser-context: 16px;
-  $convertedSize: $size;
-
-  @if $unit == 'rem' {
-    $convertedSize: math.div($size, $browser-context) * 1rem;
-  } @else if $unit == 'em' {
-    $convertedSize: math.div($size, $browser-context) * 1em;
-  } @else {
-    @warn "Unsupported unit: #{$unit}. Please specify 'rem' or 'em'.";
+@function toRem($size) {
+  @if (type-of($size) != 'number') or (unit($size) != 'px') {
+    @warn "Unsupported unit: #{unit($size)}. Please specify a value in 'px'.";
+    @return null;
   }
 
-  @return $convertedSize;
+  $browser-context: 16px;
+  @return math.div($size, $browser-context) * 1rem;
+}
+
+/// Converts PX to EM
+/// @access public
+/// @param {string} $size - Value to be converted in PX.
+/// @returns {string} - Returns converted value with the specified unit.
+/// @example font-size: toEm(24px);
+/// @returns font-size: 1.5em;
+@function toEm($size) {
+  @if (type-of($size) != 'number') or (unit($size) != 'px') {
+    @warn "Unsupported unit: #{unit($size)}. Please specify a value in 'px'.";
+    @return null;
+  }
+
+  $browser-context: 16px;
+  @return math.div($size, $browser-context) * 1em;
 }
 
 /// Rounds a number to the specified number of decimal places.
@@ -48,8 +58,8 @@
 /// @throws {Error} - Throws an error if any of the input values have an invalid unit.
 /// @returns {string} - Returns the clamped value with the specified unit.
 
-$default-min-bp: convert(320px, 'rem');
-$default-max-bp: convert(1440px, 'rem');
+$default-min-bp: toRem(320px);
+$default-max-bp: toRem(1440px);
 
 @function clamped(
   $min-size,

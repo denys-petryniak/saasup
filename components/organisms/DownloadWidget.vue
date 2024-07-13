@@ -57,7 +57,7 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-$widget-max-width: convert(580px, 'rem');
+$widget-max-width: toRem(580px);
 $widget-padding-y: clamped(
   $min-size: $spacing--8xl,
   $max-size: $spacing--12xl,

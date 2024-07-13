@@ -142,11 +142,11 @@ $section-border-radius: clamped(
 
   &__email {
     width: 100%;
-    flex: 2 1 convert(300px, 'rem');
+    flex: 2 1 toRem(300px);
   }
 
   &__button {
-    flex: 1 1 convert(180px, 'rem');
+    flex: 1 1 toRem(180px);
   }
 
   &__success-message {

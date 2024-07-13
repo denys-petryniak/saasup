@@ -79,8 +79,8 @@ function getTabButtonText({ index, text = 'Tab' }: { index: number, text: string
   }
 
   &__button {
-    max-width: convert(500px, 'rem');
-    flex: 1 1 convert(350px, 'rem');
+    max-width: toRem(500px);
+    flex: 1 1 toRem(350px);
     padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl)
       clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
     border-radius: $rounded--2xl;

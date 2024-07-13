@@ -83,7 +83,7 @@ $section-bg-decor-z-index: -1;
 <style lang="scss">
 $carousel-button-color: #6850ff;
 $carousel-button-blur: 12px;
-$carousel-button-size: convert(76px, 'rem');
+$carousel-button-size: toRem(76px);
 
 .carousel {
   &__slide {

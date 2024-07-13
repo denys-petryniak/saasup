@@ -2,11 +2,11 @@
 
 // based on tailwind border radiuses - https://tailwindcss.com/docs/border-radius
 $rounded--none: 0px;
-$rounded--xs: fn.convert(2px, 'rem');
-$rounded--sm: fn.convert(4px, 'rem');
-$rounded--md: fn.convert(6px, 'rem');
-$rounded--lg: fn.convert(8px, 'rem');
-$rounded--xl: fn.convert(12px, 'rem');
-$rounded--2xl: fn.convert(16px, 'rem');
-$rounded--3xl: fn.convert(24px, 'rem');
+$rounded--xs: fn.toRem(2px);
+$rounded--sm: fn.toRem(4px);
+$rounded--md: fn.toRem(6px);
+$rounded--lg: fn.toRem(8px);
+$rounded--xl: fn.toRem(12px);
+$rounded--2xl: fn.toRem(16px);
+$rounded--3xl: fn.toRem(24px);
 $rounded--full: 50%;

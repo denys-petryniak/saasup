@@ -92,7 +92,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
   }
 
   &__plans-item {
-    flex: 1 1 convert(250px, 'rem');
+    flex: 1 1 toRem(250px);
   }
 }
 
@@ -107,7 +107,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
   }
 
   &__image-box {
-    max-width: convert(80px, 'rem');
+    max-width: toRem(80px);
   }
 }
 </style>

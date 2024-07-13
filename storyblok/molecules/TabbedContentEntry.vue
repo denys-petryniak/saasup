@@ -78,7 +78,7 @@ const description = computed(() => renderRichText(props.blok.description))
 
   &__heading {
     margin: 0;
-    flex: 1 1 convert(300px, 'rem');
+    flex: 1 1 toRem(300px);
   }
 
   &__image {

@@ -67,7 +67,7 @@ const contentBlockClasses = computed(() => {
 </template>
 
 <style scoped lang="scss">
-$header-text-width--max: convert(750px, 'rem');
+$header-text-width--max: toRem(750px);
 
 .content-block {
   $parent: &;
