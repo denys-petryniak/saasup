@@ -77,7 +77,11 @@ p {
     margin: 0;
   }
 
-  &:last-of-type {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
     margin-bottom: 0;
   }
 }

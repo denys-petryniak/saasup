@@ -83,9 +83,5 @@ function isFirstOverviewImage(image: AssetStoryblok): boolean {
   &__heading {
     margin: 0;
   }
-
-  &__description::v-deep(p:first-of-type) {
-    margin-top: 0;
-  }
 }
 </style>

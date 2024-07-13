@@ -24,5 +24,6 @@ $gap--sm: fn.convert(60px, 'rem');
 $gap--md: fn.convert(80px, 'rem');
 $gap--lg: fn.convert(100px, 'rem');
 
-$container-width--min: fn.convert(320px, 'rem');
-$container-width--max: fn.convert(1400px, 'rem');
+$container-width--xs: fn.convert(320px, 'rem');
+$container-width--lg: fn.convert(1000px, 'rem');
+$container-width--xl: fn.convert(1400px, 'rem');

@@ -9,12 +9,9 @@ interface Props {
 const props = defineProps<Props>()
 
 const articleCardDescription = computed(() =>
-  renderRichText(props.article.content))
+  renderRichText(props.article.card_description))
 
-const dateFormatter = ref('MMMM DD, YYYY')
-const formattedDate = useDateFormat(props.article.date, dateFormatter, {
-  locales: 'en-US',
-})
+const { formattedArticleDate } = useArticleDate(props.article.date)
 </script>
 
 <template>
@@ -24,18 +21,19 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
   >
     <template #header>
       <div
-        v-if="article.image?.filename"
+        v-if="article.card_image?.filename"
         class="article-card__image-box"
       >
         <NuxtImg
-          :src="article.image.filename"
+          :src="article.card_image.filename"
           :width="1194"
           :height="676"
-          :alt="article.image.alt"
+          :alt="article.card_image.alt"
           sizes="100vw md:50vw"
           loading="lazy"
           class="article-card__image"
         />
+        <!-- TODO: create blog categories -->
         <BaseButton
           :to="prependLeadingSlash(slug)"
           size="sm"
@@ -48,14 +46,14 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
     </template>
     <template #default>
       <p class="article-card__date">
-        {{ formattedDate }}
+        {{ formattedArticleDate }}
       </p>
       <DynamicHeading
-        v-if="article.heading"
-        :as="article.heading_level"
+        v-if="article.card_heading"
+        :as="article.card_heading_level"
         class="article-card__heading"
       >
-        {{ article.heading }}
+        {{ article.card_heading }}
       </DynamicHeading>
       <div
         class="article-card__description"
@@ -67,7 +65,7 @@ const formattedDate = useDateFormat(props.article.date, dateFormatter, {
         :to="prependLeadingSlash(slug)"
         class="article-card__link"
       >
-        {{ article.link_text }}
+        {{ article.card_link_text }}
       </NuxtLink>
     </template>
   </BaseCard>

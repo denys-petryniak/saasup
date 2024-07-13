@@ -8,15 +8,6 @@ export interface AllArticlesStoryblok {
   [k: string]: any;
 }
 
-export interface RichtextStoryblok {
-  type: string;
-  content?: RichtextStoryblok[];
-  marks?: RichtextStoryblok[];
-  attrs?: any;
-  text?: string;
-  [k: string]: any;
-}
-
 export interface AssetStoryblok {
   _uid?: string;
   id: number;
@@ -35,15 +26,72 @@ export interface AssetStoryblok {
   [k: string]: any;
 }
 
+export interface RichtextStoryblok {
+  type: string;
+  content?: RichtextStoryblok[];
+  marks?: RichtextStoryblok[];
+  attrs?: any;
+  text?: string;
+  [k: string]: any;
+}
+
 export interface ArticleStoryblok {
+  card_image: AssetStoryblok;
+  card_heading: string;
+  card_heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  card_description: RichtextStoryblok;
+  card_link_text: string;
   date: string;
-  link_text: string;
-  heading: string;
-  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  content: RichtextStoryblok;
-  image: AssetStoryblok;
+  body?: (
+    | ArticleContentStoryblok
+    | ArticleHeroSectionStoryblok
+    | AuthorEntryStoryblok
+    | ButtonStoryblok
+    | CtaSectionStoryblok
+    | GridCardStoryblok
+    | HeroSectionStoryblok
+    | ImageTextSectionStoryblok
+    | InfoCardStoryblok
+    | IntroSectionStoryblok
+    | KeyMetricsSectionStoryblok
+    | LinkStoryblok
+    | MetricStoryblok
+    | OverviewSectionStoryblok
+    | PlatformSectionStoryblok
+    | PricingPlanStoryblok
+    | SectionDividerStoryblok
+    | SubmenuStoryblok
+    | TabbedContentEntryStoryblok
+    | UnderDevStoryblok
+    | AllArticlesStoryblok
+    | ArticlesSectionStoryblok
+    | CareersSectionStoryblok
+    | GridSectionStoryblok
+    | PricingSectionStoryblok
+    | TabbedContentSectionStoryblok
+    | TestimonialEntryStoryblok
+    | TestimonialSectionStoryblok
+  )[];
   _uid: string;
   component: "article";
+  [k: string]: any;
+}
+
+export interface ArticleContentStoryblok {
+  hide_top_gap?: boolean;
+  content: RichtextStoryblok;
+  _uid: string;
+  component: "article-content";
+  [k: string]: any;
+}
+
+export interface ArticleHeroSectionStoryblok {
+  image: AssetStoryblok;
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  authors?: (StoryblokStory<AuthorStoryblok> | string)[];
+  _uid: string;
+  component: "article-hero-section";
   [k: string]: any;
 }
 
@@ -56,6 +104,16 @@ export interface ArticlesSectionStoryblok {
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
   component: "articles-section";
+  [k: string]: any;
+}
+
+export interface AuthorStoryblok {
+  photo: AssetStoryblok;
+  name: string;
+  role?: string;
+  rating?: string;
+  _uid: string;
+  component: "author";
   [k: string]: any;
 }
 
@@ -261,6 +319,8 @@ export interface OverviewSectionStoryblok {
 
 export interface PageStoryblok {
   body: (
+    | ArticleContentStoryblok
+    | ArticleHeroSectionStoryblok
     | AuthorEntryStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
@@ -382,7 +442,7 @@ export interface TabbedContentSectionStoryblok {
 
 export interface TestimonialEntryStoryblok {
   text: RichtextStoryblok;
-  authors: AuthorEntryStoryblok[];
+  author: StoryblokStory<AuthorStoryblok> | string;
   _uid: string;
   component: "testimonial-entry";
   [k: string]: any;

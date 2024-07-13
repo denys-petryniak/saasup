@@ -7,6 +7,8 @@ useHead({
 
 const resolveRelations = [
   'articles-section.articles',
+  'article-hero-section.authors',
+  'testimonial-entry.author',
   'careers-section.vacancies',
 ]
 const resolveLinks = 'url'

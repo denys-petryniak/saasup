@@ -95,10 +95,6 @@ $header-text-width--max: convert(750px, 'rem');
     margin: 0;
   }
 
-  &__description::v-deep(p:first-of-type) {
-    margin-top: 0;
-  }
-
   &--left {
     text-align: left;
 

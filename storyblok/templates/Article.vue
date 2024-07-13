@@ -5,21 +5,15 @@ interface Props {
   blok: ArticleStoryblok
 }
 
-const props = defineProps<Props>()
-
-const articleContent = computed(() => renderRichText(props.blok.content))
+defineProps<Props>()
 </script>
 
 <template>
   <article v-editable="blok">
-    <BaseSection>
-      <DynamicHeading
-        v-if="blok.heading"
-        :as="blok.heading_level"
-      >
-        {{ blok.heading }}
-      </DynamicHeading>
-      <div v-html="articleContent" />
-    </BaseSection>
+    <StoryblokComponent
+      v-for="bodyItem in blok.body"
+      :key="bodyItem._uid"
+      :blok="{ article_date: blok.date, ...bodyItem }"
+    />
   </article>
 </template>

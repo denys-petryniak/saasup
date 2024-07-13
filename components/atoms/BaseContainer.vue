@@ -1,5 +1,23 @@
+<script setup lang="ts">
+import type { ContainerSize } from '~/types'
+
+interface Props {
+  size?: ContainerSize
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  size: 'xl',
+})
+
+const containerClasses = computed(() => {
+  const sizeClass = props.size ? `container--${props.size}` : null
+
+  return ['container', sizeClass]
+})
+</script>
+
 <template>
-  <div class="container">
+  <div :class="containerClasses">
     <slot />
   </div>
 </template>
@@ -13,12 +31,20 @@ $padding--clamped: clamped(
 );
 
 // Calculate the maximum width of the container including padding
-$container-width--max--expanded: $container-width--max + ($padding--max * 2);
+$container-width--lg--expanded: $container-width--lg + ($padding--max * 2);
+$container-width--xl--expanded: $container-width--xl + ($padding--max * 2);
 
 .container {
-  width: min($container-width--max--expanded, 100%);
   padding-left: $padding--clamped;
   padding-right: $padding--clamped;
   margin-inline: auto;
+
+  &--lg {
+    width: min($container-width--lg--expanded, 100%);
+  }
+
+  &--xl {
+    width: min($container-width--xl--expanded, 100%);
+  }
 }
 </style>

@@ -13,6 +13,8 @@ export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 export type ImageLoading = 'lazy' | 'eager'
 
+export type ContainerSize = 'lg' | 'xl'
+
 export interface Header {
   navigation: (LinkStoryblok | SubmenuStoryblok)[]
   logo?: AssetStoryblok

@@ -1,14 +1,18 @@
 <script setup lang="ts">
+import type { ContainerSize } from '~/types'
+
 type SectionTag = 'div' | 'section' | 'article'
 
 interface Props {
   as?: SectionTag
+  containerSize?: ContainerSize
   isTopGapHidden?: boolean
   isBottomGapHidden?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
   as: 'section',
+  containerSize: 'xl',
   isTopGapHidden: false,
   isBottomGapHidden: false,
 })
@@ -23,7 +27,7 @@ withDefaults(defineProps<Props>(), {
     }"
     class="section"
   >
-    <BaseContainer>
+    <BaseContainer :size="containerSize">
       <slot />
     </BaseContainer>
   </component>
