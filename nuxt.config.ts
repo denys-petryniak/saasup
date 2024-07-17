@@ -83,12 +83,7 @@ export default defineNuxtConfig({
     // https://www.npmjs.com/package/@vueuse/nuxt
     '@vueuse/nuxt',
     // https://github.com/nuxt-modules/icon
-    [
-      '@nuxt/icon',
-      {
-        class: 'icon',
-      },
-    ],
+    '@nuxt/icon',
     // https://github.com/nuxt/image
     [
       '@nuxt/image',
