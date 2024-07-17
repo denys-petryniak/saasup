@@ -8,7 +8,9 @@ interface Props {
 
 defineProps<Props>()
 
-const { articles } = useFetchArticles()
+const { articles, fetchArticles } = useFetchArticles()
+
+await fetchArticles()
 </script>
 
 <template>

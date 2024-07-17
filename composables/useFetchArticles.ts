@@ -28,8 +28,6 @@ export function useFetchArticles(filterQuery: Record<string, any> = {}) {
     }
   }
 
-  fetchArticles()
-
   return {
     articles,
     fetchArticles,

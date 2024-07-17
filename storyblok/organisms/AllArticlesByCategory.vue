@@ -9,11 +9,13 @@ defineProps<Props>()
 
 const storyId = useStoryId()
 
-const { articles } = useFetchArticles({
+const { articles, fetchArticles } = useFetchArticles({
   category: {
     in: storyId.value,
   },
 })
+
+await fetchArticles()
 </script>
 
 <template>
