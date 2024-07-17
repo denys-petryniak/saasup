@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { storyIdInjectionKey } from '@/utils/keys.js'
+
 const { siteUrl } = useAppConfig()
 
 useHead({
@@ -23,8 +25,6 @@ const slug = route.params.slug
 const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
 
-const storyId = useStoryId()
-
 const { data: story } = await useAsyncData(getSlug, async () => {
   try {
     const { data } = await useStoryblokApi().get(apiEndpoint, {
@@ -32,10 +32,6 @@ const { data: story } = await useAsyncData(getSlug, async () => {
       resolve_relations: resolveRelations,
       resolve_links: resolveLinks,
     })
-
-    if (data.story?.uuid) {
-      storyId.value = data.story.uuid
-    }
 
     return data.story
   }
@@ -63,6 +59,8 @@ function initStoryblokBridge() {
 onMounted(() => {
   initStoryblokBridge()
 })
+
+provide(storyIdInjectionKey, story.value.uuid)
 </script>
 
 <template>

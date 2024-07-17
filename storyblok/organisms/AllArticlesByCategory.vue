@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storyIdInjectionKey } from '@/utils/keys'
 import type { AllArticlesByCategoryStoryblok } from '~/component-types-sb'
 
 interface Props {
@@ -7,11 +8,11 @@ interface Props {
 
 defineProps<Props>()
 
-const storyId = useStoryId()
+const storyId = inject(storyIdInjectionKey)
 
 const { articles, fetchArticles } = useFetchArticles({
   category: {
-    in: storyId.value,
+    in: storyId,
   },
 })
 
