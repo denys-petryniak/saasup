@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { storyIdInjectionKey } from '@/utils/keys.js'
+import type { StoryblokStory } from 'storyblok-generate-ts'
+import type { PageStoryblok } from '~/component-types-sb'
+
+import { storyInjectionKey } from '@/utils/keys.js'
+
+interface StoryData {
+  story: StoryblokStory<PageStoryblok>
+}
 
 const { siteUrl } = useAppConfig()
 
@@ -27,7 +34,7 @@ const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
 
 const { data: story } = await useAsyncData(getSlug, async () => {
   try {
-    const { data } = await useStoryblokApi().get(apiEndpoint, {
+    const { data }: { data: StoryData } = await useStoryblokApi().get(apiEndpoint, {
       version: storyVersion,
       resolve_relations: resolveRelations,
       resolve_links: resolveLinks,
@@ -44,23 +51,25 @@ if (!isPreview && !story.value)
   showError({ statusCode: 404, statusMessage: 'Page Not Found' })
 
 function initStoryblokBridge() {
-  if (!isPreview || !story.value?.id)
-    return
-
-  useStoryblokBridge(
-    story.value.id,
-    evStory => (story.value = evStory),
-    {
-      resolveRelations,
-    },
-  )
+  // TODO: improve types (evStory: ISbStoryData<any>)
+  if (isPreview && story.value?.id) {
+    useStoryblokBridge(
+      story.value.id,
+      evStory => ((story as any).value = evStory),
+      {
+        resolveRelations,
+      },
+    )
+  }
 }
 
 onMounted(() => {
   initStoryblokBridge()
 })
 
-provide(storyIdInjectionKey, story.value.uuid)
+if (story.value) {
+  provide(storyInjectionKey, story.value.uuid)
+}
 </script>
 
 <template>

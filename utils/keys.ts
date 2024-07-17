@@ -1,1 +1,1 @@
-export const storyIdInjectionKey = Symbol('Storyblok Story ID') as InjectionKey<string>
+export const storyInjectionKey = Symbol('Storyblok Story') as InjectionKey<string>
