@@ -13,7 +13,11 @@ defineProps<Props>()
     <StoryblokComponent
       v-for="bodyItem in blok.body"
       :key="bodyItem._uid"
-      :blok="{ article_date: blok.date, ...bodyItem }"
+      :blok="{
+        article_date: blok.date,
+        article_category: blok.category,
+        ...bodyItem,
+      }"
     />
   </article>
 </template>

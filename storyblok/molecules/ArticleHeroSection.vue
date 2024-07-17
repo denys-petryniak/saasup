@@ -1,23 +1,26 @@
 <script setup lang="ts">
 import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { ArticleHeroSectionStoryblok, AuthorStoryblok } from '~/component-types-sb'
+import type { ArticleHeroSectionStoryblok, AuthorStoryblok, CategoryStoryblok } from '~/component-types-sb'
 
-type ArticleHeroSectionWithDate = ArticleHeroSectionStoryblok & { article_date: string }
+interface ArticleMeta {
+  article_date: string
+  article_category?: StoryblokStory<CategoryStoryblok>
+}
 
 interface Props {
-  blok: ArticleHeroSectionWithDate
+  blok: ArticleHeroSectionStoryblok & ArticleMeta
 }
 
 const props = defineProps<Props>()
 
-function isStoryblokStory(
+function isAuthorStoryblokStory(
   author: string | StoryblokStory<AuthorStoryblok>,
 ): author is StoryblokStory<AuthorStoryblok> {
   return typeof author !== 'string'
 }
 
 const typeCheckedAuthors = computed(() => {
-  return (props.blok.authors ?? []).filter(isStoryblokStory)
+  return (props.blok.authors ?? []).filter(isAuthorStoryblokStory)
 })
 
 const { formattedArticleDate } = useArticleDate(props.blok.article_date)
@@ -62,6 +65,18 @@ const { formattedArticleDate } = useArticleDate(props.blok.article_date)
           </div>
           <div class="article-hero-section__date">
             <span class="article-hero-section__date-label">Posted On:</span> {{ formattedArticleDate }}
+          </div>
+          <div
+            v-if="blok.article_category"
+            class="article-hero-section__category"
+          >
+            <BaseButton
+              :to="prependLeadingSlash(blok.article_category.full_slug)"
+              size="sm"
+              color="branded"
+            >
+              {{ blok.article_category.content?.heading }}
+            </BaseButton>
           </div>
         </div>
       </div>
@@ -117,6 +132,10 @@ const { formattedArticleDate } = useArticleDate(props.blok.article_date)
     color: $color-primary--dark;
     font-weight: $font--bold;
     margin-right: $spacing--sm;
+  }
+
+  &__category {
+    margin-top: $spacing--3xl;
   }
 }
 </style>

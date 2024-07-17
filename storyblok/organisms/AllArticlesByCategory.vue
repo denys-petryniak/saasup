@@ -1,14 +1,19 @@
 <script setup lang="ts">
-import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { AllArticlesStoryblok, ArticleStoryblok } from '~/component-types-sb'
+import type { AllArticlesByCategoryStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: AllArticlesStoryblok
+  blok: AllArticlesByCategoryStoryblok
 }
 
 defineProps<Props>()
 
-const { articles } = useFetchArticles()
+const storyId = useStoryId()
+
+const { articles } = useFetchArticles({
+  category: {
+    in: storyId.value,
+  },
+})
 </script>
 
 <template>

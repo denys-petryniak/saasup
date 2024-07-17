@@ -91,6 +91,386 @@
       "color": "",
       "icon": "block-keyboard",
       "description": ""
+    },
+    {
+      "id": 2225565,
+      "name": "Variant 1",
+      "preset": {
+        "_uid": "7d334037-c301-47c2-b156-04d4f720e95b",
+        "body": [
+          {
+            "_uid": "65aa2cd4-35ae-4bd0-a79e-0a36aeb46fb5",
+            "date": "2024-07-13 00:00",
+            "image": {
+              "id": 16589885,
+              "alt": "SaaSup For IOS: Cleaner, Faster, And Smarter",
+              "name": "",
+              "focus": "",
+              "title": "",
+              "source": "",
+              "filename": "https://a.storyblok.com/f/245408/1400x700/2094b030f7/ios-blog-post_large.jpg",
+              "copyright": "",
+              "fieldtype": "asset",
+              "meta_data": {
+                "alt": "SaaSup For IOS: Cleaner, Faster, And Smarter",
+                "title": "",
+                "source": "",
+                "copyright": ""
+              },
+              "is_private": false,
+              "is_external_url": false
+            },
+            "authors": [
+              "87ef7310-d9b9-4a80-a49b-05e3b00c183e"
+            ],
+            "heading": "SaaSup For IOS: Cleaner, Faster, And Smarter",
+            "component": "article-hero-section",
+            "heading_level": "h1"
+          },
+          {
+            "_uid": "32975dcd-a4b2-469e-8ec4-fdda64016e11",
+            "color": "",
+            "component": "section-divider"
+          },
+          {
+            "_uid": "80d5da65-9a9c-4a38-b8a3-9d6aec68e3a5",
+            "content": {
+              "type": "doc",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "text": "Uniquely matrix economically sound value through cooperative technology. Competently parallel task fully researched data and enterprise process improvements. Collaboratively expedite quality manufactured products via client-focused results quickly communicate enabled technology and turnkey leadership skills. Uniquely enable accurate supply chains rather than friction technology.",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading",
+                  "attrs": {
+                    "level": 2
+                  },
+                  "content": [
+                    {
+                      "text": "The perfect integration for all",
+                      "type": "text",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "text": "Appropriately empower dynamic",
+                      "type": "text"
+                    },
+                    {
+                      "text": " leadership",
+                      "type": "text",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "text": " ",
+                      "type": "text"
+                    },
+                    {
+                      "text": "skills ",
+                      "type": "text",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "after business portals. Globally my cardinate interactive supply chains with distinctive quality vectors global sources services. Uniquely matrix economically sound value through cooperative technology. Competently parallel task fully researched data and ",
+                      "type": "text"
+                    },
+                    {
+                      "text": "enterprise process improvements.",
+                      "type": "text",
+                      "marks": [
+                        {
+                          "type": "italic"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "bullet_list",
+                  "content": [
+                    {
+                      "type": "list_item",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "text": "Dynamically target high-payoff intellectual capital for customized",
+                              "type": "text"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "list_item",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "text": "Interactively procrastinate high-payoff content",
+                              "type": "text"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "list_item",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "text": "Credibly mediate backend ideas for cross-platform models",
+                              "type": "text"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "blockquote",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "text": "“Crowdsource term sheet freemium beta stealth responsive web design niche market rock star channels.”",
+                          "type": "text"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "heading",
+                  "attrs": {
+                    "level": 3
+                  },
+                  "content": [
+                    {
+                      "text": "Make real-time a reality services",
+                      "type": "text",
+                      "marks": [
+                        {
+                          "type": "bold"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "text": "Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installing base benefits. Dramatically visualize customer-directed convergence without revolutionary ROI.",
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "type": "ordered_list",
+                  "attrs": {
+                    "order": null
+                  },
+                  "content": [
+                    {
+                      "type": "list_item",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "text": "It brings the right people together with all the right information and tools to get work done",
+                              "type": "text"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "list_item",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "text": "We provide operational efficiency, data security, and flexible scale",
+                              "type": "text"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "list_item",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "text": "Your best work, together in one package that works seamlessly from your computer",
+                              "type": "text"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "list_item",
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "text": "Delivers the tools you need to save time Improve field performance always",
+                              "type": "text"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "component": "article-content",
+            "hide_top_gap": false
+          },
+          {
+            "_uid": "f689421c-7847-4174-b545-5c20dad90767",
+            "color": "",
+            "component": "section-divider"
+          },
+          {
+            "_uid": "5203d704-d51a-438f-a139-23511679bc24",
+            "image": {
+              "id": 10637343,
+              "alt": "Product preview",
+              "name": "",
+              "focus": "",
+              "title": "",
+              "source": "",
+              "filename": "https://a.storyblok.com/f/245408/1336x988/c59124c4f4/cta.png",
+              "copyright": "",
+              "fieldtype": "asset",
+              "meta_data": {},
+              "content_type": "png",
+              "is_external_url": false
+            },
+            "heading": "Get started a 15-days free trial",
+            "component": "cta-section",
+            "description": {
+              "type": "doc",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "text": "Start creating online marketing campaigns for your business with Sassup's 15-day free trial. No commitment.",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            "heading_level": "h2",
+            "background_image": {
+              "id": 10637341,
+              "alt": "",
+              "name": "",
+              "focus": "",
+              "title": "",
+              "source": "",
+              "filename": "https://a.storyblok.com/f/245408/2800x1170/8bbdfa633f/cta-bg.png",
+              "copyright": "",
+              "fieldtype": "asset",
+              "meta_data": {},
+              "is_external_url": false
+            }
+          }
+        ],
+        "date": "2024-07-10 00:00",
+        "component": "article",
+        "card_image": {
+          "id": 16576692,
+          "alt": "SaaSup For IOS: Cleaner, Faster, And Smarter",
+          "name": "",
+          "focus": "",
+          "title": "",
+          "source": "",
+          "filename": "https://a.storyblok.com/f/245408/1194x676/2a0c73c471/ios-blog-post.jpeg",
+          "copyright": "",
+          "fieldtype": "asset",
+          "meta_data": {
+            "alt": "SaaSup For IOS: Cleaner, Faster, And Smarter",
+            "title": "",
+            "source": "",
+            "copyright": ""
+          },
+          "is_private": false,
+          "is_external_url": false
+        },
+        "card_heading": "SaaSup For IOS: Cleaner, Faster, And Smarter",
+        "card_link_text": "View More",
+        "card_description": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Efficiently on low-hanging fruit to identify a ballpark value added activity to beta test matrix economically override the digital divide with DevOps",
+                  "type": "text",
+                  "marks": [
+                    {
+                      "type": "textStyle",
+                      "attrs": {
+                        "color": "rgb(121, 121, 121)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "card_heading_level": "h2"
+      },
+      "component_id": 4437519,
+      "space_id": 245408,
+      "created_at": "2024-07-13T10:13:41.727Z",
+      "updated_at": "2024-07-13T10:13:41.727Z",
+      "image": "",
+      "color": "",
+      "icon": "",
+      "description": ""
     }
   ]
 }

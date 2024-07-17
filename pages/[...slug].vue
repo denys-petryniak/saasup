@@ -6,10 +6,12 @@ useHead({
 })
 
 const resolveRelations = [
+  'article.category',
   'articles-section.articles',
+  'article-hero-section.category',
   'article-hero-section.authors',
-  'testimonial-entry.author',
   'careers-section.vacancies',
+  'testimonial-entry.author',
 ]
 const resolveLinks = 'url'
 
@@ -21,6 +23,8 @@ const slug = route.params.slug
 const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
 
+const storyId = useStoryId()
+
 const { data: story } = await useAsyncData(getSlug, async () => {
   try {
     const { data } = await useStoryblokApi().get(apiEndpoint, {
@@ -28,6 +32,10 @@ const { data: story } = await useAsyncData(getSlug, async () => {
       resolve_relations: resolveRelations,
       resolve_links: resolveLinks,
     })
+
+    if (data.story?.uuid) {
+      storyId.value = data.story.uuid
+    }
 
     return data.story
   }

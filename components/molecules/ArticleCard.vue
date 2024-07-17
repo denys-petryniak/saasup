@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { ArticleStoryblok } from '~/component-types-sb'
+import type { StoryblokStory } from 'storyblok-generate-ts'
+import type { ArticleStoryblok, CategoryStoryblok } from '~/component-types-sb'
 
 interface Props {
   article: ArticleStoryblok
@@ -12,6 +13,28 @@ const articleCardDescription = computed(() =>
   renderRichText(props.article.card_description))
 
 const { formattedArticleDate } = useArticleDate(props.article.date)
+
+function isCategoryStoryblokStory(
+  category: string | StoryblokStory<CategoryStoryblok>,
+): category is StoryblokStory<CategoryStoryblok> {
+  return typeof category !== 'string'
+}
+
+const typeCheckedCategory = computed(() => {
+  if (!props.article.category)
+    return
+
+  return isCategoryStoryblokStory(props.article.category) ? props.article.category : undefined
+})
+
+const route = useRoute()
+
+const isCurrentSlug = computed(() => {
+  if (!typeCheckedCategory.value)
+    return false
+
+  return route.fullPath === prependLeadingSlash(typeCheckedCategory.value.full_slug)
+})
 </script>
 
 <template>
@@ -33,14 +56,15 @@ const { formattedArticleDate } = useArticleDate(props.article.date)
           loading="lazy"
           class="article-card__image"
         />
-        <!-- TODO: create blog categories -->
         <BaseButton
-          :to="prependLeadingSlash(slug)"
+          v-if="typeCheckedCategory"
+          :to="prependLeadingSlash(typeCheckedCategory.full_slug)"
+          :disabled="isCurrentSlug || undefined"
           size="sm"
           color="light-branded"
           class="article-card__button"
         >
-          Social Media
+          {{ typeCheckedCategory.content.heading }}
         </BaseButton>
       </div>
     </template>

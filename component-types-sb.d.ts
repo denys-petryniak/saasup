@@ -8,6 +8,14 @@ export interface AllArticlesStoryblok {
   [k: string]: any;
 }
 
+export interface AllArticlesByCategoryStoryblok {
+  columns?: "2" | "3";
+  hide_top_gap?: boolean;
+  _uid: string;
+  component: "all-articles-by-category";
+  [k: string]: any;
+}
+
 export interface AssetStoryblok {
   _uid?: string;
   id: number;
@@ -36,12 +44,8 @@ export interface RichtextStoryblok {
 }
 
 export interface ArticleStoryblok {
-  card_image: AssetStoryblok;
-  card_heading: string;
-  card_heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  card_description: RichtextStoryblok;
-  card_link_text: string;
   date: string;
+  category?: StoryblokStory<CategoryStoryblok> | string;
   body?: (
     | ArticleContentStoryblok
     | ArticleHeroSectionStoryblok
@@ -64,6 +68,7 @@ export interface ArticleStoryblok {
     | TabbedContentEntryStoryblok
     | UnderDevStoryblok
     | AllArticlesStoryblok
+    | AllArticlesByCategoryStoryblok
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
@@ -72,6 +77,11 @@ export interface ArticleStoryblok {
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
   )[];
+  card_image: AssetStoryblok;
+  card_heading: string;
+  card_heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  card_description: RichtextStoryblok;
+  card_link_text: string;
   _uid: string;
   component: "article";
   [k: string]: any;
@@ -166,6 +176,45 @@ export interface CareersSectionStoryblok {
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
   component: "careers-section";
+  [k: string]: any;
+}
+
+export interface CategoryStoryblok {
+  heading: string;
+  heading_level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  body: (
+    | ArticleContentStoryblok
+    | ArticleHeroSectionStoryblok
+    | AuthorEntryStoryblok
+    | ButtonStoryblok
+    | CtaSectionStoryblok
+    | GridCardStoryblok
+    | HeroSectionStoryblok
+    | ImageTextSectionStoryblok
+    | InfoCardStoryblok
+    | IntroSectionStoryblok
+    | KeyMetricsSectionStoryblok
+    | LinkStoryblok
+    | MetricStoryblok
+    | OverviewSectionStoryblok
+    | PlatformSectionStoryblok
+    | PricingPlanStoryblok
+    | SectionDividerStoryblok
+    | SubmenuStoryblok
+    | TabbedContentEntryStoryblok
+    | UnderDevStoryblok
+    | AllArticlesStoryblok
+    | AllArticlesByCategoryStoryblok
+    | ArticlesSectionStoryblok
+    | CareersSectionStoryblok
+    | GridSectionStoryblok
+    | PricingSectionStoryblok
+    | TabbedContentSectionStoryblok
+    | TestimonialEntryStoryblok
+    | TestimonialSectionStoryblok
+  )[];
+  _uid: string;
+  component: "category";
   [k: string]: any;
 }
 
@@ -340,6 +389,7 @@ export interface PageStoryblok {
     | TabbedContentEntryStoryblok
     | UnderDevStoryblok
     | AllArticlesStoryblok
+    | AllArticlesByCategoryStoryblok
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok

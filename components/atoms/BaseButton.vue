@@ -72,6 +72,12 @@ $button-min-width: 10ch;
   font-weight: $font--bold;
   text-align: center;
 
+  &:disabled,
+  &[disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
   &--full {
     width: 100%;
   }
