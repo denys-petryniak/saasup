@@ -3,6 +3,7 @@ import type { AuthorStoryblok } from '~/component-types-sb'
 
 interface Props {
   blok: AuthorStoryblok
+  slug?: string
 }
 
 defineProps<Props>()
@@ -25,7 +26,12 @@ defineProps<Props>()
       />
     </div>
     <div class="author__text">
-      <p class="author__name">
+      <NuxtLink v-if="slug" :to="prependLeadingSlash(slug)">
+        <p class="author__name">
+          {{ blok.name }}
+        </p>
+      </NuxtLink>
+      <p v-else class="author__name">
         {{ blok.name }}
       </p>
       <p class="author__role">

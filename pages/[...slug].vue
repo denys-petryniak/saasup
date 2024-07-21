@@ -16,9 +16,8 @@ useHead({
 
 const resolveRelations = [
   'article.category',
+  'article.authors',
   'articles-section.articles',
-  'article-hero-section.category',
-  'article-hero-section.authors',
   'careers-section.vacancies',
   'testimonial-entry.author',
 ]

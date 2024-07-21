@@ -2,28 +2,17 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { ArticleHeroSectionStoryblok, AuthorStoryblok, CategoryStoryblok } from '~/component-types-sb'
 
-interface ArticleMeta {
-  article_date: string
-  article_category?: StoryblokStory<CategoryStoryblok>
-}
+import { blogArticleMetaInjectionKey } from '@/utils/keys.js'
 
 interface Props {
-  blok: ArticleHeroSectionStoryblok & ArticleMeta
+  blok: ArticleHeroSectionStoryblok
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
-function isAuthorStoryblokStory(
-  author: string | StoryblokStory<AuthorStoryblok>,
-): author is StoryblokStory<AuthorStoryblok> {
-  return typeof author !== 'string'
-}
+const blogArticleMeta = inject(blogArticleMetaInjectionKey)
 
-const typeCheckedAuthors = computed(() => {
-  return (props.blok.authors ?? []).filter(isAuthorStoryblokStory)
-})
-
-const { formattedArticleDate } = useArticleDate(props.blok.article_date)
+const { formattedArticleDate } = useArticleDate(blogArticleMeta?.date || new Date())
 </script>
 
 <template>
@@ -54,28 +43,29 @@ const { formattedArticleDate } = useArticleDate(props.blok.article_date)
         </DynamicHeading>
         <div class="article-hero-section__meta">
           <div
-            v-if="blok.authors?.length"
+            v-if="blogArticleMeta?.authors?.length"
             class="article-hero-section__authors"
           >
             <AuthorEntry
-              v-for="author in typeCheckedAuthors"
+              v-for="author in blogArticleMeta?.authors"
               :key="author.uuid"
               :blok="author.content"
+              :slug="author.full_slug"
             />
           </div>
           <div class="article-hero-section__date">
             <span class="article-hero-section__date-label">Posted On:</span> {{ formattedArticleDate }}
           </div>
           <div
-            v-if="blok.article_category"
+            v-if="blogArticleMeta?.category"
             class="article-hero-section__category"
           >
             <BaseButton
-              :to="prependLeadingSlash(blok.article_category.full_slug)"
+              :to="prependLeadingSlash(blogArticleMeta.category.full_slug)"
               size="sm"
               color="branded"
             >
-              {{ blok.article_category.content?.heading }}
+              {{ blogArticleMeta.category.content.heading }}
             </BaseButton>
           </div>
         </div>

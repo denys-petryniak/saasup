@@ -5,6 +5,7 @@ import { AuthorArticle, AuthorTestimonial } from '#components'
 interface Props {
   blok: AuthorStoryblok
   variant?: 'testimonial' | 'article'
+  slug?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -17,5 +18,9 @@ const authorComponent = computed(() => {
 </script>
 
 <template>
-  <component :is="authorComponent" :blok="blok" />
+  <component
+    :is="authorComponent"
+    :blok="blok"
+    :slug="slug"
+  />
 </template>

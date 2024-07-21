@@ -1,104 +1,10 @@
 {
   "components": [
     {
-      "name": "all-articles",
-      "display_name": null,
-      "created_at": "2023-08-27T18:21:57.939Z",
-      "updated_at": "2024-07-08T18:24:29.667Z",
-      "id": 4482124,
-      "schema": {
-        "columns": {
-          "type": "option",
-          "pos": 0,
-          "use_uuid": true,
-          "exclude_empty_option": true,
-          "options": [
-            {
-              "_uid": "c46544ef-7d89-41df-9a18-8aa8d3f201c5",
-              "name": "Two",
-              "value": "2"
-            },
-            {
-              "_uid": "1a9b67ec-423e-44f9-b2ac-c8a929718526",
-              "value": "3",
-              "name": "Three"
-            }
-          ],
-          "default_value": "2"
-        },
-        "hide_top_gap": {
-          "type": "boolean",
-          "pos": 1
-        }
-      },
-      "image": null,
-      "preview_field": "columns",
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "all-articles",
-      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
-      "color": "#ff6159",
-      "icon": "block-share",
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null,
-      "component_group_name": "organisms"
-    },
-    {
-      "name": "all-articles-by-category",
-      "display_name": null,
-      "created_at": "2024-07-15T17:06:10.099Z",
-      "updated_at": "2024-07-17T00:58:05.120Z",
-      "id": 6051657,
-      "schema": {
-        "columns": {
-          "type": "option",
-          "pos": 0,
-          "use_uuid": true,
-          "exclude_empty_option": true,
-          "options": [
-            {
-              "_uid": "c46544ef-7d89-41df-9a18-8aa8d3f201c5",
-              "name": "Two",
-              "value": "2"
-            },
-            {
-              "_uid": "1a9b67ec-423e-44f9-b2ac-c8a929718526",
-              "value": "3",
-              "name": "Three"
-            }
-          ],
-          "default_value": "2"
-        },
-        "hide_top_gap": {
-          "type": "boolean",
-          "pos": 1
-        }
-      },
-      "image": null,
-      "preview_field": "columns",
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "all-articles-by-category",
-      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
-      "color": "#ff6159",
-      "icon": "block-share",
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null,
-      "component_group_name": "organisms"
-    },
-    {
       "name": "article",
       "display_name": null,
       "created_at": "2023-08-17T18:42:56.203Z",
-      "updated_at": "2024-07-14T17:48:38.620Z",
+      "updated_at": "2024-07-21T15:44:59.710Z",
       "id": 4437519,
       "schema": {
         "date": {
@@ -108,22 +14,9 @@
           "disable_time": true,
           "key": "date"
         },
-        "category": {
-          "type": "option",
-          "pos": 1,
-          "source": "internal_stories",
-          "folder_slug": "categories/",
-          "filter_content_type": [
-            "category"
-          ],
-          "min_options": "1",
-          "max_options": "3",
-          "use_uuid": true,
-          "entry_appearance": "link"
-        },
         "body": {
           "type": "bloks",
-          "pos": 2,
+          "pos": 1,
           "restrict_type": "groups",
           "restrict_components": true,
           "component_whitelist": [],
@@ -134,12 +27,70 @@
           ],
           "key": "body"
         },
+        "category": {
+          "type": "option",
+          "pos": 2,
+          "source": "internal_stories",
+          "folder_slug": "categories/",
+          "filter_content_type": [
+            "category"
+          ],
+          "min_options": "1",
+          "max_options": "3",
+          "use_uuid": true,
+          "entry_appearance": "link",
+          "required": true
+        },
+        "authors": {
+          "type": "options",
+          "pos": 3,
+          "source": "internal_stories",
+          "folder_slug": "authors/",
+          "filter_content_type": [
+            "author"
+          ],
+          "min_options": "1",
+          "max_options": "3",
+          "required": true
+        },
+        "tab-7222b420-bb5c-4ce1-a81f-312e1d277993": {
+          "display_name": "Body",
+          "keys": [
+            "body"
+          ],
+          "pos": 5,
+          "type": "tab",
+          "name": "tab-7222b420-bb5c-4ce1-a81f-312e1d277993"
+        },
+        "tab-4cb27012-6add-453b-8cb3-bb03a22f79ca": {
+          "display_name": "Card",
+          "keys": [
+            "link_text",
+            "heading",
+            "heading_level",
+            "content",
+            "image",
+            "preview_image",
+            "preview_heading_level",
+            "preview_description",
+            "preview_heading",
+            "preview_link_text",
+            "card_image",
+            "card_heading",
+            "card_heading_level",
+            "card_description",
+            "card_link_text"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "name": "tab-4cb27012-6add-453b-8cb3-bb03a22f79ca"
+        },
         "card_image": {
           "type": "asset",
           "filetypes": [
             "images"
           ],
-          "pos": 3,
+          "pos": 7,
           "required": true,
           "key": "preview_image",
           "asset_folder_id": 603497
@@ -147,12 +98,12 @@
         "card_heading": {
           "type": "text",
           "key": "preview_heading",
-          "pos": 4,
+          "pos": 8,
           "required": true
         },
         "card_heading_level": {
           "type": "option",
-          "pos": 5,
+          "pos": 9,
           "use_uuid": true,
           "exclude_empty_option": true,
           "options": [
@@ -193,36 +144,14 @@
         "card_description": {
           "type": "richtext",
           "key": "preview_description",
-          "pos": 6,
+          "pos": 10,
           "required": true
         },
         "card_link_text": {
           "type": "text",
           "required": true,
-          "pos": 7,
+          "pos": 11,
           "key": "link_text"
-        },
-        "tab-4cb27012-6add-453b-8cb3-bb03a22f79ca": {
-          "display_name": "Card",
-          "keys": [
-            "link_text",
-            "heading",
-            "heading_level",
-            "content",
-            "image",
-            "preview_image",
-            "preview_heading_level",
-            "preview_description",
-            "preview_heading",
-            "preview_link_text",
-            "card_image",
-            "card_heading",
-            "card_heading_level",
-            "card_description",
-            "card_link_text"
-          ],
-          "pos": 8,
-          "type": "tab"
         }
       },
       "image": null,
@@ -306,7 +235,7 @@
       "name": "article-hero-section",
       "display_name": null,
       "created_at": "2024-07-09T07:55:20.680Z",
-      "updated_at": "2024-07-13T08:36:51.805Z",
+      "updated_at": "2024-07-21T14:50:36.035Z",
       "id": 6027832,
       "schema": {
         "image": {
@@ -365,19 +294,6 @@
             }
           ],
           "key": "heading_level"
-        },
-        "authors": {
-          "type": "options",
-          "pos": 4,
-          "source": "internal_stories",
-          "folder_slug": "authors/",
-          "filter_content_type": [
-            "author"
-          ],
-          "min_options": "1",
-          "max_options": "3",
-          "use_uuid": true,
-          "key": "author"
         }
       },
       "image": null,
@@ -395,6 +311,65 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "molecules"
+    },
+    {
+      "name": "article-list",
+      "display_name": null,
+      "created_at": "2023-08-27T18:21:57.939Z",
+      "updated_at": "2024-07-21T14:53:00.071Z",
+      "id": 4482124,
+      "schema": {
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 0,
+          "key": "hide_top_gap"
+        },
+        "columns": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "c46544ef-7d89-41df-9a18-8aa8d3f201c5",
+              "name": "Two",
+              "value": "2"
+            },
+            {
+              "_uid": "1a9b67ec-423e-44f9-b2ac-c8a929718526",
+              "value": "3",
+              "name": "Three"
+            }
+          ],
+          "default_value": "2",
+          "key": "columns"
+        },
+        "tab-cd2bfba3-02ef-4603-90f2-f27d8523a48f": {
+          "display_name": "Style",
+          "keys": [
+            "columns",
+            "hide_top_gap"
+          ],
+          "pos": 3,
+          "type": "tab",
+          "key": "tab-cd2bfba3-02ef-4603-90f2-f27d8523a48f"
+        }
+      },
+      "image": null,
+      "preview_field": "columns",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "article-list",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
+      "color": "#ff6159",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "organisms"
     },
     {
       "name": "articles-section",
@@ -526,7 +501,7 @@
       "name": "author",
       "display_name": null,
       "created_at": "2024-07-10T07:35:15.282Z",
-      "updated_at": "2024-07-11T03:34:29.129Z",
+      "updated_at": "2024-07-19T20:08:24.035Z",
       "id": 6032632,
       "schema": {
         "photo": {
@@ -555,6 +530,19 @@
           "min_value": 1,
           "max_value": 5,
           "key": "rating"
+        },
+        "body": {
+          "type": "bloks",
+          "pos": 4,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "ccb5e043-7676-4f77-9848-767eab140da0",
+            "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+            "bf585e57-3326-4449-89ae-951ca6fe0c58"
+          ],
+          "required": true
         }
       },
       "image": null,

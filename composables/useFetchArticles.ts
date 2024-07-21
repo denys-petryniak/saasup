@@ -12,13 +12,15 @@ export function useFetchArticles(filterQuery: Record<string, any> = {}) {
       'article.category',
     ]
 
+    const hasFilterQuery = Object.keys(filterQuery).length > 0
+
     try {
       const { data } = await storyblokApi.get('cdn/stories', {
         version: storyVersion,
         resolve_relations: resolveRelations,
         starts_with: 'blog',
         is_startpage: false,
-        filter_query: filterQuery,
+        ...(hasFilterQuery ? { filter_query: filterQuery } : null),
       })
 
       articles.value = data.stories
