@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { AuthorStoryblok, TestimonialEntryStoryblok } from '~/component-types-sb'
+import type { TestimonialEntryStoryblok } from '~/component-types-sb'
 
 interface Props {
   blok: TestimonialEntryStoryblok
@@ -21,11 +20,14 @@ const testimonialText = computed(() =>
       class="testimonial__text"
       v-html="testimonialText"
     />
-    <AuthorEntry
-      v-if="blok.author"
-      :blok="(blok.author as StoryblokStory<AuthorStoryblok>).content"
-      variant="testimonial"
-    />
+    <template v-if="blok.author?.length">
+      <AuthorEntry
+        v-for="item in blok.author"
+        :key="item._uid"
+        :blok="item"
+        variant="testimonial"
+      />
+    </template>
   </div>
 </template>
 

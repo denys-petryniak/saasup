@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { ArticleHeroSectionStoryblok, AuthorStoryblok, CategoryStoryblok } from '~/component-types-sb'
+import type { ArticleHeroSectionStoryblok } from '~/component-types-sb'
 
 import { blogArticleMetaInjectionKey } from '@/utils/keys.js'
 

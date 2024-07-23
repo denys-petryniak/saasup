@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { AuthorStoryblok } from '~/component-types-sb'
+import type { AuthorEntryStoryblok, AuthorStoryblok } from '~/component-types-sb'
 import { AuthorArticle, AuthorTestimonial } from '#components'
 
 interface Props {
-  blok: AuthorStoryblok
-  variant?: 'testimonial' | 'article'
+  blok: AuthorStoryblok | AuthorEntryStoryblok
+  variant?: 'article' | 'testimonial'
   slug?: string
 }
 

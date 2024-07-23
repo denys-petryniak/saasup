@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { AuthorStoryblok } from '~/component-types-sb'
+import type { AuthorEntryStoryblok, AuthorStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: AuthorStoryblok
+  blok: AuthorStoryblok | AuthorEntryStoryblok
 }
 
 const props = defineProps<Props>()

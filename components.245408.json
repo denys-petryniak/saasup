@@ -501,7 +501,7 @@
       "name": "author",
       "display_name": null,
       "created_at": "2024-07-10T07:35:15.282Z",
-      "updated_at": "2024-07-19T20:08:24.035Z",
+      "updated_at": "2024-07-21T17:59:37.221Z",
       "id": 6032632,
       "schema": {
         "photo": {
@@ -542,7 +542,7 @@
             "3e8babdb-3744-4f1a-8072-3f6e675524d0",
             "bf585e57-3326-4449-89ae-951ca6fe0c58"
           ],
-          "required": true
+          "required": false
         }
       },
       "image": null,
@@ -565,28 +565,32 @@
       "name": "author-entry",
       "display_name": null,
       "created_at": "2023-08-15T17:38:49.927Z",
-      "updated_at": "2024-06-24T01:17:03.748Z",
+      "updated_at": "2024-07-23T15:28:41.426Z",
       "id": 4426269,
       "schema": {
-        "name": {
-          "type": "text",
-          "required": true
-        },
         "photo": {
           "type": "asset",
           "filetypes": [
             "images"
           ],
-          "required": true
+          "required": true,
+          "pos": 0
         },
-        "job": {
+        "name": {
           "type": "text",
-          "required": true
+          "required": true,
+          "pos": 1
+        },
+        "role": {
+          "type": "text",
+          "required": true,
+          "pos": 2
         },
         "rating": {
           "type": "number",
           "min_value": 1,
-          "max_value": 5
+          "max_value": 5,
+          "pos": 3
         }
       },
       "image": null,
@@ -2680,7 +2684,7 @@
       "name": "testimonial-entry",
       "display_name": null,
       "created_at": "2023-08-15T17:31:08.285Z",
-      "updated_at": "2024-07-11T03:04:21.707Z",
+      "updated_at": "2024-07-23T15:43:42.002Z",
       "id": 4426265,
       "schema": {
         "text": {
@@ -2690,20 +2694,14 @@
           "pos": 0
         },
         "author": {
-          "type": "option",
+          "type": "bloks",
+          "pos": 2,
           "minimum": 1,
           "maximum": 1,
           "restrict_type": "",
           "restrict_components": true,
           "component_whitelist": [
             "author-entry"
-          ],
-          "required": true,
-          "use_uuid": true,
-          "source": "internal_stories",
-          "folder_slug": "authors/",
-          "filter_content_type": [
-            "author"
           ]
         }
       },

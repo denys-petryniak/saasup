@@ -113,7 +113,7 @@ export interface AuthorStoryblok {
   name: string;
   role?: string;
   rating?: string;
-  body: (
+  body?: (
     | ArticleContentStoryblok
     | ArticleHeroSectionStoryblok
     | AuthorEntryStoryblok
@@ -149,9 +149,9 @@ export interface AuthorStoryblok {
 }
 
 export interface AuthorEntryStoryblok {
-  name: string;
   photo: AssetStoryblok;
-  job: string;
+  name: string;
+  role: string;
   rating?: string;
   _uid: string;
   component: "author-entry";
@@ -511,7 +511,7 @@ export interface TabbedContentSectionStoryblok {
 
 export interface TestimonialEntryStoryblok {
   text: RichtextStoryblok;
-  author: StoryblokStory<AuthorStoryblok> | string;
+  author?: AuthorEntryStoryblok[];
   _uid: string;
   component: "testimonial-entry";
   [k: string]: any;

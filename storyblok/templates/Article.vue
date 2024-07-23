@@ -10,6 +10,8 @@ interface Props {
 
 const props = defineProps<Props>()
 
+// TODO: simplify type checking
+
 // Type guard for AuthorStoryblok
 function isAuthorStoryblokStory(
   author: string | StoryblokStory<AuthorStoryblok>,
