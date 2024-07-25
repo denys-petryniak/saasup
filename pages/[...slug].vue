@@ -19,6 +19,7 @@ const resolveRelations = [
   'article.authors',
   'articles-section.articles',
   'careers-section.vacancies',
+  'pricing-section.pricing_plans',
   'testimonial-entry.author',
 ]
 const resolveLinks = 'url'

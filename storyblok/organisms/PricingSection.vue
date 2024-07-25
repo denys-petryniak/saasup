@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { PricingSectionStoryblok } from '~/component-types-sb'
+import type { StoryblokStory } from 'storyblok-generate-ts'
+import type { PricingPlanPageStoryblok, PricingSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
   blok: PricingSectionStoryblok
@@ -12,6 +13,16 @@ const sectionDescription = computed(() =>
 
 const { isTabletScreenSizeAndSmaller } = useMedia()
 const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value ? 'center' : 'left')
+
+function isStoryblokStory(
+  article: string | StoryblokStory<PricingPlanPageStoryblok>,
+): article is StoryblokStory<PricingPlanPageStoryblok> {
+  return typeof article !== 'string'
+}
+
+const typeCheckedPricingPlans = computed(() => {
+  return (props.blok.pricing_plans ?? []).filter(isStoryblokStory)
+})
 </script>
 
 <template>
@@ -56,18 +67,17 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
           </div>
         </template>
       </ContentBlock>
-      <!-- TODO: use GridBox component here -->
-      <div
+      <GridBox
         v-if="blok.pricing_plans?.length"
-        class="pricing-section__plans"
+        :columns="blok.columns ?? '2'"
       >
-        <PricingPlan
-          v-for="pricingPlan in blok.pricing_plans"
-          :key="pricingPlan._uid"
-          :blok="pricingPlan"
-          class="pricing-section__plans-item"
+        <PricingPlanCard
+          v-for="pricingPlan in typeCheckedPricingPlans"
+          :key="pricingPlan.uuid"
+          :blok="pricingPlan.content"
+          :slug="pricingPlan.full_slug"
         />
-      </div>
+      </GridBox>
     </div>
   </BaseSection>
 </template>
@@ -82,17 +92,6 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
     @include breakpoint('lg') {
       grid-template-columns: 0.5fr 1fr;
     }
-  }
-
-  &__plans {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: $spacing--4xl;
-  }
-
-  &__plans-item {
-    flex: 1 1 toRem(250px);
   }
 }
 

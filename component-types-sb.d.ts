@@ -42,10 +42,9 @@ export interface ArticleStoryblok {
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
-    | MetricStoryblok
+    | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -112,7 +111,6 @@ export interface AuthorStoryblok {
   photo: AssetStoryblok;
   name: string;
   role?: string;
-  rating?: string;
   body?: (
     | ArticleContentStoryblok
     | ArticleHeroSectionStoryblok
@@ -126,10 +124,9 @@ export interface AuthorStoryblok {
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
-    | MetricStoryblok
+    | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -216,10 +213,9 @@ export interface CategoryStoryblok {
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
-    | MetricStoryblok
+    | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -343,7 +339,7 @@ export interface IntroSectionStoryblok {
 }
 
 export interface KeyMetricsSectionStoryblok {
-  metrics?: MetricStoryblok[];
+  metrics?: MetricEntryStoryblok[];
   _uid: string;
   component: "key-metrics-section";
   [k: string]: any;
@@ -357,11 +353,11 @@ export interface LinkStoryblok {
   [k: string]: any;
 }
 
-export interface MetricStoryblok {
+export interface MetricEntryStoryblok {
   value?: RichtextStoryblok;
   description?: string;
   _uid: string;
-  component: "metric";
+  component: "metric-entry";
   [k: string]: any;
 }
 
@@ -400,10 +396,9 @@ export interface PageStoryblok {
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
-    | MetricStoryblok
+    | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -436,14 +431,13 @@ export interface PlatformSectionStoryblok {
   [k: string]: any;
 }
 
-export interface PricingPlanStoryblok {
-  title: string;
-  headline: string;
-  price: string;
+export interface PricingPlanPageStoryblok {
+  headline?: string;
+  heading?: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  price?: string;
   billing_description?: string;
-  popular?: boolean;
-  features: (
-    | ""
+  features?: (
     | "Unlimited members"
     | "Unlimited feedback"
     | "Weekly team Feedback Friday"
@@ -453,14 +447,46 @@ export interface PricingPlanStoryblok {
     | "Personal feedback history (6 items)"
     | "Slack integration"
   )[];
+  card_heading?: string;
+  popular?: boolean;
+  card_heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  body?: (
+    | ArticleContentStoryblok
+    | ArticleHeroSectionStoryblok
+    | AuthorEntryStoryblok
+    | ButtonStoryblok
+    | CtaSectionStoryblok
+    | GridCardStoryblok
+    | HeroSectionStoryblok
+    | ImageTextSectionStoryblok
+    | InfoCardStoryblok
+    | IntroSectionStoryblok
+    | KeyMetricsSectionStoryblok
+    | LinkStoryblok
+    | MetricEntryStoryblok
+    | OverviewSectionStoryblok
+    | PlatformSectionStoryblok
+    | SectionDividerStoryblok
+    | SubmenuStoryblok
+    | TabbedContentEntryStoryblok
+    | UnderDevStoryblok
+    | ArticleListStoryblok
+    | ArticlesSectionStoryblok
+    | CareersSectionStoryblok
+    | GridSectionStoryblok
+    | PricingSectionStoryblok
+    | TabbedContentSectionStoryblok
+    | TestimonialEntryStoryblok
+    | TestimonialSectionStoryblok
+  )[];
   _uid: string;
-  component: "pricing_plan";
+  component: "pricing-plan-page";
   [k: string]: any;
 }
 
 export interface PricingSectionStoryblok {
+  pricing_plans?: (StoryblokStory<PricingPlanPageStoryblok> | string)[];
   headline?: string;
-  pricing_plans: PricingPlanStoryblok[];
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;
