@@ -53,6 +53,7 @@ export interface ArticleStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlansSectionStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -135,6 +136,7 @@ export interface AuthorStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlansSectionStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -224,6 +226,7 @@ export interface CategoryStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlansSectionStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -407,6 +410,7 @@ export interface PageStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlansSectionStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -435,6 +439,7 @@ export interface PricingPlanPageStoryblok {
   headline?: string;
   heading?: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  description?: string;
   price?: string;
   billing_description?: string;
   features?: (
@@ -474,6 +479,7 @@ export interface PricingPlanPageStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlansSectionStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -481,6 +487,15 @@ export interface PricingPlanPageStoryblok {
   )[];
   _uid: string;
   component: "pricing-plan-page";
+  [k: string]: any;
+}
+
+export interface PricingPlansSectionStoryblok {
+  hide_top_gap?: boolean;
+  columns?: "2" | "3";
+  pricing_plans: (StoryblokStory<PricingPlanPageStoryblok> | string)[];
+  _uid: string;
+  component: "pricing-plans-section";
   [k: string]: any;
 }
 
