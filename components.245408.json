@@ -2155,6 +2155,129 @@
       "component_group_name": "molecules"
     },
     {
+      "name": "pricing-plan-compare-section",
+      "display_name": null,
+      "created_at": "2024-07-25T15:44:39.956Z",
+      "updated_at": "2024-07-27T16:08:03.303Z",
+      "id": 6094989,
+      "schema": {
+        "headline": {
+          "type": "text",
+          "pos": 1
+        },
+        "heading": {
+          "type": "text",
+          "pos": 2,
+          "required": true,
+          "key": "heading"
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 3,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "exclude_empty_option": true,
+          "default_value": "h1",
+          "options": [
+            {
+              "_uid": "f5575b83-40ab-4df2-832d-332da2ed029f",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "a69ea1c5-b47f-4c8e-a906-da02d7f835d5",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "4718ba11-9af4-4c41-a165-19a03869b8fb",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "51c42db9-4a07-47b5-8b4b-a2b1066b50fc",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "3636ee80-3b18-4264-96a2-aedaefa1589d",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "936db5fe-5c3d-4a3d-b1c0-2498a8369dcc",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "key": "title_level"
+        },
+        "table": {
+          "type": "table",
+          "pos": 0
+        },
+        "alignment": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "af1eb6ee-786d-421b-82be-2ec29232eb10",
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "_uid": "fe37d6d2-c76f-4652-808b-0efd1a3ef714",
+              "value": "center",
+              "name": "Center"
+            },
+            {
+              "_uid": "087f2a1e-0a1a-4cdb-8cb6-583928965368",
+              "value": "right",
+              "name": "Right"
+            }
+          ],
+          "default_value": "center"
+        },
+        "tab-bbf0bf44-361c-406e-82e2-851601b8450f": {
+          "display_name": "Table",
+          "keys": [
+            "table",
+            "table_t"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "name": "tab-bbf0bf44-361c-406e-82e2-851601b8450f"
+        },
+        "tab-91b9931e-6960-4a0c-ab0c-3bc5da73996f": {
+          "display_name": "Style",
+          "keys": [
+            "alignment"
+          ],
+          "pos": 7,
+          "type": "tab",
+          "key": "tab-91b9931e-6960-4a0c-ab0c-3bc5da73996f",
+          "name": "tab-91b9931e-6960-4a0c-ab0c-3bc5da73996f"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "pricing-plan-compare-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
       "name": "pricing-plan-page",
       "display_name": null,
       "created_at": "2024-07-24T18:03:12.062Z",

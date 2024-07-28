@@ -45,6 +45,7 @@ export interface ArticleStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
+    | PricingPlanCompareSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -128,6 +129,7 @@ export interface AuthorStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
+    | PricingPlanCompareSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -218,6 +220,7 @@ export interface CategoryStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
+    | PricingPlanCompareSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -402,6 +405,7 @@ export interface PageStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
+    | PricingPlanCompareSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -432,6 +436,38 @@ export interface PlatformSectionStoryblok {
   cost_heading?: string;
   _uid: string;
   component: "platform-section";
+  [k: string]: any;
+}
+
+export interface TableStoryblok {
+  thead: {
+    _uid: string;
+    value?: string;
+    component: number;
+    [k: string]: any;
+  }[];
+  tbody: {
+    _uid: string;
+    body: {
+      _uid?: string;
+      value?: string;
+      component?: number;
+      [k: string]: any;
+    }[];
+    component: number;
+    [k: string]: any;
+  }[];
+  [k: string]: any;
+}
+
+export interface PricingPlanCompareSectionStoryblok {
+  headline?: string;
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  table?: TableStoryblok;
+  alignment?: "left" | "center" | "right";
+  _uid: string;
+  component: "pricing-plan-compare-section";
   [k: string]: any;
 }
 
@@ -471,6 +507,7 @@ export interface PricingPlanPageStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
+    | PricingPlanCompareSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
