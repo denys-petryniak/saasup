@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { ArticleHeroSectionStoryblok } from '~/component-types-sb'
-
-import { blogArticleMetaInjectionKey } from '@/utils/keys.js'
+import type { BlogArticleGeneralData } from '@/utils/keys.js'
 
 interface Props {
   blok: ArticleHeroSectionStoryblok
@@ -9,9 +8,9 @@ interface Props {
 
 defineProps<Props>()
 
-const blogArticleMeta = inject(blogArticleMetaInjectionKey)
+const { date, authors, category } = inject(blogArticleGeneralDataInjectionKey) as BlogArticleGeneralData
 
-const { formattedArticleDate } = useArticleDate(blogArticleMeta?.date || new Date())
+const { formattedArticleDate } = useArticleDate(date || new Date())
 </script>
 
 <template>
@@ -42,11 +41,11 @@ const { formattedArticleDate } = useArticleDate(blogArticleMeta?.date || new Dat
         </DynamicHeading>
         <div class="article-hero-section__meta">
           <div
-            v-if="blogArticleMeta?.authors?.length"
+            v-if="authors?.length"
             class="article-hero-section__authors"
           >
             <AuthorEntry
-              v-for="author in blogArticleMeta?.authors"
+              v-for="author in authors"
               :key="author.uuid"
               :blok="author.content"
               :slug="author.full_slug"
@@ -56,15 +55,15 @@ const { formattedArticleDate } = useArticleDate(blogArticleMeta?.date || new Dat
             <span class="article-hero-section__date-label">Posted On:</span> {{ formattedArticleDate }}
           </div>
           <div
-            v-if="blogArticleMeta?.category"
+            v-if="category"
             class="article-hero-section__category"
           >
             <BaseButton
-              :to="prependLeadingSlash(blogArticleMeta.category.full_slug)"
+              :to="prependLeadingSlash(category.full_slug)"
               size="sm"
               color="branded"
             >
-              {{ blogArticleMeta.category.content.heading }}
+              {{ category.content.heading }}
             </BaseButton>
           </div>
         </div>

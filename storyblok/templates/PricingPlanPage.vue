@@ -5,31 +5,20 @@ interface Props {
   blok: PricingPlanPageStoryblok
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+provide(pricingPlanGeneralDataInjectionKey, {
+  price: props.blok.price,
+  features: props.blok.features,
+})
 </script>
 
 <template>
-  <BaseSection v-editable="blok">
-    <div class="pricing-plan__header">
-      <DynamicHeading
-        v-if="blok.heading"
-        :as="blok.heading_level"
-      >
-        {{ blok.heading }}
-      </DynamicHeading>
-    </div>
-  </BaseSection>
-  <StoryblokComponent
-    v-for="item in blok.body"
-    :key="item._uid"
-    :blok="item"
-  />
+  <div v-editable="blok">
+    <StoryblokComponent
+      v-for="item in blok.body"
+      :key="item._uid"
+      :blok="item"
+    />
+  </div>
 </template>
-
-<style scoped lang="scss">
-.pricing-plan {
-  &__header {
-    text-align: center;
-  }
-}
-</style>

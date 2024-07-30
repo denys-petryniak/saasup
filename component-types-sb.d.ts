@@ -45,7 +45,8 @@ export interface ArticleStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanCompareSectionStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -54,7 +55,7 @@ export interface ArticleStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
-    | PricingPlansSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -129,7 +130,8 @@ export interface AuthorStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanCompareSectionStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -138,7 +140,7 @@ export interface AuthorStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
-    | PricingPlansSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -220,7 +222,8 @@ export interface CategoryStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanCompareSectionStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -229,7 +232,7 @@ export interface CategoryStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
-    | PricingPlansSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -405,7 +408,8 @@ export interface PageStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanCompareSectionStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -414,7 +418,7 @@ export interface PageStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
-    | PricingPlansSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -460,25 +464,37 @@ export interface TableStoryblok {
   [k: string]: any;
 }
 
-export interface PricingPlanCompareSectionStoryblok {
+export interface PricingCompareSectionStoryblok {
   headline?: string;
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   table?: TableStoryblok;
   alignment?: "left" | "center" | "right";
   _uid: string;
-  component: "pricing-plan-compare-section";
+  component: "pricing-compare-section";
+  [k: string]: any;
+}
+
+export interface PricingPlanHeroSectionStoryblok {
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  description: string;
+  _uid: string;
+  component: "pricing-plan-hero-section";
+  [k: string]: any;
+}
+
+export interface PricingPlanListStoryblok {
+  hide_top_gap?: boolean;
+  columns?: "2" | "3";
+  _uid: string;
+  component: "pricing-plan-list";
   [k: string]: any;
 }
 
 export interface PricingPlanPageStoryblok {
-  headline?: string;
-  heading?: string;
-  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  description?: string;
-  price?: string;
-  billing_description?: string;
-  features?: (
+  price: string;
+  features: (
     | "Unlimited members"
     | "Unlimited feedback"
     | "Weekly team Feedback Friday"
@@ -488,10 +504,11 @@ export interface PricingPlanPageStoryblok {
     | "Personal feedback history (6 items)"
     | "Slack integration"
   )[];
+  card_headline?: string;
   card_heading?: string;
-  popular?: boolean;
   card_heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  body?: (
+  popular?: boolean;
+  body: (
     | ArticleContentStoryblok
     | ArticleHeroSectionStoryblok
     | AuthorEntryStoryblok
@@ -507,7 +524,8 @@ export interface PricingPlanPageStoryblok {
     | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanCompareSectionStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -516,23 +534,15 @@ export interface PricingPlanPageStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
-    | PricingPlansSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
   )[];
+  card_billing_description?: string;
   _uid: string;
   component: "pricing-plan-page";
-  [k: string]: any;
-}
-
-export interface PricingPlansSectionStoryblok {
-  hide_top_gap?: boolean;
-  columns?: "2" | "3";
-  pricing_plans: (StoryblokStory<PricingPlanPageStoryblok> | string)[];
-  _uid: string;
-  component: "pricing-plans-section";
   [k: string]: any;
 }
 

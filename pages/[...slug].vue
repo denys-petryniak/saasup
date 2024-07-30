@@ -2,8 +2,6 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { PageStoryblok } from '~/component-types-sb'
 
-import { storyInjectionKey } from '@/utils/keys.js'
-
 interface StoryData {
   story: StoryblokStory<PageStoryblok>
 }

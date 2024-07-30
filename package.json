@@ -2,7 +2,7 @@
   "name": "saasup",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.3.0",
+  "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -13,7 +13,8 @@
     "pull-sb-components": "storyblok pull-components --space 245408",
     "generate-sb-types": "storyblok-generate-ts source=./components.245408.json target=./component-types-sb",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "use-pnpm": "corepack use pnpm@latest"
   },
   "dependencies": {
     "@storyblok/nuxt": "^6.0.10",

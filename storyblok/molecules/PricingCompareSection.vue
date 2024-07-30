@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { PricingPlanCompareSectionStoryblok } from '~/component-types-sb'
+import type { PricingCompareSectionStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: PricingPlanCompareSectionStoryblok
+  blok: PricingCompareSectionStoryblok
 }
 
 defineProps<Props>()
@@ -41,9 +41,9 @@ function isPricingPlan(value: string): value is PricingPlan {
 <template>
   <BaseSection
     v-editable="blok"
-    class="pricing-plan-compare-section"
+    class="pricing-compare-section"
   >
-    <div class="pricing-plan-compare-section__body">
+    <div class="pricing-compare-section__body">
       <ContentBlock
         v-if="blok.heading"
         :headline="blok.headline"
@@ -51,8 +51,8 @@ function isPricingPlan(value: string): value is PricingPlan {
         :heading-level="blok.heading_level"
         :align="blok.alignment ?? 'center'"
       />
-      <div v-if="blok.table" class="pricing-plan-compare-section__table-box">
-        <table class="table pricing-plan-compare-section__table">
+      <div v-if="blok.table" class="pricing-compare-section__table-box">
+        <table class="table pricing-compare-section__table">
           <thead v-if="blok.table.thead">
             <tr>
               <th v-for="cell in blok.table.thead" :key="cell._uid">
@@ -94,10 +94,7 @@ function isPricingPlan(value: string): value is PricingPlan {
 </template>
 
 <style scoped lang="scss">
-$color-icon--available: #31c65b;
-$color-icon--unavailable: #bebebe;
-
-.pricing-plan-compare-section {
+.pricing-compare-section {
   &__table-box {
     margin-top: clamped($min-size: $gap--sm, $max-size: $gap--md);
     border-radius: $rounded--3xl * 2;
@@ -150,13 +147,13 @@ $color-icon--unavailable: #bebebe;
 
   &__icon {
     &--available {
-      color: $color-icon--available;
+      color: $color-icon--enabled;
     }
   }
 
   &__icon {
     &--unavailable {
-      color: $color-icon--unavailable;
+      color: $color-icon--disabled;
     }
   }
 }

@@ -26,19 +26,19 @@ defineProps<Props>()
         size="sm"
         :color="blok.popular ? 'purple' : 'white'"
       >
-        {{ blok.headline }}
+        {{ blok.card_headline }}
       </HeadlineBadge>
     </div>
     <div class="pricing-plan__price-container">
       <p class="pricing-plan__price">
-        {{ blok.price }}
+        ${{ blok.price }}
       </p>
       <HeadlineBadge
         size="sm"
         color="orange"
         class="pricing-plan__headline"
       >
-        {{ blok.billing_description }}
+        {{ blok.card_billing_description }}
       </HeadlineBadge>
     </div>
     <ul

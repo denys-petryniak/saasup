@@ -51,6 +51,8 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
   if (isSubmenuComponent(navigationItem) && isDesktopScreenSize.value && isSubmenuVisible.value)
     closeSubmenu()
 }
+
+const { totalCartItems } = useCart()
 </script>
 
 <template>
@@ -160,7 +162,7 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
                 type="button"
                 class="navigation__cart-button"
               >
-                Cart (0)
+                Cart ({{ totalCartItems }})
               </button>
             </li>
           </menu>
