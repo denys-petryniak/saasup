@@ -62,7 +62,7 @@ devDependencies:
     specifier: ^7.0.3
     version: 7.0.3
   eslint:
-    specifier: ^9.7.0
+    specifier: ^9.8.0
     version: 9.8.0
   eslint-plugin-format:
     specifier: ^0.1.2
