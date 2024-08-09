@@ -4,7 +4,7 @@
       "name": "article",
       "display_name": null,
       "created_at": "2023-08-17T18:42:56.203Z",
-      "updated_at": "2024-07-21T15:44:59.710Z",
+      "updated_at": "2024-07-25T14:30:21.418Z",
       "id": 4437519,
       "schema": {
         "date": {
@@ -63,7 +63,7 @@
           "name": "tab-7222b420-bb5c-4ce1-a81f-312e1d277993"
         },
         "tab-4cb27012-6add-453b-8cb3-bb03a22f79ca": {
-          "display_name": "Card",
+          "display_name": "Card Preview",
           "keys": [
             "link_text",
             "heading",
@@ -82,8 +82,7 @@
             "card_link_text"
           ],
           "pos": 6,
-          "type": "tab",
-          "name": "tab-4cb27012-6add-453b-8cb3-bb03a22f79ca"
+          "type": "tab"
         },
         "card_image": {
           "type": "asset",
@@ -501,7 +500,7 @@
       "name": "author",
       "display_name": null,
       "created_at": "2024-07-10T07:35:15.282Z",
-      "updated_at": "2024-07-21T17:59:37.221Z",
+      "updated_at": "2024-07-23T17:36:27.767Z",
       "id": 6032632,
       "schema": {
         "photo": {
@@ -523,13 +522,6 @@
           "type": "text",
           "pos": 2,
           "key": "position"
-        },
-        "rating": {
-          "type": "number",
-          "pos": 3,
-          "min_value": 1,
-          "max_value": 5,
-          "key": "rating"
         },
         "body": {
           "type": "bloks",
@@ -1256,7 +1248,7 @@
       "name": "grid-section",
       "display_name": null,
       "created_at": "2024-06-14T17:17:13.296Z",
-      "updated_at": "2024-07-01T21:53:59.593Z",
+      "updated_at": "2024-07-25T12:09:43.314Z",
       "id": 5931306,
       "schema": {
         "columns": {
@@ -1801,7 +1793,7 @@
       "name": "key-metrics-section",
       "display_name": null,
       "created_at": "2024-06-07T12:11:49.335Z",
-      "updated_at": "2024-06-07T12:18:09.237Z",
+      "updated_at": "2024-07-23T18:25:35.103Z",
       "id": 5898288,
       "schema": {
         "metrics": {
@@ -1812,7 +1804,7 @@
           "restrict_type": "",
           "restrict_components": true,
           "component_whitelist": [
-            "metric"
+            "metric-entry"
           ]
         }
       },
@@ -1873,10 +1865,10 @@
       "component_group_name": "molecules"
     },
     {
-      "name": "metric",
+      "name": "metric-entry",
       "display_name": null,
       "created_at": "2024-06-07T12:15:17.379Z",
-      "updated_at": "2024-06-07T12:22:51.311Z",
+      "updated_at": "2024-07-23T18:25:34.999Z",
       "id": 5898308,
       "schema": {
         "value": {
@@ -1895,7 +1887,7 @@
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "metric",
+      "real_name": "metric-entry",
       "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
       "color": "#ffac00",
       "icon": "block-share",
@@ -2163,101 +2155,120 @@
       "component_group_name": "molecules"
     },
     {
-      "name": "pricing_plan",
+      "name": "pricing-compare-section",
       "display_name": null,
-      "created_at": "2023-08-16T17:28:03.776Z",
-      "updated_at": "2024-06-27T14:13:27.714Z",
-      "id": 4432457,
+      "created_at": "2024-07-25T15:44:39.956Z",
+      "updated_at": "2024-07-28T18:00:42.843Z",
+      "id": 6094989,
       "schema": {
-        "title": {
-          "type": "text",
-          "key": "title",
-          "pos": 0,
-          "required": true
-        },
         "headline": {
           "type": "text",
-          "key": "caption",
-          "pos": 1,
-          "required": true
+          "pos": 1
         },
-        "price": {
+        "heading": {
           "type": "text",
-          "key": "price",
           "pos": 2,
-          "required": true
+          "required": true,
+          "key": "heading"
         },
-        "billing_description": {
-          "type": "text",
-          "key": "billing_description",
+        "heading_level": {
+          "type": "option",
           "pos": 3,
-          "required": false
-        },
-        "popular": {
-          "type": "boolean",
-          "key": "popular",
-          "pos": 4
-        },
-        "features": {
-          "type": "options",
-          "min_options": "3",
-          "max_options": "10",
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "exclude_empty_option": true,
+          "default_value": "h1",
           "options": [
             {
-              "_uid": "f0139c59-f288-4dc3-9049-49ab742864f3",
-              "name": "Unlimited members",
-              "value": "Unlimited members"
+              "_uid": "f5575b83-40ab-4df2-832d-332da2ed029f",
+              "name": "Heading 1",
+              "value": "h1"
             },
             {
-              "_uid": "d51ce77e-feb0-477f-b2b0-73ee2a0f0422",
-              "value": "Unlimited feedback",
-              "name": "Unlimited feedback"
+              "_uid": "a69ea1c5-b47f-4c8e-a906-da02d7f835d5",
+              "value": "h2",
+              "name": "Heading 2"
             },
             {
-              "_uid": "e55612ec-45e2-4f4c-8871-2a81694f5df4",
-              "value": "Weekly team Feedback Friday",
-              "name": "Weekly team Feedback Friday"
+              "_uid": "4718ba11-9af4-4c41-a165-19a03869b8fb",
+              "value": "h3",
+              "name": "Heading 3"
             },
             {
-              "_uid": "d4c15b94-c86c-4f5c-8d6a-2f5e7fcfff2a",
-              "value": "Custom Kudos +9 illustration",
-              "name": "Custom Kudos +9 illustration"
+              "_uid": "51c42db9-4a07-47b5-8b4b-a2b1066b50fc",
+              "value": "h4",
+              "name": "Heading 4"
             },
             {
-              "_uid": "7b82fe45-bf3e-437c-876b-6917090deb08",
-              "value": "Team feedback history",
-              "name": "Team feedback history"
+              "_uid": "3636ee80-3b18-4264-96a2-aedaefa1589d",
+              "value": "h5",
+              "name": "Heading 5"
             },
             {
-              "_uid": "b5f7be29-fe9a-4d93-8f9c-3c393599b23c",
-              "value": "Team feedback history (30 items)",
-              "name": "Team feedback history (30 items)"
-            },
-            {
-              "_uid": "9d8f8052-28bf-4220-8e61-c75aff64ebac",
-              "value": "Personal feedback history (6 items)",
-              "name": "Personal feedback history (6 items)"
-            },
-            {
-              "_uid": "daebe53e-4e99-469e-b5aa-ea797e53a1f8",
-              "value": "Slack integration",
-              "name": "Slack integration"
+              "_uid": "936db5fe-5c3d-4a3d-b1c0-2498a8369dcc",
+              "value": "h6",
+              "name": "Heading 6"
             }
           ],
-          "key": "features",
+          "key": "title_level"
+        },
+        "table": {
+          "type": "table",
+          "pos": 0
+        },
+        "alignment": {
+          "type": "option",
           "pos": 5,
-          "exclude_empty_option": false,
-          "required": true
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "af1eb6ee-786d-421b-82be-2ec29232eb10",
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "_uid": "fe37d6d2-c76f-4652-808b-0efd1a3ef714",
+              "value": "center",
+              "name": "Center"
+            },
+            {
+              "_uid": "087f2a1e-0a1a-4cdb-8cb6-583928965368",
+              "value": "right",
+              "name": "Right"
+            }
+          ],
+          "default_value": "center"
+        },
+        "tab-bbf0bf44-361c-406e-82e2-851601b8450f": {
+          "display_name": "Table",
+          "keys": [
+            "table",
+            "table_t"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "name": "tab-bbf0bf44-361c-406e-82e2-851601b8450f"
+        },
+        "tab-91b9931e-6960-4a0c-ab0c-3bc5da73996f": {
+          "display_name": "Style",
+          "keys": [
+            "alignment"
+          ],
+          "pos": 7,
+          "type": "tab",
+          "key": "tab-91b9931e-6960-4a0c-ab0c-3bc5da73996f",
+          "name": "tab-91b9931e-6960-4a0c-ab0c-3bc5da73996f"
         }
       },
       "image": null,
-      "preview_field": "title",
+      "preview_field": null,
       "is_root": false,
       "preview_tmpl": null,
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "pricing_plan",
+      "real_name": "pricing-compare-section",
       "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
       "color": "#ffac00",
       "icon": "block-share",
@@ -2267,39 +2278,361 @@
       "component_group_name": "molecules"
     },
     {
-      "name": "pricing-section",
+      "name": "pricing-plan-hero-section",
       "display_name": null,
-      "created_at": "2023-08-16T15:45:16.196Z",
-      "updated_at": "2024-06-27T14:14:37.868Z",
-      "id": 4431923,
+      "created_at": "2024-07-28T17:34:25.976Z",
+      "updated_at": "2024-07-29T16:52:46.918Z",
+      "id": 6101898,
       "schema": {
-        "headline": {
-          "type": "text",
-          "required": false,
-          "pos": 0
-        },
-        "pricing_plans": {
-          "type": "bloks",
-          "minimum": 1,
-          "maximum": 2,
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "pricing_plan"
-          ],
-          "required": true,
-          "pos": 1,
-          "key": "pricing_plans"
-        },
         "heading": {
           "type": "text",
+          "display_name": "",
+          "pos": 1,
           "required": true,
-          "pos": 2,
           "key": "heading"
         },
         "heading_level": {
           "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "default_value": "h1",
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "538bdcd9-1bea-4740-9a20-9420caca9540",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "a611c2fb-25a8-456c-8707-e4e81d12a44c",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "83fcd873-f32c-4f38-805f-8cf675e7962a",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "13d50fc9-0b3d-42b8-b27e-24f0c33dd83e",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "2ae698d8-2128-48dc-9e55-950ff47733cd",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "34349cab-48ed-4b70-94ca-2b1d9b39ec7e",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "key": "heading_level"
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 2,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": "heading",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "pricing-plan-hero-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "pricing-plan-list",
+      "display_name": null,
+      "created_at": "2024-07-29T13:49:43.497Z",
+      "updated_at": "2024-07-29T13:51:36.695Z",
+      "id": 6104889,
+      "schema": {
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 0,
+          "key": "hide_top_gap"
+        },
+        "columns": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "c46544ef-7d89-41df-9a18-8aa8d3f201c5",
+              "name": "Two",
+              "value": "2"
+            },
+            {
+              "_uid": "1a9b67ec-423e-44f9-b2ac-c8a929718526",
+              "value": "3",
+              "name": "Three"
+            }
+          ],
+          "default_value": "2",
+          "key": "columns"
+        },
+        "tab-cd2bfba3-02ef-4603-90f2-f27d8523a48f": {
+          "display_name": "Style",
+          "keys": [
+            "columns",
+            "hide_top_gap"
+          ],
           "pos": 3,
+          "type": "tab",
+          "key": "tab-cd2bfba3-02ef-4603-90f2-f27d8523a48f"
+        }
+      },
+      "image": null,
+      "preview_field": "columns",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "pricing-plan-list",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
+      "color": "#ff6159",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "organisms"
+    },
+    {
+      "name": "pricing-plan-page",
+      "display_name": null,
+      "created_at": "2024-07-24T18:03:12.062Z",
+      "updated_at": "2024-07-29T14:16:34.819Z",
+      "id": 6090428,
+      "schema": {
+        "price": {
+          "type": "number",
+          "pos": 0,
+          "steps": 1,
+          "decimals": 2,
+          "required": true,
+          "key": "price_number"
+        },
+        "features": {
+          "type": "options",
+          "pos": 1,
+          "options": [
+            {
+              "_uid": "b1e0abd4-33bc-49fd-a556-e2f07baf2acd",
+              "name": "Unlimited members",
+              "value": "Unlimited members"
+            },
+            {
+              "_uid": "187f9bc2-71c3-41ca-b7d2-5c7632d24e1b",
+              "value": "Unlimited feedback",
+              "name": "Unlimited feedback"
+            },
+            {
+              "_uid": "fb59f35e-b4f0-4fa8-9c60-aec4d96e24f6",
+              "value": "Weekly team Feedback Friday",
+              "name": "Weekly team Feedback Friday"
+            },
+            {
+              "_uid": "675aedde-b2e6-4a70-9719-ccdb2e69b9a5",
+              "value": "Custom Kudos +9 illustration",
+              "name": "Custom Kudos +9 illustration"
+            },
+            {
+              "_uid": "7b087f25-0b43-418d-87ec-45ce5f1bb8fa",
+              "value": "Team feedback history",
+              "name": "Team feedback history"
+            },
+            {
+              "_uid": "675adffc-6e2e-4ed5-bfa7-bcca3e985f6e",
+              "value": "Team feedback history (30 items)",
+              "name": "Team feedback history (30 items)"
+            },
+            {
+              "_uid": "e6b18fcb-83d5-42e8-9e75-73c37048cc28",
+              "value": "Personal feedback history (6 items)",
+              "name": "Personal feedback history (6 items)"
+            },
+            {
+              "_uid": "75b64632-4169-4161-b8c4-b6babe0366cb",
+              "value": "Slack integration",
+              "name": "Slack integration"
+            }
+          ],
+          "exclude_empty_option": true,
+          "required": true,
+          "key": "features"
+        },
+        "tab-e5b19786-bb08-43ec-9c8e-926d536eb006": {
+          "display_name": "Body",
+          "keys": [
+            "body"
+          ],
+          "pos": 2,
+          "type": "tab",
+          "name": "tab-e5b19786-bb08-43ec-9c8e-926d536eb006",
+          "key": "tab-e5b19786-bb08-43ec-9c8e-926d536eb006"
+        },
+        "card_headline": {
+          "type": "text",
+          "pos": 3,
+          "key": "card_headline"
+        },
+        "tab-92de6a0f-51f7-4484-8db8-f243ef2c9a7d": {
+          "display_name": "Card Preview",
+          "keys": [
+            "card_heading",
+            "card_heading_level",
+            "card_headline",
+            "card_billing_description"
+          ],
+          "pos": 4,
+          "type": "tab",
+          "name": "tab-92de6a0f-51f7-4484-8db8-f243ef2c9a7d",
+          "key": "tab-92de6a0f-51f7-4484-8db8-f243ef2c9a7d"
+        },
+        "card_heading": {
+          "type": "text",
+          "pos": 5,
+          "key": "card_heading"
+        },
+        "tab-f6c76a0b-b4b9-43f8-a00a-bcd43263e52c": {
+          "display_name": "Style",
+          "keys": [
+            "popular"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "name": "tab-f6c76a0b-b4b9-43f8-a00a-bcd43263e52c",
+          "key": "tab-f6c76a0b-b4b9-43f8-a00a-bcd43263e52c"
+        },
+        "card_heading_level": {
+          "type": "option",
+          "pos": 7,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "6bac613c-02bd-403d-8fc6-468aa45f3b2e",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "4d14c14b-2c8a-49ba-a3cb-f6ee6ae00496",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "4f70f89f-aaa9-45ad-ac51-301bba27c683",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "bf8a60f7-8cf1-489b-8077-fb27ae34255c",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "33150aa5-bfc9-4d3b-bf3e-5ba59c654beb",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "7f1fa26c-3b53-4830-b065-ade57b78ff18",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "h3",
+          "key": "card_heading_level"
+        },
+        "popular": {
+          "type": "boolean",
+          "pos": 8,
+          "key": "popular"
+        },
+        "body": {
+          "type": "bloks",
+          "pos": 9,
+          "restrict_type": "groups",
+          "restrict_components": true,
+          "component_whitelist": [],
+          "component_group_whitelist": [
+            "ccb5e043-7676-4f77-9848-767eab140da0",
+            "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+            "bf585e57-3326-4449-89ae-951ca6fe0c58"
+          ],
+          "required": true,
+          "key": "body"
+        },
+        "card_billing_description": {
+          "type": "text",
+          "pos": 10,
+          "key": "card_billing_description"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "pricing-plan-page",
+      "component_group_uuid": "f3344240-ff35-4f0a-94c9-2b236056c9b7",
+      "color": "#2db47d",
+      "icon": "block-1-2block",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "templates"
+    },
+    {
+      "name": "pricing-section",
+      "display_name": null,
+      "created_at": "2023-08-16T15:45:16.196Z",
+      "updated_at": "2024-07-25T14:16:49.419Z",
+      "id": 4431923,
+      "schema": {
+        "pricing_plans": {
+          "type": "options",
+          "pos": 1,
+          "source": "internal_stories",
+          "folder_slug": "pricing/",
+          "filter_content_type": [
+            "pricing-plan-page"
+          ],
+          "min_options": "1",
+          "max_options": "3"
+        },
+        "headline": {
+          "type": "text",
+          "required": false,
+          "pos": 2
+        },
+        "heading": {
+          "type": "text",
+          "required": true,
+          "pos": 3,
+          "key": "heading"
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 4,
           "use_uuid": true,
           "exclude_empty_option": true,
           "options": [
@@ -2340,13 +2673,13 @@
         "description": {
           "type": "richtext",
           "required": true,
-          "pos": 4,
+          "pos": 5,
           "key": "description"
         },
         "payment_heading": {
           "type": "text",
           "required": false,
-          "pos": 5,
+          "pos": 6,
           "key": "payment_heading"
         },
         "payment_images": {
@@ -2356,15 +2689,16 @@
           ],
           "asset_folder_id": 288993,
           "required": false,
-          "pos": 6,
+          "pos": 7,
           "key": "payment_images"
         },
         "tab-2ceaa28d-b880-492d-a1e5-14ea633ff7a5": {
           "display_name": "Cards",
           "keys": [
-            "pricing_plans"
+            "pricing_plans",
+            "pricing_plans_c"
           ],
-          "pos": 7,
+          "pos": 8,
           "type": "tab",
           "key": "tab-2ceaa28d-b880-492d-a1e5-14ea633ff7a5"
         }

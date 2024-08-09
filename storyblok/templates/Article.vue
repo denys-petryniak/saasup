@@ -2,8 +2,6 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { ArticleStoryblok, AuthorStoryblok, CategoryStoryblok } from '~/component-types-sb'
 
-import { blogArticleMetaInjectionKey } from '@/utils/keys.js'
-
 interface Props {
   blok: ArticleStoryblok
 }
@@ -38,7 +36,7 @@ if (!typeCheckedCategory.value) {
   throw new Error('Category is missing or not a valid Storyblok category')
 }
 
-provide(blogArticleMetaInjectionKey, {
+provide(blogArticleGeneralDataInjectionKey, {
   date: props.blok.date,
   category: typeCheckedCategory.value,
   authors: typeCheckedAuthors.value,

@@ -62,6 +62,7 @@ $button-padding-x--md: clamped(
 $button-min-width: 10ch;
 
 .button {
+  display: inline-block;
   min-width: $button-min-width;
   border-radius: $rounded--3xl * 2;
   @include fluid-typography(
@@ -162,6 +163,10 @@ $button-min-width: 10ch;
       border: 1px solid $color-primary--light;
       background-color: $color-primary--light;
     }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
   }
 }
 </style>

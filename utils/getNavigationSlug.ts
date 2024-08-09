@@ -1,7 +1,8 @@
 import type { LinkStoryblok } from '~/component-types-sb'
 
 export default function (item: LinkStoryblok): string {
-  const { slug } = item.link.story
+  const story = item.link.story
+  const slug = story?.slug || ''
 
   if (!slug || slug === 'home') {
     return '/'

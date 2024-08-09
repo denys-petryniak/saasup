@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { storyInjectionKey } from '@/utils/keys'
 import type { ArticleListStoryblok } from '~/component-types-sb'
 
 interface Props {

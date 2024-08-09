@@ -93,20 +93,23 @@ $default-max-bp: toRem(1440px);
   );
 }
 
-// Stacking orders from highest (top) to lowest (bottom)
+// Define the stacking order from highest (top) to lowest (bottom)
 $layer-stack: (modal, header);
 
-/// Retrieves the z-index value associated with the given layer.
+/// Retrieves the z-index value associated with the specified layer.
 ///
-/// @access public
 /// @param {string} $layer - The name of the layer.
+/// @returns {number} - The z-index value for the layer, or null if the layer is not found.
 /// @throws {Warning} - Prints a warning if the given layer is not found in the list of layers.
-/// @returns {number|null} - The z-index value if found, or null if not found.
 @function stacking($layer) {
-  @if index($layer-stack, $layer) {
-    @return (length($layer-stack) - index($layer-stack, $layer)) + 1;
+  $layer-index: index($layer-stack, $layer);
+
+  @if $layer-index {
+    // Calculate the z-index based on the layer's position in the stack
+    @return length($layer-stack) - $layer-index + 1;
   } @else {
-    @warn 'Invalid layer: #{$layer}. Choose one of: #{$layer-stack}.';
+    // Warn if the layer is not found and return null
+    @warn 'Invalid layer: "#{$layer}". Valid layers are: #{$layer-stack}.';
     @return null;
   }
 }
