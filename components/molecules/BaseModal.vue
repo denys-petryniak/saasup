@@ -79,8 +79,8 @@ $modal-content-gap: clamped(
   display: flex;
   max-width: 100vw;
   max-height: 100dvh;
-  background-color: rgba($color--secondary--extra-dark, 0.7);
   z-index: stacking(modal);
+  background-color: rgba($color--secondary--extra-dark, 0.7);
 
   &__content {
     position: relative;
