@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { PricingPlanHeroSectionStoryblok } from '~/component-types-sb'
-import type { PricingPlanGeneralData } from '@/utils/keys.js'
 
 interface Props {
   blok: PricingPlanHeroSectionStoryblok

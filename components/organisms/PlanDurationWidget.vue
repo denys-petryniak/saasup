@@ -6,9 +6,9 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const selected = ref('')
+const selectedPlanDuration = ref('')
 
-const options = ref([
+const planOptions = ref([
   { text: 'Monthly', value: 'monthly' },
   { text: 'Annually', value: 'annually' },
 ])
@@ -18,11 +18,11 @@ const DISCOUNT_RATE = 0.1 // 10% discount for annual plans
 const priceByDuration = computed(() => {
   const basePrice = Number(props.price)
 
-  if (selected.value === 'monthly') {
+  if (selectedPlanDuration.value === 'monthly') {
     return basePrice.toFixed(2)
   }
 
-  if (selected.value === 'annually') {
+  if (selectedPlanDuration.value === 'annually') {
     const annualPrice = basePrice * 12
     const discountedPrice = annualPrice - (annualPrice * DISCOUNT_RATE)
 
@@ -32,23 +32,38 @@ const priceByDuration = computed(() => {
   return basePrice.toFixed(2)
 })
 
+const isCartModalVisible = ref(false)
+
+function closeModal() {
+  isCartModalVisible.value = false
+}
+
+provide(modalInjectionKey, {
+  visible: isCartModalVisible,
+  close: closeModal,
+})
+
 const { addToCart } = useCart()
 
+const { $toast } = useNuxtApp()
+
 function handleAddToCart() {
-  if (!selected.value) {
-    // TODO: replace alert with toast notification
-    // eslint-disable-next-line no-alert
-    alert('Please select a plan duration.')
+  if (!selectedPlanDuration.value) {
+    $toast.warning('Please select a plan duration.')
     return
   }
 
+  const randomId = crypto.randomUUID()
+
   const cartItem = {
+    id: randomId,
     name: props.heading,
-    duration: selected.value,
+    duration: selectedPlanDuration.value,
     price: priceByDuration.value,
   }
 
   addToCart(cartItem)
+  isCartModalVisible.value = true
 }
 </script>
 
@@ -68,7 +83,7 @@ function handleAddToCart() {
     </p>
     <select
       id="plan-duration-widget-select"
-      v-model="selected"
+      v-model="selectedPlanDuration"
       name="plan-duration-widget"
       class="plan-duration-widget__select"
     >
@@ -76,11 +91,11 @@ function handleAddToCart() {
         Select Duration
       </option>
       <option
-        v-for="option in options"
-        :key="option.value"
-        :value="option.value"
+        v-for="planOption in planOptions"
+        :key="planOption.value"
+        :value="planOption.value"
       >
-        {{ option.text }}
+        {{ planOption.text }}
       </option>
     </select>
     <BaseButton
@@ -90,6 +105,7 @@ function handleAddToCart() {
       Add to Cart
     </BaseButton>
   </div>
+  <LazyCartModal />
 </template>
 
 <style scoped lang="scss">

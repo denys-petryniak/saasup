@@ -17,3 +17,10 @@ export interface PricingPlanGeneralData {
 }
 
 export const pricingPlanGeneralDataInjectionKey = Symbol('Storyblok pricing plan general data') as InjectionKey<PricingPlanGeneralData>
+
+export interface ModalOptions {
+  visible: Ref<boolean>
+  close: () => void
+}
+
+export const modalInjectionKey = Symbol('Modal :visible & @close') as InjectionKey<ModalOptions>

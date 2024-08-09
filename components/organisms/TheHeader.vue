@@ -53,6 +53,21 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
 }
 
 const { totalCartItems } = useCart()
+
+const isCartModalVisible = ref(false)
+
+function openModal() {
+  isCartModalVisible.value = true
+}
+
+function closeModal() {
+  isCartModalVisible.value = false
+}
+
+provide(modalInjectionKey, {
+  visible: isCartModalVisible,
+  close: closeModal,
+})
 </script>
 
 <template>
@@ -72,8 +87,9 @@ const { totalCartItems } = useCart()
           <BaseButton
             color="light-bordered"
             class="header__cart-button"
+            @click="openModal"
           >
-            Cart (0)
+            Cart ({{ totalCartItems }})
           </BaseButton>
           <BaseButton
             color="dark"
@@ -161,6 +177,7 @@ const { totalCartItems } = useCart()
               <button
                 type="button"
                 class="navigation__cart-button"
+                @click="openModal"
               >
                 Cart ({{ totalCartItems }})
               </button>
@@ -170,6 +187,7 @@ const { totalCartItems } = useCart()
       </div>
     </header>
   </BaseContainer>
+  <LazyCartModal />
 </template>
 
 <style scoped lang="scss">

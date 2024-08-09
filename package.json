@@ -18,7 +18,9 @@
   },
   "dependencies": {
     "@storyblok/nuxt": "^6.0.10",
-    "modern-normalize": "^2.0.0"
+    "body-scroll-lock": "4.0.0-beta.0",
+    "modern-normalize": "^2.0.0",
+    "vue3-toastify": "^0.2.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.24.0",
@@ -31,6 +33,7 @@
     "@nuxt/image": "1.7.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/html-validator": "^1.8.2",
+    "@types/body-scroll-lock": "^3.1.2",
     "@types/node": "^22.0.0",
     "@vueuse/nuxt": "^10.11.0",
     "cross-env": "^7.0.3",

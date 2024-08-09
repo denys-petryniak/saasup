@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ArticleHeroSectionStoryblok } from '~/component-types-sb'
-import type { BlogArticleGeneralData } from '@/utils/keys.js'
 
 interface Props {
   blok: ArticleHeroSectionStoryblok

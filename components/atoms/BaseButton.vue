@@ -164,5 +164,9 @@ $button-min-width: 10ch;
       background-color: $color-primary--light;
     }
   }
+
+  &[disabled] {
+    opacity: 0.5;
+  }
 }
 </style>
