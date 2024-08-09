@@ -51,6 +51,23 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
   if (isSubmenuComponent(navigationItem) && isDesktopScreenSize.value && isSubmenuVisible.value)
     closeSubmenu()
 }
+
+const { totalCartItems } = useCart()
+
+const isCartModalVisible = ref(false)
+
+function openModal() {
+  isCartModalVisible.value = true
+}
+
+function closeModal() {
+  isCartModalVisible.value = false
+}
+
+provide(modalInjectionKey, {
+  visible: isCartModalVisible,
+  close: closeModal,
+})
 </script>
 
 <template>
@@ -70,8 +87,9 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
           <BaseButton
             color="light-bordered"
             class="header__cart-button"
+            @click="openModal"
           >
-            Cart (0)
+            Cart ({{ totalCartItems }})
           </BaseButton>
           <BaseButton
             color="dark"
@@ -159,8 +177,9 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
               <button
                 type="button"
                 class="navigation__cart-button"
+                @click="openModal"
               >
-                Cart (0)
+                Cart ({{ totalCartItems }})
               </button>
             </li>
           </menu>
@@ -168,6 +187,7 @@ function handleMouseleave(navigationItem: SubmenuStoryblok): void {
       </div>
     </header>
   </BaseContainer>
+  <LazyCartModal />
 </template>
 
 <style scoped lang="scss">

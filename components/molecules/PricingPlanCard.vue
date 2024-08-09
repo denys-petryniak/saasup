@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { PricingPlanStoryblok } from '~/component-types-sb'
+import type { PricingPlanPageStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: PricingPlanStoryblok
+  blok: PricingPlanPageStoryblok
+  slug: string
 }
 
 defineProps<Props>()
@@ -14,26 +15,30 @@ defineProps<Props>()
     class="pricing-plan"
   >
     <div class="pricing-plan__head">
-      <h3 class="pricing-plan__title">
-        {{ blok.title }}
-      </h3>
+      <DynamicHeading
+        v-if="blok.card_heading"
+        :as="blok.card_heading_level"
+        class="pricing-plan__heading"
+      >
+        {{ blok.card_heading }}
+      </DynamicHeading>
       <HeadlineBadge
         size="sm"
         :color="blok.popular ? 'purple' : 'white'"
       >
-        {{ blok.headline }}
+        {{ blok.card_headline }}
       </HeadlineBadge>
     </div>
     <div class="pricing-plan__price-container">
       <p class="pricing-plan__price">
-        {{ blok.price }}
+        ${{ blok.price }}
       </p>
       <HeadlineBadge
         size="sm"
         color="orange"
         class="pricing-plan__headline"
       >
-        {{ blok.billing_description }}
+        {{ blok.card_billing_description }}
       </HeadlineBadge>
     </div>
     <ul
@@ -41,14 +46,17 @@ defineProps<Props>()
       class="pricing-plan__features"
     >
       <li
-        v-for="(pricingPlanFeature, index) in blok.features"
-        :key="index"
+        v-for="feature in blok.features"
+        :key="feature"
         class="pricing-plan__features-item"
       >
-        {{ pricingPlanFeature }}
+        {{ feature }}
       </li>
     </ul>
-    <BaseButton :color="blok.popular ? 'dark' : 'light-bordered'">
+    <BaseButton
+      :to="prependLeadingSlash(slug)"
+      :color="blok.popular ? 'dark' : 'light-bordered'"
+    >
       Get Started
     </BaseButton>
   </div>
@@ -76,9 +84,14 @@ $card-padding-x: clamped(
     align-items: center;
     gap: $spacing--lg;
     padding-bottom: $spacing--4xl;
+
+    @include breakpoint('xl') {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
-  &__title {
+  &__heading {
     margin: 0;
   }
 
@@ -113,15 +126,6 @@ $card-padding-x: clamped(
   @media (hover: hover) {
     &:hover {
       box-shadow: $shadow--regular;
-    }
-  }
-}
-
-@include breakpoint('xl') {
-  .pricing-plan {
-    &__head {
-      flex-direction: row;
-      justify-content: space-between;
     }
   }
 }

@@ -42,10 +42,11 @@ export interface ArticleStoryblok {
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
-    | MetricStoryblok
+    | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -54,6 +55,7 @@ export interface ArticleStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -112,7 +114,6 @@ export interface AuthorStoryblok {
   photo: AssetStoryblok;
   name: string;
   role?: string;
-  rating?: string;
   body?: (
     | ArticleContentStoryblok
     | ArticleHeroSectionStoryblok
@@ -126,10 +127,11 @@ export interface AuthorStoryblok {
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
-    | MetricStoryblok
+    | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -138,6 +140,7 @@ export interface AuthorStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -216,10 +219,11 @@ export interface CategoryStoryblok {
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
-    | MetricStoryblok
+    | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -228,6 +232,7 @@ export interface CategoryStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -343,7 +348,7 @@ export interface IntroSectionStoryblok {
 }
 
 export interface KeyMetricsSectionStoryblok {
-  metrics?: MetricStoryblok[];
+  metrics?: MetricEntryStoryblok[];
   _uid: string;
   component: "key-metrics-section";
   [k: string]: any;
@@ -357,11 +362,11 @@ export interface LinkStoryblok {
   [k: string]: any;
 }
 
-export interface MetricStoryblok {
+export interface MetricEntryStoryblok {
   value?: RichtextStoryblok;
   description?: string;
   _uid: string;
-  component: "metric";
+  component: "metric-entry";
   [k: string]: any;
 }
 
@@ -400,10 +405,11 @@ export interface PageStoryblok {
     | IntroSectionStoryblok
     | KeyMetricsSectionStoryblok
     | LinkStoryblok
-    | MetricStoryblok
+    | MetricEntryStoryblok
     | OverviewSectionStoryblok
     | PlatformSectionStoryblok
-    | PricingPlanStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
     | SectionDividerStoryblok
     | SubmenuStoryblok
     | TabbedContentEntryStoryblok
@@ -412,6 +418,7 @@ export interface PageStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | GridSectionStoryblok
+    | PricingPlanListStoryblok
     | PricingSectionStoryblok
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
@@ -436,14 +443,58 @@ export interface PlatformSectionStoryblok {
   [k: string]: any;
 }
 
-export interface PricingPlanStoryblok {
-  title: string;
-  headline: string;
+export interface TableStoryblok {
+  thead: {
+    _uid: string;
+    value?: string;
+    component: number;
+    [k: string]: any;
+  }[];
+  tbody: {
+    _uid: string;
+    body: {
+      _uid?: string;
+      value?: string;
+      component?: number;
+      [k: string]: any;
+    }[];
+    component: number;
+    [k: string]: any;
+  }[];
+  [k: string]: any;
+}
+
+export interface PricingCompareSectionStoryblok {
+  headline?: string;
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  table?: TableStoryblok;
+  alignment?: "left" | "center" | "right";
+  _uid: string;
+  component: "pricing-compare-section";
+  [k: string]: any;
+}
+
+export interface PricingPlanHeroSectionStoryblok {
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  description: string;
+  _uid: string;
+  component: "pricing-plan-hero-section";
+  [k: string]: any;
+}
+
+export interface PricingPlanListStoryblok {
+  hide_top_gap?: boolean;
+  columns?: "2" | "3";
+  _uid: string;
+  component: "pricing-plan-list";
+  [k: string]: any;
+}
+
+export interface PricingPlanPageStoryblok {
   price: string;
-  billing_description?: string;
-  popular?: boolean;
   features: (
-    | ""
     | "Unlimited members"
     | "Unlimited feedback"
     | "Weekly team Feedback Friday"
@@ -453,14 +504,51 @@ export interface PricingPlanStoryblok {
     | "Personal feedback history (6 items)"
     | "Slack integration"
   )[];
+  card_headline?: string;
+  card_heading?: string;
+  card_heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  popular?: boolean;
+  body: (
+    | ArticleContentStoryblok
+    | ArticleHeroSectionStoryblok
+    | AuthorEntryStoryblok
+    | ButtonStoryblok
+    | CtaSectionStoryblok
+    | GridCardStoryblok
+    | HeroSectionStoryblok
+    | ImageTextSectionStoryblok
+    | InfoCardStoryblok
+    | IntroSectionStoryblok
+    | KeyMetricsSectionStoryblok
+    | LinkStoryblok
+    | MetricEntryStoryblok
+    | OverviewSectionStoryblok
+    | PlatformSectionStoryblok
+    | PricingCompareSectionStoryblok
+    | PricingPlanHeroSectionStoryblok
+    | SectionDividerStoryblok
+    | SubmenuStoryblok
+    | TabbedContentEntryStoryblok
+    | UnderDevStoryblok
+    | ArticleListStoryblok
+    | ArticlesSectionStoryblok
+    | CareersSectionStoryblok
+    | GridSectionStoryblok
+    | PricingPlanListStoryblok
+    | PricingSectionStoryblok
+    | TabbedContentSectionStoryblok
+    | TestimonialEntryStoryblok
+    | TestimonialSectionStoryblok
+  )[];
+  card_billing_description?: string;
   _uid: string;
-  component: "pricing_plan";
+  component: "pricing-plan-page";
   [k: string]: any;
 }
 
 export interface PricingSectionStoryblok {
+  pricing_plans?: (StoryblokStory<PricingPlanPageStoryblok> | string)[];
   headline?: string;
-  pricing_plans: PricingPlanStoryblok[];
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description: RichtextStoryblok;

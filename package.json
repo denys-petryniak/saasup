@@ -2,7 +2,7 @@
   "name": "saasup",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.3.0",
+  "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -13,24 +13,28 @@
     "pull-sb-components": "storyblok pull-components --space 245408",
     "generate-sb-types": "storyblok-generate-ts source=./components.245408.json target=./component-types-sb",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "use-pnpm": "corepack use pnpm@latest"
   },
   "dependencies": {
     "@storyblok/nuxt": "^6.0.10",
-    "modern-normalize": "^2.0.0"
+    "body-scroll-lock": "4.0.0-beta.0",
+    "modern-normalize": "^2.0.0",
+    "vue3-toastify": "^0.2.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.23.2",
+    "@antfu/eslint-config": "2.24.0",
     "@iconify-json/carbon": "^1.1.36",
     "@iconify-json/material-symbols": "^1.1.85",
     "@iconify-json/raphael": "^1.1.8",
     "@nuxt/devtools": "^1.3.9",
-    "@nuxt/eslint": "^0.3.13",
+    "@nuxt/eslint": "^0.4.0",
     "@nuxt/icon": "^1.3.1",
     "@nuxt/image": "1.7.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/html-validator": "^1.8.2",
-    "@types/node": "^20.14.11",
+    "@types/body-scroll-lock": "^3.1.2",
+    "@types/node": "^22.0.0",
     "@vueuse/nuxt": "^10.11.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.7.0",

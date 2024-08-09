@@ -12,6 +12,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
+      title: 'SaaSup',
       meta: [
         { name: 'description', content: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard.' },
         { property: 'og:type', content: 'website' },
