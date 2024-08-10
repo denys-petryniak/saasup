@@ -43,7 +43,11 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
           <p class="order-modal__empty-cart-text">
             Your cart is empty
           </p>
-          <BaseButton to="/pricing" color="dark-branded">
+          <BaseButton
+            to="/pricing"
+            color="dark-branded"
+            @click="close"
+          >
             Go to Pricing
           </BaseButton>
         </div>

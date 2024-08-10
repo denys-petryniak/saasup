@@ -1,28 +1,23 @@
 <script setup lang="ts">
 import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { PricingPlanPageStoryblok, PricingSectionStoryblok } from '~/component-types-sb'
+import type { PricingPlanStoryblok, PricingSectionStoryblok } from '~/component-types-sb'
+
+type PricingSectionStoryblokWithRelations = PricingSectionStoryblok & {
+  pricing_plans: StoryblokStory<PricingPlanStoryblok>[]
+}
 
 interface Props {
-  blok: PricingSectionStoryblok
+  blok: PricingSectionStoryblokWithRelations
 }
 
 const props = defineProps<Props>()
 
-const sectionDescription = computed(() =>
-  renderRichText(props.blok.description))
+const sectionDescription = computed(() => {
+  return renderRichText(props.blok.description)
+})
 
 const { isTabletScreenSizeAndSmaller } = useMedia()
 const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value ? 'center' : 'left')
-
-function isStoryblokStory(
-  article: string | StoryblokStory<PricingPlanPageStoryblok>,
-): article is StoryblokStory<PricingPlanPageStoryblok> {
-  return typeof article !== 'string'
-}
-
-const typeCheckedPricingPlans = computed(() => {
-  return (props.blok.pricing_plans ?? []).filter(isStoryblokStory)
-})
 </script>
 
 <template>
@@ -72,7 +67,7 @@ const typeCheckedPricingPlans = computed(() => {
         :columns="blok.columns ?? '2'"
       >
         <PricingPlanCard
-          v-for="pricingPlan in typeCheckedPricingPlans"
+          v-for="pricingPlan in blok.pricing_plans"
           :key="pricingPlan.uuid"
           :blok="pricingPlan.content"
           :slug="pricingPlan.full_slug"

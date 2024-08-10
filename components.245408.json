@@ -4,7 +4,7 @@
       "name": "article",
       "display_name": null,
       "created_at": "2023-08-17T18:42:56.203Z",
-      "updated_at": "2024-07-25T14:30:21.418Z",
+      "updated_at": "2024-08-10T16:50:23.581Z",
       "id": 4437519,
       "schema": {
         "date": {
@@ -33,6 +33,7 @@
           "source": "internal_stories",
           "folder_slug": "categories/",
           "filter_content_type": [
+            "category-page",
             "category"
           ],
           "min_options": "1",
@@ -47,7 +48,8 @@
           "source": "internal_stories",
           "folder_slug": "authors/",
           "filter_content_type": [
-            "author"
+            "author",
+            "author-page"
           ],
           "min_options": "1",
           "max_options": "3",
@@ -374,7 +376,7 @@
       "name": "articles-section",
       "display_name": null,
       "created_at": "2023-08-17T18:52:21.163Z",
-      "updated_at": "2024-07-08T13:56:01.314Z",
+      "updated_at": "2024-08-10T16:02:35.423Z",
       "id": 4437547,
       "schema": {
         "columns": {
@@ -424,7 +426,8 @@
           "source": "internal_stories",
           "folder_slug": "blog/",
           "filter_content_type": [
-            "article"
+            "article",
+            "article-page"
           ],
           "min_options": "2",
           "max_options": "6",
@@ -500,7 +503,7 @@
       "name": "author",
       "display_name": null,
       "created_at": "2024-07-10T07:35:15.282Z",
-      "updated_at": "2024-07-23T17:36:27.767Z",
+      "updated_at": "2024-08-10T17:21:19.356Z",
       "id": 6032632,
       "schema": {
         "photo": {
@@ -734,7 +737,7 @@
       "name": "category",
       "display_name": null,
       "created_at": "2024-07-13T22:00:04.883Z",
-      "updated_at": "2024-07-17T00:57:02.525Z",
+      "updated_at": "2024-08-10T16:34:36.928Z",
       "id": 6045534,
       "schema": {
         "heading": {
@@ -2278,146 +2281,10 @@
       "component_group_name": "molecules"
     },
     {
-      "name": "pricing-plan-hero-section",
-      "display_name": null,
-      "created_at": "2024-07-28T17:34:25.976Z",
-      "updated_at": "2024-07-29T16:52:46.918Z",
-      "id": 6101898,
-      "schema": {
-        "heading": {
-          "type": "text",
-          "display_name": "",
-          "pos": 1,
-          "required": true,
-          "key": "heading"
-        },
-        "heading_level": {
-          "type": "option",
-          "pos": 2,
-          "use_uuid": true,
-          "datasource_slug": "heading-levels",
-          "default_value": "h1",
-          "exclude_empty_option": true,
-          "options": [
-            {
-              "_uid": "538bdcd9-1bea-4740-9a20-9420caca9540",
-              "name": "Heading 1",
-              "value": "h1"
-            },
-            {
-              "_uid": "a611c2fb-25a8-456c-8707-e4e81d12a44c",
-              "value": "h2",
-              "name": "Heading 2"
-            },
-            {
-              "_uid": "83fcd873-f32c-4f38-805f-8cf675e7962a",
-              "value": "h3",
-              "name": "Heading 3"
-            },
-            {
-              "_uid": "13d50fc9-0b3d-42b8-b27e-24f0c33dd83e",
-              "value": "h4",
-              "name": "Heading 4"
-            },
-            {
-              "_uid": "2ae698d8-2128-48dc-9e55-950ff47733cd",
-              "value": "h5",
-              "name": "Heading 5"
-            },
-            {
-              "_uid": "34349cab-48ed-4b70-94ca-2b1d9b39ec7e",
-              "value": "h6",
-              "name": "Heading 6"
-            }
-          ],
-          "key": "heading_level"
-        },
-        "description": {
-          "type": "textarea",
-          "pos": 2,
-          "required": true
-        }
-      },
-      "image": null,
-      "preview_field": "heading",
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "pricing-plan-hero-section",
-      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
-      "color": "#ffac00",
-      "icon": "block-share",
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null,
-      "component_group_name": "molecules"
-    },
-    {
-      "name": "pricing-plan-list",
-      "display_name": null,
-      "created_at": "2024-07-29T13:49:43.497Z",
-      "updated_at": "2024-07-29T13:51:36.695Z",
-      "id": 6104889,
-      "schema": {
-        "hide_top_gap": {
-          "type": "boolean",
-          "pos": 0,
-          "key": "hide_top_gap"
-        },
-        "columns": {
-          "type": "option",
-          "pos": 1,
-          "use_uuid": true,
-          "exclude_empty_option": true,
-          "options": [
-            {
-              "_uid": "c46544ef-7d89-41df-9a18-8aa8d3f201c5",
-              "name": "Two",
-              "value": "2"
-            },
-            {
-              "_uid": "1a9b67ec-423e-44f9-b2ac-c8a929718526",
-              "value": "3",
-              "name": "Three"
-            }
-          ],
-          "default_value": "2",
-          "key": "columns"
-        },
-        "tab-cd2bfba3-02ef-4603-90f2-f27d8523a48f": {
-          "display_name": "Style",
-          "keys": [
-            "columns",
-            "hide_top_gap"
-          ],
-          "pos": 3,
-          "type": "tab",
-          "key": "tab-cd2bfba3-02ef-4603-90f2-f27d8523a48f"
-        }
-      },
-      "image": null,
-      "preview_field": "columns",
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "pricing-plan-list",
-      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
-      "color": "#ff6159",
-      "icon": "block-share",
-      "internal_tags_list": [],
-      "internal_tag_ids": [],
-      "content_type_asset_preview": null,
-      "component_group_name": "organisms"
-    },
-    {
-      "name": "pricing-plan-page",
+      "name": "pricing-plan",
       "display_name": null,
       "created_at": "2024-07-24T18:03:12.062Z",
-      "updated_at": "2024-07-29T14:16:34.819Z",
+      "updated_at": "2024-08-10T17:47:22.745Z",
       "id": 6090428,
       "schema": {
         "price": {
@@ -2592,7 +2459,7 @@
       "is_nestable": false,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "pricing-plan-page",
+      "real_name": "pricing-plan",
       "component_group_uuid": "f3344240-ff35-4f0a-94c9-2b236056c9b7",
       "color": "#2db47d",
       "icon": "block-1-2block",
@@ -2600,6 +2467,142 @@
       "internal_tag_ids": [],
       "content_type_asset_preview": null,
       "component_group_name": "templates"
+    },
+    {
+      "name": "pricing-plan-hero-section",
+      "display_name": null,
+      "created_at": "2024-07-28T17:34:25.976Z",
+      "updated_at": "2024-07-29T16:52:46.918Z",
+      "id": 6101898,
+      "schema": {
+        "heading": {
+          "type": "text",
+          "display_name": "",
+          "pos": 1,
+          "required": true,
+          "key": "heading"
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "default_value": "h1",
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "538bdcd9-1bea-4740-9a20-9420caca9540",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "a611c2fb-25a8-456c-8707-e4e81d12a44c",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "83fcd873-f32c-4f38-805f-8cf675e7962a",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "13d50fc9-0b3d-42b8-b27e-24f0c33dd83e",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "2ae698d8-2128-48dc-9e55-950ff47733cd",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "34349cab-48ed-4b70-94ca-2b1d9b39ec7e",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "key": "heading_level"
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 2,
+          "required": true
+        }
+      },
+      "image": null,
+      "preview_field": "heading",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "pricing-plan-hero-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "pricing-plan-list",
+      "display_name": null,
+      "created_at": "2024-07-29T13:49:43.497Z",
+      "updated_at": "2024-07-29T13:51:36.695Z",
+      "id": 6104889,
+      "schema": {
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 0,
+          "key": "hide_top_gap"
+        },
+        "columns": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "c46544ef-7d89-41df-9a18-8aa8d3f201c5",
+              "name": "Two",
+              "value": "2"
+            },
+            {
+              "_uid": "1a9b67ec-423e-44f9-b2ac-c8a929718526",
+              "value": "3",
+              "name": "Three"
+            }
+          ],
+          "default_value": "2",
+          "key": "columns"
+        },
+        "tab-cd2bfba3-02ef-4603-90f2-f27d8523a48f": {
+          "display_name": "Style",
+          "keys": [
+            "columns",
+            "hide_top_gap"
+          ],
+          "pos": 3,
+          "type": "tab",
+          "key": "tab-cd2bfba3-02ef-4603-90f2-f27d8523a48f"
+        }
+      },
+      "image": null,
+      "preview_field": "columns",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "pricing-plan-list",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
+      "color": "#ff6159",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "organisms"
     },
     {
       "name": "pricing-section",
@@ -3209,7 +3212,7 @@
       "name": "vacancy",
       "display_name": null,
       "created_at": "2024-06-08T15:19:51.833Z",
-      "updated_at": "2024-06-08T16:01:40.160Z",
+      "updated_at": "2024-08-10T17:42:19.152Z",
       "id": 5901700,
       "schema": {
         "title": {

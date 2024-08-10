@@ -61,8 +61,8 @@ export interface ArticleStoryblok {
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
   )[];
-  category: StoryblokStory<CategoryStoryblok> | string;
-  authors: (StoryblokStory<AuthorStoryblok> | string)[];
+  category: StoryblokStory<CategoryPageStoryblok> | StoryblokStory<CategoryStoryblok> | string;
+  authors: (StoryblokStory<AuthorStoryblok> | StoryblokStory<AuthorPageStoryblok> | string)[];
   card_image: AssetStoryblok;
   card_heading: string;
   card_heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -103,7 +103,7 @@ export interface ArticlesSectionStoryblok {
   hide_top_gap?: boolean;
   headline?: string;
   heading?: string;
-  articles: (StoryblokStory<ArticleStoryblok> | string)[];
+  articles: (StoryblokStory<ArticleStoryblok> | StoryblokStory<ArticlePageStoryblok> | string)[];
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
   component: "articles-section";
@@ -475,24 +475,7 @@ export interface PricingCompareSectionStoryblok {
   [k: string]: any;
 }
 
-export interface PricingPlanHeroSectionStoryblok {
-  heading: string;
-  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  description: string;
-  _uid: string;
-  component: "pricing-plan-hero-section";
-  [k: string]: any;
-}
-
-export interface PricingPlanListStoryblok {
-  hide_top_gap?: boolean;
-  columns?: "2" | "3";
-  _uid: string;
-  component: "pricing-plan-list";
-  [k: string]: any;
-}
-
-export interface PricingPlanPageStoryblok {
+export interface PricingPlanStoryblok {
   price: string;
   features: (
     | "Unlimited members"
@@ -542,7 +525,24 @@ export interface PricingPlanPageStoryblok {
   )[];
   card_billing_description?: string;
   _uid: string;
-  component: "pricing-plan-page";
+  component: "pricing-plan";
+  [k: string]: any;
+}
+
+export interface PricingPlanHeroSectionStoryblok {
+  heading: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  description: string;
+  _uid: string;
+  component: "pricing-plan-hero-section";
+  [k: string]: any;
+}
+
+export interface PricingPlanListStoryblok {
+  hide_top_gap?: boolean;
+  columns?: "2" | "3";
+  _uid: string;
+  component: "pricing-plan-list";
   [k: string]: any;
 }
 

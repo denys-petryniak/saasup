@@ -2,21 +2,15 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { CareersSectionStoryblok, VacancyStoryblok } from '~/component-types-sb'
 
+type CareersSectionStoryblokWithRelations = CareersSectionStoryblok & {
+  vacancies: StoryblokStory<VacancyStoryblok>[]
+}
+
 interface Props {
-  blok: CareersSectionStoryblok
+  blok: CareersSectionStoryblokWithRelations
 }
 
-const props = defineProps<Props>()
-
-function isStoryblokStory(
-  vacancy: string | StoryblokStory<VacancyStoryblok>,
-): vacancy is StoryblokStory<VacancyStoryblok> {
-  return typeof vacancy !== 'string'
-}
-
-const typeCheckedVacancies = computed(() => {
-  return (props.blok.vacancies ?? []).filter(isStoryblokStory)
-})
+defineProps<Props>()
 
 const vacancyStaticData = {
   title: 'Can\'t find the position you are looking for?',
@@ -46,7 +40,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
         class="careers-section__vacancies"
       >
         <VacancyCardDynamic
-          v-for="vacancy in typeCheckedVacancies"
+          v-for="vacancy in blok.vacancies"
           :key="vacancy.uuid"
           :vacancy="vacancy.content"
           :slug="vacancy.full_slug"

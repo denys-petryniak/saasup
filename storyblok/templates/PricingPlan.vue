@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { PricingPlanPageStoryblok } from '~/component-types-sb'
+import type { PricingPlanStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: PricingPlanPageStoryblok
+  blok: PricingPlanStoryblok
 }
 
 const props = defineProps<Props>()

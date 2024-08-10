@@ -2,38 +2,27 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { ArticleStoryblok, CategoryStoryblok } from '~/component-types-sb'
 
+type ArticleStoryblokWithRelations = ArticleStoryblok & {
+  category: StoryblokStory<CategoryStoryblok>
+}
+
 interface Props {
-  article: ArticleStoryblok
+  article: ArticleStoryblokWithRelations
   slug: string
 }
 
 const props = defineProps<Props>()
 
-const articleCardDescription = computed(() =>
-  renderRichText(props.article.card_description))
+const articleCardDescription = computed(() => {
+  return renderRichText(props.article.card_description)
+})
 
 const { formattedArticleDate } = useArticleDate(props.article.date)
-
-function isCategoryStoryblokStory(
-  category: string | StoryblokStory<CategoryStoryblok>,
-): category is StoryblokStory<CategoryStoryblok> {
-  return typeof category !== 'string'
-}
-
-const typeCheckedCategory = computed(() => {
-  if (!props.article.category)
-    return
-
-  return isCategoryStoryblokStory(props.article.category) ? props.article.category : undefined
-})
 
 const route = useRoute()
 
 const isCurrentSlug = computed(() => {
-  if (!typeCheckedCategory.value)
-    return false
-
-  return route.fullPath === prependLeadingSlash(typeCheckedCategory.value.full_slug)
+  return route.fullPath === prependLeadingSlash(props.article.category.full_slug)
 })
 </script>
 
@@ -57,14 +46,14 @@ const isCurrentSlug = computed(() => {
           class="article-card__image"
         />
         <BaseButton
-          v-if="typeCheckedCategory"
-          :to="prependLeadingSlash(typeCheckedCategory.full_slug)"
+          v-if="article.category"
+          :to="prependLeadingSlash(article.category.full_slug)"
           :disabled="isCurrentSlug || undefined"
           size="sm"
           color="light-branded"
           class="article-card__button"
         >
-          {{ typeCheckedCategory.content.heading }}
+          {{ article.category.content?.heading }}
         </BaseButton>
       </div>
     </template>

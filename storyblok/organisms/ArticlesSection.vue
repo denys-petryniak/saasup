@@ -2,21 +2,15 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { ArticleStoryblok, ArticlesSectionStoryblok } from '~/component-types-sb'
 
+type ArticlesSectionStoryblokWithRelations = ArticlesSectionStoryblok & {
+  articles: StoryblokStory<ArticleStoryblok>[]
+}
+
 interface Props {
-  blok: ArticlesSectionStoryblok
+  blok: ArticlesSectionStoryblokWithRelations
 }
 
-const props = defineProps<Props>()
-
-function isStoryblokStory(
-  article: string | StoryblokStory<ArticleStoryblok>,
-): article is StoryblokStory<ArticleStoryblok> {
-  return typeof article !== 'string'
-}
-
-const typeCheckedArticles = computed(() => {
-  return (props.blok.articles ?? []).filter(isStoryblokStory)
-})
+defineProps<Props>()
 </script>
 
 <template>
@@ -38,7 +32,7 @@ const typeCheckedArticles = computed(() => {
       class="articles-section__cards"
     >
       <ArticleCard
-        v-for="article in typeCheckedArticles"
+        v-for="article in blok.articles"
         :key="article.uuid"
         :article="article.content"
         :slug="article.full_slug"
