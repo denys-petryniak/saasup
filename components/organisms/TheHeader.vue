@@ -84,13 +84,26 @@ provide(modalInjectionKey, {
       </div>
       <div class="header__main">
         <div class="header__buttons">
-          <BaseButton
-            color="light-bordered"
-            class="header__cart-button"
-            @click="openModal"
-          >
-            Cart ({{ totalCartItems }})
-          </BaseButton>
+          <ClientOnly>
+            <template #default>
+              <BaseButton
+                color="light-bordered"
+                class="header__cart-button"
+                @click="openModal"
+              >
+                Cart ({{ totalCartItems }})
+              </BaseButton>
+            </template>
+            <template #placeholder>
+              <BaseButton
+                color="light-bordered"
+                class="header__cart-button"
+                disabled
+              >
+                Cart (0)
+              </BaseButton>
+            </template>
+          </ClientOnly>
           <BaseButton
             color="dark"
             to="/pricing"
@@ -174,13 +187,26 @@ provide(modalInjectionKey, {
               </template>
             </li>
             <li class="navigation__item">
-              <button
-                type="button"
-                class="navigation__cart-button"
-                @click="openModal"
-              >
-                Cart ({{ totalCartItems }})
-              </button>
+              <ClientOnly>
+                <template #default>
+                  <button
+                    type="button"
+                    class="navigation__cart-button"
+                    @click="openModal"
+                  >
+                    Cart ({{ totalCartItems }})
+                  </button>
+                </template>
+                <template #placeholder>
+                  <button
+                    type="button"
+                    class="navigation__cart-button"
+                    disabled
+                  >
+                    Cart (0)
+                  </button>
+                </template>
+              </ClientOnly>
             </li>
           </menu>
         </nav>
