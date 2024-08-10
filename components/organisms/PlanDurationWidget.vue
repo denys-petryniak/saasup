@@ -62,7 +62,13 @@ function handleAddToCart() {
     price: priceByDuration.value,
   }
 
-  addToCart(cartItem)
+  const { itemExists } = addToCart(cartItem)
+
+  if (itemExists) {
+    $toast.warning('This item is already in your cart.')
+  }
+
+  $toast.success('Item added to your cart successfully!')
   isCartModalVisible.value = true
 }
 </script>

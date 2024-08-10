@@ -7,8 +7,6 @@ interface CartItem {
   price: string
 }
 
-const { $toast } = useNuxtApp()
-
 export function useCart() {
   const cartItems = useStorage<CartItem[]>('cart', [])
 
@@ -17,13 +15,11 @@ export function useCart() {
       cartItem => cartItem.name === item.name && cartItem.duration === item.duration,
     )
 
-    if (itemExists) {
-      $toast.warn('This item is already in your cart.')
-    }
-    else {
+    if (!itemExists) {
       cartItems.value = [...cartItems.value, item]
-      $toast.success('Item added to your cart successfully!')
     }
+
+    return { itemExists }
   }
 
   function removeFromCart(id: string) {
