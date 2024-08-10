@@ -1,8 +1,7 @@
-import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { ArticleStoryblok } from '~/component-types-sb'
+import type { ArticleStoryblokWithRelations } from '~/types'
 
 export function useFetchArticles(filterQuery: Record<string, any> = {}) {
-  const articles = ref<StoryblokStory<ArticleStoryblok>[] | null>(null)
+  const articles = ref<ArticleStoryblokWithRelations | null>(null)
 
   async function fetchArticles() {
     const storyblokApi = useStoryblokApi()

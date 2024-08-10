@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { ArticleStoryblok, AuthorStoryblok, CategoryStoryblok } from '~/component-types-sb'
-
-type ArticleStoryblokWithRelations = ArticleStoryblok & {
-  category: StoryblokStory<CategoryStoryblok>
-  authors: StoryblokStory<AuthorStoryblok>[]
-}
+import type { ArticleStoryblokWithRelations } from '~/types'
 
 interface Props {
   blok: ArticleStoryblokWithRelations

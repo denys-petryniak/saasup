@@ -1,8 +1,17 @@
+import type { StoryblokStory } from 'storyblok-generate-ts'
 import type {
+  ArticleStoryblok,
+  ArticlesSectionStoryblok,
   AssetStoryblok,
+  AuthorStoryblok,
   ButtonStoryblok,
+  CareersSectionStoryblok,
+  CategoryStoryblok,
   LinkStoryblok,
+  PricingPlanStoryblok,
+  PricingSectionStoryblok,
   SubmenuStoryblok,
+  VacancyStoryblok,
 } from '~/component-types-sb'
 
 export type Theme = 'light' | 'dark'
@@ -36,4 +45,21 @@ export interface Footer {
   phones: LinkStoryblok[]
   socialLinks: LinkStoryblok[]
   widget?: FooterWidget
+}
+
+export type ArticleStoryblokWithRelations = ArticleStoryblok & {
+  category: StoryblokStory<CategoryStoryblok>
+  authors: StoryblokStory<AuthorStoryblok>[]
+}
+
+export type ArticlesSectionStoryblokWithRelations = ArticlesSectionStoryblok & {
+  articles: StoryblokStory<ArticleStoryblok>[]
+}
+
+export type CareersSectionStoryblokWithRelations = CareersSectionStoryblok & {
+  vacancies: StoryblokStory<VacancyStoryblok>[]
+}
+
+export type PricingSectionStoryblokWithRelations = PricingSectionStoryblok & {
+  pricing_plans: StoryblokStory<PricingPlanStoryblok>[]
 }
