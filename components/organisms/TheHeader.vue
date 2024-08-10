@@ -186,8 +186,8 @@ provide(modalInjectionKey, {
         </nav>
       </div>
     </header>
+    <LazyCartModal />
   </BaseContainer>
-  <LazyCartModal />
 </template>
 
 <style scoped lang="scss">

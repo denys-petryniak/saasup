@@ -104,8 +104,8 @@ function handleAddToCart() {
     >
       Add to Cart
     </BaseButton>
+    <LazyCartModal />
   </div>
-  <LazyCartModal />
 </template>
 
 <style scoped lang="scss">
