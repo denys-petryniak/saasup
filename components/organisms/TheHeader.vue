@@ -88,7 +88,7 @@ provide(modalInjectionKey, {
             <template #default>
               <BaseButton
                 color="light-bordered"
-                class="header__cart-button"
+                class="header__cart-button u-hidden-from-lg"
                 @click="openModal"
               >
                 Cart ({{ totalCartItems }})
@@ -97,7 +97,7 @@ provide(modalInjectionKey, {
             <template #placeholder>
               <BaseButton
                 color="light-bordered"
-                class="header__cart-button"
+                class="header__cart-button u-hidden-from-lg"
                 disabled
               >
                 Cart (0)
@@ -105,16 +105,16 @@ provide(modalInjectionKey, {
             </template>
           </ClientOnly>
           <BaseButton
-            color="dark"
             to="/pricing"
-            class="header__cta-button"
+            color="dark"
+            class="header__cta-button u-visible-from-md"
           >
             Get Started
           </BaseButton>
           <button
             ref="menuButtonRef"
             type="button"
-            class="header__menu-button"
+            class="header__menu-button u-hidden-from-lg"
             :class="{ 'header__menu-button--active': isMenuVisible }"
             aria-label="Toggle menu"
             @click="toggleMenuVisibility"
@@ -191,7 +191,7 @@ provide(modalInjectionKey, {
                 <template #default>
                   <button
                     type="button"
-                    class="navigation__cart-button"
+                    class="navigation__cart-button u-visible-from-lg"
                     @click="openModal"
                   >
                     Cart ({{ totalCartItems }})
@@ -200,7 +200,7 @@ provide(modalInjectionKey, {
                 <template #placeholder>
                   <button
                     type="button"
-                    class="navigation__cart-button"
+                    class="navigation__cart-button u-visible-from-lg"
                     disabled
                   >
                     Cart (0)
@@ -234,10 +234,6 @@ provide(modalInjectionKey, {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  &__cta-button {
-    display: none;
   }
 
   &__menu-button {
@@ -311,8 +307,6 @@ provide(modalInjectionKey, {
 
   &__submenu-button,
   &__cart-button {
-    display: block;
-    width: 100%;
     text-align: start;
     font-weight: $font--semibold;
     line-height: $leading--cozy;
@@ -324,10 +318,6 @@ provide(modalInjectionKey, {
         color: $color-primary--light;
       }
     }
-  }
-
-  &__cart-button {
-    display: none;
   }
 }
 
@@ -345,10 +335,6 @@ provide(modalInjectionKey, {
     &__cta-button {
       margin-right: $spacing--lg;
     }
-
-    &__cta-button {
-      display: block;
-    }
   }
 }
 
@@ -361,7 +347,7 @@ provide(modalInjectionKey, {
     &__navigation {
       display: block;
       width: auto;
-      padding: $spacing--sm $spacing--2xl;
+      padding: $spacing--xs $spacing--2xl;
       margin-right: $spacing--4xl;
     }
 
@@ -370,16 +356,8 @@ provide(modalInjectionKey, {
       order: 2;
     }
 
-    &__cart-button {
-      display: none;
-    }
-
     &__cta-button {
       margin-right: 0;
-    }
-
-    &__menu-button {
-      display: none;
     }
   }
 
@@ -402,10 +380,6 @@ provide(modalInjectionKey, {
       padding: $spacing--lg;
       background-color: $color--secondary--extra-light;
       border-radius: $rounded--lg;
-    }
-
-    &__cart-button {
-      display: block;
     }
   }
 }

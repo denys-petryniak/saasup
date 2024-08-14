@@ -18,11 +18,12 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const getButtonClasses = computed(() => {
+  const buttonTypeClass = props.to ? 'button--link' : 'button'
   const widthClass = props.width ? `button--${props.width}` : null
   const sizeClass = props.size ? `button--${props.size}` : null
   const colorClass = props.color ? `button--${props.color}` : null
 
-  return [widthClass, sizeClass, colorClass]
+  return [buttonTypeClass, widthClass, sizeClass, colorClass]
 })
 
 const NuxtLink = resolveComponent('NuxtLink')
@@ -62,19 +63,16 @@ $button-padding-x--md: clamped(
 $button-min-width: 10ch;
 
 .button {
-  display: inline-block;
   min-width: $button-min-width;
   border-radius: $rounded--3xl * 2;
-  @include fluid-typography(
-    $min-font-size: $text--base,
-    $max-font-size: $text--lg
-  );
+  @include fluid-typography($min-font-size: $text--base, $max-font-size: $text--lg);
   line-height: $leading--none;
   font-weight: $font--bold;
   text-align: center;
 
   &:disabled,
   &[disabled] {
+    opacity: 0.5;
     pointer-events: none;
     cursor: not-allowed;
   }
@@ -163,10 +161,6 @@ $button-min-width: 10ch;
       border: 1px solid $color-primary--light;
       background-color: $color-primary--light;
     }
-  }
-
-  &[disabled] {
-    opacity: 0.5;
   }
 }
 </style>

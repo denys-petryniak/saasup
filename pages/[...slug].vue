@@ -32,6 +32,8 @@ const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
 
 const { data: story } = await useAsyncData(getSlug, async () => {
+  // TODO: use getCachedData
+  // TODO: use destructured from useAsyncData error object instead of try/catch to show 404 (?)
   try {
     const { data }: { data: StoryData } = await useStoryblokApi().get(apiEndpoint, {
       version: storyVersion,

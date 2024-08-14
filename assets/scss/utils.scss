@@ -1,0 +1,135 @@
+.u-border-debug {
+  border: 1px dotted red;
+}
+
+// Hide on screens smaller than 'sm' (i.e., very small mobile screens)
+.u-hidden-up-to-sm {
+  @include breakpoint('sm', $max: true) {
+    display: none;
+  }
+}
+
+// Hide on screens 'sm' and larger (i.e., mobile screens and above)
+.u-hidden-from-sm {
+  @include breakpoint('sm') {
+    display: none;
+  }
+}
+
+// Hide on screens smaller than 'md' (i.e., mobile and smaller tablets)
+.u-hidden-up-to-md {
+  @include breakpoint('md', $max: true) {
+    display: none;
+  }
+}
+
+// Hide on screens 'md' and larger (i.e., tablets and above)
+.u-hidden-from-md {
+  @include breakpoint('md') {
+    display: none;
+  }
+}
+
+// Hide on screens smaller than 'lg' (i.e., tablets and smaller laptops)
+.u-hidden-up-to-lg {
+  @include breakpoint('lg', $max: true) {
+    display: none;
+  }
+}
+
+// Hide on screens 'lg' and larger (i.e., laptops and above)
+.u-hidden-from-lg {
+  @include breakpoint('lg') {
+    display: none;
+  }
+}
+
+// Hide on screens smaller than 'xl' (i.e., laptops and smaller desktops)
+.u-hidden-up-to-xl {
+  @include breakpoint('xl', $max: true) {
+    display: none;
+  }
+}
+
+// Hide on screens 'xl' and larger (i.e., desktops and above)
+.u-hidden-from-xl {
+  @include breakpoint('xl') {
+    display: none;
+  }
+}
+
+// Show only on screens smaller than 'sm' (i.e., very small mobile screens)
+.u-visible-up-to-sm {
+  display: none;
+
+  @include breakpoint('sm', $max: true) {
+    display: block;
+  }
+}
+
+// Show only on screens 'sm' and larger (i.e., mobile screens and above)
+.u-visible-from-sm {
+  display: none;
+
+  @include breakpoint('sm') {
+    display: block;
+  }
+}
+
+// Show only on screens smaller than 'md' (i.e., mobile and smaller tablets)
+.u-visible-up-to-md {
+  display: none;
+
+  @include breakpoint('md', $max: true) {
+    display: block;
+  }
+}
+
+// Show only on screens 'md' and larger (i.e., tablets and above)
+.u-visible-from-md {
+  display: none;
+
+  @include breakpoint('md') {
+    display: block;
+  }
+}
+
+// Show only on screens smaller than 'lg' (i.e., tablets and smaller laptops)
+.u-visible-up-to-lg {
+  display: none;
+
+  @include breakpoint('lg', $max: true) {
+    display: block;
+  }
+}
+
+// Show only on screens 'lg' and larger (i.e., laptops and above)
+.u-visible-from-lg {
+  display: none;
+
+  @include breakpoint('lg') {
+    display: block;
+  }
+}
+
+// Show only on screens smaller than 'xl' (i.e., laptops and smaller desktops)
+.u-visible-up-to-xl {
+  display: none;
+
+  @include breakpoint('xl', $max: true) {
+    display: block;
+  }
+}
+
+// Show only on screens 'xl' and larger (i.e., desktops and above)
+.u-visible-from-xl {
+  display: none;
+
+  @include breakpoint('xl') {
+    display: block;
+  }
+}
+
+
+
+

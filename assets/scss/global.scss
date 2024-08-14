@@ -103,6 +103,7 @@ button {
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
   color: $color--secondary--extra-dark;
 
@@ -142,10 +143,4 @@ span {
 :not(:active):focus-visible {
   outline-offset: 0.15rem;
   outline-color: rgba($color-primary--light, 0.5);
-}
-
-// Utilities
-
-.border-debug {
-  border: 1px dotted red;
 }
