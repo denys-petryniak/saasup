@@ -66,6 +66,9 @@ function handleAddToCart() {
 
   if (itemExists) {
     $toast.warning('This item is already in your cart.')
+    isCartModalVisible.value = true
+
+    return
   }
 
   $toast.success('Item added to your cart successfully!')
