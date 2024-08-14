@@ -19,11 +19,11 @@
   "dependencies": {
     "@storyblok/nuxt": "^6.0.10",
     "body-scroll-lock": "4.0.0-beta.0",
-    "modern-normalize": "^2.0.0",
+    "modern-normalize": "^3.0.0",
     "vue3-toastify": "^0.2.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.25.0",
+    "@antfu/eslint-config": "2.25.1",
     "@iconify-json/carbon": "^1.1.37",
     "@iconify-json/material-symbols": "^1.1.87",
     "@iconify-json/raphael": "^1.1.9",
