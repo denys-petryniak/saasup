@@ -7,11 +7,9 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const heroDescription = computed(() =>
-  renderRichText(props.blok.description))
-
-const { isTabletScreenSizeAndSmaller } = useMedia()
-const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value ? 'center' : 'left')
+const heroDescription = computed(() => {
+  return renderRichText(props.blok.description)
+})
 </script>
 
 <template>
@@ -26,7 +24,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
           :heading="blok.heading"
           :heading-level="blok.heading_level ?? 'h1'"
           :description="heroDescription"
-          :align="contentBlockAlignment"
+          :align="{ mobile: 'center', laptop: 'left' }"
         >
           <template #footer>
             <div class="hero-section__buttons">

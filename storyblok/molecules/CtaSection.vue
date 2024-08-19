@@ -50,6 +50,7 @@ const sectionBackground = computed(() => {
         v-if="blok.heading"
         :heading="blok.heading"
         :heading-level="blok.heading_level"
+        :align="{ mobile: 'center', laptop: 'left' }"
         theme="light"
         class="cta-section__content"
       >

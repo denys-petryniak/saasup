@@ -32,7 +32,6 @@ function getTabButtonText({ index, text = 'Tab' }: { index: number, text: string
       :headline="blok.headline"
       :heading="blok.heading"
       :heading-level="blok.heading_level"
-      :align="blok.alignment ?? 'center'"
     />
     <div
       v-if="blok.entries?.length"

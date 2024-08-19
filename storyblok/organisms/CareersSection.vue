@@ -11,9 +11,6 @@ const vacancyStaticData = {
   title: 'Can\'t find the position you are looking for?',
   description: 'Don\'t worry, get in touch with us , we are always looking for great team members to join with us.',
 }
-
-const { isTabletScreenSizeAndSmaller } = useMedia()
-const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value ? 'center' : 'left')
 </script>
 
 <template>
@@ -27,7 +24,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
         :headline="blok.headline"
         :heading="blok.heading"
         :heading-level="blok.heading_level"
-        :align="contentBlockAlignment"
+        :align="{ mobile: 'center', laptop: 'left' }"
         class="careers-section__head"
       />
       <div

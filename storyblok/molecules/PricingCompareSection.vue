@@ -49,7 +49,6 @@ function isPricingPlan(value: string): value is PricingPlan {
         :headline="blok.headline"
         :heading="blok.heading"
         :heading-level="blok.heading_level"
-        :align="blok.alignment ?? 'center'"
       />
       <div v-if="blok.table" class="pricing-compare-section__table-box">
         <table class="table pricing-compare-section__table">

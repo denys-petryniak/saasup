@@ -1,25 +1,39 @@
 <script setup lang="ts">
-import type { Alignment, HeadingLevel, Theme } from '~/types'
+import type { HeadingLevel, Theme } from '~/types'
+
+type Breakpoints = 'mobile' | 'tablet' | 'laptop' | 'desktop'
+type Alignment = 'left' | 'center' | 'right'
+
+type ResponsiveAlignment = {
+  [key in Breakpoints]?: Alignment
+}
 
 interface Props {
   headline?: string
   heading?: string
   headingLevel?: HeadingLevel
   description?: string
-  align?: Alignment
+  align?: ResponsiveAlignment
   theme?: Theme
 }
 
 const props = withDefaults(defineProps<Props>(), {
   headingLevel: 'h2',
-  align: 'left',
+  align: () => ({ mobile: 'center' }),
 })
 
 const contentBlockClasses = computed(() => {
-  const positionClass = props.align ? `content-block--${props.align}` : null
+  const breakpoints: Breakpoints[] = ['mobile', 'tablet', 'laptop', 'desktop']
+
+  const alignClasses = breakpoints
+    .map(breakpoint => props.align?.[breakpoint]
+      ? `content-block--${breakpoint}--align-${props.align[breakpoint]}`
+      : null,
+    )
+    .filter(Boolean)
   const themeClass = props.theme ? `content-block--${props.theme}` : null
 
-  return [positionClass, themeClass]
+  return [...alignClasses, themeClass].filter(Boolean)
 })
 </script>
 
@@ -28,16 +42,16 @@ const contentBlockClasses = computed(() => {
     class="content-block"
     :class="contentBlockClasses"
   >
-    <div class="content-block__header">
+    <div
+      v-if="headline || heading || description"
+      class="content-block__header"
+    >
       <HeadlineBadge
         v-if="headline"
         class="content-block__headline"
       >
         {{ headline }}
       </HeadlineBadge>
-      <template v-else>
-        <slot name="headline" />
-      </template>
       <DynamicHeading
         v-if="heading"
         :as="headingLevel"
@@ -45,17 +59,14 @@ const contentBlockClasses = computed(() => {
       >
         {{ heading }}
       </DynamicHeading>
-      <template v-else>
-        <slot name="heading" />
-      </template>
       <div
         v-if="description"
         class="content-block__description"
         v-html="description"
       />
-      <template v-else>
-        <slot name="description" />
-      </template>
+    </div>
+    <div v-else-if="$slots.header" class="content-block__header">
+      <slot name="header" />
     </div>
     <div v-if="$slots.default" class="content-block__body">
       <slot />
@@ -68,6 +79,30 @@ const contentBlockClasses = computed(() => {
 
 <style scoped lang="scss">
 $header-text-width--max: toRem(750px);
+
+$alignments: (
+  left: left,
+  center: center,
+  right: right,
+);
+
+@mixin generate-alignment($breakpoint, $alignments) {
+  @each $alignment, $value in $alignments {
+    &--#{$breakpoint}--align-#{$alignment} {
+      text-align: $value;
+
+      .content-block__header {
+        @if $value == left {
+          align-items: flex-start;
+        } @else if $value == center {
+          align-items: center;
+        } @else if $value == right {
+          align-items: flex-end;
+        }
+      }
+    }
+  }
+}
 
 .content-block {
   $parent: &;
@@ -95,28 +130,18 @@ $header-text-width--max: toRem(750px);
     margin: 0;
   }
 
-  &--left {
-    text-align: left;
+  @include generate-alignment('mobile', $alignments);
 
-    #{$parent}__header {
-      align-items: flex-start;
-    }
+  @include breakpoint('sm') {
+    @include generate-alignment('tablet', $alignments);
   }
 
-  &--center {
-    text-align: center;
-
-    #{$parent}__header {
-      align-items: center;
-    }
+  @include breakpoint('lg') {
+    @include generate-alignment('laptop', $alignments);
   }
 
-  &--right {
-    text-align: right;
-
-    #{$parent}__header {
-      align-items: flex-end;
-    }
+  @include breakpoint('xl') {
+    @include generate-alignment('desktop', $alignments);
   }
 
   &--light {

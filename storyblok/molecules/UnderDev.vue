@@ -20,7 +20,6 @@ const description = computed(() =>
       :heading="blok.heading"
       :heading-level="blok.heading_level ?? 'h1'"
       :description="description"
-      :align="blok.alignment ?? 'center'"
     />
   </BaseSection>
 </template>

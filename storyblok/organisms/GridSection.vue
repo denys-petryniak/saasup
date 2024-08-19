@@ -18,7 +18,6 @@ defineProps<Props>()
       :headline="blok.headline"
       :heading="blok.heading"
       :heading-level="blok.heading_level"
-      :align="blok.alignment ?? 'center'"
     />
     <GridBox
       v-if="blok.cards?.length"

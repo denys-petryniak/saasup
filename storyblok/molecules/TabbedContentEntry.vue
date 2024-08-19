@@ -15,8 +15,8 @@ const description = computed(() => renderRichText(props.blok.description))
     v-editable="blok"
     class="tabbed-content-entry"
   >
-    <ContentBlock v-if="blok.heading">
-      <template #heading>
+    <ContentBlock :align="{ mobile: 'left' }">
+      <template #header>
         <div class="tabbed-content-entry__heading-box">
           <img
             v-if="blok.icon?.filename"
@@ -34,7 +34,9 @@ const description = computed(() => renderRichText(props.blok.description))
           </DynamicHeading>
         </div>
       </template>
-      <div v-html="description" />
+      <template #default>
+        <div v-html="description" />
+      </template>
       <template #footer>
         <BaseButton color="dark">
           Get Started

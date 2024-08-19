@@ -36,7 +36,6 @@ const testimonialBackground = computed(() => {
       :headline="blok.headline"
       :heading="blok.heading"
       :heading-level="blok.heading_level"
-      :align="blok.alignment ?? 'center'"
       theme="light"
       class="testimonial-section__content"
     />

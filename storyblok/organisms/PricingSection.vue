@@ -10,9 +10,6 @@ const props = defineProps<Props>()
 const sectionDescription = computed(() => {
   return renderRichText(props.blok.description)
 })
-
-const { isTabletScreenSizeAndSmaller } = useMedia()
-const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value ? 'center' : 'left')
 </script>
 
 <template>
@@ -26,9 +23,11 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
         :headline="blok.headline"
         :heading="blok.heading"
         :heading-level="blok.heading_level"
-        :align="contentBlockAlignment"
+        :align="{ mobile: 'center', laptop: 'left' }"
       >
-        <div v-html="sectionDescription" />
+        <template #default>
+          <div v-html="sectionDescription" />
+        </template>
         <template #footer>
           <div class="payment pricing-section__payment">
             <h3 class="payment__title">

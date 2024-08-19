@@ -8,9 +8,6 @@ interface Props {
 const props = defineProps<Props>()
 
 const description = computed(() => renderRichText(props.blok.description))
-
-const { isTabletScreenSizeAndSmaller } = useMedia()
-const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value ? 'center' : 'left')
 </script>
 
 <template>
@@ -24,7 +21,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
         v-if="blok.heading"
         :heading="blok.heading"
         :heading-level="blok.heading_level"
-        :align="contentBlockAlignment"
+        :align="{ mobile: 'center', laptop: 'left' }"
         class="image-text-section__content"
       >
         <div v-html="description" />

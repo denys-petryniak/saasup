@@ -8,9 +8,6 @@ interface Props {
 defineProps<Props>()
 
 const { price, features } = inject(pricingPlanGeneralDataInjectionKey) as PricingPlanGeneralData
-
-const { isTabletScreenSizeAndSmaller } = useMedia()
-const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value ? 'center' : 'left')
 </script>
 
 <template>
@@ -24,7 +21,7 @@ const contentBlockAlignment = computed(() => isTabletScreenSizeAndSmaller.value 
         :heading="blok.heading"
         :heading-level="blok.heading_level ?? 'h1'"
         :description="blok.description"
-        :align="contentBlockAlignment"
+        :align="{ mobile: 'center', laptop: 'left' }"
         class="pricing-plan__content"
       >
         <template #footer>

@@ -21,7 +21,6 @@ const introDescription = computed(() =>
       :heading="blok.heading"
       :heading-level="blok.heading_level"
       :description="introDescription"
-      :align="blok.alignment ?? 'center'"
     />
   </BaseSection>
 </template>
