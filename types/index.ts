@@ -14,6 +14,8 @@ import type {
   VacancyStoryblok,
 } from '~/component-types-sb'
 
+export type Breakpoints = 'mobile' | 'tablet' | 'laptop' | 'desktop'
+
 export type Theme = 'light' | 'dark'
 
 export type Alignment = 'left' | 'center' | 'right'

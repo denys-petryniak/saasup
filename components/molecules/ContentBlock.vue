@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import type { HeadingLevel, Theme } from '~/types'
-
-type Breakpoints = 'mobile' | 'tablet' | 'laptop' | 'desktop'
-type Alignment = 'left' | 'center' | 'right'
+import type { Alignment, Breakpoints, HeadingLevel, Theme } from '~/types'
 
 type ResponsiveAlignment = {
   [key in Breakpoints]?: Alignment
