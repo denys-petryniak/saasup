@@ -80,6 +80,7 @@ $modal-content-gap: clamped(
   max-width: 100vw;
   max-height: 100dvh;
   z-index: stacking(modal);
+  padding: $spacing--2xl;
   background-color: rgba($color--secondary--extra-dark, 0.7);
 
   &__content {
