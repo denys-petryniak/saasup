@@ -130,17 +130,15 @@ span {
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  :focus-visible {
-    transition: outline-offset 0.75s ease-out;
-  }
-
-  :not(:active):focus-visible {
-    transition: outline-offset 0.25s ease-out;
-  }
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
-:not(:active):focus-visible {
+:focus-visible {
   outline-offset: 0.15rem;
   outline-color: rgba($color-primary--light, 0.5);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: outline-offset 0.25s ease-out;
+  }
 }
