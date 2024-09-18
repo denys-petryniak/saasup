@@ -17,7 +17,7 @@
     "use-pnpm": "corepack use pnpm@latest"
   },
   "dependencies": {
-    "@storyblok/nuxt": "^6.0.10",
+    "@storyblok/nuxt": "^6.0.11",
     "body-scroll-lock": "4.0.0-beta.0",
     "modern-normalize": "^3.0.1",
     "vue3-toastify": "^0.2.3"
