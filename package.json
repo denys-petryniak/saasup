@@ -19,30 +19,30 @@
   "dependencies": {
     "@storyblok/nuxt": "^6.0.10",
     "body-scroll-lock": "4.0.0-beta.0",
-    "modern-normalize": "^3.0.0",
-    "vue3-toastify": "^0.2.2"
+    "modern-normalize": "^3.0.1",
+    "vue3-toastify": "^0.2.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.27.0",
-    "@iconify-json/carbon": "^1.1.37",
-    "@iconify-json/material-symbols": "^1.1.88",
-    "@iconify-json/raphael": "^1.1.9",
-    "@nuxt/devtools": "^1.3.14",
-    "@nuxt/eslint": "^0.5.1",
-    "@nuxt/icon": "^1.4.7",
-    "@nuxt/image": "1.7.0",
+    "@antfu/eslint-config": "3.6.2",
+    "@iconify-json/carbon": "^1.2.1",
+    "@iconify-json/material-symbols": "^1.2.1",
+    "@iconify-json/raphael": "^1.2.0",
+    "@nuxt/devtools": "^1.4.2",
+    "@nuxt/eslint": "^0.5.7",
+    "@nuxt/icon": "^1.5.1",
+    "@nuxt/image": "1.8.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/html-validator": "^1.8.2",
     "@types/body-scroll-lock": "^3.1.2",
-    "@types/node": "^22.4.2",
-    "@vueuse/nuxt": "^11.0.1",
+    "@types/node": "^22.5.5",
+    "@vueuse/nuxt": "^11.1.0",
     "cross-env": "^7.0.3",
-    "eslint": "^9.8.0",
+    "eslint": "^9.10.0",
     "eslint-plugin-format": "^0.1.2",
-    "nuxt": "^3.12.4",
-    "sass": "^1.77.8",
+    "nuxt": "^3.13.2",
+    "sass": "^1.79.1",
     "storyblok-generate-ts": "^2.1.0",
-    "typescript": "^5.5.4",
-    "vue3-carousel-nuxt": "^1.1.2"
+    "typescript": "^5.6.2",
+    "vue3-carousel-nuxt": "^1.1.3"
   }
 }
