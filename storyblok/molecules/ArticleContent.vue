@@ -45,6 +45,7 @@ const articleContent = computed(() => renderRichText(props.blok.content))
       @include breakpoint('sm') {
         border-left-width: 80px;
       }
+
       @include breakpoint('md') {
         border-left-width: 100px;
       }

@@ -11,6 +11,7 @@ defineProps<Props>()
 <template>
   <BaseSection
     v-editable="blok"
+    :is-top-gap-hidden="blok.hide_top_gap"
     class="grid-section"
   >
     <ContentBlock

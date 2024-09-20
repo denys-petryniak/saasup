@@ -640,28 +640,38 @@
       "name": "careers-section",
       "display_name": null,
       "created_at": "2024-06-08T14:46:14.078Z",
-      "updated_at": "2024-06-27T14:18:06.120Z",
+      "updated_at": "2024-09-18T21:19:51.235Z",
       "id": 5901661,
       "schema": {
-        "vacancies": {
-          "type": "options",
-          "pos": 0,
-          "source": "internal_stories",
-          "folder_slug": "careers/",
-          "filter_content_type": [
-            "vacancy"
-          ],
-          "min_options": "1",
-          "max_options": "10"
-        },
         "headline": {
           "type": "text",
-          "pos": 1
+          "pos": 0,
+          "key": "headline"
+        },
+        "orientation": {
+          "type": "option",
+          "pos": 1,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "be3ec98e-1f82-4b9d-9415-d2c166a8033b",
+              "name": "Vertical",
+              "value": "vertical"
+            },
+            {
+              "_uid": "d8883bda-1078-4730-b2b3-1c1e8a374a28",
+              "value": "horizontal",
+              "name": "Horizontal"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "vertical"
         },
         "heading": {
           "type": "text",
           "pos": 2,
-          "required": true
+          "required": true,
+          "key": "heading"
         },
         "heading_level": {
           "type": "option",
@@ -700,21 +710,39 @@
             }
           ],
           "exclude_empty_option": true,
-          "default_value": "h2"
+          "default_value": "h2",
+          "key": "heading_level"
+        },
+        "vacancies": {
+          "type": "options",
+          "pos": 4,
+          "source": "internal_stories",
+          "folder_slug": "careers/",
+          "filter_content_type": [
+            "vacancy"
+          ],
+          "min_options": "1",
+          "max_options": "10",
+          "key": "vacancies"
         },
         "tab-86ec353e-f140-40a6-b649-135517d4a505": {
           "display_name": "Cards",
           "keys": [
             "vacancies"
           ],
-          "pos": 4,
-          "type": "tab"
+          "pos": 5,
+          "type": "tab",
+          "key": "tab-86ec353e-f140-40a6-b649-135517d4a505"
         },
         "tab-72054aab-2705-42bf-b1a1-5e4de6a5d7dc": {
           "display_name": "Style",
-          "keys": [],
-          "pos": 5,
-          "type": "tab"
+          "keys": [
+            "Orientation",
+            "orientation"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "key": "tab-72054aab-2705-42bf-b1a1-5e4de6a5d7dc"
         }
       },
       "image": null,
@@ -1146,6 +1174,63 @@
       "component_group_name": "molecules"
     },
     {
+      "name": "gallery-section",
+      "display_name": null,
+      "created_at": "2024-09-18T17:34:58.636Z",
+      "updated_at": "2024-09-18T17:48:19.308Z",
+      "id": 6310505,
+      "schema": {
+        "images": {
+          "type": "multiasset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ],
+          "required": false,
+          "asset_folder_id": 640778,
+          "key": "images"
+        },
+        "tab-204d900a-21c7-4d8e-add9-8379d613233d": {
+          "display_name": "Gallery",
+          "keys": [
+            "images"
+          ],
+          "pos": 4,
+          "type": "tab"
+        },
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 5,
+          "key": "hide_top_section_gap"
+        },
+        "tab-2e15032e-08be-43e8-b823-28b65fe09f9e": {
+          "display_name": "Style",
+          "keys": [
+            "hide_top_section_gap",
+            "hide_top_gap"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "key": "tab-2e15032e-08be-43e8-b823-28b65fe09f9e"
+        }
+      },
+      "image": null,
+      "preview_field": "heading",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "gallery-section",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
       "name": "grid-card",
       "display_name": null,
       "created_at": "2024-06-14T11:09:05.112Z",
@@ -1251,12 +1336,16 @@
       "name": "grid-section",
       "display_name": null,
       "created_at": "2024-06-14T17:17:13.296Z",
-      "updated_at": "2024-07-25T12:09:43.314Z",
+      "updated_at": "2024-09-18T21:17:18.877Z",
       "id": 5931306,
       "schema": {
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 0
+        },
         "columns": {
           "type": "option",
-          "pos": 0,
+          "pos": 1,
           "use_uuid": true,
           "options": [
             {
@@ -1275,7 +1364,7 @@
         },
         "alignment": {
           "type": "option",
-          "pos": 1,
+          "pos": 2,
           "use_uuid": true,
           "options": [
             {
@@ -1302,17 +1391,17 @@
           "type": "text",
           "default_value": "",
           "required": false,
-          "pos": 2
+          "pos": 3
         },
         "heading": {
           "type": "text",
           "default_value": "",
           "required": false,
-          "pos": 3
+          "pos": 4
         },
         "heading_level": {
           "type": "option",
-          "pos": 4,
+          "pos": 5,
           "use_uuid": true,
           "datasource_slug": "heading-levels",
           "exclude_empty_option": true,
@@ -1355,21 +1444,22 @@
           "keys": [
             "cards"
           ],
-          "pos": 5,
+          "pos": 6,
           "type": "tab"
         },
         "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3": {
           "display_name": "Style",
           "keys": [
             "alignment",
-            "columns"
+            "columns",
+            "hide_top_gap"
           ],
-          "pos": 6,
+          "pos": 7,
           "type": "tab"
         },
         "cards": {
           "type": "bloks",
-          "pos": 7,
+          "pos": 8,
           "restrict_type": "",
           "restrict_components": true,
           "component_whitelist": [
@@ -1574,47 +1664,30 @@
       "name": "info-card",
       "display_name": null,
       "created_at": "2024-06-27T14:51:11.807Z",
-      "updated_at": "2024-07-07T20:37:00.123Z",
+      "updated_at": "2024-09-18T18:48:25.924Z",
       "id": 5987009,
       "schema": {
-        "orientation": {
-          "type": "option",
-          "pos": 0,
-          "use_uuid": true,
-          "exclude_empty_option": true,
-          "options": [
-            {
-              "_uid": "36f67d24-7fae-4fb4-9170-1fd3333ba4de",
-              "name": "Vertical",
-              "value": "vertical"
-            },
-            {
-              "_uid": "5d09b0b6-ba0a-4adc-b1ff-74d75a38435a",
-              "value": "horizontal",
-              "name": "Horizontal"
-            }
-          ],
-          "default_value": "vertical"
-        },
-        "shadow": {
-          "type": "boolean",
-          "pos": 1
-        },
         "icon": {
           "type": "asset",
-          "pos": 2,
+          "pos": 0,
           "filetypes": [
             "images"
           ],
           "asset_folder_id": 288995
         },
+        "icon_bg": {
+          "type": "custom",
+          "pos": 1,
+          "field_type": "storyblok-colorpicker",
+          "options": []
+        },
         "heading": {
           "type": "text",
-          "pos": 3
+          "pos": 2
         },
         "heading_level": {
           "type": "option",
-          "pos": 4,
+          "pos": 3,
           "use_uuid": true,
           "exclude_empty_option": true,
           "options": [
@@ -1653,7 +1726,30 @@
         },
         "description": {
           "type": "textarea",
-          "pos": 5
+          "pos": 4
+        },
+        "orientation": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "36f67d24-7fae-4fb4-9170-1fd3333ba4de",
+              "name": "Vertical",
+              "value": "vertical"
+            },
+            {
+              "_uid": "5d09b0b6-ba0a-4adc-b1ff-74d75a38435a",
+              "value": "horizontal",
+              "name": "Horizontal"
+            }
+          ],
+          "default_value": "vertical"
+        },
+        "shadow": {
+          "type": "boolean",
+          "pos": 6
         },
         "tab-832effcc-fc97-4e30-9844-c9572b0f25fc": {
           "display_name": "Style",
@@ -1661,7 +1757,7 @@
             "orientation",
             "shadow"
           ],
-          "pos": 6,
+          "pos": 7,
           "type": "tab"
         }
       },

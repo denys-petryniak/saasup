@@ -40,7 +40,7 @@
     "eslint": "^9.10.0",
     "eslint-plugin-format": "^0.1.2",
     "nuxt": "^3.13.2",
-    "sass": "^1.79.1",
+    "sass": "^1.79.2",
     "storyblok-generate-ts": "^2.1.0",
     "typescript": "^5.6.2",
     "vue3-carousel-nuxt": "^1.1.3"
