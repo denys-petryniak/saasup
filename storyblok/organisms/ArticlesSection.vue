@@ -17,8 +17,8 @@ defineProps<Props>()
     <ContentBlock
       v-if="blok.heading"
       :headline="blok.headline"
-      :heading="blok.heading"
-      :heading-level="blok.heading_level"
+      :title="blok.heading"
+      :title-level="blok.heading_level"
     />
     <GridBox
       v-if="blok.articles?.length"

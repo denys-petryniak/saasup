@@ -61,6 +61,7 @@ export interface ArticleStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   category: StoryblokStory<CategoryPageStoryblok> | StoryblokStory<CategoryStoryblok> | string;
   authors: (StoryblokStory<AuthorStoryblok> | StoryblokStory<AuthorPageStoryblok> | string)[];
@@ -147,6 +148,7 @@ export interface AuthorStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   _uid: string;
   component: "author";
@@ -241,6 +243,7 @@ export interface CategoryStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   _uid: string;
   component: "category";
@@ -361,6 +364,7 @@ export interface InfoCardStoryblok {
 }
 
 export interface IntroSectionStoryblok {
+  headline?: string;
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description?: RichtextStoryblok;
@@ -437,6 +441,7 @@ export interface PageStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   _uid: string;
   component: "page";
@@ -537,6 +542,7 @@ export interface PricingPlanStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   card_billing_description?: string;
   _uid: string;
@@ -641,11 +647,20 @@ export interface UnderDevStoryblok {
 
 export interface VacancyStoryblok {
   title?: string;
+  title_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   location?: string;
   employment?: string;
   description?: string;
   content?: RichtextStoryblok;
   _uid: string;
   component: "vacancy";
+  [k: string]: any;
+}
+
+export interface VacancyListStoryblok {
+  hide_top_gap?: boolean;
+  columns?: "2" | "3";
+  _uid: string;
+  component: "vacancy-list";
   [k: string]: any;
 }

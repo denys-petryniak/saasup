@@ -56,13 +56,13 @@ const isCurrentSlug = computed(() => {
       <p class="article-card__date">
         {{ formattedArticleDate }}
       </p>
-      <DynamicHeading
+      <DynamicTitle
         v-if="article.card_heading"
         :as="article.card_heading_level"
         class="article-card__heading"
       >
         {{ article.card_heading }}
-      </DynamicHeading>
+      </DynamicTitle>
       <div
         class="article-card__description"
         v-html="articleCardDescription"

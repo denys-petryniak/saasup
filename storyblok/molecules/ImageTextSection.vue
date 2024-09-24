@@ -19,8 +19,8 @@ const description = computed(() => renderRichText(props.blok.description))
     <div class="image-text-section__body">
       <ContentBlock
         v-if="blok.heading"
-        :heading="blok.heading"
-        :heading-level="blok.heading_level"
+        :title="blok.heading"
+        :title-level="blok.heading_level"
         :align="{ mobile: 'center', laptop: 'left' }"
         class="image-text-section__content"
       >

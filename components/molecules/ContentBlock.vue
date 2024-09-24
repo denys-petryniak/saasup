@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Alignment, Breakpoints, HeadingLevel, Theme } from '~/types'
+import type { Alignment, Breakpoints, Theme, TitleLevel } from '~/types'
 
 type ResponsiveAlignment = {
   [key in Breakpoints]?: Alignment
@@ -7,15 +7,15 @@ type ResponsiveAlignment = {
 
 interface Props {
   headline?: string
-  heading?: string
-  headingLevel?: HeadingLevel
+  title?: string
+  titleLevel?: TitleLevel
   description?: string
   align?: ResponsiveAlignment
   theme?: Theme
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  headingLevel: 'h2',
+  titleLevel: 'h2',
   align: () => ({ mobile: 'center' }),
 })
 
@@ -40,7 +40,7 @@ const contentBlockClasses = computed(() => {
     :class="contentBlockClasses"
   >
     <div
-      v-if="headline || heading || description"
+      v-if="headline || title || description"
       class="content-block__header"
     >
       <HeadlineBadge
@@ -49,13 +49,13 @@ const contentBlockClasses = computed(() => {
       >
         {{ headline }}
       </HeadlineBadge>
-      <DynamicHeading
-        v-if="heading"
-        :as="headingLevel"
-        class="content-block__heading"
+      <DynamicTitle
+        v-if="title"
+        :as="titleLevel"
+        class="content-block__title"
       >
-        {{ heading }}
-      </DynamicHeading>
+        {{ title }}
+      </DynamicTitle>
       <div
         v-if="description"
         class="content-block__description"
@@ -118,12 +118,12 @@ $alignments: (
     margin-top: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   }
 
-  &__heading,
+  &__title,
   &__description {
     max-width: $header-text-width--max;
   }
 
-  &__heading {
+  &__title {
     margin: 0;
   }
 
@@ -142,7 +142,7 @@ $alignments: (
   }
 
   &--light {
-    #{$parent}__heading,
+    #{$parent}__title,
     #{$parent}__description {
       color: $color-white--regular;
     }

@@ -23,8 +23,8 @@ const vacancyStaticData = {
       <ContentBlock
         v-if="blok.heading"
         :headline="blok.headline"
-        :heading="blok.heading"
-        :heading-level="blok.heading_level"
+        :title="blok.heading"
+        :title-level="blok.heading_level"
         :align="blok.orientation === 'horizontal' ? { mobile: 'center', laptop: 'left' } : { mobile: 'center' }"
         class="careers-section__head"
       />
@@ -35,7 +35,7 @@ const vacancyStaticData = {
         <VacancyCardDynamic
           v-for="vacancy in blok.vacancies"
           :key="vacancy.uuid"
-          :vacancy="vacancy.content"
+          :blok="vacancy.content"
           :slug="vacancy.full_slug"
         />
         <VacancyCardStatic

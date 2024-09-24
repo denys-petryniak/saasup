@@ -41,13 +41,13 @@ const cardIconBackgroundColor = computed(() => {
       >
     </div>
     <div class="info-card__body">
-      <DynamicHeading
+      <DynamicTitle
         v-if="blok.heading"
         :as="blok.heading_level"
         class="info-card__heading"
       >
         {{ blok.heading }}
-      </DynamicHeading>
+      </DynamicTitle>
       <p class="info-card__description">
         {{ blok.description }}
       </p>

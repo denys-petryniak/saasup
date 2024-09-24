@@ -11,12 +11,12 @@ defineProps<Props>()
 <template>
   <BaseSection v-editable="blok">
     <div class="author__header">
-      <DynamicHeading
+      <DynamicTitle
         v-if="blok.name"
         :as="blok.heading_level"
       >
         Posts By: <span class="author__name">{{ blok.name }}</span>
-      </DynamicHeading>
+      </DynamicTitle>
     </div>
   </BaseSection>
   <StoryblokComponent

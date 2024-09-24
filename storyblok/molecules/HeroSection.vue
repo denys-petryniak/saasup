@@ -21,8 +21,8 @@ const heroDescription = computed(() => {
       <div class="hero-section__content">
         <ContentBlock
           v-if="blok.heading"
-          :heading="blok.heading"
-          :heading-level="blok.heading_level ?? 'h1'"
+          :title="blok.heading"
+          :title-level="blok.heading_level ?? 'h1'"
           :description="heroDescription"
           :align="{ mobile: 'center', laptop: 'left' }"
         >

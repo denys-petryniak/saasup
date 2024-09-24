@@ -142,3 +142,79 @@ span {
     transition: outline-offset 0.25s ease-out;
   }
 }
+
+// General typography defaults for external content like Markdown or CMS-rendered HTML
+.rich-text {
+  ul, ol {
+    margin: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl) 0;
+    padding-left: clamped($min-size: $spacing--4xl, $max-size: $spacing--6xl);
+
+    li {
+      margin-bottom: $spacing--lg;
+
+      &::marker {
+        color: $color-primary--light;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  blockquote {
+    margin: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl) 0;
+    padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--12xl);
+    border-left: 60px solid $color-primary--light;
+    border-radius: $rounded--3xl;
+    color: $color--secondary--extra-dark;
+    background-color: rgba($color--secondary--dark, 0.05);
+
+    @include breakpoint('sm') {
+      border-left-width: 80px;
+    }
+
+    @include breakpoint('md') {
+      border-left-width: 100px;
+    }
+
+    p:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  code {
+    padding: $spacing--xs $spacing--sm;
+    background-color: rgba($color-primary--light, 0.1);
+    border-radius: $rounded--lg;
+  }
+
+  pre {
+    background-color: $color--secondary--dark;
+    padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
+    border-radius: $rounded--xl;
+    overflow-x: auto;
+    color: $color--secondary--light;
+  }
+
+  a {
+    font-weight: $font--semibold;
+    color: rgba($color-primary--light, 0.8);
+
+    @media (hover: hover) {
+      &:hover {
+        color: $color-primary--light;
+      }
+    }
+  }
+
+  // Apply margin reset to the first element of the group
+  :where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote):first-child {
+    margin-top: 0;
+  }
+
+  // Apply margin reset to the last element of the group
+  :where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote):last-child {
+    margin-bottom: 0;
+  }
+}
