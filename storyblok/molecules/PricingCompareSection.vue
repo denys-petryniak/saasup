@@ -47,8 +47,8 @@ function isPricingPlan(value: string): value is PricingPlan {
       <ContentBlock
         v-if="blok.heading"
         :headline="blok.headline"
-        :heading="blok.heading"
-        :heading-level="blok.heading_level"
+        :title="blok.heading"
+        :title-level="blok.heading_level"
       />
       <div v-if="blok.table" class="pricing-compare-section__table-box">
         <table class="table pricing-compare-section__table">

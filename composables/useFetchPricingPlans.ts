@@ -1,8 +1,8 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
-import type { PricingPlanPageStoryblok } from '~/component-types-sb'
+import type { PricingPlanStoryblok } from '~/component-types-sb'
 
 export function useFetchPricingPlans(filterQuery: Record<string, any> = {}) {
-  const pricingPlans = ref<StoryblokStory<PricingPlanPageStoryblok>[] | null>(null)
+  const pricingPlans = ref<StoryblokStory<PricingPlanStoryblok>[] | null>(null)
 
   async function fetchPricingPlans() {
     const storyblokApi = useStoryblokApi()

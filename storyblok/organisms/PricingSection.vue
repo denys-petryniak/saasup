@@ -21,8 +21,8 @@ const sectionDescription = computed(() => {
       <ContentBlock
         v-if="blok.heading"
         :headline="blok.headline"
-        :heading="blok.heading"
-        :heading-level="blok.heading_level"
+        :title="blok.heading"
+        :title-level="blok.heading_level"
         :align="{ mobile: 'center', laptop: 'left' }"
       >
         <template #default>

@@ -28,13 +28,13 @@ const cardDescription = computed(() => renderRichText(props.blok.description))
       />
     </template>
     <template #default>
-      <DynamicHeading
+      <DynamicTitle
         v-if="blok.heading"
         :as="blok.heading_level"
         class="grid-card__heading"
       >
         {{ blok.heading }}
-      </DynamicHeading>
+      </DynamicTitle>
       <div
         class="grid-card__description"
         v-html="cardDescription"

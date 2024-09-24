@@ -30,8 +30,8 @@ function getTabButtonText({ index, text = 'Tab' }: { index: number, text: string
     <ContentBlock
       v-if="blok.heading"
       :headline="blok.headline"
-      :heading="blok.heading"
-      :heading-level="blok.heading_level"
+      :title="blok.heading"
+      :title-level="blok.heading_level"
     />
     <div
       v-if="blok.entries?.length"

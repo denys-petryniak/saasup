@@ -18,8 +18,9 @@ const introDescription = computed(() =>
   >
     <ContentBlock
       v-if="blok.heading"
-      :heading="blok.heading"
-      :heading-level="blok.heading_level"
+      :headline="blok.headline"
+      :title="blok.heading"
+      :title-level="blok.heading_level"
       :description="introDescription"
     />
   </BaseSection>

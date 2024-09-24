@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  heading: string
+  title: string
   price: string
 }
 
@@ -57,7 +57,7 @@ function handleAddToCart() {
 
   const cartItem = {
     id: randomId,
-    name: props.heading,
+    name: props.title,
     duration: selectedPlanDuration.value,
     price: priceByDuration.value,
   }

@@ -26,12 +26,12 @@ const description = computed(() => renderRichText(props.blok.description))
             alt=""
             loading="lazy"
           >
-          <DynamicHeading
+          <DynamicTitle
             :as="blok.heading_level ?? 'h3'"
             class="tabbed-content-entry__heading"
           >
             {{ blok.heading }}
-          </DynamicHeading>
+          </DynamicTitle>
         </div>
       </template>
       <template #default>

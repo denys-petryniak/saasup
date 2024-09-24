@@ -34,12 +34,12 @@ function isFirstOverviewImage(image: AssetStoryblok): boolean {
       />
     </div>
     <div class="overview-section__content">
-      <DynamicHeading
+      <DynamicTitle
         :as="blok.heading_level"
         class="overview-section__heading"
       >
         {{ blok.heading }}
-      </DynamicHeading>
+      </DynamicTitle>
       <div
         class="overview-section__description"
         v-html="overviewDescription"

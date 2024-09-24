@@ -31,13 +31,13 @@ const { formattedArticleDate } = useArticleDate(date || new Date())
         />
       </div>
       <div class="article-hero-section__content">
-        <DynamicHeading
+        <DynamicTitle
           v-if="blok.heading"
           :as="blok.heading_level ?? 'h1'"
           class="article-hero-section__heading"
         >
           {{ blok.heading }}
-        </DynamicHeading>
+        </DynamicTitle>
         <div class="article-hero-section__meta">
           <div
             v-if="authors?.length"
@@ -74,10 +74,7 @@ const { formattedArticleDate } = useArticleDate(date || new Date())
 <style scoped lang="scss">
 .article-hero-section {
   &__image {
-    border-radius: clamped(
-      $min-size: $rounded--3xl,
-      $max-size: $rounded--3xl * 2
-    );
+    border-radius: clamped($min-size: $rounded--3xl, $max-size: $rounded--3xl * 2);
     object-fit: cover;
   }
 

@@ -52,7 +52,6 @@ withDefaults(defineProps<Props>(), {
   }
 
   &__button {
-    display: inline-block;
     margin-top: $spacing--4xl;
   }
 }

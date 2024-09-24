@@ -54,6 +54,9 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData: '@use "@/assets/scss/main.scss" as *;',
+          // TODO: get rid of after updating to Dart Sass 2.0.0
+          // https://sass-lang.com/documentation/breaking-changes/legacy-js-api/
+          silenceDeprecations: ['legacy-js-api'],
         },
       },
     },

@@ -15,13 +15,13 @@ defineProps<Props>()
     class="pricing-plan"
   >
     <div class="pricing-plan__head">
-      <DynamicHeading
+      <DynamicTitle
         v-if="blok.card_heading"
         :as="blok.card_heading_level"
         class="pricing-plan__heading"
       >
         {{ blok.card_heading }}
-      </DynamicHeading>
+      </DynamicTitle>
       <HeadlineBadge
         size="sm"
         :color="blok.popular ? 'purple' : 'white'"

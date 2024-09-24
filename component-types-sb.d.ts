@@ -35,6 +35,7 @@ export interface ArticleStoryblok {
     | AuthorEntryStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
+    | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
     | ImageTextSectionStoryblok
@@ -60,6 +61,7 @@ export interface ArticleStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   category: StoryblokStory<CategoryPageStoryblok> | StoryblokStory<CategoryStoryblok> | string;
   authors: (StoryblokStory<AuthorStoryblok> | StoryblokStory<AuthorPageStoryblok> | string)[];
@@ -120,6 +122,7 @@ export interface AuthorStoryblok {
     | AuthorEntryStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
+    | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
     | ImageTextSectionStoryblok
@@ -145,6 +148,7 @@ export interface AuthorStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   _uid: string;
   component: "author";
@@ -194,10 +198,11 @@ export interface ButtonStoryblok {
 }
 
 export interface CareersSectionStoryblok {
-  vacancies?: (StoryblokStory<VacancyStoryblok> | string)[];
   headline?: string;
+  orientation?: "vertical" | "horizontal";
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  vacancies?: (StoryblokStory<VacancyStoryblok> | string)[];
   _uid: string;
   component: "careers-section";
   [k: string]: any;
@@ -212,6 +217,7 @@ export interface CategoryStoryblok {
     | AuthorEntryStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
+    | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
     | ImageTextSectionStoryblok
@@ -237,6 +243,7 @@ export interface CategoryStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   _uid: string;
   component: "category";
@@ -280,6 +287,24 @@ export interface CtaSectionStoryblok {
   [k: string]: any;
 }
 
+export type MultiassetStoryblok = {
+  alt?: string;
+  copyright?: string;
+  id: number;
+  filename: string;
+  name: string;
+  title?: string;
+  [k: string]: any;
+}[];
+
+export interface GallerySectionStoryblok {
+  images?: MultiassetStoryblok;
+  hide_top_gap?: boolean;
+  _uid: string;
+  component: "gallery-section";
+  [k: string]: any;
+}
+
 export interface GridCardStoryblok {
   image: AssetStoryblok;
   heading: string;
@@ -293,6 +318,7 @@ export interface GridCardStoryblok {
 }
 
 export interface GridSectionStoryblok {
+  hide_top_gap?: boolean;
   columns?: "2" | "3";
   alignment?: "left" | "center" | "right";
   headline?: string;
@@ -326,18 +352,19 @@ export interface ImageTextSectionStoryblok {
 }
 
 export interface InfoCardStoryblok {
-  orientation?: "vertical" | "horizontal";
-  shadow?: boolean;
   icon?: AssetStoryblok;
   heading?: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description?: string;
+  orientation?: "vertical" | "horizontal";
+  shadow?: boolean;
   _uid: string;
   component: "info-card";
   [k: string]: any;
 }
 
 export interface IntroSectionStoryblok {
+  headline?: string;
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description?: RichtextStoryblok;
@@ -370,16 +397,6 @@ export interface MetricEntryStoryblok {
   [k: string]: any;
 }
 
-export type MultiassetStoryblok = {
-  alt?: string;
-  copyright?: string;
-  id: number;
-  filename: string;
-  name: string;
-  title?: string;
-  [k: string]: any;
-}[];
-
 export interface OverviewSectionStoryblok {
   images?: MultiassetStoryblok;
   heading: string;
@@ -398,6 +415,7 @@ export interface PageStoryblok {
     | AuthorEntryStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
+    | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
     | ImageTextSectionStoryblok
@@ -423,6 +441,7 @@ export interface PageStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   _uid: string;
   component: "page";
@@ -497,6 +516,7 @@ export interface PricingPlanStoryblok {
     | AuthorEntryStoryblok
     | ButtonStoryblok
     | CtaSectionStoryblok
+    | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
     | ImageTextSectionStoryblok
@@ -522,6 +542,7 @@ export interface PricingPlanStoryblok {
     | TabbedContentSectionStoryblok
     | TestimonialEntryStoryblok
     | TestimonialSectionStoryblok
+    | VacancyListStoryblok
   )[];
   card_billing_description?: string;
   _uid: string;
@@ -626,11 +647,20 @@ export interface UnderDevStoryblok {
 
 export interface VacancyStoryblok {
   title?: string;
+  title_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   location?: string;
   employment?: string;
   description?: string;
   content?: RichtextStoryblok;
   _uid: string;
   component: "vacancy";
+  [k: string]: any;
+}
+
+export interface VacancyListStoryblok {
+  hide_top_gap?: boolean;
+  columns?: "2" | "3";
+  _uid: string;
+  component: "vacancy-list";
   [k: string]: any;
 }

@@ -13,6 +13,12 @@ const dynamicInfoCardClasses = computed(() => {
 
   return [orientationClass, shadowClass]
 })
+
+const PRIMARY_LIGHT_COLOR = '#5236ff'
+
+const cardIconBackgroundColor = computed(() => {
+  return props.blok.icon_bg?.color ?? PRIMARY_LIGHT_COLOR
+})
 </script>
 
 <template>
@@ -35,13 +41,13 @@ const dynamicInfoCardClasses = computed(() => {
       >
     </div>
     <div class="info-card__body">
-      <DynamicHeading
+      <DynamicTitle
         v-if="blok.heading"
         :as="blok.heading_level"
         class="info-card__heading"
       >
         {{ blok.heading }}
-      </DynamicHeading>
+      </DynamicTitle>
       <p class="info-card__description">
         {{ blok.description }}
       </p>
@@ -52,7 +58,6 @@ const dynamicInfoCardClasses = computed(() => {
 <style scoped lang="scss">
 .info-card {
   display: flex;
-  align-items: flex-start;
   gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
   padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
   border-radius: $rounded--3xl;
@@ -64,10 +69,12 @@ const dynamicInfoCardClasses = computed(() => {
     flex-shrink: 0;
     padding: clamped($min-size: $spacing--xl, $max-size: $spacing--4xl);
     border-radius: $rounded--3xl;
-    background-color: $color-primary--light;
+    background-color: v-bind(cardIconBackgroundColor);
   }
 
   &__icon {
+    width: 50px;
+    height: 50px;
     object-fit: contain;
   }
 
@@ -86,13 +93,16 @@ const dynamicInfoCardClasses = computed(() => {
 
   &--vertical {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   &--horizontal {
     flex-direction: column;
+    align-items: flex-start;
 
     @include breakpoint('lg') {
       flex-direction: row;
+      align-items: stretch;
     }
   }
 }

@@ -18,8 +18,8 @@ const { price, features } = inject(pricingPlanGeneralDataInjectionKey) as Pricin
     <div class="pricing-plan__body">
       <ContentBlock
         v-if="blok.heading"
-        :heading="blok.heading"
-        :heading-level="blok.heading_level ?? 'h1'"
+        :title="blok.heading"
+        :title-level="blok.heading_level ?? 'h1'"
         :description="blok.description"
         :align="{ mobile: 'center', laptop: 'left' }"
         class="pricing-plan__content"
@@ -45,7 +45,7 @@ const { price, features } = inject(pricingPlanGeneralDataInjectionKey) as Pricin
         </template>
       </ContentBlock>
       <PlanDurationWidget
-        :heading="blok.heading"
+        :title="blok.heading"
         :price="price"
         class="pricing-plan__plan-duration-widget"
       />

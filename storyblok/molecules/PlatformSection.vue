@@ -19,8 +19,8 @@ const costBlockDescription = computed(() => renderRichText(props.blok.cost_descr
     <div class="platform-section__body">
       <ContentBlock
         v-if="blok.heading"
-        :heading="blok.heading"
-        :heading-level="blok.heading_level"
+        :title="blok.heading"
+        :title-level="blok.heading_level"
         :align="{ mobile: 'left' }"
         class="platform-section__content"
       >
