@@ -38,7 +38,7 @@ const vacancyContent = computed(() => {
         </BaseButton>
       </div>
       <div
-        class="vacancy__body rich-text"
+        class="rich-text vacancy__body"
         v-html="vacancyContent"
       />
     </BaseSection>

@@ -18,7 +18,7 @@ const articleContent = computed(() => renderRichText(props.blok.content))
     class="article-content-section"
   >
     <div
-      class="article-content-section__content rich-text"
+      class="rich-text article-content-section__content"
       v-html="articleContent"
     />
   </BaseSection>
