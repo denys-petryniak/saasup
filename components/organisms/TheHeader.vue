@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Header } from '~/types'
 import type { LinkStoryblok, SubmenuStoryblok } from '~/component-types-sb'
+import type { Header } from '~/types'
 
 interface Props {
   header: Header

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { AuthorEntryStoryblok, AuthorStoryblok } from '~/component-types-sb'
 import { AuthorArticle, AuthorTestimonial } from '#components'
+import type { AuthorEntryStoryblok, AuthorStoryblok } from '~/component-types-sb'
 
 interface Props {
   blok: AuthorStoryblok | AuthorEntryStoryblok

@@ -44,10 +44,7 @@ function handleError() {
   text-align: center;
 
   &__title {
-    @include fluid-typography(
-      $min-font-size: $text--8xl,
-      $max-font-size: $text--8xl * 3
-    );
+    @include fluid-typography($min-font-size: $text--8xl, $max-font-size: $text--8xl * 3);
     line-height: $leading--none;
     font-weight: $font--extrabold;
     color: $color-primary--light;

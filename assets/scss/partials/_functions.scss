@@ -61,13 +61,7 @@
 $default-min-bp: toRem(320px);
 $default-max-bp: toRem(1440px);
 
-@function clamped(
-  $min-size,
-  $max-size,
-  $min-breakpoint: $default-min-bp,
-  $max-breakpoint: $default-max-bp,
-  $unit: vw
-) {
+@function clamped($min-size, $max-size, $min-breakpoint: $default-min-bp, $max-breakpoint: $default-max-bp, $unit: vw) {
   $inputs: ($min-size, $max-size, $min-breakpoint, $max-breakpoint);
 
   @each $input in $inputs {
@@ -86,11 +80,7 @@ $default-max-bp: toRem(1440px);
     $decimals: 3,
   );
 
-  @return clamp(
-    #{$min-size},
-    #{$slope-to-unit}#{$unit} + #{$intercept},
-    #{$max-size}
-  );
+  @return clamp(#{$min-size}, #{$slope-to-unit}#{$unit} + #{$intercept}, #{$max-size});
 }
 
 // Define the stacking order from highest (top) to lowest (bottom)

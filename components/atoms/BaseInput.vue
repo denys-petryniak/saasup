@@ -49,10 +49,7 @@ $field-bg-color: rgba(255, 255, 255, 0.2);
   border: 1px solid $color-border--regular;
   border-radius: $rounded--3xl * 2;
   color: $color-white--regular;
-  @include fluid-typography(
-    $min-font-size: $text--base,
-    $max-font-size: $text--lg
-  );
+  @include fluid-typography($min-font-size: $text--base, $max-font-size: $text--lg);
   line-height: $leading--none;
   font-weight: $font--bold;
   background-color: $field-bg-color;

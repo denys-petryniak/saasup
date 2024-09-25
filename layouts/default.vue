@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Footer, Header } from '~/types'
 import type { ConfigStoryblok } from '~/component-types-sb'
+import type { Footer, Header } from '~/types'
 
 const header = ref<Header | null>(null)
 const footer = ref<Footer | null>(null)

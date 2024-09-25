@@ -145,7 +145,8 @@ span {
 
 // General typography defaults for external content like Markdown or CMS-rendered HTML
 .rich-text {
-  ul, ol {
+  ul,
+  ol {
     margin: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl) 0;
     padding-left: clamped($min-size: $spacing--4xl, $max-size: $spacing--6xl);
 
