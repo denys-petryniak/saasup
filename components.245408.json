@@ -1073,6 +1073,77 @@
       "component_group_name": "templates"
     },
     {
+      "name": "contact-card",
+      "display_name": null,
+      "created_at": "2024-09-25T07:33:18.904Z",
+      "updated_at": "2024-09-25T11:03:07.373Z",
+      "id": 6334525,
+      "schema": {
+        "shadow": {
+          "type": "boolean",
+          "pos": 0
+        },
+        "caption": {
+          "type": "text",
+          "pos": 1,
+          "required": true,
+          "key": "caption"
+        },
+        "icon": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "pos": 2,
+          "required": true,
+          "key": "image",
+          "asset_folder_id": 288995
+        },
+        "icon_bg": {
+          "type": "custom",
+          "pos": 3,
+          "field_type": "storyblok-colorpicker",
+          "options": []
+        },
+        "link_label": {
+          "type": "text",
+          "pos": 4,
+          "key": "link_label"
+        },
+        "link_url": {
+          "type": "multilink",
+          "pos": 5,
+          "key": "link_url",
+          "email_link_type": true,
+          "allow_target_blank": false
+        },
+        "tab-c4c8ebd5-e5d4-4262-af6b-e67110259904": {
+          "display_name": "Style",
+          "keys": [
+            "shadow"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "key": "tab-c4c8ebd5-e5d4-4262-af6b-e67110259904"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "contact-card",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
       "name": "cta-section",
       "display_name": "CTA Section",
       "created_at": "2023-08-17T18:15:22.241Z",
@@ -1336,7 +1407,7 @@
       "name": "grid-section",
       "display_name": null,
       "created_at": "2024-06-14T17:17:13.296Z",
-      "updated_at": "2024-09-18T21:17:18.877Z",
+      "updated_at": "2024-09-25T07:58:15.630Z",
       "id": 5931306,
       "schema": {
         "hide_top_gap": {
@@ -1464,7 +1535,8 @@
           "restrict_components": true,
           "component_whitelist": [
             "grid-card",
-            "info-card"
+            "info-card",
+            "contact-card"
           ],
           "minimum": 2
         }

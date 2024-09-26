@@ -36,13 +36,13 @@ function getSocialLinkLogo(label: string | undefined): string {
           <div class="footer__contacts">
             <FooterContactBlock
               v-if="footer.emails?.length"
-              type="email"
+              link-type="email"
               icon-name="carbon:email"
               :links="footer.emails"
             />
             <FooterContactBlock
               v-if="footer.phones?.length"
-              type="phone"
+              link-type="phone"
               icon-name="carbon:phone"
               :links="footer.phones"
             />

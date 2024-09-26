@@ -14,10 +14,10 @@ const dynamicInfoCardClasses = computed(() => {
   return [orientationClass, shadowClass]
 })
 
-const PRIMARY_LIGHT_COLOR = '#5236ff'
+const { primaryLightColor } = useAppConfig()
 
 const cardIconBackgroundColor = computed(() => {
-  return props.blok.icon_bg?.color ?? PRIMARY_LIGHT_COLOR
+  return props.blok.icon_bg?.color ?? primaryLightColor
 })
 </script>
 

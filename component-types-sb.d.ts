@@ -34,6 +34,7 @@ export interface ArticleStoryblok {
     | ArticleHeroSectionStoryblok
     | AuthorEntryStoryblok
     | ButtonStoryblok
+    | ContactCardStoryblok
     | CtaSectionStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
@@ -121,6 +122,7 @@ export interface AuthorStoryblok {
     | ArticleHeroSectionStoryblok
     | AuthorEntryStoryblok
     | ButtonStoryblok
+    | ContactCardStoryblok
     | CtaSectionStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
@@ -216,6 +218,7 @@ export interface CategoryStoryblok {
     | ArticleHeroSectionStoryblok
     | AuthorEntryStoryblok
     | ButtonStoryblok
+    | ContactCardStoryblok
     | CtaSectionStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
@@ -276,6 +279,17 @@ export interface ConfigStoryblok {
   [k: string]: any;
 }
 
+export interface ContactCardStoryblok {
+  shadow?: boolean;
+  caption: string;
+  icon: AssetStoryblok;
+  link_label?: string;
+  link_url?: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
+  _uid: string;
+  component: "contact-card";
+  [k: string]: any;
+}
+
 export interface CtaSectionStoryblok {
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -324,7 +338,7 @@ export interface GridSectionStoryblok {
   headline?: string;
   heading?: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  cards?: (GridCardStoryblok | InfoCardStoryblok)[];
+  cards?: (GridCardStoryblok | InfoCardStoryblok | ContactCardStoryblok)[];
   _uid: string;
   component: "grid-section";
   [k: string]: any;
@@ -414,6 +428,7 @@ export interface PageStoryblok {
     | ArticleHeroSectionStoryblok
     | AuthorEntryStoryblok
     | ButtonStoryblok
+    | ContactCardStoryblok
     | CtaSectionStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
@@ -515,6 +530,7 @@ export interface PricingPlanStoryblok {
     | ArticleHeroSectionStoryblok
     | AuthorEntryStoryblok
     | ButtonStoryblok
+    | ContactCardStoryblok
     | CtaSectionStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok

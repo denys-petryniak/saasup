@@ -80,16 +80,12 @@ const isCurrentSlug = computed(() => {
 </template>
 
 <style scoped lang="scss">
-// outer radius = inner radius + gap -> inner radius = outer radius - gap
-// source: https://cloudfour.com/thinks/the-math-behind-nesting-rounded-corners/
-$article-card-border-radius: $rounded--3xl * 2;
-$article-card-image-border-radius: clamped(
-  $min-size: $article-card-border-radius - $spacing--2xl,
-  $max-size: $article-card-border-radius - $spacing--8xl,
-);
+$card-radius--outer: $rounded--3xl * 2;
+$card-gap--min: $spacing--2xl;
+$card-gap--max: $spacing--8xl;
 
 .article-card {
-  border-radius: $article-card-border-radius;
+  border-radius: $card-radius--outer;
   background-color: $color--secondary--extra-light;
 
   &__image-box {
@@ -97,7 +93,7 @@ $article-card-image-border-radius: clamped(
   }
 
   &__image {
-    border-radius: $article-card-image-border-radius;
+    border-radius: calcInnerRadius($card-radius--outer, $card-gap--min, $card-gap--max);
   }
 
   &__button {
