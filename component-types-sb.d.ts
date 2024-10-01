@@ -36,6 +36,8 @@ export interface ArticleStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FormInputStoryblok
+    | FormTextareaStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
@@ -56,6 +58,7 @@ export interface ArticleStoryblok {
     | ArticleListStoryblok
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
+    | ContactFormStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok
@@ -124,6 +127,8 @@ export interface AuthorStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FormInputStoryblok
+    | FormTextareaStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
@@ -144,6 +149,7 @@ export interface AuthorStoryblok {
     | ArticleListStoryblok
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
+    | ContactFormStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok
@@ -220,6 +226,8 @@ export interface CategoryStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FormInputStoryblok
+    | FormTextareaStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
@@ -240,6 +248,7 @@ export interface CategoryStoryblok {
     | ArticleListStoryblok
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
+    | ContactFormStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok
@@ -290,6 +299,15 @@ export interface ContactCardStoryblok {
   [k: string]: any;
 }
 
+export interface ContactFormStoryblok {
+  form?: (FormInputStoryblok | FormTextareaStoryblok | FormCheckboxStoryblok)[];
+  navigation_success?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  hide_top_gap?: boolean;
+  _uid: string;
+  component: "contact-form";
+  [k: string]: any;
+}
+
 export interface CtaSectionStoryblok {
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -298,6 +316,30 @@ export interface CtaSectionStoryblok {
   background_image: AssetStoryblok;
   _uid: string;
   component: "cta-section";
+  [k: string]: any;
+}
+
+export interface FormInputStoryblok {
+  type?: "text" | "email" | "number";
+  name: string;
+  label?: string;
+  placeholder?: string;
+  required?: boolean;
+  _uid: string;
+  component: "form-input";
+  [k: string]: any;
+}
+
+export interface FormTextareaStoryblok {
+  type?: "textarea";
+  name: string;
+  label?: string;
+  placeholder?: string;
+  required?: boolean;
+  rows?: string;
+  full_width?: boolean;
+  _uid: string;
+  component: "form-textarea";
   [k: string]: any;
 }
 
@@ -430,6 +472,8 @@ export interface PageStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FormInputStoryblok
+    | FormTextareaStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
@@ -450,6 +494,7 @@ export interface PageStoryblok {
     | ArticleListStoryblok
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
+    | ContactFormStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok
@@ -532,6 +577,8 @@ export interface PricingPlanStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FormInputStoryblok
+    | FormTextareaStoryblok
     | GallerySectionStoryblok
     | GridCardStoryblok
     | HeroSectionStoryblok
@@ -552,6 +599,7 @@ export interface PricingPlanStoryblok {
     | ArticleListStoryblok
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
+    | ContactFormStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok

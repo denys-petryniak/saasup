@@ -219,3 +219,13 @@ span {
     margin-bottom: 0;
   }
 }
+
+.error-message {
+  @include fluid-typography(
+    $min-font-size: $text--lg,
+    $max-font-size: $text--xl,
+    $min-line-height: $leading--tight,
+    $max-line-height: $leading--condensed
+  );
+  color: $color--error;
+}

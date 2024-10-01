@@ -125,7 +125,7 @@ $card-gap--max: $spacing--4xl;
 
   &--shadow {
     box-shadow: $shadow--regular;
-    background-color: $color-white--regular;
+    background-color: $color-white;
   }
 }
 </style>

@@ -53,6 +53,7 @@
     "nuxtjs",
     "saasup",
     "toastify",
+    "vuelidate",
     "vueuse",
     "xlarge",
     "xsmall"
