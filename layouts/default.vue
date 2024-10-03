@@ -60,7 +60,7 @@ const getLayoutBackground = computed(() => {
   }
 
   if (isContactsPage.value) {
-    return `url('${backgroundPatterns[2]}') no-repeat top right/45%, ${baseStyle}`
+    return `url('${backgroundPatterns[2]}') no-repeat top right/35%, ${baseStyle}`
   }
 
   return baseStyle

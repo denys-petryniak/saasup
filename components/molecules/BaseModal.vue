@@ -119,5 +119,9 @@ $modal-content-gap: clamped(
     border: none;
     cursor: pointer;
   }
+
+  &__close-icon {
+    color: $color--secondary--extra-dark;
+  }
 }
 </style>

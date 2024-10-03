@@ -91,7 +91,7 @@ provide(modalInjectionKey, {
                 class="header__cart-button u-hidden-from-lg"
                 @click="openModal"
               >
-                Cart ({{ totalCartItems }})
+                Cart (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
               </BaseButton>
             </template>
             <template #placeholder>
@@ -194,7 +194,7 @@ provide(modalInjectionKey, {
                     class="navigation__cart-button u-visible-from-lg"
                     @click="openModal"
                   >
-                    Cart ({{ totalCartItems }})
+                    Cart (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
                   </button>
                 </template>
                 <template #placeholder>
@@ -318,6 +318,12 @@ provide(modalInjectionKey, {
         color: $color-primary--light;
       }
     }
+  }
+
+  &__cart-button-count {
+    padding: 0 calc($spacing--xs / 2);
+    font-weight: $font--bold;
+    color: $color-primary--light;
   }
 }
 

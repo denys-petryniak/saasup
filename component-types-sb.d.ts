@@ -289,11 +289,14 @@ export interface ConfigStoryblok {
 }
 
 export interface ContactCardStoryblok {
-  shadow?: boolean;
-  caption: string;
+  orientation?: "vertical" | "horizontal";
   icon: AssetStoryblok;
+  title: string;
+  title_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  text?: RichtextStoryblok;
   link_label?: string;
   link_url?: Exclude<MultilinkStoryblok, {linktype?: "asset"}>;
+  shadow?: boolean;
   _uid: string;
   component: "contact-card";
   [k: string]: any;

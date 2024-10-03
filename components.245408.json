@@ -1076,53 +1076,125 @@
       "name": "contact-card",
       "display_name": null,
       "created_at": "2024-09-25T07:33:18.904Z",
-      "updated_at": "2024-09-25T11:03:07.373Z",
+      "updated_at": "2024-10-02T15:07:53.798Z",
       "id": 6334525,
       "schema": {
-        "shadow": {
-          "type": "boolean",
-          "pos": 0
-        },
-        "caption": {
-          "type": "text",
-          "pos": 1,
-          "required": true,
-          "key": "caption"
+        "orientation": {
+          "type": "option",
+          "pos": 0,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "924ec293-b02a-4548-b156-3c4a3f86a14f",
+              "name": "Vertical",
+              "value": "vertical"
+            },
+            {
+              "_uid": "ebfd3674-dd7f-4f0b-93e6-a3d29f895332",
+              "value": "horizontal",
+              "name": "Horizontal"
+            }
+          ],
+          "exclude_empty_option": true,
+          "default_value": "vertical"
         },
         "icon": {
           "type": "asset",
           "filetypes": [
             "images"
           ],
-          "pos": 2,
+          "pos": 1,
           "required": true,
           "key": "image",
           "asset_folder_id": 288995
         },
         "icon_bg": {
           "type": "custom",
-          "pos": 3,
+          "pos": 2,
           "field_type": "storyblok-colorpicker",
           "options": []
         },
+        "title": {
+          "type": "text",
+          "pos": 3,
+          "required": true
+        },
+        "title_level": {
+          "type": "option",
+          "pos": 4,
+          "use_uuid": true,
+          "exclude_empty_option": true,
+          "options": [
+            {
+              "_uid": "76201813-e922-4d42-8bab-67fb3b7fd4bf",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "6c9ee382-7b9c-4070-8cf4-d3e5ea8160a4",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "d978cfdd-d7c4-4dd6-a58f-b1029ce1c99e",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "c4d5cc7d-2f94-4d49-aabe-ef5742cfdc4f",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "27d289b9-6341-42b0-9da6-1caac3e2d505",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "889d6196-6fbc-45fd-9421-727a7c698866",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "default_value": "h3"
+        },
+        "text": {
+          "type": "richtext",
+          "pos": 5,
+          "description": "Only for orientation === 'vertical'",
+          "tooltip": true
+        },
         "link_label": {
           "type": "text",
-          "pos": 4,
+          "pos": 6,
           "key": "link_label"
         },
         "link_url": {
           "type": "multilink",
-          "pos": 5,
+          "pos": 7,
           "key": "link_url",
           "email_link_type": true,
           "allow_target_blank": false
         },
+        "link_color": {
+          "type": "custom",
+          "pos": 8,
+          "field_type": "storyblok-colorpicker",
+          "options": [],
+          "description": "Only for orientation === 'vertical'",
+          "tooltip": true
+        },
+        "shadow": {
+          "type": "boolean",
+          "pos": 9
+        },
         "tab-c4c8ebd5-e5d4-4262-af6b-e67110259904": {
           "display_name": "Style",
           "keys": [
-            "shadow"
+            "shadow",
+            "orientation"
           ],
-          "pos": 6,
+          "pos": 10,
           "type": "tab",
           "key": "tab-c4c8ebd5-e5d4-4262-af6b-e67110259904"
         }
