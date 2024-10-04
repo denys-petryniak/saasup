@@ -36,6 +36,7 @@ export interface ArticleStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FaqCardStoryblok
     | FormInputStoryblok
     | FormTextareaStoryblok
     | GallerySectionStoryblok
@@ -59,6 +60,7 @@ export interface ArticleStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | ContactFormStoryblok
+    | FaqSectionStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok
@@ -127,6 +129,7 @@ export interface AuthorStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FaqCardStoryblok
     | FormInputStoryblok
     | FormTextareaStoryblok
     | GallerySectionStoryblok
@@ -150,6 +153,7 @@ export interface AuthorStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | ContactFormStoryblok
+    | FaqSectionStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok
@@ -226,6 +230,7 @@ export interface CategoryStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FaqCardStoryblok
     | FormInputStoryblok
     | FormTextareaStoryblok
     | GallerySectionStoryblok
@@ -249,6 +254,7 @@ export interface CategoryStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | ContactFormStoryblok
+    | FaqSectionStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok
@@ -322,6 +328,27 @@ export interface CtaSectionStoryblok {
   [k: string]: any;
 }
 
+export interface FaqCardStoryblok {
+  title: string;
+  content: RichtextStoryblok;
+  _uid: string;
+  component: "faq-card";
+  [k: string]: any;
+}
+
+export interface FaqSectionStoryblok {
+  hide_top_gap?: boolean;
+  set_top_double_gap?: boolean;
+  set_bottom_double_gap?: boolean;
+  headline?: string;
+  heading?: string;
+  heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  cards?: FaqCardStoryblok[];
+  _uid: string;
+  component: "faq-section";
+  [k: string]: any;
+}
+
 export interface FormInputStoryblok {
   type?: "text" | "email" | "number";
   name: string;
@@ -377,13 +404,15 @@ export interface GridCardStoryblok {
 }
 
 export interface GridSectionStoryblok {
-  hide_top_gap?: boolean;
   columns?: "2" | "3";
   alignment?: "left" | "center" | "right";
+  hide_top_gap?: boolean;
+  set_top_double_gap?: boolean;
   headline?: string;
   heading?: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   cards?: (GridCardStoryblok | InfoCardStoryblok | ContactCardStoryblok)[];
+  set_bottom_double_gap?: boolean;
   _uid: string;
   component: "grid-section";
   [k: string]: any;
@@ -475,6 +504,7 @@ export interface PageStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FaqCardStoryblok
     | FormInputStoryblok
     | FormTextareaStoryblok
     | GallerySectionStoryblok
@@ -498,6 +528,7 @@ export interface PageStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | ContactFormStoryblok
+    | FaqSectionStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok
@@ -580,6 +611,7 @@ export interface PricingPlanStoryblok {
     | ButtonStoryblok
     | ContactCardStoryblok
     | CtaSectionStoryblok
+    | FaqCardStoryblok
     | FormInputStoryblok
     | FormTextareaStoryblok
     | GallerySectionStoryblok
@@ -603,6 +635,7 @@ export interface PricingPlanStoryblok {
     | ArticlesSectionStoryblok
     | CareersSectionStoryblok
     | ContactFormStoryblok
+    | FaqSectionStoryblok
     | GridSectionStoryblok
     | PricingPlanListStoryblok
     | PricingSectionStoryblok

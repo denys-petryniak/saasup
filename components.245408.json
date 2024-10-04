@@ -1369,6 +1369,174 @@
       "component_group_name": "molecules"
     },
     {
+      "name": "faq-card",
+      "display_name": null,
+      "created_at": "2024-10-03T10:14:39.960Z",
+      "updated_at": "2024-10-04T14:58:59.572Z",
+      "id": 6370517,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0,
+          "required": true,
+          "key": "title"
+        },
+        "content": {
+          "type": "richtext",
+          "pos": 2,
+          "required": true,
+          "key": "description"
+        },
+        "tab-c4c8ebd5-e5d4-4262-af6b-e67110259904": {
+          "display_name": "Style",
+          "keys": [],
+          "pos": 5,
+          "type": "tab",
+          "key": "tab-c4c8ebd5-e5d4-4262-af6b-e67110259904"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "faq-card",
+      "component_group_uuid": "3e8babdb-3744-4f1a-8072-3f6e675524d0",
+      "color": "#ffac00",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "molecules"
+    },
+    {
+      "name": "faq-section",
+      "display_name": null,
+      "created_at": "2024-10-03T10:04:48.136Z",
+      "updated_at": "2024-10-04T15:23:28.775Z",
+      "id": 6370480,
+      "schema": {
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 0,
+          "key": "hide_top_gap"
+        },
+        "set_top_double_gap": {
+          "type": "boolean",
+          "pos": 1
+        },
+        "set_bottom_double_gap": {
+          "type": "boolean",
+          "pos": 2
+        },
+        "headline": {
+          "type": "text",
+          "default_value": "",
+          "required": false,
+          "pos": 3,
+          "key": "headline"
+        },
+        "heading": {
+          "type": "text",
+          "default_value": "",
+          "required": false,
+          "pos": 4,
+          "key": "heading"
+        },
+        "heading_level": {
+          "type": "option",
+          "pos": 5,
+          "use_uuid": true,
+          "datasource_slug": "heading-levels",
+          "exclude_empty_option": true,
+          "default_value": "h2",
+          "options": [
+            {
+              "_uid": "676fe6df-c6d0-4bf1-9ee1-1018f064dbac",
+              "name": "Heading 1",
+              "value": "h1"
+            },
+            {
+              "_uid": "ecd0d446-3f8e-4a85-a8d0-26f71c2c0484",
+              "value": "h2",
+              "name": "Heading 2"
+            },
+            {
+              "_uid": "1af74bdd-dcbf-424c-9990-f1f8c0eab6f6",
+              "value": "h3",
+              "name": "Heading 3"
+            },
+            {
+              "_uid": "0affae5c-1f23-4155-83f6-31491cce78fa",
+              "value": "h4",
+              "name": "Heading 4"
+            },
+            {
+              "_uid": "c8f525b5-529b-4823-a3bc-b841fc4f80f1",
+              "value": "h5",
+              "name": "Heading 5"
+            },
+            {
+              "_uid": "c77d473a-afc9-4165-b2a9-f7a06ceb4c05",
+              "value": "h6",
+              "name": "Heading 6"
+            }
+          ],
+          "key": "heading_level"
+        },
+        "cards": {
+          "type": "bloks",
+          "pos": 6,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "faq-card"
+          ],
+          "minimum": 2,
+          "key": "questions"
+        },
+        "tab-ebe0bdf5-5eed-4927-9c70-e4d03a047e41": {
+          "display_name": "Cards",
+          "keys": [
+            "cards",
+            "questions"
+          ],
+          "pos": 7,
+          "type": "tab",
+          "key": "tab-ebe0bdf5-5eed-4927-9c70-e4d03a047e41"
+        },
+        "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3": {
+          "display_name": "Style",
+          "keys": [
+            "hide_top_gap",
+            "set_double_gap",
+            "set_bottom_double_gap",
+            "set_top_double_gap"
+          ],
+          "pos": 8,
+          "type": "tab",
+          "key": "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3"
+        }
+      },
+      "image": null,
+      "preview_field": "headline",
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "faq-section",
+      "component_group_uuid": "bf585e57-3326-4449-89ae-951ca6fe0c58",
+      "color": "#ff6159",
+      "icon": "block-share",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "organisms"
+    },
+    {
       "name": "form-input",
       "display_name": null,
       "created_at": "2024-09-26T10:45:13.415Z",
@@ -1675,16 +1843,12 @@
       "name": "grid-section",
       "display_name": null,
       "created_at": "2024-06-14T17:17:13.296Z",
-      "updated_at": "2024-09-25T07:58:15.630Z",
+      "updated_at": "2024-10-04T15:24:27.146Z",
       "id": 5931306,
       "schema": {
-        "hide_top_gap": {
-          "type": "boolean",
-          "pos": 0
-        },
         "columns": {
           "type": "option",
-          "pos": 1,
+          "pos": 0,
           "use_uuid": true,
           "options": [
             {
@@ -1703,7 +1867,7 @@
         },
         "alignment": {
           "type": "option",
-          "pos": 2,
+          "pos": 1,
           "use_uuid": true,
           "options": [
             {
@@ -1726,21 +1890,29 @@
           "exclude_empty_option": true,
           "datasource_slug": "alignment"
         },
-        "headline": {
-          "type": "text",
-          "default_value": "",
-          "required": false,
+        "hide_top_gap": {
+          "type": "boolean",
+          "pos": 2
+        },
+        "set_top_double_gap": {
+          "type": "boolean",
           "pos": 3
         },
-        "heading": {
+        "headline": {
           "type": "text",
           "default_value": "",
           "required": false,
           "pos": 4
         },
+        "heading": {
+          "type": "text",
+          "default_value": "",
+          "required": false,
+          "pos": 5
+        },
         "heading_level": {
           "type": "option",
-          "pos": 5,
+          "pos": 6,
           "use_uuid": true,
           "datasource_slug": "heading-levels",
           "exclude_empty_option": true,
@@ -1783,7 +1955,7 @@
           "keys": [
             "cards"
           ],
-          "pos": 6,
+          "pos": 7,
           "type": "tab"
         },
         "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3": {
@@ -1791,14 +1963,17 @@
           "keys": [
             "alignment",
             "columns",
-            "hide_top_gap"
+            "hide_top_gap",
+            "set_double_gap",
+            "set_top_double_gap",
+            "set_bottom_double_gap"
           ],
-          "pos": 7,
+          "pos": 8,
           "type": "tab"
         },
         "cards": {
           "type": "bloks",
-          "pos": 8,
+          "pos": 9,
           "restrict_type": "",
           "restrict_components": true,
           "component_whitelist": [
@@ -1807,6 +1982,10 @@
             "contact-card"
           ],
           "minimum": 2
+        },
+        "set_bottom_double_gap": {
+          "type": "boolean",
+          "pos": 10
         }
       },
       "image": null,
