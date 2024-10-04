@@ -238,14 +238,14 @@ provide(modalInjectionKey, {
 
   &__menu-button {
     padding: $spacing--sm;
-    border: 1px solid $color-devider--regular;
+    border: 1px solid $divider-color--regular;
     border-radius: $rounded--lg;
-    color: $color--secondary--extra-dark;
-    background-color: $color--secondary--extra-light;
+    color: $primary-color--dark;
+    background-color: $secondary-color--extra-light;
 
     &--active {
-      background-color: $color-primary--dark;
-      color: $color-white--regular;
+      background-color: $primary-color--dark;
+      color: $color-white--soft;
     }
   }
 
@@ -267,8 +267,8 @@ provide(modalInjectionKey, {
 
 .navigation {
   $parent: &;
-  background-color: $color--secondary--extra-light;
-  border: 1px solid $color-devider--regular;
+  background-color: $secondary-color--extra-light;
+  border: 1px solid $divider-color--regular;
   border-radius: $rounded--3xl;
 
   &__menu,
@@ -310,12 +310,12 @@ provide(modalInjectionKey, {
     text-align: start;
     font-weight: $font--semibold;
     line-height: $leading--cozy;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
     background-color: transparent;
 
     @media (hover: hover) {
       &:hover {
-        color: $color-primary--light;
+        color: $primary-color--light;
       }
     }
   }
@@ -323,7 +323,7 @@ provide(modalInjectionKey, {
   &__cart-button-count {
     padding: 0 calc($spacing--xs / 2);
     font-weight: $font--bold;
-    color: $color-primary--light;
+    color: $primary-color--light;
   }
 }
 
@@ -384,7 +384,7 @@ provide(modalInjectionKey, {
       position: absolute;
       left: -$spacing--lg;
       padding: $spacing--lg;
-      background-color: $color--secondary--extra-light;
+      background-color: $secondary-color--extra-light;
       border-radius: $rounded--lg;
     }
   }

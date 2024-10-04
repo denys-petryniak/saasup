@@ -104,7 +104,7 @@ $section-bg-z-index: -2;
       height: 100%;
       border-radius: $rounded--3xl * 2;
       z-index: $section-content-bg-z-index;
-      background-color: $color--secondary--extra-light;
+      background-color: $secondary-color--extra-light;
       pointer-events: none;
     }
   }
@@ -125,7 +125,7 @@ $section-bg-z-index: -2;
     width: 100%;
     height: 100%;
     z-index: $section-bg-z-index;
-    background-color: $color-primary--light;
+    background-color: $primary-color--light;
     pointer-events: none;
   }
 }

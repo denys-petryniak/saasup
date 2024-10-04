@@ -81,7 +81,7 @@ $modal-content-gap: clamped(
   max-height: 100dvh;
   z-index: stacking(modal);
   padding: $spacing--2xl;
-  background-color: rgba($color--secondary--extra-dark, 0.7);
+  background-color: rgba($primary-color--dark, 0.7);
 
   &__content {
     position: relative;
@@ -99,7 +99,7 @@ $modal-content-gap: clamped(
   }
 
   &__header {
-    border-bottom: 1px solid $color-border--regular;
+    border-bottom: 1px solid $divider-color--regular;
   }
 
   &__body {
@@ -108,7 +108,7 @@ $modal-content-gap: clamped(
   }
 
   &__footer {
-    border-top: 1px solid $color-border--regular;
+    border-top: 1px solid $divider-color--regular;
   }
 
   &__close-button {
@@ -121,7 +121,7 @@ $modal-content-gap: clamped(
   }
 
   &__close-icon {
-    color: $color--secondary--extra-dark;
+    color: $primary-color--dark;
   }
 }
 </style>

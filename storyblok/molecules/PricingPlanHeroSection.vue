@@ -83,7 +83,7 @@ const { price, features } = inject(pricingPlanGeneralDataInjectionKey) as Pricin
 
   &__feature-icon {
     margin-right: $spacing--md;
-    color: $color-icon--enabled;
+    color: $icon-color--enabled;
   }
 }
 </style>

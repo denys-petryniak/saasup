@@ -43,9 +43,9 @@ defineProps<Props>()
 <style scoped lang="scss">
 .vacancy-card {
   padding: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
-  border: 1px solid $color-border--regular;
+  border: 1px solid $divider-color--regular;
   border-radius: $rounded--3xl;
-  background-color: $color--secondary--extra-light;
+  background-color: $secondary-color--extra-light;
 
   &__title {
     margin-top: 0;
@@ -61,7 +61,7 @@ defineProps<Props>()
 
   @media (hover: hover) {
     &:hover {
-      background-color: rgba($color: $color-primary--light, $alpha: 0.1);
+      background-color: rgba($color: $primary-color--light, $alpha: 0.1);
     }
   }
 }

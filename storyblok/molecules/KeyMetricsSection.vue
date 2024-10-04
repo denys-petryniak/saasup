@@ -36,7 +36,7 @@ defineProps<Props>()
     gap: $spacing--4xl;
     padding: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
     border-radius: $rounded--3xl * 2;
-    background-color: $color--secondary--extra-light;
+    background-color: $secondary-color--extra-light;
   }
 
   &__metric {
@@ -48,7 +48,7 @@ defineProps<Props>()
   text-align: center;
 
   &__value {
-    color: $color-primary--dark;
+    color: $primary-color--dark;
     @include fluid-typography(
       $min-font-size: $text--5xl,
       $max-font-size: $text--7xl,
@@ -62,13 +62,13 @@ defineProps<Props>()
     }
 
     &::v-deep(b) {
-      color: $color-primary--light;
+      color: $primary-color--light;
     }
   }
 
   &__description {
     margin: $spacing--sm 0 0 0;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
     @include fluid-typography(
       $min-font-size: $text--xl,
       $max-font-size: $text--2xl,

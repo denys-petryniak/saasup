@@ -33,7 +33,7 @@ defineProps<Props>()
   }
 
   &__name {
-    color: $color-primary--light;
+    color: $primary-color--light;
   }
 }
 </style>

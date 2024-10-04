@@ -64,7 +64,7 @@ const vacancyContent = computed(() => {
     margin-top: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
     padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--12xl);
     border-radius: $rounded--3xl * 2;
-    background-color: $color--secondary--extra-light;
+    background-color: $secondary-color--extra-light;
   }
 }
 </style>

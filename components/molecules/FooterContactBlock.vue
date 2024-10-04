@@ -43,15 +43,15 @@ defineProps<Props>()
   &__icon {
     position: relative;
     top: $spacing--sm;
-    color: $color-primary--light;
+    color: $primary-color--light;
   }
 
   &__link {
     display: block;
-    color: $color--secondary--dark;
+    color: $secondary-color--dark;
 
     &:hover {
-      color: $color-primary--light;
+      color: $primary-color--light;
     }
   }
 }

@@ -86,7 +86,7 @@ $card-gap--max: $spacing--8xl;
 
 .article-card {
   border-radius: $card-radius--outer;
-  background-color: $color--secondary--extra-light;
+  background-color: $secondary-color--extra-light;
 
   &__image-box {
     position: relative;

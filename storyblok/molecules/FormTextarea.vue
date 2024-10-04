@@ -71,29 +71,29 @@ const model = defineModel<string>()
 
   &__label {
     font-weight: bold;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__textarea {
     min-height: toRem(100px);
     max-height: toRem(500px);
     padding: clamped($min-size: $spacing--xl, $max-size: $spacing--2xl);
-    border: 1px solid $color-border--regular;
+    border: 1px solid $divider-color--regular;
     border-radius: $rounded--2xl;
     resize: vertical;
     background-color: $color-white;
     transition: border-color 0.2s ease-in-out;
 
     &:hover:not(:focus-visible) {
-      border-color: color.adjust($color: $color-border--regular, $lightness: -25%);
+      border-color: color.adjust($color: $divider-color--regular, $lightness: -25%);
     }
 
     &::placeholder {
-      color: $color--secondary--dark;
+      color: $secondary-color--dark;
     }
 
     &--error {
-      border-color: $color--error;
+      border-color: $error-color;
     }
   }
 

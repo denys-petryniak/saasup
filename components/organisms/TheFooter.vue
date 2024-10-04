@@ -139,10 +139,10 @@ function getSocialLinkLogo(label: string | undefined): string {
   }
 
   &__social-link {
-    color: $color--secondary--extra-dark;
+    color: $primary-color--dark;
 
     &:hover {
-      color: $color-primary--light;
+      color: $primary-color--light;
     }
   }
 }
@@ -160,7 +160,7 @@ function getSocialLinkLogo(label: string | undefined): string {
       bottom: 0;
       height: 1px;
       width: 100%;
-      background-color: $color-devider--regular;
+      background-color: $divider-color--regular;
     }
   }
 
@@ -181,10 +181,10 @@ function getSocialLinkLogo(label: string | undefined): string {
   &__link {
     display: block;
     padding: $spacing--sm 0;
-    color: $color--secondary--dark;
+    color: $secondary-color--dark;
 
     &:hover {
-      color: $color-primary--light;
+      color: $primary-color--light;
     }
   }
 }

@@ -36,14 +36,14 @@
     );
     font-weight: $font--bold;
     text-wrap: balance;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
     list-style: none; // Removes the default triangle
     cursor: pointer;
     user-select: none;
   }
 
   &__icon {
-    color: $color-primary--dark;
+    color: $primary-color--dark;
 
     &--minus {
       display: none;

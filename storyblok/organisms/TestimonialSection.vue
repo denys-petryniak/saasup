@@ -65,7 +65,7 @@ $section-bg-z-index: -2;
 $section-bg-decor-z-index: -1;
 
 .testimonial-section {
-  background-color: $color-primary--light;
+  background-color: $primary-color--light;
 
   @include breakpoint('lg') {
     background-image: v-bind(testimonialBackground);
@@ -94,13 +94,13 @@ $carousel-button-size: toRem(76px);
     width: $carousel-button-size;
     height: $carousel-button-size;
     border-radius: $rounded--full;
-    color: $color-white--regular;
+    color: $color-white--soft;
     background-color: rgba($carousel-button-color, 0.2);
     backdrop-filter: blur($carousel-button-blur);
 
     &:hover {
       background-color: $carousel-button-color;
-      color: $color-white--regular;
+      color: $color-white--soft;
     }
   }
 }

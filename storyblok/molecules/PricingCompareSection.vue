@@ -115,7 +115,7 @@ function isPricingPlan(value: string): value is PricingPlan {
   }
 
   thead {
-    border-bottom: 1px solid $color-devider--regular;
+    border-bottom: 1px solid $divider-color--regular;
 
     th {
       padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl)
@@ -127,32 +127,32 @@ function isPricingPlan(value: string): value is PricingPlan {
         $max-line-height: $leading--tight
       );
       font-weight: $font--extrabold;
-      color: $color--secondary--extra-dark;
-      background-color: $color--secondary--extra-light;
+      color: $primary-color--dark;
+      background-color: $secondary-color--extra-light;
     }
   }
 
   tbody {
     tr {
       &:nth-child(even) {
-        background-color: $color--secondary--extra-light;
+        background-color: $secondary-color--extra-light;
       }
 
       &:nth-child(odd) {
-        background-color: $color-white--regular;
+        background-color: $color-white--soft;
       }
     }
   }
 
   &__icon {
     &--available {
-      color: $color-icon--enabled;
+      color: $icon-color--enabled;
     }
   }
 
   &__icon {
     &--unavailable {
-      color: $color-icon--disabled;
+      color: $icon-color--disabled;
     }
   }
 }

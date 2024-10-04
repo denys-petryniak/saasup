@@ -69,12 +69,12 @@ const cardDescription = computed(() => renderRichText(props.blok.description))
   }
 
   @media (hover: none) {
-    background-color: $color--secondary--extra-light;
+    background-color: $secondary-color--extra-light;
   }
 
   @media (hover: hover) {
     &:hover {
-      background-color: $color--secondary--extra-light;
+      background-color: $secondary-color--extra-light;
     }
   }
 }

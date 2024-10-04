@@ -70,13 +70,13 @@ $badge-text-color--orange: #4a2e00;
   }
 
   &--purple {
-    color: $color-primary--light;
+    color: $primary-color--light;
     background-color: $badge-bg-color--purple;
   }
 
   &--white {
-    color: $color--secondary--dark;
-    background-color: $color-white--regular;
+    color: $secondary-color--dark;
+    background-color: $color-white;
   }
 
   &--orange {

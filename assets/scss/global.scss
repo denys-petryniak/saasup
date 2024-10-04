@@ -1,7 +1,7 @@
 :root {
   font-family: $font-family--primary;
   letter-spacing: $tracking--normal;
-  color: $color--secondary--dark;
+  color: $secondary-color--dark;
 
   /* Disables automatic font synthesis. Helps ensure that only the specified font weights and styles are used,
      which can improve visual consistency across different browsers and operating systems. */
@@ -67,7 +67,7 @@ h6 {
   font-weight: $font--extrabold;
   letter-spacing: $tracking--tight;
   text-wrap: balance;
-  color: $color--secondary--extra-dark;
+  color: $primary-color--dark;
 }
 
 p {
@@ -111,11 +111,11 @@ button {
 a {
   display: inline-block;
   text-decoration: none;
-  color: $color--secondary--extra-dark;
+  color: $primary-color--dark;
 
   @media (hover: hover) {
     &:hover {
-      color: $color-primary--light;
+      color: $primary-color--light;
     }
   }
 }
@@ -126,7 +126,7 @@ li {
 
 .router-link-active:not(.button),
 .router-link-exact-active:not(.button) {
-  color: $color-primary--light !important;
+  color: $primary-color--light !important;
 }
 
 span {
@@ -142,7 +142,7 @@ span {
 
 :focus-visible {
   outline-offset: 0.15rem;
-  outline-color: rgba($color-primary--light, 0.5);
+  outline-color: rgba($primary-color--light, 0.5);
 
   @media (prefers-reduced-motion: no-preference) {
     transition: outline-offset 0.25s ease-out;
@@ -160,7 +160,7 @@ span {
       margin-bottom: $spacing--lg;
 
       &::marker {
-        color: $color-primary--light;
+        color: $primary-color--light;
       }
 
       &:last-child {
@@ -172,10 +172,10 @@ span {
   blockquote {
     margin: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl) 0;
     padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--12xl);
-    border-left: 60px solid $color-primary--light;
+    border-left: 60px solid $primary-color--light;
     border-radius: $rounded--3xl;
-    color: $color--secondary--extra-dark;
-    background-color: rgba($color--secondary--dark, 0.05);
+    color: $primary-color--dark;
+    background-color: rgba($secondary-color--dark, 0.05);
 
     @include breakpoint('sm') {
       border-left-width: 80px;
@@ -192,25 +192,25 @@ span {
 
   code {
     padding: $spacing--xs $spacing--sm;
-    background-color: rgba($color-primary--light, 0.1);
+    background-color: rgba($primary-color--light, 0.1);
     border-radius: $rounded--lg;
   }
 
   pre {
-    background-color: $color--secondary--dark;
+    background-color: $secondary-color--dark;
     padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
     border-radius: $rounded--xl;
     overflow-x: auto;
-    color: $color--secondary--light;
+    color: $secondary-color--light;
   }
 
   a {
     font-weight: $font--semibold;
-    color: rgba($color-primary--light, 0.8);
+    color: rgba($primary-color--light, 0.8);
 
     @media (hover: hover) {
       &:hover {
-        color: $color-primary--light;
+        color: $primary-color--light;
       }
     }
   }
@@ -233,5 +233,5 @@ span {
     $min-line-height: $leading--tight,
     $max-line-height: $leading--condensed
   );
-  color: $color--error;
+  color: $error-color;
 }

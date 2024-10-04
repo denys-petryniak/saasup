@@ -20,6 +20,6 @@ defineProps<Props>()
   margin: 0;
   border: 0;
   height: 1px;
-  background-color: $color-devider--regular;
+  background-color: $divider-color--regular;
 }
 </style>

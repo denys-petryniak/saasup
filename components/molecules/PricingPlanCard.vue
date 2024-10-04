@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { PricingPlanPageStoryblok } from '~/component-types-sb'
+import type { PricingPlanStoryblok } from '~/component-types-sb'
 
 interface Props {
-  blok: PricingPlanPageStoryblok
+  blok: PricingPlanStoryblok
   slug: string
 }
 
@@ -75,7 +75,7 @@ $card-padding-x: clamped(
 .pricing-plan {
   padding: $card-padding-y $card-padding-x;
   text-align: center;
-  background-color: $color--secondary--extra-light;
+  background-color: $secondary-color--extra-light;
   border-radius: $rounded--3xl * 2;
 
   &__head {
@@ -97,7 +97,7 @@ $card-padding-x: clamped(
 
   &__price-container {
     padding: $spacing--2xl 0;
-    border-top: 1px solid $color-devider--regular;
+    border-top: 1px solid $divider-color--regular;
   }
 
   &__price {
@@ -105,7 +105,7 @@ $card-padding-x: clamped(
     font-size: $text--4xl;
     line-height: $leading--tight;
     font-weight: $font--extrabold;
-    color: $color--secondary--extra-dark;
+    color: $primary-color--dark;
   }
 
   &__headline {
@@ -116,7 +116,7 @@ $card-padding-x: clamped(
     padding: $spacing--4xl 0;
     margin: 0;
     list-style: none;
-    border-top: 1px solid $color-devider--regular;
+    border-top: 1px solid $divider-color--regular;
   }
 
   &__features-item:not(:first-child) {

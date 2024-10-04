@@ -93,7 +93,7 @@ $card-gap--max: $spacing--4xl;
   gap: clamped($min-size: $spacing--xl, $max-size: $spacing--2xl);
   padding: clamped($min-size: $card-gap--min, $max-size: $card-gap--max);
   border-radius: $card-radius--outer;
-  background-color: $color--secondary--extra-light;
+  background-color: $secondary-color--extra-light;
 
   &__header {
     display: flex;

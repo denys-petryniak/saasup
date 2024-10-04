@@ -41,7 +41,7 @@ defineProps<Props>()
 
 <style scoped lang="scss">
 .faq-section {
-  background-color: $color-primary--light;
+  background-color: $primary-color--light;
 
   &__accordion {
     margin: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl) auto 0 auto;
