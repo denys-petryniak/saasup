@@ -83,8 +83,8 @@ function getTabButtonText({ index, text = 'Tab' }: { index: number, text: string
     padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl)
       clamped($min-size: $spacing--2xl, $max-size: $spacing--8xl);
     border-radius: $rounded--2xl;
-    color: $color--secondary--extra-dark;
-    background-color: $color--secondary--extra-light;
+    color: $primary-color--dark;
+    background-color: $secondary-color--extra-light;
     text-align: start;
     font-weight: $font--bold;
 
@@ -93,8 +93,8 @@ function getTabButtonText({ index, text = 'Tab' }: { index: number, text: string
     }
 
     &--active {
-      background-color: $color-primary--light;
-      color: $color-white--regular;
+      background-color: $primary-color--light;
+      color: $color-white--soft;
     }
   }
 }

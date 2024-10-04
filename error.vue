@@ -47,7 +47,7 @@ function handleError() {
     @include fluid-typography($min-font-size: $text--8xl, $max-font-size: $text--8xl * 3);
     line-height: $leading--none;
     font-weight: $font--extrabold;
-    color: $color-primary--light;
+    color: $primary-color--light;
     text-shadow: 0 6px 6px rgba(82, 54, 255, 0.22);
   }
 
@@ -59,7 +59,7 @@ function handleError() {
       $max-line-height: $leading--condensed
     );
     font-weight: $font--extrabold;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__button {

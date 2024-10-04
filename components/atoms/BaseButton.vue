@@ -90,76 +90,76 @@ $button-min-width: 10ch;
   }
 
   &--branded {
-    border: 1px solid $color-primary--light;
-    color: $color-white--regular;
-    background-color: $color-primary--light;
+    border: 1px solid $primary-color--light;
+    color: $color-white--soft;
+    background-color: $primary-color--light;
 
     &:hover,
     &:active {
-      color: $color-primary--light;
-      background-color: $color-white--regular;
+      color: $primary-color--light;
+      background-color: $color-white--soft;
     }
   }
 
   &--light {
-    border: 1px solid $color--secondary--extra-light;
-    color: $color--secondary--extra-dark;
-    background-color: $color--secondary--extra-light;
+    border: 1px solid $secondary-color--extra-light;
+    color: $primary-color--dark;
+    background-color: $secondary-color--extra-light;
 
     &:hover,
     &:active {
-      border: 1px solid $color-primary--dark;
-      color: $color-white--regular;
-      background-color: $color-primary--dark;
+      border: 1px solid $primary-color--dark;
+      color: $color-white--soft;
+      background-color: $primary-color--dark;
     }
   }
 
   &--light-branded {
-    border: 1px solid $color-devider--regular;
-    color: $color--secondary--extra-dark;
-    background-color: $color--secondary--extra-light;
+    border: 1px solid $divider-color--regular;
+    color: $primary-color--dark;
+    background-color: $secondary-color--extra-light;
 
     &:hover,
     &:active {
-      border: 1px solid $color-primary--light;
-      color: $color-white--regular;
-      background-color: $color-primary--light;
+      border: 1px solid $primary-color--light;
+      color: $color-white--soft;
+      background-color: $primary-color--light;
     }
   }
 
   &--light-bordered {
-    border: 1px solid $color-devider--regular;
-    color: $color--secondary--extra-dark;
-    background-color: $color--secondary--extra-light;
+    border: 1px solid $divider-color--regular;
+    color: $primary-color--dark;
+    background-color: $secondary-color--extra-light;
 
     &:hover,
     &:active {
-      border: 1px solid $color--secondary--dark;
-      background-color: $color-white--regular;
+      border: 1px solid $secondary-color--dark;
+      background-color: $color-white--soft;
     }
   }
 
   &--dark {
-    color: $color-white--regular;
-    background-color: $color-primary--dark;
-    border: 1px solid $color-primary--dark;
+    color: $color-white--soft;
+    background-color: $primary-color--dark;
+    border: 1px solid $primary-color--dark;
 
     &:hover,
     &:active {
-      background-color: $color--secondary--extra-light;
-      color: $color-primary--dark;
+      background-color: $secondary-color--extra-light;
+      color: $primary-color--dark;
     }
   }
 
   &--dark-branded {
-    border: 1px solid $color-primary--dark;
-    color: $color-white--regular;
-    background-color: $color-primary--dark;
+    border: 1px solid $primary-color--dark;
+    color: $color-white--soft;
+    background-color: $primary-color--dark;
 
     &:hover,
     &:active {
-      border: 1px solid $color-primary--light;
-      background-color: $color-primary--light;
+      border: 1px solid $primary-color--light;
+      background-color: $primary-color--light;
     }
   }
 }

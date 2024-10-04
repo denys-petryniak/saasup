@@ -41,11 +41,11 @@ defineProps<Props>()
   }
 
   &__location {
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__employment {
-    color: $color-primary--light;
+    color: $primary-color--light;
   }
 }
 </style>

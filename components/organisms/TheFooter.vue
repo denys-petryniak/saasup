@@ -36,13 +36,13 @@ function getSocialLinkLogo(label: string | undefined): string {
           <div class="footer__contacts">
             <FooterContactBlock
               v-if="footer.emails?.length"
-              type="email"
+              link-type="email"
               icon-name="carbon:email"
               :links="footer.emails"
             />
             <FooterContactBlock
               v-if="footer.phones?.length"
-              type="phone"
+              link-type="phone"
               icon-name="carbon:phone"
               :links="footer.phones"
             />
@@ -139,10 +139,10 @@ function getSocialLinkLogo(label: string | undefined): string {
   }
 
   &__social-link {
-    color: $color--secondary--extra-dark;
+    color: $primary-color--dark;
 
     &:hover {
-      color: $color-primary--light;
+      color: $primary-color--light;
     }
   }
 }
@@ -160,7 +160,7 @@ function getSocialLinkLogo(label: string | undefined): string {
       bottom: 0;
       height: 1px;
       width: 100%;
-      background-color: $color-devider--regular;
+      background-color: $divider-color--regular;
     }
   }
 
@@ -181,10 +181,10 @@ function getSocialLinkLogo(label: string | undefined): string {
   &__link {
     display: block;
     padding: $spacing--sm 0;
-    color: $color--secondary--dark;
+    color: $secondary-color--dark;
 
     &:hover {
-      color: $color-primary--light;
+      color: $primary-color--light;
     }
   }
 }

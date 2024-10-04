@@ -26,6 +26,8 @@ export type ImageLoading = 'lazy' | 'eager'
 
 export type ContainerSize = 'lg' | 'xl'
 
+export type LinkType = 'email' | 'phone'
+
 export interface Header {
   navigation: (LinkStoryblok | SubmenuStoryblok)[]
   logo?: AssetStoryblok

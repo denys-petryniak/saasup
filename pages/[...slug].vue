@@ -71,6 +71,14 @@ onMounted(() => {
 if (story.value) {
   provide(storyInjectionKey, story.value.uuid)
 }
+
+const isSuccessPage = route.path === '/success'
+
+if (isSuccessPage) {
+  definePageMeta({
+    middleware: 'check-contact-form-submission',
+  })
+}
 </script>
 
 <template>

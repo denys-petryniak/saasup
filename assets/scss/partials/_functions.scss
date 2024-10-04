@@ -103,3 +103,23 @@ $layer-stack: (modal, header);
     @return null;
   }
 }
+
+/// Calculates the inner border radius based on the outer radius and a specified gap range.
+/// outer radius = inner radius + gap -> inner radius = outer radius - gap
+/// source: https://cloudfour.com/thinks/the-math-behind-nesting-rounded-corners/
+///
+/// @param {number} $radius--outer - The outer border radius.
+/// @param {number} $gap--min - The minimum gap to subtract from the outer radius.
+/// @param {number} $gap--max - The maximum gap to subtract from the outer radius.
+/// @returns {number} - The calculated inner border radius.
+@function calcInnerRadius($radius--outer, $gap--min, $gap--max) {
+  // Calculate the inner border radius based on the gap
+  // innerRadius = outerRadius - gap
+  $inner-border-radius: clamped(
+    $min-size: $radius--outer - $gap--min,
+    $max-size: $radius--outer - $gap--max
+  );
+
+  @return $inner-border-radius;
+}
+

@@ -33,14 +33,14 @@ withDefaults(defineProps<Props>(), {
 <style scoped lang="scss">
 .card {
   padding: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
-  border: 1px solid $color-border--regular;
+  border: 1px solid $divider-color--regular;
   border-radius: $rounded--3xl;
   text-align: center;
-  background-color: $color-primary--light;
+  background-color: $primary-color--light;
 
   &__title,
   &__description {
-    color: $color-white--regular;
+    color: $color-white--soft;
   }
 
   &__title {

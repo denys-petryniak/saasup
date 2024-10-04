@@ -91,7 +91,7 @@ const sectionDescription = computed(() => {
     gap: $spacing--lg;
     padding: $spacing--lg;
     border-radius: $rounded--3xl;
-    background-color: $color--secondary--extra-light;
+    background-color: $secondary-color--extra-light;
   }
 
   &__image-box {

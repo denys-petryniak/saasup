@@ -121,7 +121,7 @@ function handleAddToCart() {
 .plan-duration-widget {
   padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
   border-radius: $rounded--3xl * 2;
-  background-color: $color--secondary--extra-light;
+  background-color: $secondary-color--extra-light;
 
   &__title {
     @include fluid-typography(
@@ -131,7 +131,7 @@ function handleAddToCart() {
       $max-line-height: $leading--condensed
     );
     font-weight: $font--extrabold;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__price {
@@ -143,7 +143,7 @@ function handleAddToCart() {
       $max-line-height: $leading--tight
     );
     font-weight: $font--extrabold;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__discount {
@@ -155,11 +155,11 @@ function handleAddToCart() {
     width: 100%;
     padding: clamped($min-size: $spacing--lg, $max-size: $spacing--2xl)
       clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
-    border: 1px solid $color-border--regular;
+    border: 1px solid $divider-color--regular;
     border-radius: $rounded--3xl * 2;
     font-size: $text--lg;
     font-weight: $font--semibold;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
     background-color: transparent;
     appearance: none;
     cursor: pointer;

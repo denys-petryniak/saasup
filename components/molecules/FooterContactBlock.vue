@@ -1,23 +1,14 @@
 <script setup lang="ts">
-import type { LinkStoryblok, MultilinkStoryblok } from '~/component-types-sb'
+import type { LinkStoryblok } from '~/component-types-sb'
+import type { LinkType } from '~/types'
 
 interface Props {
-  type: string
+  linkType: LinkType
   iconName: string
-  links: LinkStoryblok[] | null
+  links: LinkStoryblok[]
 }
 
-const props = defineProps<Props>()
-
-function getLinkUrl(link: MultilinkStoryblok): string {
-  if (props.type === 'email')
-    return `mailto:${link.email}`
-
-  if (props.type === 'phone')
-    return `tel:${link.url}`
-
-  return link.url
-}
+defineProps<Props>()
 </script>
 
 <template>
@@ -31,8 +22,7 @@ function getLinkUrl(link: MultilinkStoryblok): string {
       <NuxtLink
         v-for="linkItem in links"
         :key="linkItem._uid"
-        :to="getLinkUrl(linkItem.link)"
-        no-rel
+        :to="resolveLinkUrl(linkItem.link, linkType)"
         class="contact-block__link"
       >
         {{ linkItem.label }}
@@ -53,15 +43,15 @@ function getLinkUrl(link: MultilinkStoryblok): string {
   &__icon {
     position: relative;
     top: $spacing--sm;
-    color: $color-primary--light;
+    color: $primary-color--light;
   }
 
   &__link {
     display: block;
-    color: $color--secondary--dark;
+    color: $secondary-color--dark;
 
     &:hover {
-      color: $color-primary--light;
+      color: $primary-color--light;
     }
   }
 }

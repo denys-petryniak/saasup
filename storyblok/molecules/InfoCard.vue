@@ -14,10 +14,10 @@ const dynamicInfoCardClasses = computed(() => {
   return [orientationClass, shadowClass]
 })
 
-const PRIMARY_LIGHT_COLOR = '#5236ff'
+const { primaryLightColor } = useAppConfig()
 
 const cardIconBackgroundColor = computed(() => {
-  return props.blok.icon_bg?.color ?? PRIMARY_LIGHT_COLOR
+  return props.blok.icon_bg?.color ?? primaryLightColor
 })
 </script>
 
@@ -61,7 +61,7 @@ const cardIconBackgroundColor = computed(() => {
   gap: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
   padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
   border-radius: $rounded--3xl;
-  background-color: $color--secondary--extra-light;
+  background-color: $secondary-color--extra-light;
 
   &__icon-box {
     display: grid;
@@ -88,7 +88,7 @@ const cardIconBackgroundColor = computed(() => {
 
   &--shadow {
     box-shadow: $shadow--regular;
-    background-color: $color-white--regular;
+    background-color: $color-white--soft;
   }
 
   &--vertical {

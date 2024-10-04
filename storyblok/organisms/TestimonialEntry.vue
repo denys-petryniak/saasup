@@ -34,7 +34,7 @@ const testimonialText = computed(() =>
 <style scoped lang="scss">
 .testimonial {
   position: relative;
-  color: $color-white--regular;
+  color: $color-white--soft;
 
   &::before {
     content: '';

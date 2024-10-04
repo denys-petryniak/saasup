@@ -70,14 +70,14 @@ $widget-padding-x: clamped(
 .widget {
   max-width: $widget-max-width;
   padding: $widget-padding-y $widget-padding-x;
-  background-color: $color--secondary--extra-light;
+  background-color: $secondary-color--extra-light;
   border-radius: $rounded--3xl;
 
   &__label {
     margin: 0;
     font-size: $text--lg;
     font-weight: $font--bold;
-    color: $color-primary--light;
+    color: $primary-color--light;
   }
 
   &__title,

@@ -144,7 +144,7 @@ $alignments: (
   &--light {
     #{$parent}__title,
     #{$parent}__description {
-      color: $color-white--regular;
+      color: $color-white--soft;
     }
   }
 }

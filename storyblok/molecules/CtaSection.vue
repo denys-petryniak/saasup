@@ -132,7 +132,7 @@ $section-border-radius: clamped(
   }
 
   &__description {
-    color: $color-white--regular;
+    color: $color-white--soft;
   }
 
   &__form {
@@ -153,7 +153,7 @@ $section-border-radius: clamped(
   &__success-message {
     padding: $spacing--lg $spacing--2xl;
     border-radius: $rounded--lg;
-    background-color: $color-white--regular;
+    background-color: $color-white--soft;
   }
 }
 </style>

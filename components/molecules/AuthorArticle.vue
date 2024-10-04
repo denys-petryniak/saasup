@@ -61,7 +61,7 @@ defineProps<Props>()
     font-size: $text--2xl;
     line-height: $leading--tight;
     font-weight: $font--bold;
-    color: $color--secondary--extra-dark;
+    color: $primary-color--dark;
   }
 
   &__role {

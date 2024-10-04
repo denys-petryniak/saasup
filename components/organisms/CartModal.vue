@@ -78,7 +78,7 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
       $max-line-height: $leading--condensed
     );
     font-weight: $font--extrabold;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__total-price {
@@ -91,7 +91,7 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
       $min-line-height: $leading--tight,
       $max-line-height: $leading--condensed
     );
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__total-price-value {
@@ -115,7 +115,7 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
   &:not(:first-child) {
     margin-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
     padding-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
-    border-top: 1px solid $color-border--regular;
+    border-top: 1px solid $divider-color--regular;
   }
 
   &__name {
@@ -127,7 +127,7 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
       $max-line-height: $leading--condensed
     );
     font-weight: $font--bold;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__price {
@@ -139,7 +139,7 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
       $max-line-height: $leading--condensed
     );
     font-weight: $font--extrabold;
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__duration {
@@ -150,7 +150,7 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
       $min-line-height: $leading--tight,
       $max-line-height: $leading--condensed
     );
-    color: $color-primary--dark;
+    color: $primary-color--dark;
   }
 
   &__duration-value {

@@ -94,7 +94,7 @@ const { formattedArticleDate } = useArticleDate(date || new Date())
     flex: 1 1 70%;
     margin: 0;
     @include breakpoint('lg') {
-      border-right: 1px solid $color-devider--regular;
+      border-right: 1px solid $divider-color--regular;
     }
   }
 
@@ -113,7 +113,7 @@ const { formattedArticleDate } = useArticleDate(date || new Date())
   }
 
   &__date-label {
-    color: $color-primary--dark;
+    color: $primary-color--dark;
     font-weight: $font--bold;
     margin-right: $spacing--sm;
   }

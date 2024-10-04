@@ -71,6 +71,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       NODE_ENV: process.env.NODE_ENV || 'production',
+      // Used https://web3forms.com as contact form API service.
+      // Alternatives: https://fabform.io/, https://resend.com/ etc.
+      // The Access Key is not a secret API Key.
+      // It can be Public and it's safe to use it in the client-side code.
+      // It works as an alias to your email address.
+      contactFormApiUrl: 'https://api.web3forms.com',
+      contactFormApiAccessKey: 'ef9a2aa0-f815-4096-a39f-8aae818042da',
     },
   },
 

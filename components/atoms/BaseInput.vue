@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: merge with FormInput
 type ModelValue = string | number
 
 interface Props {
@@ -46,16 +47,16 @@ $field-bg-color: rgba(255, 255, 255, 0.2);
   display: inline-block;
   vertical-align: middle;
   padding: $field-padding-y $field-padding-x;
-  border: 1px solid $color-border--regular;
+  border: 1px solid $divider-color--regular;
   border-radius: $rounded--3xl * 2;
-  color: $color-white--regular;
+  color: $color-white--soft;
   @include fluid-typography($min-font-size: $text--base, $max-font-size: $text--lg);
   line-height: $leading--none;
   font-weight: $font--bold;
   background-color: $field-bg-color;
 
   &::placeholder {
-    color: $color-white--regular;
+    color: $color-white--soft;
   }
 }
 </style>
