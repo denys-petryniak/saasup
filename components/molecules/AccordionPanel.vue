@@ -17,8 +17,16 @@ defineProps<Props>()
       class="accordion-panel__header"
     >
       <slot name="header" />
-      <Icon name="i-heroicons-minus" class="accordion-panel__icon accordion-panel__icon--minus" />
-      <Icon name="i-heroicons-plus" class="accordion-panel__icon accordion-panel__icon--plus" />
+      <Icon
+        name="i-heroicons-minus"
+        size="1em"
+        class="accordion-panel__icon accordion-panel__icon--minus"
+      />
+      <Icon
+        name="i-heroicons-plus"
+        size="1em"
+        class="accordion-panel__icon accordion-panel__icon--plus"
+      />
     </summary>
     <div v-if="$slots.content" class="accordion-panel__content">
       <slot name="content" />

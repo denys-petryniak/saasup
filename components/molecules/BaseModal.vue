@@ -115,6 +115,7 @@ $modal-content-gap: clamped(
     position: absolute;
     top: $modal-content-gap;
     right: $modal-content-gap;
+    padding: 0;
     background: none;
     border: none;
     cursor: pointer;

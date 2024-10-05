@@ -71,6 +71,7 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
 .order-modal {
   &__title {
     margin: 0;
+    padding-right: clamped($min-size: $spacing--3xl, $max-size: $spacing--5xl);
     @include fluid-typography(
       $min-font-size: $text--3xl,
       $max-font-size: $text--4xl,
