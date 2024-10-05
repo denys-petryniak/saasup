@@ -1,8 +1,17 @@
 <script setup lang="ts">
+interface Props {
+  // Optional name attribute for exclusive accordion behavior
+  name?: string
+}
+
+defineProps<Props>()
 </script>
 
 <template>
-  <details class="accordion-panel">
+  <details
+    class="accordion-panel"
+    :name="name"
+  >
     <summary
       v-if="$slots.header"
       class="accordion-panel__header"
@@ -18,6 +27,16 @@
 </template>
 
 <style scoped lang="scss">
+// fully disable default marker style
+summary {
+  list-style-type: none;
+
+  &::marker,
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
 .accordion-panel {
   padding: clamped($min-size: $spacing--xl, $max-size: $spacing--2xl);
   border-radius: $rounded--3xl;
@@ -37,7 +56,6 @@
     font-weight: $font--bold;
     text-wrap: balance;
     color: $primary-color--dark;
-    list-style: none; // Removes the default triangle
     cursor: pointer;
     user-select: none;
   }

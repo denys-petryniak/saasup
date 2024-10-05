@@ -27,6 +27,7 @@ defineProps<Props>()
       <AccordionPanel
         v-for="item in blok.cards"
         :key="item._uid"
+        :name="blok.accordion_group_name"
       >
         <template #header>
           {{ item.title }}

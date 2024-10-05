@@ -1415,7 +1415,7 @@
       "name": "faq-section",
       "display_name": null,
       "created_at": "2024-10-03T10:04:48.136Z",
-      "updated_at": "2024-10-04T15:23:28.775Z",
+      "updated_at": "2024-10-05T14:26:45.022Z",
       "id": 6370480,
       "schema": {
         "hide_top_gap": {
@@ -1498,14 +1498,14 @@
           "key": "questions"
         },
         "tab-ebe0bdf5-5eed-4927-9c70-e4d03a047e41": {
-          "display_name": "Cards",
+          "display_name": "Accordion",
           "keys": [
             "cards",
-            "questions"
+            "questions",
+            "accordion_group_name"
           ],
           "pos": 7,
-          "type": "tab",
-          "key": "tab-ebe0bdf5-5eed-4927-9c70-e4d03a047e41"
+          "type": "tab"
         },
         "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3": {
           "display_name": "Style",
@@ -1518,6 +1518,12 @@
           "pos": 8,
           "type": "tab",
           "key": "tab-e634173b-10fa-411a-9e92-6dd7c14c60c3"
+        },
+        "accordion_group_name": {
+          "type": "text",
+          "pos": 9,
+          "description": "When this field is set, the accordion behaves exclusively. Opening one accordion item automatically closes any other open items within the same group, ensuring only one is expanded at a time.",
+          "tooltip": true
         }
       },
       "image": null,
