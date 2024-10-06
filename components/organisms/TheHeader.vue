@@ -100,7 +100,7 @@ provide(modalInjectionKey, {
                 class="header__cart-button u-hidden-from-lg"
                 disabled
               >
-                Cart (<span class="navigation__cart-button-count">0</span>)
+                Cart (0)
               </BaseButton>
             </template>
           </ClientOnly>
@@ -203,7 +203,7 @@ provide(modalInjectionKey, {
                     class="navigation__cart-button u-visible-from-lg"
                     disabled
                   >
-                    Cart (<span class="navigation__cart-button-count">0</span>)
+                    Cart (0)
                   </button>
                 </template>
               </ClientOnly>
