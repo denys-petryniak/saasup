@@ -321,7 +321,6 @@ provide(modalInjectionKey, {
   }
 
   &__cart-button-count {
-    padding: 0 calc($spacing--xs / 2);
     font-weight: $font--bold;
     color: $primary-color--light;
   }
