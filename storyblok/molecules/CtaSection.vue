@@ -10,19 +10,52 @@ const props = defineProps<Props>()
 const sectionDescription = computed(() =>
   renderRichText(props.blok.description))
 
+const config = useRuntimeConfig()
+
 const formData = reactive({
+  access_key: config.public.contactFormApiAccessKey,
+  subject: 'New Submission from SaaSup CTA Section',
   email: '',
 })
 
-const isSuccess = ref(false)
+const result = ref<string>('')
+const status = ref<'loading' | 'success' | 'error' | ''>('')
 
-function submitForm() {
-  if (formData.email) {
-    // eslint-disable-next-line no-console
-    console.log('Form submitted', formData.email)
+async function submitForm() {
+  try {
+    if (!formData.email) {
+      return
+    }
 
-    isSuccess.value = true
-    formData.email = ''
+    status.value = 'loading'
+
+    const response = await $fetch<{ message: string, success: boolean }>(`${config.public.contactFormApiUrl}/submit`, {
+      method: 'POST',
+      body: formData,
+    })
+
+    result.value = response.message
+
+    if (response.success) {
+      status.value = 'success'
+    }
+    else {
+      console.error('Form submission error:', response)
+      status.value = 'error'
+    }
+  }
+  catch (error) {
+    console.error('Request failed:', error)
+    status.value = 'error'
+    result.value = 'Something went wrong! Please try again.'
+  }
+  finally {
+    setTimeout(() => {
+      formData.email = ''
+
+      result.value = ''
+      status.value = ''
+    }, 5000)
   }
 }
 
@@ -57,7 +90,7 @@ const sectionBackground = computed(() => {
         <div class="cta-section__description" v-html="sectionDescription" />
         <template #footer>
           <div
-            v-if="isSuccess"
+            v-if="status === 'success'"
             class="cta-section__success-message"
           >
             Thank you! Your submission has been received!
@@ -82,9 +115,15 @@ const sectionBackground = computed(() => {
               color="light"
               class="cta-section__button"
             >
-              Subscribe
+              {{ status === 'loading' ? 'Submitting...' : 'Subscribe' }}
             </BaseButton>
           </form>
+          <p
+            v-if="status === 'error'"
+            class="error-message cta-section__error-message"
+          >
+            An error occurred. Please try again.
+          </p>
         </template>
       </ContentBlock>
       <div v-if="blok.image?.filename" class="cta-section__image-box">

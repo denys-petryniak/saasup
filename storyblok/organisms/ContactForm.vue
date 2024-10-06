@@ -15,7 +15,7 @@ const config = useRuntimeConfig()
 // Initialize the form object with access_key and subject, and add dynamic fields from Storyblok
 const form = ref<{ [key: string]: any }>({
   access_key: config.public.contactFormApiAccessKey,
-  subject: 'New Submission from SaaSup',
+  subject: 'New Submission from SaaSup Contact Form',
 })
 
 // Validation schema (dynamic based on Storyblok fields)

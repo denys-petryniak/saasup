@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// TODO: merge with FormInput
 type ModelValue = string | number
 
 interface Props {
