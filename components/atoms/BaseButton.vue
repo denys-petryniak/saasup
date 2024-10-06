@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// TODO: Component Variations with the Base Component Pattern can be applied here
+// for example: DisabledButton variant out of a BaseButton component etc
 import type { RouteLocation } from '#vue-router'
 
 type ButtonWidth = 'full'
@@ -10,6 +12,9 @@ interface Props {
   size?: ButtonSize
   color?: ButtonColor
   to?: string | RouteLocation
+  icon?: string
+  trailing?: boolean
+  leading?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -17,29 +22,46 @@ const props = withDefaults(defineProps<Props>(), {
   color: 'branded',
 })
 
-const getButtonClasses = computed(() => {
-  const buttonTypeClass = props.to ? 'button--link' : 'button'
-  const widthClass = props.width ? `button--${props.width}` : null
-  const sizeClass = props.size ? `button--${props.size}` : null
-  const colorClass = props.color ? `button--${props.color}` : null
-
-  return [buttonTypeClass, widthClass, sizeClass, colorClass]
-})
-
 const NuxtLink = resolveComponent('NuxtLink')
-const getTag = computed(() => props.to ? NuxtLink : 'button')
-const getType = computed(() => getTag.value === 'button' ? 'button' : null)
+const tag = computed(() => (props.to ? NuxtLink : 'button'))
+const type = computed(() => tag.value === 'button' && 'button')
+
+const buttonClasses = computed(() => {
+  const baseClass = props.to ? 'button button--link' : 'button'
+  const widthClass = props.width && `button--${props.width}`
+  const sizeClass = props.size && `button--${props.size}`
+  const colorClass = props.color && `button--${props.color}`
+
+  return [baseClass, widthClass, sizeClass, colorClass]
+    .filter(Boolean)
+    .join(' ')
+})
 </script>
 
 <template>
   <component
-    :is="getTag"
-    :type="getType"
+    :is="tag"
+    :type="type"
     :to="to"
-    class="button"
-    :class="getButtonClasses"
+    :class="buttonClasses"
   >
+    <slot name="leading">
+      <Icon
+        v-if="leading && icon"
+        :name="icon"
+        class="button__icon button__icon--leading"
+        aria-hidden="true"
+      />
+    </slot>
     <slot />
+    <slot name="trailing">
+      <Icon
+        v-if="trailing && icon"
+        :name="icon"
+        class="button__icon button__icon--trailing"
+        aria-hidden="true"
+      />
+    </slot>
   </component>
 </template>
 
@@ -63,12 +85,32 @@ $button-padding-x--md: clamped(
 $button-min-width: 10ch;
 
 .button {
+  position: relative;
   min-width: $button-min-width;
-  border-radius: $rounded--3xl * 2;
+  border-radius: calc($rounded--3xl * 2);
   @include fluid-typography($min-font-size: $text--base, $max-font-size: $text--lg);
   line-height: $leading--none;
   font-weight: $font--bold;
   text-align: center;
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    width: auto;
+    height: calc(100% - $spacing--xs * 2);
+    aspect-ratio: 1 / 1;
+
+    &--leading {
+      left: $spacing--xs;
+      right: auto;
+    }
+
+    &--trailing {
+      left: auto;
+      right: $spacing--xs;
+    }
+  }
 
   &:disabled,
   &[disabled] {

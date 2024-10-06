@@ -28,19 +28,19 @@ const heroDescription = computed(() => {
         >
           <template #footer>
             <div class="hero-section__buttons">
-              <BaseButton>
+              <BaseButton to="/pricing">
                 Get Started
               </BaseButton>
               <BaseButton
+                to="https://youtu.be/dQw4w9WgXcQ?si=5APElTfy7hzEvZJk"
+                target="_blank"
                 color="light-bordered"
                 class="hero-section__video-button"
                 aria-label="Play video button"
+                icon="carbon:play-filled"
+                trailing
               >
                 <span class="hero-section__video-button-text">Watch Video</span>
-                <Icon
-                  class="hero-section__video-button-icon"
-                  name="carbon:play-filled"
-                />
               </BaseButton>
             </div>
           </template>
@@ -80,6 +80,10 @@ const heroDescription = computed(() => {
   &__image {
     border-radius: $rounded--3xl;
     box-shadow: $shadow--regular;
+
+    @include breakpoint('lg') {
+      box-shadow: none;
+    }
   }
 
   &__buttons {
@@ -93,22 +97,8 @@ const heroDescription = computed(() => {
     }
   }
 
-  &__video-button {
-    position: relative;
-  }
-
-  //TODO: improve styles for video button
   &__video-button-text {
-    margin-right: $spacing--2xl;
-  }
-
-  &__video-button-icon {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate3d(0, -50%, 0);
-    width: 30%;
-    height: 90%;
+    margin-right: clamped($min-size: $spacing--lg, $max-size: $spacing--xl);
   }
 }
 </style>

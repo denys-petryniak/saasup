@@ -38,7 +38,7 @@ const description = computed(() => renderRichText(props.blok.description))
         <div v-html="description" />
       </template>
       <template #footer>
-        <BaseButton color="dark">
+        <BaseButton to="/pricing" color="dark">
           Get Started
         </BaseButton>
       </template>
