@@ -22,16 +22,8 @@ export function useFetchConfig() {
     }
   }
 
-  if (isRef(locale)) {
-    // setup reactive re-fetch if input locale is a ref
-    watchEffect(fetchConfig)
-  }
-  else {
-    // otherwise, just fetch once
-    fetchConfig()
-  }
-
   return {
     config,
+    fetchConfig,
   }
 }

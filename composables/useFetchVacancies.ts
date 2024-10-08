@@ -4,13 +4,13 @@ import type { VacancyStoryblok } from '~/component-types-sb'
 export function useFetchVacancies(filterQuery: Record<string, any> = {}) {
   const vacancies = ref<StoryblokStory<VacancyStoryblok>[] | null>(null)
 
+  const storyblokApi = useStoryblokApi()
+  const storyVersion = getStoryVersion()
+  const { locale } = useI18n()
+
+  const hasFilterQuery = Object.keys(filterQuery).length > 0
+
   async function fetchVacancies() {
-    const storyblokApi = useStoryblokApi()
-    const storyVersion = getStoryVersion()
-    const { locale } = useI18n()
-
-    const hasFilterQuery = Object.keys(filterQuery).length > 0
-
     try {
       const { data } = await storyblokApi.get('cdn/stories', {
         version: storyVersion,

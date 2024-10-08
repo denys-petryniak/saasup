@@ -4,13 +4,13 @@ import type { PricingPlanStoryblok } from '~/component-types-sb'
 export function useFetchPricingPlans(filterQuery: Record<string, any> = {}) {
   const pricingPlans = ref<StoryblokStory<PricingPlanStoryblok>[] | null>(null)
 
+  const storyblokApi = useStoryblokApi()
+  const storyVersion = getStoryVersion()
+  const { locale } = useI18n()
+
+  const hasFilterQuery = Object.keys(filterQuery).length > 0
+
   async function fetchPricingPlans() {
-    const storyblokApi = useStoryblokApi()
-    const storyVersion = getStoryVersion()
-    const { locale } = useI18n()
-
-    const hasFilterQuery = Object.keys(filterQuery).length > 0
-
     try {
       const { data } = await storyblokApi.get('cdn/stories', {
         version: storyVersion,
