@@ -9,6 +9,8 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   slug: '/careers',
 })
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -20,7 +22,7 @@ withDefaults(defineProps<Props>(), {
       {{ vacancy.description }}
     </div>
     <BaseButton
-      :to="prependLeadingSlash(slug)"
+      :to="localePath(prependLeadingSlash(slug))"
       size="md"
       color="light"
       class="card__button"

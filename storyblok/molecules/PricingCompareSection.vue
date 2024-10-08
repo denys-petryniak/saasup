@@ -81,7 +81,7 @@ function isPricingPlan(value: string): value is PricingPlan {
                   :to="pricingPlanLinks[toNormalizedLowerCase(cell.value) as PricingPlan]"
                   color="dark-branded"
                 >
-                  Get Started
+                  {{ $t('get_started') }}
                 </BaseButton>
               </td>
             </tr>
@@ -96,7 +96,7 @@ function isPricingPlan(value: string): value is PricingPlan {
 .pricing-compare-section {
   &__table-box {
     margin-top: clamped($min-size: $gap--sm, $max-size: $gap--md);
-    border-radius: $rounded--3xl * 2;
+    border-radius: calc($rounded--3xl * 2);
     overflow-x: auto;
   }
 

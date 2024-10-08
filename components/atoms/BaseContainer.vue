@@ -31,8 +31,8 @@ $padding--clamped: clamped(
 );
 
 // Calculate the maximum width of the container including padding
-$container-width--lg--expanded: $container-width--lg + ($padding--max * 2);
-$container-width--xl--expanded: $container-width--xl + ($padding--max * 2);
+$container-width--lg--expanded: $container-width--lg + calc($padding--max * 2);
+$container-width--xl--expanded: $container-width--xl + calc($padding--max * 2);
 
 .container {
   padding-left: $padding--clamped;

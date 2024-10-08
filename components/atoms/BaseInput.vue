@@ -47,7 +47,7 @@ $field-bg-color: rgba(255, 255, 255, 0.2);
   vertical-align: middle;
   padding: $field-padding-y $field-padding-x;
   border: 1px solid $divider-color--regular;
-  border-radius: $rounded--3xl * 2;
+  border-radius: calc($rounded--3xl * 2);
   color: $color-white--soft;
   @include fluid-typography($min-font-size: $text--base, $max-font-size: $text--lg);
   line-height: $leading--none;

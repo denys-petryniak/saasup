@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Footer } from '~/types'
+import type { ConfigStoryblok } from '~/component-types-sb'
 
 interface Props {
-  footer: Footer
+  config: ConfigStoryblok
 }
 
 defineProps<Props>()
@@ -21,6 +21,8 @@ function getSocialLinkLogo(label: string | undefined): string {
       return 'carbon:logo-facebook'
   }
 }
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -31,67 +33,67 @@ function getSocialLinkLogo(label: string | undefined): string {
         <div class="footer__section">
           <AppLogoLink loading="lazy" />
           <p class="footer__description">
-            {{ footer.description }}
+            {{ config.footer_description }}
           </p>
           <div class="footer__contacts">
             <FooterContactBlock
-              v-if="footer.emails?.length"
+              v-if="config.footer_emails?.length"
               link-type="email"
               icon-name="carbon:email"
-              :links="footer.emails"
+              :links="config.footer_emails"
             />
             <FooterContactBlock
-              v-if="footer.phones?.length"
+              v-if="config.footer_phones?.length"
               link-type="phone"
               icon-name="carbon:phone"
-              :links="footer.phones"
+              :links="config.footer_phones"
             />
           </div>
         </div>
         <nav class="navigation footer__section" aria-label="Primary">
           <h4 class="navigation__headline">
-            {{ footer.headline }}
+            {{ config.footer_nav_headline }}
           </h4>
-          <menu
-            v-if="footer.navigation?.length"
+          <ul
+            v-if="config.footer_nav?.length"
             class="navigation__menu"
           >
             <li
-              v-for="navigationItem in footer.navigation"
+              v-for="navigationItem in config.footer_nav"
               :key="navigationItem._uid"
               class="navigation__item"
             >
               <NuxtLink
-                :to="getNavigationSlug(navigationItem)"
+                :to="localePath(getNavigationSlug(navigationItem))"
                 class="navigation__link"
               >
                 {{ navigationItem.label }}
               </NuxtLink>
             </li>
-          </menu>
+          </ul>
         </nav>
-        <div v-if="footer.widget" class="footer__section">
+        <div v-if="config.download_widget_label" class="footer__section">
           <DownloadWidget
-            :label="footer.widget.label"
-            :title="footer.widget.title"
-            :description="footer.widget.description"
-            :buttons="footer.widget.buttons"
+            :label="config.download_widget_label"
+            :title="config.download_widget_title"
+            :description="config.download_widget_description"
+            :buttons="config.download_widget_buttons"
           />
         </div>
       </div>
       <LineDivider />
       <div class="footer__copyright">
         <p class="footer__copyright-text">
-          {{ footer.copyright }}
+          {{ config.footer_copyright_text }}
         </p>
         <div
-          v-if="footer.socialLinks?.length"
+          v-if="config.footer_social_links?.length"
           class="footer__social-links"
         >
           <NuxtLink
-            v-for="socialLink in footer.socialLinks"
+            v-for="socialLink in config.footer_social_links"
             :key="socialLink._uid"
-            :to="socialLink.link.url"
+            :to="localePath(socialLink.link.url)"
             target="_blank"
             class="footer__social-link"
             :aria-label="`${socialLink.label} social link`"

@@ -59,7 +59,7 @@ $badge-text-color--orange: #4a2e00;
     $max-line-height: $leading--condensed
   );
   font-weight: $font--bold;
-  border-radius: $rounded--3xl * 2;
+  border-radius: calc($rounded--3xl * 2);
 
   &--sm {
     padding: $badge-padding-y--sm $badge-padding-x--sm;

@@ -7,6 +7,8 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -26,7 +28,10 @@ defineProps<Props>()
       />
     </div>
     <div class="author__text">
-      <NuxtLink v-if="slug" :to="prependLeadingSlash(slug)">
+      <NuxtLink
+        v-if="slug"
+        :to="localePath(prependLeadingSlash(slug))"
+      >
         <p class="author__name">
           {{ blok.name }}
         </p>

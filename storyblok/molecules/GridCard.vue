@@ -7,7 +7,11 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const cardDescription = computed(() => renderRichText(props.blok.description))
+const cardDescription = computed(() => {
+  return renderRichText(props.blok.description)
+})
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -44,7 +48,7 @@ const cardDescription = computed(() => renderRichText(props.blok.description))
       <!-- https://www.storyblok.com/faq/link-object-history -->
       <NuxtLink
         v-if="blok.link_url?.cached_url"
-        :to="prependLeadingSlash(blok.link_url.cached_url)"
+        :to="localePath(prependLeadingSlash(blok.link_url.cached_url))"
         class="grid-card__link"
       >
         {{ blok.link_label }}
@@ -55,7 +59,7 @@ const cardDescription = computed(() => renderRichText(props.blok.description))
 
 <style scoped lang="scss">
 .grid-card {
-  border-radius: $rounded--3xl * 2;
+  border-radius: calc($rounded--3xl * 2);
   text-align: center;
 
   &__heading {

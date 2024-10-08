@@ -35,7 +35,7 @@ defineProps<Props>()
     flex-wrap: wrap;
     gap: $spacing--4xl;
     padding: clamped($min-size: $spacing--8xl, $max-size: $spacing--12xl);
-    border-radius: $rounded--3xl * 2;
+    border-radius: calc($rounded--3xl * 2);
     background-color: $secondary-color--extra-light;
   }
 
