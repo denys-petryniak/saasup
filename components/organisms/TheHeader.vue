@@ -117,7 +117,7 @@ const availableLocales = computed(() => {
             color="dark"
             class="header__cta-button u-visible-from-md"
           >
-            Get Started
+            {{ $t('get_started') }}
           </BaseButton>
           <button
             ref="menuButtonRef"

@@ -136,12 +136,16 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/i18n',
       {
+        baseUrl: 'https://saaasup.vercel.app',
         strategy: 'prefix_except_default',
+        lazy: true,
+        langDir: 'locales',
         locales: [
-          { code: 'en', language: 'en-US', name: 'English' },
-          { code: 'uk', language: 'uk-UA', name: 'Українська' },
+          { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+          { code: 'uk', language: 'uk-UA', name: 'Українська', file: 'uk.json' },
         ],
         defaultLocale: 'en',
+        detectBrowserLanguage: false,
       },
     ],
   ],

@@ -42,14 +42,15 @@ catch (error) {
 }
 
 const route = useRoute()
-const isHomePage = computed(() => route.path === '/')
+const localePath = useLocalePath()
+const isHomePage = computed(() => route.path === localePath('/'))
 const isContactsPage = computed(() => route.path.includes('contacts'))
 
 const img = useImage()
 const backgroundPatterns = [
-  img('https://a.storyblok.com/f/245408/1920x726/299c1fb920/background-pattern-1.png', { format: 'webp' }),
-  img('https://a.storyblok.com/f/245408/2772x1410/c0188ada5b/background-pattern-2_2x.png', { format: 'webp' }),
-  img('https://a.storyblok.com/f/245408/1410x3194/94ae293ecb/background-pattern-3_2x.png', { format: 'webp' }),
+  img('https://a2.storyblok.com/f/245408/1920x726/299c1fb920/background-pattern-1.png', { format: 'webp' }),
+  img('https://a2.storyblok.com/f/245408/2772x1410/c0188ada5b/background-pattern-2_2x.png', { format: 'webp' }),
+  img('https://a2.storyblok.com/f/245408/1410x3194/94ae293ecb/background-pattern-3_2x.png', { format: 'webp' }),
 ]
 
 const getLayoutBackground = computed(() => {

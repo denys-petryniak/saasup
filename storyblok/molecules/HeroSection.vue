@@ -29,7 +29,7 @@ const heroDescription = computed(() => {
           <template #footer>
             <div class="hero-section__buttons">
               <BaseButton to="/pricing">
-                Get Started
+                {{ $t('get_started') }}
               </BaseButton>
               <BaseButton
                 to="https://youtu.be/dQw4w9WgXcQ?si=5APElTfy7hzEvZJk"
@@ -40,7 +40,7 @@ const heroDescription = computed(() => {
                 icon="carbon:play-filled"
                 trailing
               >
-                <span class="hero-section__video-button-text">Watch Video</span>
+                <span class="hero-section__video-button-text">{{ $t('watch_video') }}</span>
               </BaseButton>
             </div>
           </template>

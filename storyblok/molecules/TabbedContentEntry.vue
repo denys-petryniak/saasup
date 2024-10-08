@@ -39,7 +39,7 @@ const description = computed(() => renderRichText(props.blok.description))
       </template>
       <template #footer>
         <BaseButton to="/pricing" color="dark">
-          Get Started
+          {{ $t('get_started') }}
         </BaseButton>
       </template>
     </ContentBlock>

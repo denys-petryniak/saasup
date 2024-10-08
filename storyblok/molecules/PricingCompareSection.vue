@@ -81,7 +81,7 @@ function isPricingPlan(value: string): value is PricingPlan {
                   :to="pricingPlanLinks[toNormalizedLowerCase(cell.value) as PricingPlan]"
                   color="dark-branded"
                 >
-                  Get Started
+                  {{ $t('get_started') }}
                 </BaseButton>
               </td>
             </tr>
