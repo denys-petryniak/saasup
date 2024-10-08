@@ -74,7 +74,7 @@ const { formattedArticleDate } = useArticleDate(date || new Date())
 <style scoped lang="scss">
 .article-hero-section {
   &__image {
-    border-radius: clamped($min-size: $rounded--3xl, $max-size: $rounded--3xl * 2);
+    border-radius: clamped($min-size: $rounded--3xl, $max-size: calc($rounded--3xl * 2));
     object-fit: cover;
   }
 

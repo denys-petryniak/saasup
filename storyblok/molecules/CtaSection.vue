@@ -151,8 +151,8 @@ $section-padding-x: clamped(
   $max-size: $spacing--12xl,
 );
 $section-border-radius: clamped(
-  $min-size: $rounded--2xl * 2,
-  $max-size: $rounded--3xl * 2,
+  $min-size: calc($rounded--2xl * 2),
+  $max-size: calc($rounded--3xl * 2),
 );
 
 .cta-section {

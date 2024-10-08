@@ -84,7 +84,7 @@ const description = computed(() => renderRichText(props.blok.description))
   }
 
   &__image {
-    border-radius: $rounded--2xl * 2;
+    border-radius: calc($rounded--2xl * 2);
     box-shadow: $shadow--regular;
   }
 }

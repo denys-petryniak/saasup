@@ -80,7 +80,7 @@ const cardLinkColor = computed(() => {
 <style scoped lang="scss">
 @use 'sass:color';
 
-$card-radius--outer: $rounded--3xl * 2;
+$card-radius--outer: calc($rounded--3xl * 2);
 $card-gap--min: $spacing--2xl;
 $card-gap--max: $spacing--4xl;
 

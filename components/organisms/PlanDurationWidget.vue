@@ -120,7 +120,7 @@ function handleAddToCart() {
 <style scoped lang="scss">
 .plan-duration-widget {
   padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
-  border-radius: $rounded--3xl * 2;
+  border-radius: calc($rounded--3xl * 2);
   background-color: $secondary-color--extra-light;
 
   &__title {
@@ -156,7 +156,7 @@ function handleAddToCart() {
     padding: clamped($min-size: $spacing--lg, $max-size: $spacing--2xl)
       clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
     border: 1px solid $divider-color--regular;
-    border-radius: $rounded--3xl * 2;
+    border-radius: calc($rounded--3xl * 2);
     font-size: $text--lg;
     font-weight: $font--semibold;
     color: $primary-color--dark;

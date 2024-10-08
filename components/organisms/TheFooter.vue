@@ -21,6 +21,8 @@ function getSocialLinkLogo(label: string | undefined): string {
       return 'carbon:logo-facebook'
   }
 }
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -62,7 +64,7 @@ function getSocialLinkLogo(label: string | undefined): string {
               class="navigation__item"
             >
               <NuxtLink
-                :to="getNavigationSlug(navigationItem)"
+                :to="localePath(getNavigationSlug(navigationItem))"
                 class="navigation__link"
               >
                 {{ navigationItem.label }}
@@ -91,7 +93,7 @@ function getSocialLinkLogo(label: string | undefined): string {
           <NuxtLink
             v-for="socialLink in footer.socialLinks"
             :key="socialLink._uid"
-            :to="socialLink.link.url"
+            :to="localePath(socialLink.link.url)"
             target="_blank"
             class="footer__social-link"
             :aria-label="`${socialLink.label} social link`"

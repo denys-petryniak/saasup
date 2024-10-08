@@ -7,6 +7,8 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -54,7 +56,7 @@ defineProps<Props>()
       </li>
     </ul>
     <BaseButton
-      :to="prependLeadingSlash(slug)"
+      :to="localePath(prependLeadingSlash(slug))"
       :color="blok.popular ? 'dark' : 'light-bordered'"
     >
       Get Started
@@ -76,7 +78,7 @@ $card-padding-x: clamped(
   padding: $card-padding-y $card-padding-x;
   text-align: center;
   background-color: $secondary-color--extra-light;
-  border-radius: $rounded--3xl * 2;
+  border-radius: calc($rounded--3xl * 2);
 
   &__head {
     display: flex;

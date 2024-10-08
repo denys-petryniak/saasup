@@ -102,7 +102,7 @@ $section-bg-z-index: -2;
       inset: 0;
       width: 100%;
       height: 100%;
-      border-radius: $rounded--3xl * 2;
+      border-radius: calc($rounded--3xl * 2);
       z-index: $section-content-bg-z-index;
       background-color: $secondary-color--extra-light;
       pointer-events: none;
@@ -110,7 +110,7 @@ $section-bg-z-index: -2;
   }
 
   &__image {
-    border-radius: $rounded--3xl * 2;
+    border-radius: calc($rounded--3xl * 2);
     box-shadow: $shadow--regular;
   }
 
@@ -157,7 +157,7 @@ $section-bg-z-index: -2;
   .platform-section {
     &::after {
       left: 70%;
-      border-radius: $rounded--3xl * 2;
+      border-radius: calc($rounded--3xl * 2);
     }
 
     &__content {

@@ -28,10 +28,12 @@ const height = computed(() => {
 const alt = computed(() => {
   return props.alt || 'SaaSup App Logo'
 })
+
+const localePath = useLocalePath()
 </script>
 
 <template>
-  <NuxtLink to="/">
+  <NuxtLink :to="localePath('/')">
     <img
       :src="src"
       :width="width"

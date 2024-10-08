@@ -68,6 +68,8 @@ provide(modalInjectionKey, {
   visible: isCartModalVisible,
   close: closeModal,
 })
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -169,7 +171,7 @@ provide(modalInjectionKey, {
                     class="navigation__item"
                   >
                     <NuxtLink
-                      :to="getNavigationSlug(submenuNavigationItem)"
+                      :to="localePath(getNavigationSlug(submenuNavigationItem))"
                       class="navigation__link"
                     >
                       {{ submenuNavigationItem.label }}
@@ -179,7 +181,7 @@ provide(modalInjectionKey, {
               </template>
               <template v-else>
                 <NuxtLink
-                  :to="getNavigationSlug(navigationItem as LinkStoryblok)"
+                  :to="localePath(getNavigationSlug(navigationItem as LinkStoryblok))"
                   class="navigation__link"
                 >
                   {{ (navigationItem as LinkStoryblok).label }}
@@ -372,7 +374,7 @@ provide(modalInjectionKey, {
     order: 1;
     margin-top: 0;
     border: none;
-    border-radius: $rounded--3xl * 2;
+    border-radius: calc($rounded--3xl * 2);
 
     &__menu {
       display: flex;
