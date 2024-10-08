@@ -70,6 +70,12 @@ provide(modalInjectionKey, {
 })
 
 const localePath = useLocalePath()
+const { locale, locales } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+
+const availableLocales = computed(() => {
+  return (locales.value).filter(i => i.code !== locale.value)
+})
 </script>
 
 <template>
@@ -210,6 +216,15 @@ const localePath = useLocalePath()
                 </template>
               </ClientOnly>
             </li>
+            <li
+              v-for="lang in availableLocales"
+              :key="lang.code"
+              class="navigation__item navigation__item--lang"
+            >
+              <NuxtLink :to="switchLocalePath(lang.code)" class="navigation__link">
+                {{ lang.code.toUpperCase() }}
+              </NuxtLink>
+            </li>
           </menu>
         </nav>
       </div>
@@ -295,6 +310,28 @@ const localePath = useLocalePath()
     position: relative;
     font-weight: $font--semibold;
     font-size: $text--lg;
+
+    &--lang {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $divider-color--regular;
+
+        @include breakpoint('lg') {
+          top: 50%;
+          transform: translate3d(0, -50%, 0);
+          width: 1px;
+          height: 50%;
+        }
+      }
+    }
   }
 
   &__link,
@@ -355,7 +392,7 @@ const localePath = useLocalePath()
       display: block;
       width: auto;
       padding: $spacing--xs $spacing--2xl;
-      margin-right: $spacing--4xl;
+      margin-right: $spacing--md;
     }
 
     &__buttons {
@@ -387,6 +424,14 @@ const localePath = useLocalePath()
       padding: $spacing--lg;
       background-color: $secondary-color--extra-light;
       border-radius: $rounded--lg;
+    }
+  }
+}
+
+@include breakpoint('xl') {
+  .header {
+    &__navigation {
+      margin-right: $spacing--4xl;
     }
   }
 }

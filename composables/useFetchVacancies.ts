@@ -7,12 +7,14 @@ export function useFetchVacancies(filterQuery: Record<string, any> = {}) {
   async function fetchVacancies() {
     const storyblokApi = useStoryblokApi()
     const storyVersion = getStoryVersion()
+    const { locale } = useI18n()
 
     const hasFilterQuery = Object.keys(filterQuery).length > 0
 
     try {
       const { data } = await storyblokApi.get('cdn/stories', {
         version: storyVersion,
+        language: locale.value,
         starts_with: 'careers',
         is_startpage: false,
         excluding_fields: 'body,content',

@@ -6,6 +6,7 @@ export function useFetchArticles(filterQuery: Record<string, any> = {}) {
   async function fetchArticles() {
     const storyblokApi = useStoryblokApi()
     const storyVersion = getStoryVersion()
+    const { locale } = useI18n()
 
     const resolveRelations = [
       'article.category',
@@ -16,6 +17,7 @@ export function useFetchArticles(filterQuery: Record<string, any> = {}) {
     try {
       const { data } = await storyblokApi.get('cdn/stories', {
         version: storyVersion,
+        language: locale.value,
         resolve_relations: resolveRelations,
         starts_with: 'blog',
         is_startpage: false,

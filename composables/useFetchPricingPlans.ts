@@ -7,12 +7,14 @@ export function useFetchPricingPlans(filterQuery: Record<string, any> = {}) {
   async function fetchPricingPlans() {
     const storyblokApi = useStoryblokApi()
     const storyVersion = getStoryVersion()
+    const { locale } = useI18n()
 
     const hasFilterQuery = Object.keys(filterQuery).length > 0
 
     try {
       const { data } = await storyblokApi.get('cdn/stories', {
         version: storyVersion,
+        language: locale.value,
         starts_with: 'pricing',
         is_startpage: false,
         sort_by: 'content.price:asc:float',
