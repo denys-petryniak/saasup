@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import type { LinkStoryblok, SubmenuStoryblok } from '~/component-types-sb'
-import type { Header } from '~/types'
+import type { ConfigStoryblok, LinkStoryblok, SubmenuStoryblok } from '~/component-types-sb'
 
 interface Props {
-  header: Header
+  config: ConfigStoryblok
 }
 
 defineProps<Props>()
@@ -83,11 +82,11 @@ const availableLocales = computed(() => {
     <header class="header">
       <div class="header__head">
         <AppLogoLink
-          v-if="header.logo"
-          :src="header.logo.filename"
-          :width="header.logo.meta_data?.width"
-          :height="header.logo.meta_data?.height"
-          :alt="header.logo.alt"
+          v-if="config.header_logo"
+          :src="config.header_logo.filename"
+          :width="config.header_logo.meta_data?.width"
+          :height="config.header_logo.meta_data?.height"
+          :alt="config.header_logo.alt"
         />
       </div>
       <div class="header__main">
@@ -99,7 +98,7 @@ const availableLocales = computed(() => {
                 class="header__cart-button u-hidden-from-lg"
                 @click="openModal"
               >
-                Cart (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
+                {{ $t('cart') }} (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
               </BaseButton>
             </template>
             <template #placeholder>
@@ -108,7 +107,7 @@ const availableLocales = computed(() => {
                 class="header__cart-button u-hidden-from-lg"
                 disabled
               >
-                Cart (0)
+                {{ $t('cart') }} (0)
               </BaseButton>
             </template>
           </ClientOnly>
@@ -141,12 +140,12 @@ const availableLocales = computed(() => {
           }"
           aria-label="Secondary"
         >
-          <menu
-            v-if="header.navigation?.length"
+          <ul
+            v-if="config.header_nav"
             class="navigation__menu"
           >
             <li
-              v-for="navigationItem in header.navigation"
+              v-for="navigationItem in config.header_nav"
               :key="navigationItem._uid"
               class="navigation__item"
               @mouseover="handleMouseover(navigationItem as SubmenuStoryblok)"
@@ -165,7 +164,7 @@ const availableLocales = computed(() => {
                     size="1.25em"
                   />
                 </button>
-                <menu
+                <ul
                   class="navigation__submenu"
                   :class="{
                     'navigation__submenu--open': isSubmenuVisible,
@@ -183,7 +182,7 @@ const availableLocales = computed(() => {
                       {{ submenuNavigationItem.label }}
                     </NuxtLink>
                   </li>
-                </menu>
+                </ul>
               </template>
               <template v-else>
                 <NuxtLink
@@ -202,7 +201,7 @@ const availableLocales = computed(() => {
                     class="navigation__cart-button u-visible-from-lg"
                     @click="openModal"
                   >
-                    Cart (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
+                    {{ $t('cart') }} (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
                   </button>
                 </template>
                 <template #placeholder>
@@ -211,7 +210,7 @@ const availableLocales = computed(() => {
                     class="navigation__cart-button u-visible-from-lg"
                     disabled
                   >
-                    Cart (0)
+                    {{ $t('cart') }} (0)
                   </button>
                 </template>
               </ClientOnly>
@@ -225,7 +224,7 @@ const availableLocales = computed(() => {
                 {{ lang.code.toUpperCase() }}
               </NuxtLink>
             </li>
-          </menu>
+          </ul>
         </nav>
       </div>
     </header>

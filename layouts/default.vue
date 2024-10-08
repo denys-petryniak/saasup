@@ -1,45 +1,5 @@
 <script setup lang="ts">
-import type { ConfigStoryblok } from '~/component-types-sb'
-import type { Footer, Header } from '~/types'
-
-const header = ref<Header | null>(null)
-const footer = ref<Footer | null>(null)
-
-const storyVersion = getStoryVersion()
-
-try {
-  const storyblokApi = useStoryblokApi()
-  const { data } = await storyblokApi.get('cdn/stories/config', {
-    version: storyVersion,
-    resolve_links: 'url',
-  })
-
-  const content: ConfigStoryblok = data.story.content
-
-  header.value = {
-    logo: content.header_logo,
-    navigation: content.header_nav,
-  }
-
-  footer.value = {
-    headline: content.footer_nav_headline,
-    description: content.footer_description,
-    copyright: content.footer_copyright_text,
-    navigation: content.footer_nav,
-    emails: content.footer_emails,
-    phones: content.footer_phones,
-    socialLinks: content.footer_social_links,
-    widget: {
-      label: content.download_widget_label,
-      title: content.download_widget_title,
-      description: content.download_widget_description,
-      buttons: content.download_widget_buttons,
-    },
-  }
-}
-catch (error) {
-  console.error('An error occurred:', error)
-}
+const { config } = useFetchConfig()
 
 const route = useRoute()
 const localePath = useLocalePath()
@@ -71,16 +31,16 @@ const getLayoutBackground = computed(() => {
 <template>
   <div class="layout">
     <TheHeader
-      v-if="header"
-      :header="header"
+      v-if="config?.header_nav"
+      :config="config"
       class="layout__header"
     />
     <main class="layout__body">
       <slot />
     </main>
     <TheFooter
-      v-if="footer"
-      :footer="footer"
+      v-if="config?.footer_nav"
+      :config="config"
       class="layout__footer"
     />
   </div>
