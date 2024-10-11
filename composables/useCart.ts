@@ -1,18 +1,12 @@
 import { useStorage } from '@vueuse/core'
-
-interface CartItem {
-  id: string
-  name: string
-  duration: string
-  price: string
-}
+import type { CartItem } from '~/types'
 
 export function useCart() {
   const cartItems = useStorage<CartItem[]>('cart', [])
 
   function addToCart(item: CartItem) {
     const itemExists = cartItems.value.some(
-      cartItem => cartItem.name === item.name && cartItem.duration === item.duration,
+      cartItem => cartItem.plan.id === item.plan.id && cartItem.duration.value === item.duration.value,
     )
 
     if (!itemExists) {

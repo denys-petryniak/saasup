@@ -4,7 +4,7 @@
       "name": "article",
       "display_name": null,
       "created_at": "2023-08-17T18:42:56.203Z",
-      "updated_at": "2024-10-08T09:04:09.775Z",
+      "updated_at": "2024-10-10T08:55:44.483Z",
       "id": 4437519,
       "schema": {
         "date": {
@@ -12,7 +12,8 @@
           "pos": 0,
           "required": true,
           "disable_time": true,
-          "key": "date"
+          "key": "date",
+          "translatable": false
         },
         "body": {
           "type": "bloks",
@@ -147,13 +148,15 @@
           "type": "richtext",
           "key": "preview_description",
           "pos": 10,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "card_link_text": {
           "type": "text",
           "required": true,
           "pos": 11,
-          "key": "link_text"
+          "key": "link_text",
+          "translatable": true
         }
       },
       "image": null,
@@ -186,7 +189,7 @@
       "name": "article-content",
       "display_name": null,
       "created_at": "2024-07-09T13:38:23.662Z",
-      "updated_at": "2024-07-09T15:23:46.932Z",
+      "updated_at": "2024-10-09T17:15:54.645Z",
       "id": 6030129,
       "schema": {
         "hide_top_gap": {
@@ -206,7 +209,8 @@
             }
           ],
           "customize_toolbar": false,
-          "toolbar": []
+          "toolbar": [],
+          "translatable": true
         },
         "tab-f97c4ccc-7579-4ae9-98ca-9f437dba3a37": {
           "display_name": "Style",
@@ -237,7 +241,7 @@
       "name": "article-hero-section",
       "display_name": null,
       "created_at": "2024-07-09T07:55:20.680Z",
-      "updated_at": "2024-07-21T14:50:36.035Z",
+      "updated_at": "2024-10-09T17:15:17.116Z",
       "id": 6027832,
       "schema": {
         "image": {
@@ -254,7 +258,8 @@
           "display_name": "",
           "pos": 1,
           "required": true,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -377,7 +382,7 @@
       "name": "articles-section",
       "display_name": null,
       "created_at": "2023-08-17T18:52:21.163Z",
-      "updated_at": "2024-08-10T16:02:35.423Z",
+      "updated_at": "2024-10-09T17:13:58.187Z",
       "id": 4437547,
       "schema": {
         "columns": {
@@ -406,7 +411,8 @@
         "headline": {
           "type": "text",
           "required": false,
-          "pos": 2
+          "pos": 2,
+          "translatable": true
         },
         "tab-b7b28560-bfd5-4d13-a43f-444d4d064bda": {
           "display_name": "Style",
@@ -419,8 +425,9 @@
         },
         "heading": {
           "type": "text",
-          "required": false,
-          "pos": 4
+          "required": true,
+          "pos": 4,
+          "translatable": true
         },
         "articles": {
           "type": "options",
@@ -504,7 +511,7 @@
       "name": "author",
       "display_name": null,
       "created_at": "2024-07-10T07:35:15.282Z",
-      "updated_at": "2024-08-10T17:21:19.356Z",
+      "updated_at": "2024-10-09T17:28:35.457Z",
       "id": 6032632,
       "schema": {
         "photo": {
@@ -520,12 +527,14 @@
           "type": "text",
           "pos": 1,
           "required": true,
-          "key": "name"
+          "key": "name",
+          "translatable": true
         },
         "role": {
           "type": "text",
           "pos": 2,
-          "key": "position"
+          "key": "position",
+          "translatable": true
         },
         "body": {
           "type": "bloks",
@@ -561,7 +570,7 @@
       "name": "author-entry",
       "display_name": null,
       "created_at": "2023-08-15T17:38:49.927Z",
-      "updated_at": "2024-07-23T15:28:41.426Z",
+      "updated_at": "2024-10-08T22:47:05.564Z",
       "id": 4426269,
       "schema": {
         "photo": {
@@ -575,12 +584,14 @@
         "name": {
           "type": "text",
           "required": true,
-          "pos": 1
+          "pos": 1,
+          "translatable": true
         },
         "role": {
           "type": "text",
           "required": true,
-          "pos": 2
+          "pos": 2,
+          "translatable": true
         },
         "rating": {
           "type": "number",
@@ -641,13 +652,14 @@
       "name": "careers-section",
       "display_name": null,
       "created_at": "2024-06-08T14:46:14.078Z",
-      "updated_at": "2024-09-18T21:19:51.235Z",
+      "updated_at": "2024-10-10T07:48:36.013Z",
       "id": 5901661,
       "schema": {
         "headline": {
           "type": "text",
           "pos": 0,
-          "key": "headline"
+          "key": "headline",
+          "translatable": true
         },
         "orientation": {
           "type": "option",
@@ -672,7 +684,8 @@
           "type": "text",
           "pos": 2,
           "required": true,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -766,13 +779,14 @@
       "name": "category",
       "display_name": null,
       "created_at": "2024-07-13T22:00:04.883Z",
-      "updated_at": "2024-08-10T16:34:36.928Z",
+      "updated_at": "2024-10-09T17:40:27.179Z",
       "id": 6045534,
       "schema": {
         "heading": {
           "type": "text",
           "pos": 0,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -849,7 +863,7 @@
       "name": "config",
       "display_name": "Header & Footer",
       "created_at": "2023-08-25T15:38:51.769Z",
-      "updated_at": "2024-06-01T08:23:12.567Z",
+      "updated_at": "2024-10-08T18:12:03.899Z",
       "id": 4478042,
       "schema": {
         "header_logo": {
@@ -900,7 +914,8 @@
         "footer_description": {
           "type": "textarea",
           "pos": 5,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "navigation": {
           "type": "section",
@@ -915,7 +930,8 @@
           "type": "text",
           "pos": 7,
           "key": "footer_nav_headline",
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "footer_nav": {
           "type": "bloks",
@@ -987,17 +1003,20 @@
         "download_widget_label": {
           "type": "text",
           "required": true,
-          "pos": 15
+          "pos": 15,
+          "translatable": true
         },
         "download_widget_title": {
           "type": "text",
           "pos": 16,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "download_widget_description": {
           "type": "textarea",
           "pos": 17,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "download_widget_buttons": {
           "type": "bloks",
@@ -1077,7 +1096,7 @@
       "name": "contact-card",
       "display_name": null,
       "created_at": "2024-09-25T07:33:18.904Z",
-      "updated_at": "2024-10-02T15:07:53.798Z",
+      "updated_at": "2024-10-10T07:34:06.610Z",
       "id": 6334525,
       "schema": {
         "orientation": {
@@ -1118,7 +1137,8 @@
         "title": {
           "type": "text",
           "pos": 3,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "title_level": {
           "type": "option",
@@ -1163,12 +1183,14 @@
           "type": "richtext",
           "pos": 5,
           "description": "Only for orientation === 'vertical'",
-          "tooltip": true
+          "tooltip": true,
+          "translatable": true
         },
         "link_label": {
           "type": "text",
           "pos": 6,
-          "key": "link_label"
+          "key": "link_label",
+          "translatable": true
         },
         "link_url": {
           "type": "multilink",
@@ -1272,14 +1294,15 @@
       "name": "cta-section",
       "display_name": "CTA Section",
       "created_at": "2023-08-17T18:15:22.241Z",
-      "updated_at": "2024-06-27T08:00:24.284Z",
+      "updated_at": "2024-10-10T08:40:59.530Z",
       "id": 4437467,
       "schema": {
         "heading": {
           "type": "text",
           "default_value": "",
           "required": true,
-          "pos": 0
+          "pos": 0,
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -1324,7 +1347,8 @@
           "type": "richtext",
           "description": "",
           "required": true,
-          "pos": 2
+          "pos": 2,
+          "translatable": true
         },
         "image": {
           "type": "asset",
@@ -1357,6 +1381,15 @@
           "icon": "",
           "color": "",
           "description": ""
+        },
+        {
+          "id": 2314063,
+          "name": "uk",
+          "component_id": 4437467,
+          "image": "",
+          "icon": "",
+          "color": "",
+          "description": ""
         }
       ],
       "preset_id": 1870960,
@@ -1373,20 +1406,22 @@
       "name": "faq-card",
       "display_name": null,
       "created_at": "2024-10-03T10:14:39.960Z",
-      "updated_at": "2024-10-04T14:58:59.572Z",
+      "updated_at": "2024-10-10T07:44:14.553Z",
       "id": 6370517,
       "schema": {
         "title": {
           "type": "text",
           "pos": 0,
           "required": true,
-          "key": "title"
+          "key": "title",
+          "translatable": true
         },
         "content": {
           "type": "richtext",
           "pos": 2,
           "required": true,
-          "key": "description"
+          "key": "description",
+          "translatable": true
         },
         "tab-c4c8ebd5-e5d4-4262-af6b-e67110259904": {
           "display_name": "Style",
@@ -1416,7 +1451,7 @@
       "name": "faq-section",
       "display_name": null,
       "created_at": "2024-10-03T10:04:48.136Z",
-      "updated_at": "2024-10-05T14:26:45.022Z",
+      "updated_at": "2024-10-10T07:43:38.232Z",
       "id": 6370480,
       "schema": {
         "hide_top_gap": {
@@ -1442,9 +1477,10 @@
         "heading": {
           "type": "text",
           "default_value": "",
-          "required": false,
+          "required": true,
           "pos": 4,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -1547,7 +1583,7 @@
       "name": "form-input",
       "display_name": null,
       "created_at": "2024-09-26T10:45:13.415Z",
-      "updated_at": "2024-09-26T22:23:41.583Z",
+      "updated_at": "2024-10-10T07:36:43.325Z",
       "id": 6340613,
       "schema": {
         "type": {
@@ -1580,15 +1616,18 @@
           "required": true,
           "regex": "^[a-z_]+$",
           "description": "Only lowercase letters and underscores are allowed.",
-          "tooltip": true
+          "tooltip": true,
+          "translatable": false
         },
         "label": {
           "type": "text",
-          "pos": 2
+          "pos": 2,
+          "translatable": true
         },
         "placeholder": {
           "type": "text",
-          "pos": 3
+          "pos": 3,
+          "translatable": true
         },
         "required": {
           "type": "boolean",
@@ -1615,7 +1654,7 @@
       "name": "form-textarea",
       "display_name": null,
       "created_at": "2024-09-26T10:48:56.073Z",
-      "updated_at": "2024-09-30T14:46:22.988Z",
+      "updated_at": "2024-10-10T07:39:00.086Z",
       "id": 6340616,
       "schema": {
         "type": {
@@ -1643,11 +1682,13 @@
         },
         "label": {
           "type": "text",
-          "pos": 2
+          "pos": 2,
+          "translatable": true
         },
         "placeholder": {
           "type": "text",
-          "pos": 3
+          "pos": 3,
+          "translatable": true
         },
         "required": {
           "type": "boolean",
@@ -1748,7 +1789,7 @@
       "name": "grid-card",
       "display_name": null,
       "created_at": "2024-06-14T11:09:05.112Z",
-      "updated_at": "2024-07-07T17:24:54.677Z",
+      "updated_at": "2024-10-08T22:29:13.396Z",
       "id": 5929078,
       "schema": {
         "image": {
@@ -1765,7 +1806,8 @@
           "type": "text",
           "pos": 1,
           "required": true,
-          "key": "title"
+          "key": "title",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -1810,12 +1852,14 @@
           "type": "richtext",
           "pos": 3,
           "required": true,
-          "key": "description"
+          "key": "description",
+          "translatable": true
         },
         "link_label": {
           "type": "text",
           "pos": 4,
-          "key": "link_label"
+          "key": "link_label",
+          "translatable": true
         },
         "link_url": {
           "type": "multilink",
@@ -1850,7 +1894,7 @@
       "name": "grid-section",
       "display_name": null,
       "created_at": "2024-06-14T17:17:13.296Z",
-      "updated_at": "2024-10-04T15:24:27.146Z",
+      "updated_at": "2024-10-08T22:27:17.242Z",
       "id": 5931306,
       "schema": {
         "columns": {
@@ -1909,13 +1953,15 @@
           "type": "text",
           "default_value": "",
           "required": false,
-          "pos": 4
+          "pos": 4,
+          "translatable": true
         },
         "heading": {
           "type": "text",
           "default_value": "",
           "required": false,
-          "pos": 5
+          "pos": 5,
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -2100,7 +2146,7 @@
       "name": "image-text-section",
       "display_name": null,
       "created_at": "2024-06-07T14:40:41.790Z",
-      "updated_at": "2024-06-24T03:56:26.494Z",
+      "updated_at": "2024-10-09T17:45:17.785Z",
       "id": 5899307,
       "schema": {
         "image": {
@@ -2117,7 +2163,8 @@
         "heading": {
           "type": "text",
           "pos": 2,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -2161,7 +2208,8 @@
         "description": {
           "type": "richtext",
           "pos": 4,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "tab-bca67ad4-e472-49da-be7f-b37499325bac": {
           "display_name": "Style",
@@ -2192,7 +2240,7 @@
       "name": "info-card",
       "display_name": null,
       "created_at": "2024-06-27T14:51:11.807Z",
-      "updated_at": "2024-09-18T18:48:25.924Z",
+      "updated_at": "2024-10-09T18:48:42.894Z",
       "id": 5987009,
       "schema": {
         "icon": {
@@ -2211,7 +2259,9 @@
         },
         "heading": {
           "type": "text",
-          "pos": 2
+          "pos": 2,
+          "translatable": true,
+          "required": true
         },
         "heading_level": {
           "type": "option",
@@ -2254,7 +2304,9 @@
         },
         "description": {
           "type": "textarea",
-          "pos": 4
+          "pos": 4,
+          "required": false,
+          "translatable": true
         },
         "orientation": {
           "type": "option",
@@ -2309,12 +2361,13 @@
       "name": "intro-section",
       "display_name": null,
       "created_at": "2024-06-05T20:46:05.033Z",
-      "updated_at": "2024-10-07T18:14:56.899Z",
+      "updated_at": "2024-10-09T18:38:50.290Z",
       "id": 5889699,
       "schema": {
         "headline": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "translatable": true
         },
         "heading": {
           "type": "text",
@@ -2461,14 +2514,15 @@
       "name": "link",
       "display_name": null,
       "created_at": "2023-08-22T08:45:27.261Z",
-      "updated_at": "2024-06-01T08:09:48.560Z",
+      "updated_at": "2024-10-08T18:02:24.889Z",
       "id": 4456032,
       "schema": {
         "label": {
           "type": "text",
           "pos": 0,
           "required": true,
-          "allow_target_blank": false
+          "allow_target_blank": false,
+          "translatable": true
         },
         "link": {
           "type": "multilink",
@@ -2501,7 +2555,7 @@
       "name": "metric-entry",
       "display_name": null,
       "created_at": "2024-06-07T12:15:17.379Z",
-      "updated_at": "2024-07-23T18:25:34.999Z",
+      "updated_at": "2024-10-09T17:43:33.161Z",
       "id": 5898308,
       "schema": {
         "value": {
@@ -2510,7 +2564,9 @@
         },
         "description": {
           "type": "text",
-          "pos": 1
+          "pos": 1,
+          "translatable": true,
+          "required": true
         }
       },
       "image": null,
@@ -2533,7 +2589,7 @@
       "name": "overview-section",
       "display_name": null,
       "created_at": "2024-06-05T22:03:37.929Z",
-      "updated_at": "2024-10-07T18:17:40.328Z",
+      "updated_at": "2024-10-09T17:42:31.865Z",
       "id": 5889891,
       "schema": {
         "images": {
@@ -2551,7 +2607,8 @@
           "type": "text",
           "pos": 1,
           "required": true,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -2596,7 +2653,8 @@
           "type": "richtext",
           "pos": 3,
           "required": true,
-          "key": "description"
+          "key": "description",
+          "translatable": true
         },
         "tab-204d900a-21c7-4d8e-add9-8379d613233d": {
           "display_name": "Gallery",
@@ -2678,14 +2736,15 @@
       "name": "platform-section",
       "display_name": null,
       "created_at": "2023-08-15T14:53:10.589Z",
-      "updated_at": "2024-06-26T01:17:31.106Z",
+      "updated_at": "2024-10-08T22:33:05.482Z",
       "id": 4425712,
       "schema": {
         "heading": {
           "type": "text",
           "key": "heading",
           "pos": 0,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -2729,7 +2788,8 @@
           "type": "richtext",
           "key": "description",
           "pos": 2,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "image": {
           "type": "asset",
@@ -2753,13 +2813,15 @@
           "type": "richtext",
           "key": "cost_description",
           "pos": 5,
-          "required": false
+          "required": false,
+          "translatable": true
         },
         "cost_heading": {
           "type": "text",
           "key": "cost_heading",
           "pos": 6,
-          "required": false
+          "required": false,
+          "translatable": true
         },
         "tab-f3f7e59a-7323-4fd5-bb51-2a13480b8a0a": {
           "display_name": "Cost Block",
@@ -2792,18 +2854,25 @@
       "name": "pricing-compare-section",
       "display_name": null,
       "created_at": "2024-07-25T15:44:39.956Z",
-      "updated_at": "2024-07-28T18:00:42.843Z",
+      "updated_at": "2024-10-09T18:42:52.443Z",
       "id": 6094989,
       "schema": {
+        "table": {
+          "type": "table",
+          "pos": 0,
+          "translatable": true
+        },
         "headline": {
           "type": "text",
-          "pos": 1
+          "pos": 1,
+          "translatable": true
         },
         "heading": {
           "type": "text",
           "pos": 2,
           "required": true,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -2845,10 +2914,6 @@
             }
           ],
           "key": "title_level"
-        },
-        "table": {
-          "type": "table",
-          "pos": 0
         },
         "alignment": {
           "type": "option",
@@ -2915,7 +2980,7 @@
       "name": "pricing-plan",
       "display_name": null,
       "created_at": "2024-07-24T18:03:12.062Z",
-      "updated_at": "2024-08-10T17:47:22.745Z",
+      "updated_at": "2024-10-10T13:39:52.350Z",
       "id": 6090428,
       "schema": {
         "price": {
@@ -2931,9 +2996,9 @@
           "pos": 1,
           "options": [
             {
-              "_uid": "b1e0abd4-33bc-49fd-a556-e2f07baf2acd",
-              "name": "Unlimited members",
-              "value": "Unlimited members"
+              "_uid": "b44a651e-905f-4140-bd19-59a3eb91613f",
+              "value": "Unlimited members",
+              "name": "Unlimited members"
             },
             {
               "_uid": "187f9bc2-71c3-41ca-b7d2-5c7632d24e1b",
@@ -2969,11 +3034,52 @@
               "_uid": "75b64632-4169-4161-b8c4-b6babe0366cb",
               "value": "Slack integration",
               "name": "Slack integration"
+            },
+            {
+              "_uid": "b1e0abd4-33bc-49fd-a556-e2f07baf2acd",
+              "name": "Необмежена кількість учасників",
+              "value": "Необмежена кількість учасників"
+            },
+            {
+              "_uid": "80953e0b-07d0-4a1a-8258-a98c6887aef9",
+              "value": "Необмежений фідбек",
+              "name": "Необмежений фідбек"
+            },
+            {
+              "_uid": "f91f846b-5e75-43c5-a442-7e66d5e4a80b",
+              "value": "Щотижнева п'ятниця фідбеку з командою",
+              "name": "Щотижнева п'ятниця фідбеку з командою"
+            },
+            {
+              "_uid": "d6f2bb40-c48f-467b-ab41-885a54e415b0",
+              "value": "Спеціальна ілюстрація Kudos + 9",
+              "name": "Спеціальна ілюстрація Kudos + 9"
+            },
+            {
+              "_uid": "a8071a8e-0a1d-40c6-b519-13e61960c4b8",
+              "value": "Історія відгуків команди",
+              "name": "Історія відгуків команди"
+            },
+            {
+              "_uid": "896f9891-afa9-43db-9561-3108c99b59b3",
+              "value": "Історія відгуків команди (30 елементів)",
+              "name": "Історія відгуків команди (30 елементів)"
+            },
+            {
+              "_uid": "0bec09bd-2bb0-45a6-9f07-2624c492cfd5",
+              "value": "Історія особистих відгуків (6 елементів)",
+              "name": "Історія особистих відгуків (6 елементів)"
+            },
+            {
+              "_uid": "cb3b5c4a-1484-467a-b62b-b60cd6154447",
+              "value": "Інтеграція зі Slack",
+              "name": "Інтеграція зі Slack"
             }
           ],
           "exclude_empty_option": true,
           "required": true,
-          "key": "features"
+          "key": "features",
+          "translatable": true
         },
         "tab-e5b19786-bb08-43ec-9c8e-926d536eb006": {
           "display_name": "Body",
@@ -2988,7 +3094,8 @@
         "card_headline": {
           "type": "text",
           "pos": 3,
-          "key": "card_headline"
+          "key": "card_headline",
+          "translatable": true
         },
         "tab-92de6a0f-51f7-4484-8db8-f243ef2c9a7d": {
           "display_name": "Card Preview",
@@ -3006,7 +3113,8 @@
         "card_heading": {
           "type": "text",
           "pos": 5,
-          "key": "card_heading"
+          "key": "card_heading",
+          "translatable": true
         },
         "tab-f6c76a0b-b4b9-43f8-a00a-bcd43263e52c": {
           "display_name": "Style",
@@ -3080,7 +3188,8 @@
         "card_billing_description": {
           "type": "text",
           "pos": 10,
-          "key": "card_billing_description"
+          "key": "card_billing_description",
+          "translatable": true
         }
       },
       "image": null,
@@ -3103,7 +3212,7 @@
       "name": "pricing-plan-hero-section",
       "display_name": null,
       "created_at": "2024-07-28T17:34:25.976Z",
-      "updated_at": "2024-07-29T16:52:46.918Z",
+      "updated_at": "2024-10-09T17:04:13.923Z",
       "id": 6101898,
       "schema": {
         "heading": {
@@ -3111,7 +3220,8 @@
           "display_name": "",
           "pos": 1,
           "required": true,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -3157,7 +3267,8 @@
         "description": {
           "type": "textarea",
           "pos": 2,
-          "required": true
+          "required": true,
+          "translatable": true
         }
       },
       "image": null,
@@ -3239,7 +3350,7 @@
       "name": "pricing-section",
       "display_name": null,
       "created_at": "2023-08-16T15:45:16.196Z",
-      "updated_at": "2024-07-25T14:16:49.419Z",
+      "updated_at": "2024-10-08T22:49:41.687Z",
       "id": 4431923,
       "schema": {
         "pricing_plans": {
@@ -3256,13 +3367,15 @@
         "headline": {
           "type": "text",
           "required": false,
-          "pos": 2
+          "pos": 2,
+          "translatable": true
         },
         "heading": {
           "type": "text",
           "required": true,
           "pos": 3,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -3308,13 +3421,15 @@
           "type": "richtext",
           "required": true,
           "pos": 5,
-          "key": "description"
+          "key": "description",
+          "translatable": true
         },
         "payment_heading": {
           "type": "text",
           "required": false,
           "pos": 6,
-          "key": "payment_heading"
+          "key": "payment_heading",
+          "translatable": true
         },
         "payment_images": {
           "type": "multiasset",
@@ -3386,12 +3501,13 @@
       "name": "submenu",
       "display_name": null,
       "created_at": "2023-08-22T18:31:09.153Z",
-      "updated_at": "2024-05-31T17:40:27.793Z",
+      "updated_at": "2024-10-08T18:04:48.025Z",
       "id": 4459519,
       "schema": {
         "title": {
           "type": "text",
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "links": {
           "type": "bloks",
@@ -3423,13 +3539,14 @@
       "name": "tabbed-content-entry",
       "display_name": null,
       "created_at": "2023-08-15T15:19:42.133Z",
-      "updated_at": "2024-06-24T00:30:40.454Z",
+      "updated_at": "2024-10-08T22:40:39.925Z",
       "id": 4425814,
       "schema": {
         "name": {
           "type": "text",
           "pos": 0,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "icon": {
           "type": "asset",
@@ -3450,7 +3567,8 @@
         "heading": {
           "type": "text",
           "pos": 3,
-          "required": true
+          "required": true,
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -3493,7 +3611,8 @@
         "description": {
           "type": "richtext",
           "pos": 5,
-          "required": true
+          "required": true,
+          "translatable": true
         }
       },
       "image": null,
@@ -3516,7 +3635,7 @@
       "name": "tabbed-content-section",
       "display_name": null,
       "created_at": "2023-08-15T15:12:24.585Z",
-      "updated_at": "2024-06-27T14:10:09.635Z",
+      "updated_at": "2024-10-08T22:38:56.691Z",
       "id": 4425763,
       "schema": {
         "entries": {
@@ -3537,13 +3656,15 @@
           "type": "text",
           "required": false,
           "pos": 1,
-          "key": "badge"
+          "key": "badge",
+          "translatable": true
         },
         "heading": {
           "type": "text",
           "required": true,
           "pos": 2,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -3652,14 +3773,15 @@
       "name": "testimonial-entry",
       "display_name": null,
       "created_at": "2023-08-15T17:31:08.285Z",
-      "updated_at": "2024-07-23T15:43:42.002Z",
+      "updated_at": "2024-10-08T22:45:24.250Z",
       "id": 4426265,
       "schema": {
         "text": {
           "type": "richtext",
           "required": true,
           "key": "text",
-          "pos": 0
+          "pos": 0,
+          "translatable": true
         },
         "author": {
           "type": "bloks",
@@ -3693,7 +3815,7 @@
       "name": "testimonial-section",
       "display_name": null,
       "created_at": "2023-08-15T17:14:12.383Z",
-      "updated_at": "2024-06-27T14:11:58.667Z",
+      "updated_at": "2024-10-08T22:44:17.078Z",
       "id": 4426248,
       "schema": {
         "entries": {
@@ -3713,13 +3835,15 @@
           "type": "text",
           "pos": 1,
           "required": false,
-          "key": "badge"
+          "key": "badge",
+          "translatable": true
         },
         "heading": {
           "type": "text",
           "pos": 2,
           "required": true,
-          "key": "heading"
+          "key": "heading",
+          "translatable": true
         },
         "heading_level": {
           "type": "option",
@@ -3843,12 +3967,14 @@
       "name": "vacancy",
       "display_name": null,
       "created_at": "2024-06-08T15:19:51.833Z",
-      "updated_at": "2024-09-24T04:07:38.474Z",
+      "updated_at": "2024-10-09T18:57:11.957Z",
       "id": 5901700,
       "schema": {
         "title": {
           "type": "text",
-          "pos": 0
+          "pos": 0,
+          "translatable": true,
+          "required": true
         },
         "title_level": {
           "type": "option",
@@ -3891,19 +4017,23 @@
         },
         "location": {
           "type": "text",
-          "pos": 2
+          "pos": 2,
+          "translatable": true
         },
         "employment": {
           "type": "text",
-          "pos": 3
+          "pos": 3,
+          "translatable": true
         },
         "description": {
           "type": "textarea",
-          "pos": 4
+          "pos": 4,
+          "translatable": true
         },
         "content": {
           "type": "richtext",
-          "pos": 5
+          "pos": 5,
+          "translatable": true
         },
         "tab-ffe283d7-2e9e-4d78-a5a8-aac2ac7cf244": {
           "display_name": "Style",

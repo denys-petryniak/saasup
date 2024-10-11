@@ -93,7 +93,7 @@ const sectionBackground = computed(() => {
             v-if="status === 'success'"
             class="cta-section__success-message"
           >
-            Thank you! Your submission has been received!
+            $t('message.submit_success')
           </div>
           <form
             v-else
@@ -104,7 +104,7 @@ const sectionBackground = computed(() => {
               v-model="formData.email"
               type="email"
               name="email"
-              placeholder="Your Email Here"
+              :placeholder="$t('form.email_placeholder')"
               maxlength="256"
               required
               class="cta-section__email"
@@ -115,14 +115,14 @@ const sectionBackground = computed(() => {
               color="light"
               class="cta-section__button"
             >
-              {{ status === 'loading' ? 'Submitting...' : 'Subscribe' }}
+              {{ status === 'loading' ? $t('message.submit_loading') : $t('button.submit') }}
             </BaseButton>
           </form>
           <p
             v-if="status === 'error'"
             class="error-message cta-section__error-message"
           >
-            An error occurred. Please try again.
+            $t('message.error')
           </p>
         </template>
       </ContentBlock>

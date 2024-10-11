@@ -98,7 +98,7 @@ const availableLocales = computed(() => {
                 class="header__cart-button u-hidden-from-lg"
                 @click="openModal"
               >
-                {{ $t('cart') }} (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
+                {{ $t('cart.name') }} (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
               </BaseButton>
             </template>
             <template #placeholder>
@@ -107,16 +107,16 @@ const availableLocales = computed(() => {
                 class="header__cart-button u-hidden-from-lg"
                 disabled
               >
-                {{ $t('cart') }} (0)
+                {{ $t('cart.name') }} (0)
               </BaseButton>
             </template>
           </ClientOnly>
           <BaseButton
-            to="/pricing"
+            :to="localePath('/pricing')"
             color="dark"
             class="header__cta-button u-visible-from-md"
           >
-            {{ $t('get_started') }}
+            {{ $t('button.get_started') }}
           </BaseButton>
           <button
             ref="menuButtonRef"
@@ -201,7 +201,7 @@ const availableLocales = computed(() => {
                     class="navigation__cart-button u-visible-from-lg"
                     @click="openModal"
                   >
-                    {{ $t('cart') }} (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
+                    {{ $t('cart.name') }} (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
                   </button>
                 </template>
                 <template #placeholder>
@@ -210,7 +210,7 @@ const availableLocales = computed(() => {
                     class="navigation__cart-button u-visible-from-lg"
                     disabled
                   >
-                    {{ $t('cart') }} (0)
+                    {{ $t('cart.name') }} (0)
                   </button>
                 </template>
               </ClientOnly>
@@ -221,7 +221,7 @@ const availableLocales = computed(() => {
               class="navigation__item navigation__item--lang"
             >
               <NuxtLink :to="switchLocalePath(lang.code)" class="navigation__link">
-                {{ lang.code.toUpperCase() }}
+                {{ toNormalizedUpperCase(lang.code) }}
               </NuxtLink>
             </li>
           </ul>

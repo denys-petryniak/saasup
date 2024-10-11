@@ -2,6 +2,8 @@
 const { visible, close } = inject(modalInjectionKey) as ModalOptions
 
 const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -12,21 +14,21 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
   >
     <template #header>
       <p class="order-modal__title">
-        Your cart
+        {{ $t('cart.name') }}
       </p>
     </template>
     <template #default>
       <template v-if="totalCartItems > 0">
-        <div v-for="cartItem in cartItems" :key="cartItem.name" class="cart-item order-modal__cart-item">
+        <div v-for="cartItem in cartItems" :key="cartItem.id" class="cart-item order-modal__cart-item">
           <div>
             <p class="cart-item__name">
-              {{ cartItem.name }}
+              {{ cartItem.plan.title }}
             </p>
             <p class="cart-item__price">
               ${{ cartItem.price }} USD
             </p>
             <p class="cart-item__duration">
-              Duration: <span class="cart-item__duration-value">{{ capitalizeFirstChar(cartItem.duration) }}</span>
+              {{ $t('cart.duration') }}: <span class="cart-item__duration-value">{{ capitalizeFirstChar(cartItem.duration.name) }}</span>
             </p>
           </div>
           <BaseButton
@@ -34,34 +36,34 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
             class="cart-item__remove-button"
             @click="removeFromCart(cartItem.id)"
           >
-            Remove
+            {{ $t('button.remove') }}
           </BaseButton>
         </div>
       </template>
       <template v-else>
         <div class="order-modal__empty-cart">
           <p class="order-modal__empty-cart-text">
-            Your cart is empty
+            {{ $t('cart.empty') }}
           </p>
           <BaseButton
-            to="/pricing"
+            :to="localePath('/pricing')"
             color="dark-branded"
             @click="close"
           >
-            Go to Pricing
+            {{ $t('button.pricing') }}
           </BaseButton>
         </div>
       </template>
     </template>
     <template #footer>
       <p class="order-modal__total-price">
-        <span class="order-modal__total-price-label">Total:</span><span class="order-modal__total-price-value">${{ totalCartPrice }} USD</span>
+        <span class="order-modal__total-price-label">{{ $t('cart.total') }}:</span><span class="order-modal__total-price-value">${{ totalCartPrice }} USD</span>
       </p>
       <BaseButton
         class="order-modal__button"
-        @click="$toast.warn('Checkout is disabled on this site.')"
+        @click="$toast.warn($t('message.checkout_disabled'))"
       >
-        Continue to checkout
+        {{ $t('button.checkout') }}
       </BaseButton>
     </template>
   </BaseModal>

@@ -12,7 +12,8 @@ const articleCardDescription = computed(() => {
   return renderRichText(props.article.card_description)
 })
 
-const { formattedArticleDate } = useArticleDate(props.article.date)
+const { locale } = useI18n()
+const { formattedArticleDate } = useArticleDate(props.article.date, locale.value)
 
 const route = useRoute()
 

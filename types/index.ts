@@ -24,6 +24,23 @@ export type ContainerSize = 'lg' | 'xl'
 
 export type LinkType = 'email' | 'phone'
 
+interface PricingPlan {
+  id?: string
+  title: string
+}
+
+interface PricingDuration {
+  name: string
+  value: string
+}
+
+export interface CartItem {
+  id: string
+  plan: PricingPlan
+  duration: PricingDuration
+  price: string
+}
+
 export type ArticleStoryblokWithRelations = ArticleStoryblok & {
   category: StoryblokStory<CategoryStoryblok>
   authors: StoryblokStory<AuthorStoryblok>[]

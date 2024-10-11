@@ -10,6 +10,8 @@ const props = defineProps<Props>()
 const heroDescription = computed(() => {
   return renderRichText(props.blok.description)
 })
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -28,8 +30,8 @@ const heroDescription = computed(() => {
         >
           <template #footer>
             <div class="hero-section__buttons">
-              <BaseButton to="/pricing">
-                {{ $t('get_started') }}
+              <BaseButton :to="localePath('/pricing')">
+                {{ $t('button.get_started') }}
               </BaseButton>
               <BaseButton
                 to="https://youtu.be/dQw4w9WgXcQ?si=5APElTfy7hzEvZJk"
@@ -40,7 +42,7 @@ const heroDescription = computed(() => {
                 icon="carbon:play-filled"
                 trailing
               >
-                <span class="hero-section__video-button-text">{{ $t('watch_video') }}</span>
+                <span class="hero-section__video-button-text">{{ $t('button.watch_video') }}</span>
               </BaseButton>
             </div>
           </template>

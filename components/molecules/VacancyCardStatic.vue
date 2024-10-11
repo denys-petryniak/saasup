@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import type { VacancyStoryblok } from '~/component-types-sb'
-
 interface Props {
-  vacancy: Pick<VacancyStoryblok, 'title' | 'description'>
-  slug?: string
+  title: string
+  description: string
 }
 
-withDefaults(defineProps<Props>(), {
-  slug: '/careers',
-})
+defineProps<Props>()
 
 const localePath = useLocalePath()
 </script>
@@ -16,18 +12,18 @@ const localePath = useLocalePath()
 <template>
   <div class="card">
     <h3 class="card__title">
-      {{ vacancy.title }}
+      {{ title }}
     </h3>
     <div class="card__description">
-      {{ vacancy.description }}
+      {{ description }}
     </div>
     <BaseButton
-      :to="localePath(prependLeadingSlash(slug))"
+      :to="localePath('/careers')"
       size="md"
       color="light"
       class="card__button"
     >
-      View Jobs
+      {{ $t('button.view_jobs') }}
     </BaseButton>
   </div>
 </template>

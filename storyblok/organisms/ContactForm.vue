@@ -24,6 +24,8 @@ const validationRules = ref<{ [key: string]: ValidationRuleCollection }>({})
 const requiredTextMinLength = ref(3)
 const requiredTextMaxLength = ref(256)
 
+// https://github.com/vuelidate/vuelidate/issues/1164 - i18n
+
 // Initialize form fields and set validation rules
 if (props.blok.form) {
   props.blok.form.forEach((field) => {
@@ -136,14 +138,14 @@ async function submitForm() {
         color="dark-branded"
         class="contact-form__button"
       >
-        {{ status === 'loading' ? 'Submitting...' : 'Submit' }}
+        {{ status === 'loading' ? $t('message.submit_loading') : $t('button.submit') }}
       </BaseButton>
     </form>
     <p
       v-if="status === 'error'"
       class="error-message contact-form__error-message"
     >
-      An error occurred. Please try again.
+      {{ $t('message.error') }}
     </p>
   </BaseSection>
 </template>

@@ -59,7 +59,7 @@ const localePath = useLocalePath()
       :to="localePath(prependLeadingSlash(slug))"
       :color="blok.popular ? 'dark' : 'light-bordered'"
     >
-      {{ $t('get_started') }}
+      {{ $t('button.get_started') }}
     </BaseButton>
   </div>
 </template>

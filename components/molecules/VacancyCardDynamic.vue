@@ -37,7 +37,7 @@ const localePath = useLocalePath()
       color="light-bordered"
       class="vacancy-card__button"
     >
-      Apply Job
+      {{ $t('button.apply_job') }}
     </BaseButton>
   </div>
 </template>

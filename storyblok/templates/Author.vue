@@ -15,7 +15,7 @@ defineProps<Props>()
         v-if="blok.name"
         :as="blok.heading_level"
       >
-        Posts By: <span class="author__name">{{ blok.name }}</span>
+        {{ $t('blog.posts_by') }}: <span class="author__name">{{ blok.name }}</span>
       </DynamicTitle>
     </div>
   </BaseSection>

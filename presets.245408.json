@@ -93,6 +93,80 @@
       "description": ""
     },
     {
+      "id": 2314063,
+      "name": "uk",
+      "preset": {
+        "_uid": "4d637aff-ff3a-4d2d-aee2-48611dd1c926",
+        "image": {
+          "id": 10637343,
+          "alt": "Product preview",
+          "name": "",
+          "focus": "",
+          "title": "",
+          "source": "",
+          "filename": "https://a.storyblok.com/f/245408/1336x988/c59124c4f4/cta.png",
+          "copyright": "",
+          "fieldtype": "asset",
+          "meta_data": {},
+          "content_type": "png",
+          "is_external_url": false
+        },
+        "heading": "Get started a 15-days free trial",
+        "component": "cta-section",
+        "description": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Start creating online marketing campaigns for your business with Sassup's 15-day free trial. No commitment.",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "heading_level": "h2",
+        "background_image": {
+          "id": 10637341,
+          "alt": "",
+          "name": "",
+          "focus": "",
+          "title": "",
+          "source": "",
+          "filename": "https://a.storyblok.com/f/245408/2800x1170/8bbdfa633f/cta-bg.png",
+          "copyright": "",
+          "fieldtype": "asset",
+          "meta_data": {},
+          "is_external_url": false
+        },
+        "heading__i18n__uk": "Почніть 15-денну безкоштовну пробну версію",
+        "description__i18n__uk": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Почніть створювати маркетингові онлайн-кампанії для свого бізнесу з 15-денною безкоштовною пробною версією Sassup. Ніяких зобов'язань.",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "component_id": 4437467,
+      "space_id": 245408,
+      "created_at": "2024-10-10T08:42:31.628Z",
+      "updated_at": "2024-10-10T08:42:31.628Z",
+      "image": "",
+      "color": "",
+      "icon": "",
+      "description": ""
+    },
+    {
       "id": 2225565,
       "name": "Variant 1",
       "preset": {

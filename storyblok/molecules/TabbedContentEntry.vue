@@ -7,7 +7,11 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const description = computed(() => renderRichText(props.blok.description))
+const description = computed(() => {
+  return renderRichText(props.blok.description)
+})
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -38,8 +42,8 @@ const description = computed(() => renderRichText(props.blok.description))
         <div v-html="description" />
       </template>
       <template #footer>
-        <BaseButton to="/pricing" color="dark">
-          {{ $t('get_started') }}
+        <BaseButton :to="localePath('/pricing')" color="dark">
+          {{ $t('button.get_started') }}
         </BaseButton>
       </template>
     </ContentBlock>

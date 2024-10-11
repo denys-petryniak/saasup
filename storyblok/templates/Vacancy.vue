@@ -10,6 +10,8 @@ const props = defineProps<Props>()
 const vacancyContent = computed(() => {
   return renderRichText(props.blok.content)
 })
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -30,11 +32,11 @@ const vacancyContent = computed(() => {
           class="vacancy__details"
         />
         <BaseButton
-          to="/contacts"
+          :to="localePath('/contacts')"
           size="md"
           class="vacancy__button"
         >
-          Apply Job
+          {{ $t('button.apply_job') }}
         </BaseButton>
       </div>
       <div

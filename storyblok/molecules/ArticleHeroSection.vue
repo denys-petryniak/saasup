@@ -8,8 +8,9 @@ interface Props {
 defineProps<Props>()
 
 const { date, authors, category } = inject(blogArticleGeneralDataInjectionKey) as BlogArticleGeneralData
+const { locale } = useI18n()
 
-const { formattedArticleDate } = useArticleDate(date || new Date())
+const { formattedArticleDate } = useArticleDate(date || new Date(), locale.value)
 </script>
 
 <template>
@@ -51,7 +52,7 @@ const { formattedArticleDate } = useArticleDate(date || new Date())
             />
           </div>
           <div class="article-hero-section__date">
-            <span class="article-hero-section__date-label">Posted On:</span> {{ formattedArticleDate }}
+            <span class="article-hero-section__date-label">{{ $t('blog.posted_on') }}:</span> {{ formattedArticleDate }}
           </div>
           <div
             v-if="category"
