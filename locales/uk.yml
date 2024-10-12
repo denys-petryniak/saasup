@@ -24,6 +24,11 @@ cart:
   total: Всього
 form:
   email_placeholder: Введіть свій Email
+  validations:
+    required: Це поле є обов'язковим
+    email: Email має бути валідним
+    minLength: Поле повинно містити мінімум {min} символів
+    maxLength: Поле повинно містити максимум {max} символів
 blog:
   category: Категорія
   posted_on: Опубліковано

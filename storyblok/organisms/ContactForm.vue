@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { ValidationRuleCollection } from '@vuelidate/core'
 import { useVuelidate } from '@vuelidate/core'
-import { email, helpers, maxLength, minLength, requiredIf } from '@vuelidate/validators'
 import type { ContactFormStoryblok } from '~/component-types-sb'
 
 interface Props {
@@ -21,10 +20,10 @@ const form = ref<{ [key: string]: any }>({
 // Validation schema (dynamic based on Storyblok fields)
 const validationRules = ref<{ [key: string]: ValidationRuleCollection }>({})
 
+const { email, requiredIf, minLength, maxLength } = useI18nValidators()
+
 const requiredTextMinLength = ref(3)
 const requiredTextMaxLength = ref(256)
-
-// https://github.com/vuelidate/vuelidate/issues/1164 - i18n
 
 // Initialize form fields and set validation rules
 if (props.blok.form) {
@@ -35,14 +34,14 @@ if (props.blok.form) {
     switch (field.type) {
       case 'email':
         validationRules.value[field.name] = {
-          required: helpers.withMessage(`The Email field is required`, requiredIf(field.required)),
-          email: helpers.withMessage('Invalid email format', email),
+          required: requiredIf(field.required),
+          email,
         }
         break
       case 'text':
       case 'textarea':
         validationRules.value[field.name] = {
-          required: helpers.withMessage(`The ${capitalizeFirstChar(field.name)} field is required`, requiredIf(field.required)),
+          required: requiredIf(field.required),
           minLength: minLength(requiredTextMinLength.value),
           maxLength: maxLength(requiredTextMaxLength.value),
         }

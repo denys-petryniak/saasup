@@ -23,6 +23,11 @@ cart:
   total: Total
 form:
   email_placeholder: Enter Your Email
+  validations:
+    required: This is a required field
+    email: Email address must be valid
+    minLength: The field must have a minimum length of {min} characters
+    maxLength: The field must have a maximum length of {max} characters
 blog:
   category: Category
   posted_on: Posted On

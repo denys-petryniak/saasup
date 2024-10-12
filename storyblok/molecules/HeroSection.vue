@@ -33,6 +33,7 @@ const localePath = useLocalePath()
               <BaseButton :to="localePath('/pricing')">
                 {{ $t('button.get_started') }}
               </BaseButton>
+              <!-- TODO: replace with ScriptYouTubePlayer (https://scripts.nuxt.com/) -->
               <BaseButton
                 to="https://youtu.be/dQw4w9WgXcQ?si=5APElTfy7hzEvZJk"
                 target="_blank"

@@ -30,8 +30,8 @@ watch(
   },
 )
 
-const navigationRef = ref<HTMLElement | null>(null)
-const menuButtonRef = ref<HTMLElement | null>(null)
+const navigationRef = useTemplateRef<HTMLElement>('navigationRef')
+const menuButtonRef = useTemplateRef<HTMLElement>('menuButtonRef')
 
 onClickOutside(navigationRef, () => closeMenus(), { ignore: [menuButtonRef] })
 

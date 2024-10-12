@@ -66,6 +66,10 @@ const localePath = useLocalePath()
     margin: 0;
   }
 
+  &__description {
+    margin-top: clamped($min-size: $spacing--xl, $max-size: $spacing--2xl);
+  }
+
   &__link {
     display: inline-block;
     font-weight: $font--bold;
