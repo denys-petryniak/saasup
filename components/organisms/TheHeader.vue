@@ -83,7 +83,7 @@ const availableLocales = computed(() => {
       <div class="header__head">
         <AppLogoLink
           v-if="config.header_logo"
-          :src="config.header_logo.filename"
+          :src="getStoryblokImageUrl(config.header_logo.filename)"
           :width="config.header_logo.meta_data?.width"
           :height="config.header_logo.meta_data?.height"
           :alt="config.header_logo.alt"
