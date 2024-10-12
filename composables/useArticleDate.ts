@@ -1,7 +1,12 @@
-export function useArticleDate(date: string | Ref<string> | Date) {
-  const dateFormatter = ref('MMMM DD, YYYY')
+export function useArticleDate(date: string | Ref<string> | Date, locale: string | Ref<string> = 'en') {
+  const resolvedLocale = toValue(locale)
+
+  const dateFormatter = computed(() => {
+    return resolvedLocale === 'en' ? 'MMMM DD, YYYY' : 'DD MMMM, YYYY'
+  })
+
   const formattedArticleDate = useDateFormat(toValue(date), dateFormatter, {
-    locales: 'en-US',
+    locales: resolvedLocale,
   })
 
   return {

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { ValidationRuleCollection } from '@vuelidate/core'
 import { useVuelidate } from '@vuelidate/core'
-import { email, helpers, maxLength, minLength, requiredIf } from '@vuelidate/validators'
 import type { ContactFormStoryblok } from '~/component-types-sb'
 
 interface Props {
@@ -21,6 +20,8 @@ const form = ref<{ [key: string]: any }>({
 // Validation schema (dynamic based on Storyblok fields)
 const validationRules = ref<{ [key: string]: ValidationRuleCollection }>({})
 
+const { email, requiredIf, minLength, maxLength } = useI18nValidators()
+
 const requiredTextMinLength = ref(3)
 const requiredTextMaxLength = ref(256)
 
@@ -33,14 +34,14 @@ if (props.blok.form) {
     switch (field.type) {
       case 'email':
         validationRules.value[field.name] = {
-          required: helpers.withMessage(`The Email field is required`, requiredIf(field.required)),
-          email: helpers.withMessage('Invalid email format', email),
+          required: requiredIf(field.required),
+          email,
         }
         break
       case 'text':
       case 'textarea':
         validationRules.value[field.name] = {
-          required: helpers.withMessage(`The ${capitalizeFirstChar(field.name)} field is required`, requiredIf(field.required)),
+          required: requiredIf(field.required),
           minLength: minLength(requiredTextMinLength.value),
           maxLength: maxLength(requiredTextMaxLength.value),
         }
@@ -59,6 +60,7 @@ const result = ref<string>('')
 const status = ref<'loading' | 'success' | 'error' | ''>('')
 
 const isContactFormSubmitted = useIsContactFormSubmitted()
+const localePath = useLocalePath()
 
 async function submitForm() {
   const isFormValid = await v$.value.$validate()
@@ -82,7 +84,7 @@ async function submitForm() {
       isContactFormSubmitted.value = true
       status.value = 'success'
 
-      await navigateTo('/success')
+      await navigateTo(localePath('/success'))
     }
     else {
       console.error('Form submission error:', response)
@@ -136,14 +138,14 @@ async function submitForm() {
         color="dark-branded"
         class="contact-form__button"
       >
-        {{ status === 'loading' ? 'Submitting...' : 'Submit' }}
+        {{ status === 'loading' ? $t('message.submit_loading') : $t('button.submit') }}
       </BaseButton>
     </form>
     <p
       v-if="status === 'error'"
       class="error-message contact-form__error-message"
     >
-      An error occurred. Please try again.
+      {{ $t('message.error') }}
     </p>
   </BaseSection>
 </template>

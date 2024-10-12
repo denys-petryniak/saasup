@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { CartItem } from '~/types'
+
 interface Props {
   title: string
   price: string
@@ -6,17 +8,25 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const { t } = useI18n({
+  useScope: 'local',
+})
+
 const selectedPlanDuration = ref('')
 
 const planOptions = ref([
-  { text: 'Monthly', value: 'monthly' },
-  { text: 'Annually', value: 'annually' },
+  { text: t('duration.monthly'), value: 'monthly' },
+  { text: t('duration.annually'), value: 'annually' },
 ])
 
 const DISCOUNT_RATE = 0.1 // 10% discount for annual plans
 
 const priceByDuration = computed(() => {
   const basePrice = Number(props.price)
+
+  if (Number.isNaN(basePrice)) {
+    return '0.00'
+  }
 
   if (selectedPlanDuration.value === 'monthly') {
     return basePrice.toFixed(2)
@@ -47,31 +57,44 @@ const { addToCart } = useCart()
 
 const { $toast } = useNuxtApp()
 
+const durationName = computed(() => {
+  return planOptions.value.find(option => option.value === selectedPlanDuration.value)!.text
+})
+
+const route = useRoute()
+const planName = computed(() => route.params.slug?.[1])
+
 function handleAddToCart() {
   if (!selectedPlanDuration.value) {
-    $toast.warning('Please select a plan duration.')
+    $toast.warning(t('toast.warning.select_plan_duration'))
     return
   }
 
   const randomId = crypto.randomUUID()
 
-  const cartItem = {
+  const cartItem: CartItem = {
     id: randomId,
-    name: props.title,
-    duration: selectedPlanDuration.value,
+    plan: {
+      id: planName.value,
+      title: props.title,
+    },
+    duration: {
+      name: durationName.value,
+      value: selectedPlanDuration.value,
+    },
     price: priceByDuration.value,
   }
 
   const { itemExists } = addToCart(cartItem)
 
   if (itemExists) {
-    $toast.warning('This item is already in your cart.')
+    $toast.warning(t('toast.warning.cart_item_exists'))
     isCartModalVisible.value = true
 
     return
   }
 
-  $toast.success('Item added to your cart successfully!')
+  $toast.success(t('toast.success.added_to_cart'))
   isCartModalVisible.value = true
 }
 </script>
@@ -79,16 +102,16 @@ function handleAddToCart() {
 <template>
   <div class="plan-duration-widget">
     <p class="plan-duration-widget__title">
-      Choose Your Plan Duration
+      {{ t('title') }}
     </p>
     <p class="plan-duration-widget__description">
-      Select the plan based on your business requirements you can update it later once you going to next level.
+      {{ t('description') }}
     </p>
     <p class="plan-duration-widget__price">
       ${{ priceByDuration }} USD
     </p>
     <p class="plan-duration-widget__discount">
-      *10% discount for annual plans
+      *10% {{ t('discount') }}
     </p>
     <select
       id="plan-duration-widget-select"
@@ -97,7 +120,7 @@ function handleAddToCart() {
       class="plan-duration-widget__select"
     >
       <option disabled value="">
-        Select Duration
+        {{ t('duration.select') }}
       </option>
       <option
         v-for="planOption in planOptions"
@@ -111,7 +134,7 @@ function handleAddToCart() {
       class="plan-duration-widget__button"
       @click="handleAddToCart"
     >
-      Add to Cart
+      {{ $t('button.add_to_cart') }}
     </BaseButton>
     <LazyCartModal />
   </div>
@@ -120,7 +143,7 @@ function handleAddToCart() {
 <style scoped lang="scss">
 .plan-duration-widget {
   padding: clamped($min-size: $spacing--4xl, $max-size: $spacing--8xl);
-  border-radius: $rounded--3xl * 2;
+  border-radius: calc($rounded--3xl * 2);
   background-color: $secondary-color--extra-light;
 
   &__title {
@@ -156,7 +179,7 @@ function handleAddToCart() {
     padding: clamped($min-size: $spacing--lg, $max-size: $spacing--2xl)
       clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);
     border: 1px solid $divider-color--regular;
-    border-radius: $rounded--3xl * 2;
+    border-radius: calc($rounded--3xl * 2);
     font-size: $text--lg;
     font-weight: $font--semibold;
     color: $primary-color--dark;
@@ -171,3 +194,34 @@ function handleAddToCart() {
   }
 }
 </style>
+
+<i18n lang="yaml">
+  en:
+    title: Choose Your Plan Duration
+    description: Select the plan based on your business requirements you can update it later once you going to next level.
+    discount: discount for annual plans
+    duration:
+      select: Select Duration
+      monthly: Monthly
+      annually: Annually
+    toast:
+      warning:
+        select_plan_duration: Please select a plan duration
+        cart_item_exists: This item is already in your cart
+      success:
+        added_to_cart: Item added to your cart successfully!
+  uk:
+    title: Оберіть тривалість вашого плану
+    description: Оберіть план, виходячи з потреб вашого бізнесу, і ви зможете оновити його пізніше, коли перейдете на наступний рівень.
+    discount: знижка для річних тарифів
+    duration:
+      select: Оберіть тривалість
+      monthly: Місячна
+      annually: Річна
+    toast:
+      warning:
+        select_plan_duration: Будь ласка, оберіть тривалість плану
+        cart_item_exists: Цей елемент вже у кошику
+      success:
+        added_to_cart: Успішно додано до кошика!
+</i18n>

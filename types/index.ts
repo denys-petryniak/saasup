@@ -2,15 +2,11 @@ import type { StoryblokStory } from 'storyblok-generate-ts'
 import type {
   ArticlesSectionStoryblok,
   ArticleStoryblok,
-  AssetStoryblok,
   AuthorStoryblok,
-  ButtonStoryblok,
   CareersSectionStoryblok,
   CategoryStoryblok,
-  LinkStoryblok,
   PricingPlanStoryblok,
   PricingSectionStoryblok,
-  SubmenuStoryblok,
   VacancyStoryblok,
 } from '~/component-types-sb'
 
@@ -28,27 +24,21 @@ export type ContainerSize = 'lg' | 'xl'
 
 export type LinkType = 'email' | 'phone'
 
-export interface Header {
-  navigation: (LinkStoryblok | SubmenuStoryblok)[]
-  logo?: AssetStoryblok
-}
-
-interface FooterWidget {
-  label: string
+interface PricingPlan {
+  id?: string
   title: string
-  description: string
-  buttons: ButtonStoryblok[]
 }
 
-export interface Footer {
-  headline: string
-  description: string
-  copyright: string
-  navigation: (LinkStoryblok)[]
-  emails: LinkStoryblok[]
-  phones: LinkStoryblok[]
-  socialLinks: LinkStoryblok[]
-  widget?: FooterWidget
+interface PricingDuration {
+  name: string
+  value: string
+}
+
+export interface CartItem {
+  id: string
+  plan: PricingPlan
+  duration: PricingDuration
+  price: string
 }
 
 export type ArticleStoryblokWithRelations = ArticleStoryblok & {

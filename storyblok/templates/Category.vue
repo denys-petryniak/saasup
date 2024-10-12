@@ -15,7 +15,7 @@ defineProps<Props>()
         v-if="blok.heading"
         :as="blok.heading_level"
       >
-        Category: <span class="category__heading">{{ blok.heading }}</span>
+        {{ $t('blog.category') }}: <span class="category__heading">{{ blok.heading }}</span>
       </DynamicTitle>
     </div>
   </BaseSection>

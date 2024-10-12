@@ -7,34 +7,37 @@ interface Props {
 
 defineProps<Props>()
 
-type FeatureStatus = 'available' | 'unavailable'
+type FeatureStatus = '+' | '-'
 
 function isFeatureAvailableOrUnavailable(value: string): value is FeatureStatus {
-  const normalizedValue = toNormalizedLowerCase(value)
-
-  return normalizedValue === 'available' || normalizedValue === 'unavailable'
+  return value === '+' || value === '-'
 }
 
-const iconNames = {
-  available: 'material-symbols:check-circle-rounded',
-  unavailable: 'material-symbols:cancel-outline',
-  default: 'material-symbols:cancel-outline',
+function iconDynamicClassName(value: FeatureStatus): string {
+  return value === '+' ? 'table__icon--available' : 'table__icon--unavailable'
 }
 
-function iconName(label: 'available' | 'unavailable'): string {
-  return iconNames[label] || iconNames.default
+const iconNames: Record<FeatureStatus, string> = {
+  '+': 'material-symbols:check-circle-rounded',
+  '-': 'material-symbols:cancel-outline',
 }
 
-type PricingPlan = 'basic' | 'advanced' | 'business'
-
-const pricingPlanLinks: Record<PricingPlan, string> = {
-  basic: '/pricing/basic',
-  advanced: '/pricing/advanced',
-  business: '/pricing/business',
+function iconName(status: '+' | '-'): string {
+  return iconNames[status]
 }
 
-function isPricingPlan(value: string): value is PricingPlan {
-  return ['basic', 'advanced', 'business'].includes(value)
+type PricingPlanButtons = 'pricing_basic_button' | 'pricing_advanced_button' | 'pricing_business_button'
+
+const localePath = useLocalePath()
+
+const pricingPlanLinks: Record<PricingPlanButtons, string> = {
+  pricing_basic_button: localePath('/pricing/basic'),
+  pricing_advanced_button: localePath('/pricing/advanced'),
+  pricing_business_button: localePath('/pricing/business'),
+}
+
+function isPricingPlanButtons(value: string): value is PricingPlanButtons {
+  return Object.keys(pricingPlanLinks).includes(value)
 }
 </script>
 
@@ -64,25 +67,21 @@ function isPricingPlan(value: string): value is PricingPlan {
               <td v-for="cell in row.body" :key="cell._uid">
                 <Icon
                   v-if="cell.value && isFeatureAvailableOrUnavailable(cell.value)"
-                  :name="iconName(toNormalizedLowerCase(cell.value) as FeatureStatus)"
+                  :name="iconName(cell.value as FeatureStatus)"
+                  :class="iconDynamicClassName(cell.value as FeatureStatus)"
                   class="table__icon"
-                  :class="`table__icon--${toNormalizedLowerCase(cell.value)}`"
                   size="1.5em"
                 />
+                <BaseButton
+                  v-else-if="cell.value && isPricingPlanButtons(cell.value as PricingPlanButtons)"
+                  :to="pricingPlanLinks[cell.value as PricingPlanButtons]"
+                  color="dark-branded"
+                >
+                  {{ $t('button.get_started') }}
+                </BaseButton>
                 <template v-else>
                   {{ cell.value }}
                 </template>
-              </td>
-            </tr>
-            <tr>
-              <td v-for="cell in blok.table.thead" :key="cell._uid">
-                <BaseButton
-                  v-if="cell.value && isPricingPlan(toNormalizedLowerCase(cell.value))"
-                  :to="pricingPlanLinks[toNormalizedLowerCase(cell.value) as PricingPlan]"
-                  color="dark-branded"
-                >
-                  Get Started
-                </BaseButton>
               </td>
             </tr>
           </tbody>
@@ -96,7 +95,7 @@ function isPricingPlan(value: string): value is PricingPlan {
 .pricing-compare-section {
   &__table-box {
     margin-top: clamped($min-size: $gap--sm, $max-size: $gap--md);
-    border-radius: $rounded--3xl * 2;
+    border-radius: calc($rounded--3xl * 2);
     overflow-x: auto;
   }
 
@@ -139,7 +138,7 @@ function isPricingPlan(value: string): value is PricingPlan {
       }
 
       &:nth-child(odd) {
-        background-color: $color-white--soft;
+        background-color: $color-white;
       }
     }
   }
@@ -148,9 +147,7 @@ function isPricingPlan(value: string): value is PricingPlan {
     &--available {
       color: $icon-color--enabled;
     }
-  }
 
-  &__icon {
     &--unavailable {
       color: $icon-color--disabled;
     }

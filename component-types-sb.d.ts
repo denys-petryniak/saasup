@@ -110,7 +110,7 @@ export interface ArticlesSectionStoryblok {
   columns?: "2" | "3";
   hide_top_gap?: boolean;
   headline?: string;
-  heading?: string;
+  heading: string;
   articles: (StoryblokStory<ArticleStoryblok> | StoryblokStory<ArticlePageStoryblok> | string)[];
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   _uid: string;
@@ -341,7 +341,7 @@ export interface FaqSectionStoryblok {
   set_top_double_gap?: boolean;
   set_bottom_double_gap?: boolean;
   headline?: string;
-  heading?: string;
+  heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   cards?: FaqCardStoryblok[];
   accordion_group_name?: string;
@@ -442,7 +442,7 @@ export interface ImageTextSectionStoryblok {
 
 export interface InfoCardStoryblok {
   icon?: AssetStoryblok;
-  heading?: string;
+  heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   description?: string;
   orientation?: "vertical" | "horizontal";
@@ -480,7 +480,7 @@ export interface LinkStoryblok {
 
 export interface MetricEntryStoryblok {
   value?: RichtextStoryblok;
-  description?: string;
+  description: string;
   _uid: string;
   component: "metric-entry";
   [k: string]: any;
@@ -579,10 +579,10 @@ export interface TableStoryblok {
 }
 
 export interface PricingCompareSectionStoryblok {
+  table?: TableStoryblok;
   headline?: string;
   heading: string;
   heading_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  table?: TableStoryblok;
   alignment?: "left" | "center" | "right";
   _uid: string;
   component: "pricing-compare-section";
@@ -600,6 +600,14 @@ export interface PricingPlanStoryblok {
     | "Team feedback history (30 items)"
     | "Personal feedback history (6 items)"
     | "Slack integration"
+    | "Необмежена кількість учасників"
+    | "Необмежений фідбек"
+    | "Щотижнева п'ятниця фідбеку з командою"
+    | "Спеціальна ілюстрація Kudos + 9"
+    | "Історія відгуків команди"
+    | "Історія відгуків команди (30 елементів)"
+    | "Історія особистих відгуків (6 елементів)"
+    | "Інтеграція зі Slack"
   )[];
   card_headline?: string;
   card_heading?: string;
@@ -747,7 +755,7 @@ export interface UnderDevStoryblok {
 }
 
 export interface VacancyStoryblok {
-  title?: string;
+  title: string;
   title_level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   location?: string;
   employment?: string;

@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import type { LinkStoryblok, SubmenuStoryblok } from '~/component-types-sb'
-import type { Header } from '~/types'
+import type { ConfigStoryblok, LinkStoryblok, SubmenuStoryblok } from '~/component-types-sb'
 
 interface Props {
-  header: Header
+  config: ConfigStoryblok
 }
 
 defineProps<Props>()
@@ -31,8 +30,8 @@ watch(
   },
 )
 
-const navigationRef = ref<HTMLElement | null>(null)
-const menuButtonRef = ref<HTMLElement | null>(null)
+const navigationRef = useTemplateRef<HTMLElement>('navigationRef')
+const menuButtonRef = useTemplateRef<HTMLElement>('menuButtonRef')
 
 onClickOutside(navigationRef, () => closeMenus(), { ignore: [menuButtonRef] })
 
@@ -68,6 +67,14 @@ provide(modalInjectionKey, {
   visible: isCartModalVisible,
   close: closeModal,
 })
+
+const localePath = useLocalePath()
+const { locale, locales } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+
+const availableLocales = computed(() => {
+  return (locales.value).filter(i => i.code !== locale.value)
+})
 </script>
 
 <template>
@@ -75,11 +82,11 @@ provide(modalInjectionKey, {
     <header class="header">
       <div class="header__head">
         <AppLogoLink
-          v-if="header.logo"
-          :src="header.logo.filename"
-          :width="header.logo.meta_data?.width"
-          :height="header.logo.meta_data?.height"
-          :alt="header.logo.alt"
+          v-if="config.header_logo"
+          :src="getStoryblokImageUrl(config.header_logo.filename)"
+          :width="config.header_logo.meta_data?.width"
+          :height="config.header_logo.meta_data?.height"
+          :alt="config.header_logo.alt"
         />
       </div>
       <div class="header__main">
@@ -91,7 +98,7 @@ provide(modalInjectionKey, {
                 class="header__cart-button u-hidden-from-lg"
                 @click="openModal"
               >
-                Cart (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
+                {{ $t('cart.name') }} (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
               </BaseButton>
             </template>
             <template #placeholder>
@@ -100,16 +107,16 @@ provide(modalInjectionKey, {
                 class="header__cart-button u-hidden-from-lg"
                 disabled
               >
-                Cart (0)
+                {{ $t('cart.name') }} (0)
               </BaseButton>
             </template>
           </ClientOnly>
           <BaseButton
-            to="/pricing"
+            :to="localePath('/pricing')"
             color="dark"
             class="header__cta-button u-visible-from-md"
           >
-            Get Started
+            {{ $t('button.get_started') }}
           </BaseButton>
           <button
             ref="menuButtonRef"
@@ -133,12 +140,12 @@ provide(modalInjectionKey, {
           }"
           aria-label="Secondary"
         >
-          <menu
-            v-if="header.navigation?.length"
+          <ul
+            v-if="config.header_nav"
             class="navigation__menu"
           >
             <li
-              v-for="navigationItem in header.navigation"
+              v-for="navigationItem in config.header_nav"
               :key="navigationItem._uid"
               class="navigation__item"
               @mouseover="handleMouseover(navigationItem as SubmenuStoryblok)"
@@ -157,7 +164,7 @@ provide(modalInjectionKey, {
                     size="1.25em"
                   />
                 </button>
-                <menu
+                <ul
                   class="navigation__submenu"
                   :class="{
                     'navigation__submenu--open': isSubmenuVisible,
@@ -169,17 +176,17 @@ provide(modalInjectionKey, {
                     class="navigation__item"
                   >
                     <NuxtLink
-                      :to="getNavigationSlug(submenuNavigationItem)"
+                      :to="localePath(getNavigationSlug(submenuNavigationItem))"
                       class="navigation__link"
                     >
                       {{ submenuNavigationItem.label }}
                     </NuxtLink>
                   </li>
-                </menu>
+                </ul>
               </template>
               <template v-else>
                 <NuxtLink
-                  :to="getNavigationSlug(navigationItem as LinkStoryblok)"
+                  :to="localePath(getNavigationSlug(navigationItem as LinkStoryblok))"
                   class="navigation__link"
                 >
                   {{ (navigationItem as LinkStoryblok).label }}
@@ -194,7 +201,7 @@ provide(modalInjectionKey, {
                     class="navigation__cart-button u-visible-from-lg"
                     @click="openModal"
                   >
-                    Cart (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
+                    {{ $t('cart.name') }} (<span class="navigation__cart-button-count">{{ totalCartItems }}</span>)
                   </button>
                 </template>
                 <template #placeholder>
@@ -203,12 +210,21 @@ provide(modalInjectionKey, {
                     class="navigation__cart-button u-visible-from-lg"
                     disabled
                   >
-                    Cart (0)
+                    {{ $t('cart.name') }} (0)
                   </button>
                 </template>
               </ClientOnly>
             </li>
-          </menu>
+            <li
+              v-for="lang in availableLocales"
+              :key="lang.code"
+              class="navigation__item navigation__item--lang"
+            >
+              <NuxtLink :to="switchLocalePath(lang.code)" class="navigation__link">
+                {{ toNormalizedUpperCase(lang.code) }}
+              </NuxtLink>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>
@@ -293,6 +309,28 @@ provide(modalInjectionKey, {
     position: relative;
     font-weight: $font--semibold;
     font-size: $text--lg;
+
+    &--lang {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $divider-color--regular;
+
+        @include breakpoint('lg') {
+          top: 50%;
+          transform: translate3d(0, -50%, 0);
+          width: 1px;
+          height: 50%;
+        }
+      }
+    }
   }
 
   &__link,
@@ -353,7 +391,7 @@ provide(modalInjectionKey, {
       display: block;
       width: auto;
       padding: $spacing--xs $spacing--2xl;
-      margin-right: $spacing--4xl;
+      margin-right: $spacing--md;
     }
 
     &__buttons {
@@ -372,7 +410,7 @@ provide(modalInjectionKey, {
     order: 1;
     margin-top: 0;
     border: none;
-    border-radius: $rounded--3xl * 2;
+    border-radius: calc($rounded--3xl * 2);
 
     &__menu {
       display: flex;
@@ -385,6 +423,14 @@ provide(modalInjectionKey, {
       padding: $spacing--lg;
       background-color: $secondary-color--extra-light;
       border-radius: $rounded--lg;
+    }
+  }
+}
+
+@include breakpoint('xl') {
+  .header {
+    &__navigation {
+      margin-right: $spacing--4xl;
     }
   }
 }

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const error = useError()
+const localePath = useLocalePath()
 
 function handleError() {
   clearError({
-    redirect: '/',
+    redirect: localePath('/'),
   })
 }
 </script>
@@ -16,15 +17,15 @@ function handleError() {
           404
         </h1>
         <h2 class="error__subtitle">
-          Page doesn't exist
+          $t('message.not-found')
         </h2>
       </div>
       <div v-else>
         <h1 class="error__title">
-          Dang
+          $t('message.error_dang')
         </h1>
         <h2 class="error__subtitle">
-          It looks like something broke
+          $t('message.error')
         </h2>
       </div>
       <div>
@@ -32,7 +33,7 @@ function handleError() {
           {{ error.statusMessage }}
         </p>
         <BaseButton class="error__button" @click="handleError">
-          Home
+          $t('button.home')
         </BaseButton>
       </div>
     </BaseSection>

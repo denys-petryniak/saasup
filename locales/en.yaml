@@ -1,0 +1,34 @@
+button:
+  home: Home
+  submit: Submit
+  checkout: Checkout
+  remove: Remove
+  pricing: Pricing
+  apply_job: Apply Job
+  view_jobs: View Jobs
+  get_started: Get Started
+  watch_video: Watch Video
+  add_to_cart: Add To Cart
+message:
+  submit_loading: Submitting...
+  submit_success: Thank you! Your submission has been received!
+  checkout_disabled: Checkout is disabled on this site
+  error: An error occurred. Please try again.
+  error_dang: Dang
+  not-found: Page doesn't exist
+cart:
+  name: Cart
+  empty: Your cart is empty
+  duration: Duration
+  total: Total
+form:
+  email_placeholder: Enter Your Email
+  validations:
+    required: This is a required field
+    email: Email address must be valid
+    minLength: The field must have a minimum length of {min} characters
+    maxLength: The field must have a maximum length of {max} characters
+blog:
+  category: Category
+  posted_on: Posted On
+  posts_by: Posts By

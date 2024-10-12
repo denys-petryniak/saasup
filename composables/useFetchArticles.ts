@@ -3,19 +3,21 @@ import type { ArticleStoryblokWithRelations } from '~/types'
 export function useFetchArticles(filterQuery: Record<string, any> = {}) {
   const articles = ref<ArticleStoryblokWithRelations | null>(null)
 
+  const storyblokApi = useStoryblokApi()
+  const storyVersion = getStoryVersion()
+  const { locale } = useI18n()
+
+  const resolveRelations = [
+    'article.category',
+  ]
+
+  const hasFilterQuery = Object.keys(filterQuery).length > 0
+
   async function fetchArticles() {
-    const storyblokApi = useStoryblokApi()
-    const storyVersion = getStoryVersion()
-
-    const resolveRelations = [
-      'article.category',
-    ]
-
-    const hasFilterQuery = Object.keys(filterQuery).length > 0
-
     try {
       const { data } = await storyblokApi.get('cdn/stories', {
         version: storyVersion,
+        language: locale.value,
         resolve_relations: resolveRelations,
         starts_with: 'blog',
         is_startpage: false,

@@ -19,7 +19,7 @@ function close() {
   emit('close')
 }
 
-const modalContent = ref<HTMLElement | null>(null)
+const modalContent = useTemplateRef<HTMLElement>('modalContent')
 
 onClickOutside(modalContent, () => close())
 

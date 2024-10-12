@@ -10,6 +10,8 @@ const props = defineProps<Props>()
 const heroDescription = computed(() => {
   return renderRichText(props.blok.description)
 })
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -28,9 +30,10 @@ const heroDescription = computed(() => {
         >
           <template #footer>
             <div class="hero-section__buttons">
-              <BaseButton to="/pricing">
-                Get Started
+              <BaseButton :to="localePath('/pricing')">
+                {{ $t('button.get_started') }}
               </BaseButton>
+              <!-- TODO: replace with ScriptYouTubePlayer (https://scripts.nuxt.com/) -->
               <BaseButton
                 to="https://youtu.be/dQw4w9WgXcQ?si=5APElTfy7hzEvZJk"
                 target="_blank"
@@ -40,7 +43,7 @@ const heroDescription = computed(() => {
                 icon="carbon:play-filled"
                 trailing
               >
-                <span class="hero-section__video-button-text">Watch Video</span>
+                <span class="hero-section__video-button-text">{{ $t('button.watch_video') }}</span>
               </BaseButton>
             </div>
           </template>

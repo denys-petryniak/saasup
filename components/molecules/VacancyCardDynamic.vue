@@ -7,6 +7,8 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -30,12 +32,12 @@ defineProps<Props>()
       {{ blok.description }}
     </p>
     <BaseButton
-      :to="prependLeadingSlash(slug)"
+      :to="localePath(prependLeadingSlash(slug))"
       size="md"
       color="light-bordered"
       class="vacancy-card__button"
     >
-      Apply Job
+      {{ $t('button.apply_job') }}
     </BaseButton>
   </div>
 </template>

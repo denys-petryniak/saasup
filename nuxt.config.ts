@@ -102,8 +102,8 @@ export default defineNuxtConfig({
       {
         provider: 'storyblok',
         storyblok: {
-        // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
-        // opened issue: https://github.com/storyblok/storyblok/issues/580
+          // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
+          // opened issue: https://github.com/storyblok/storyblok/issues/580
           baseURL: 'https://a2.storyblok.com',
         },
         // The screen sizes predefined by `@nuxt/image`:
@@ -132,6 +132,22 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     // https://html-validator.nuxtjs.org/
     '@nuxtjs/html-validator',
+    // https://i18n.nuxtjs.org/
+    [
+      '@nuxtjs/i18n',
+      {
+        baseUrl: 'https://saaasup.vercel.app',
+        strategy: 'prefix_except_default',
+        lazy: true,
+        langDir: 'locales',
+        locales: [
+          { code: 'en', language: 'en-US', name: 'English', file: 'en.yaml' },
+          { code: 'uk', language: 'uk-UA', name: 'Українська', file: 'uk.yaml' },
+        ],
+        defaultLocale: 'en',
+        detectBrowserLanguage: false,
+      },
+    ],
   ],
 
   components: [

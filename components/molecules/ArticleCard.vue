@@ -12,13 +12,16 @@ const articleCardDescription = computed(() => {
   return renderRichText(props.article.card_description)
 })
 
-const { formattedArticleDate } = useArticleDate(props.article.date)
+const { locale } = useI18n()
+const { formattedArticleDate } = useArticleDate(props.article.date, locale.value)
 
 const route = useRoute()
 
 const isCurrentSlug = computed(() => {
   return route.fullPath === prependLeadingSlash(props.article.category.full_slug)
 })
+
+const localePath = useLocalePath()
 </script>
 
 <template>
@@ -70,7 +73,7 @@ const isCurrentSlug = computed(() => {
     </template>
     <template #footer>
       <NuxtLink
-        :to="prependLeadingSlash(slug)"
+        :to="localePath(prependLeadingSlash(slug))"
         class="article-card__link"
       >
         {{ article.card_link_text }}
@@ -80,7 +83,7 @@ const isCurrentSlug = computed(() => {
 </template>
 
 <style scoped lang="scss">
-$card-radius--outer: $rounded--3xl * 2;
+$card-radius--outer: calc($rounded--3xl * 2);
 $card-gap--min: $spacing--2xl;
 $card-gap--max: $spacing--8xl;
 

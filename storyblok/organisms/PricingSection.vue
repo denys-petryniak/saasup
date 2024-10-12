@@ -43,7 +43,7 @@ const sectionDescription = computed(() => {
                 class="payment__image-box"
               >
                 <img
-                  :src="paymentImage.filename"
+                  :src="getStoryblokImageUrl(paymentImage.filename)"
                   :width="480"
                   :height="480"
                   :alt="paymentImage.alt"

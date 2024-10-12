@@ -1,0 +1,35 @@
+# spell-checker: disable
+button:
+  home: Головна
+  submit: Відправити
+  checkout: Оформити замовлення
+  remove: Видалити
+  pricing: Ціни
+  apply_job: Подати заявку
+  view_jobs: Переглянути вакансії
+  get_started: Розпочати
+  watch_video: Переглянути відео
+  add_to_cart: Додати до кошика
+message:
+  submit_loading: Відправляється...
+  submit_success: Дякуємо! Ваша заявка отримана!
+  checkout_disabled: Оформлення замовлення вимкнено на цьому сайті
+  error: Сталася помилка. Спробуйте ще раз.
+  error_dang: Упс
+  not-found: Сторінку не знайдено
+cart:
+  name: Кошик
+  empty: Ваш кошик порожній
+  duration: Тривалість
+  total: Всього
+form:
+  email_placeholder: Введіть свій Email
+  validations:
+    required: Це поле є обов'язковим
+    email: Email має бути валідним
+    minLength: Поле повинно містити мінімум {min} символів
+    maxLength: Поле повинно містити максимум {max} символів
+blog:
+  category: Категорія
+  posted_on: Опубліковано
+  posts_by: Публікації від

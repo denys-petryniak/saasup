@@ -7,10 +7,9 @@ interface Props {
 
 defineProps<Props>()
 
-const vacancyStaticData = {
-  title: 'Can\'t find the position you are looking for?',
-  description: 'Don\'t worry, get in touch with us , we are always looking for great team members to join with us.',
-}
+const { t } = useI18n({
+  useScope: 'local',
+})
 </script>
 
 <template>
@@ -40,7 +39,8 @@ const vacancyStaticData = {
         />
         <VacancyCardStatic
           v-if="blok.orientation === 'horizontal'"
-          :vacancy="vacancyStaticData"
+          :title="t('vacancy.title')"
+          :description="t('vacancy.description')"
         />
       </div>
     </div>
@@ -89,3 +89,14 @@ const vacancyStaticData = {
   }
 }
 </style>
+
+<i18n lang="yaml">
+en:
+  vacancy:
+    title: Can't find the position you are looking for?
+    description: Don't worry, get in touch with us, we are always looking for great team members to join with us.
+uk:
+  vacancy:
+    title: Не можете знайти позицію, яку шукаєте?
+    description: Не хвилюйтеся, зв’яжіться з нами, ми завжди шукаємо чудових членів команди, щоб приєднатися до нас.
+</i18n>
