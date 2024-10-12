@@ -93,7 +93,7 @@ const sectionBackground = computed(() => {
             v-if="status === 'success'"
             class="cta-section__success-message"
           >
-            $t('message.submit_success')
+            {{ $t('message.submit_success') }}
           </div>
           <form
             v-else
@@ -122,7 +122,7 @@ const sectionBackground = computed(() => {
             v-if="status === 'error'"
             class="error-message cta-section__error-message"
           >
-            $t('message.error')
+            {{ $t('message.error') }}
           </p>
         </template>
       </ContentBlock>

@@ -141,8 +141,8 @@ export default defineNuxtConfig({
         lazy: true,
         langDir: 'locales',
         locales: [
-          { code: 'en', language: 'en-US', name: 'English', file: 'en.yml' },
-          { code: 'uk', language: 'uk-UA', name: 'Українська', file: 'uk.yml' },
+          { code: 'en', language: 'en-US', name: 'English', file: 'en.yaml' },
+          { code: 'uk', language: 'uk-UA', name: 'Українська', file: 'uk.yaml' },
         ],
         defaultLocale: 'en',
         detectBrowserLanguage: false,
