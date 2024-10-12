@@ -60,6 +60,7 @@ const result = ref<string>('')
 const status = ref<'loading' | 'success' | 'error' | ''>('')
 
 const isContactFormSubmitted = useIsContactFormSubmitted()
+const localePath = useLocalePath()
 
 async function submitForm() {
   const isFormValid = await v$.value.$validate()
@@ -83,7 +84,7 @@ async function submitForm() {
       isContactFormSubmitted.value = true
       status.value = 'success'
 
-      await navigateTo('/success')
+      await navigateTo(localePath('/success'))
     }
     else {
       console.error('Form submission error:', response)
