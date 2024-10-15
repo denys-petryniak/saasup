@@ -21,6 +21,7 @@ const planOptions = ref([
 
 const DISCOUNT_RATE = 0.1 // 10% discount for annual plans
 
+// TODO: move to composables
 const priceByDuration = computed(() => {
   const basePrice = Number(props.price)
 

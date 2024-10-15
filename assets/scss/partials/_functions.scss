@@ -117,9 +117,8 @@ $layer-stack: (modal, header);
   // innerRadius = outerRadius - gap
   $inner-border-radius: clamped(
     $min-size: $radius--outer - $gap--min,
-    $max-size: $radius--outer - $gap--max
+    $max-size: $radius--outer - $gap--max,
   );
 
   @return $inner-border-radius;
 }
-
