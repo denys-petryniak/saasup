@@ -43,7 +43,7 @@ const cardLinkColor = computed(() => {
         class="contact-card__icon-box"
       >
         <img
-          :src="blok.icon.filename"
+          :src="getStoryblokImageUrl(blok.icon.filename)"
           :width="50"
           :height="50"
           alt=""

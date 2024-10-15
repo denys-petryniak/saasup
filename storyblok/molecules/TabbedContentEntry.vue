@@ -24,7 +24,7 @@ const localePath = useLocalePath()
         <div class="tabbed-content-entry__heading-box">
           <img
             v-if="blok.icon?.filename"
-            :src="blok.icon.filename"
+            :src="getStoryblokImageUrl(blok.icon.filename)"
             :width="116"
             :height="116"
             alt=""

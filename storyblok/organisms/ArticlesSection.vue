@@ -28,7 +28,7 @@ defineProps<Props>()
       <ArticleCard
         v-for="article in blok.articles"
         :key="article.uuid"
-        :article="article.content"
+        :blok="article.content"
         :slug="article.full_slug"
       />
     </GridBox>
