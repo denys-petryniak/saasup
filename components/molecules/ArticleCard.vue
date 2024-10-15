@@ -2,23 +2,23 @@
 import type { ArticleStoryblokWithRelations } from '~/types'
 
 interface Props {
-  article: ArticleStoryblokWithRelations
+  blok: ArticleStoryblokWithRelations
   slug: string
 }
 
 const props = defineProps<Props>()
 
 const articleCardDescription = computed(() => {
-  return renderRichText(props.article.card_description)
+  return renderRichText(props.blok.card_description)
 })
 
 const { localeProperties } = useI18n()
-const { formattedArticleDate } = useArticleDate(props.article.date, localeProperties.value.language)
+const { formattedArticleDate } = useArticleDate(props.blok.date, localeProperties.value.language)
 
 const route = useRoute()
 
 const isCurrentSlug = computed(() => {
-  return route.fullPath === prependLeadingSlash(props.article.category.full_slug)
+  return route.fullPath === prependLeadingSlash(props.blok.category.full_slug)
 })
 
 const localePath = useLocalePath()
@@ -26,32 +26,32 @@ const localePath = useLocalePath()
 
 <template>
   <BaseCard
-    v-editable="article"
+    v-editable="blok"
     class="article-card"
   >
     <template #header>
       <div
-        v-if="article.card_image?.filename"
+        v-if="blok.card_image?.filename"
         class="article-card__image-box"
       >
         <NuxtImg
-          :src="article.card_image.filename"
+          :src="blok.card_image.filename"
           :width="1194"
           :height="676"
-          :alt="article.card_image.alt"
+          :alt="blok.card_image.alt"
           sizes="100vw md:50vw"
           loading="lazy"
           class="article-card__image"
         />
         <BaseButton
-          v-if="article.category"
-          :to="prependLeadingSlash(article.category.full_slug)"
+          v-if="blok.category"
+          :to="prependLeadingSlash(blok.category.full_slug)"
           :disabled="isCurrentSlug || undefined"
           size="sm"
           color="light-branded"
           class="article-card__button"
         >
-          {{ article.category.content?.heading }}
+          {{ blok.category.content?.heading }}
         </BaseButton>
       </div>
     </template>
@@ -60,11 +60,11 @@ const localePath = useLocalePath()
         {{ formattedArticleDate }}
       </p>
       <DynamicTitle
-        v-if="article.card_heading"
-        :as="article.card_heading_level"
+        v-if="blok.card_heading"
+        :as="blok.card_heading_level"
         class="article-card__heading"
       >
-        {{ article.card_heading }}
+        {{ blok.card_heading }}
       </DynamicTitle>
       <div
         class="article-card__description"
@@ -76,7 +76,7 @@ const localePath = useLocalePath()
         :to="localePath(prependLeadingSlash(slug))"
         class="article-card__link"
       >
-        {{ article.card_link_text }}
+        {{ blok.card_link_text }}
       </NuxtLink>
     </template>
   </BaseCard>

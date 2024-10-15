@@ -7,9 +7,9 @@ interface Props {
 
 defineProps<Props>()
 
-const { pricingPlans, fetchPricingPlans } = useFetchPricingPlans()
+const { fetchPricingPlans } = useFetchPricingPlans()
 
-await fetchPricingPlans()
+const { pricingPlans } = await fetchPricingPlans()
 </script>
 
 <template>

@@ -34,23 +34,26 @@ const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
 const asyncKey = `page-${getSlug}-${locale.value}-${storyVersion}`
 
-const { data: story } = await useAsyncData(asyncKey, async () => {
+const { data: story } = await useAsyncData(
+  asyncKey,
+  async () => {
   // TODO: use getCachedData
   // TODO: use destructured from useAsyncData error object instead of try/catch to show 404 (?)
-  try {
-    const { data }: { data: StoryData } = await useStoryblokApi().get(apiEndpoint, {
-      version: storyVersion,
-      language: locale.value,
-      resolve_relations: resolveRelations,
-      resolve_links: resolveLinks,
-    })
+    try {
+      const { data }: { data: StoryData } = await useStoryblokApi().get(apiEndpoint, {
+        version: storyVersion,
+        language: locale.value,
+        resolve_relations: resolveRelations,
+        resolve_links: resolveLinks,
+      })
 
-    return data.story
-  }
-  catch (error) {
-    console.error('An error occurred while fetching the story:', error)
-  }
-})
+      return data.story
+    }
+    catch (error) {
+      console.error('An error occurred while fetching the story:', error)
+    }
+  },
+)
 
 // TODO: use translation here
 if (!isPreview && !story.value)

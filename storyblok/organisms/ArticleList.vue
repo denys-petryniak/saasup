@@ -35,9 +35,9 @@ const filterQuery = computed(() => {
   return {}
 })
 
-const { articles, fetchArticles } = useFetchArticles(filterQuery.value)
+const { fetchArticles } = useFetchArticles(filterQuery.value)
 
-await fetchArticles()
+const { articles } = await fetchArticles()
 </script>
 
 <template>
@@ -52,7 +52,7 @@ await fetchArticles()
       <ArticleCard
         v-for="article in articles"
         :key="article.uuid"
-        :article="article.content"
+        :blok="article.content"
         :slug="article.full_slug"
       />
     </GridBox>
