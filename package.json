@@ -30,7 +30,7 @@
     "@iconify-json/material-symbols": "^1.2.2",
     "@iconify-json/raphael": "^1.2.0",
     "@nuxt/devtools": "^1.5.2",
-    "@nuxt/eslint": "^0.5.7",
+    "@nuxt/eslint": "^0.6.0",
     "@nuxt/icon": "^1.5.3",
     "@nuxt/image": "1.8.1",
     "@nuxtjs/google-fonts": "^3.2.0",
