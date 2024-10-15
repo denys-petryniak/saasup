@@ -75,6 +75,7 @@ const { price, features } = inject(pricingPlanGeneralDataInjectionKey) as Pricin
   &__feature {
     display: flex;
     align-items: center;
+    text-align: left;
 
     &:not(:first-child) {
       margin-top: $spacing--2xl;
@@ -82,6 +83,7 @@ const { price, features } = inject(pricingPlanGeneralDataInjectionKey) as Pricin
   }
 
   &__feature-icon {
+    flex-shrink: 0;
     margin-right: $spacing--md;
     color: $icon-color--enabled;
   }

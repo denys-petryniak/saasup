@@ -2,10 +2,6 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { PageStoryblok } from '~/component-types-sb'
 
-interface StoryData {
-  story: StoryblokStory<PageStoryblok>
-}
-
 const { siteUrl } = useAppConfig()
 
 useHead({
@@ -31,16 +27,16 @@ const route = useRoute()
 
 const { slug } = route.params
 const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
+
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
 const asyncKey = `page-${getSlug}-${locale.value}-${storyVersion}`
 
-const { data: story } = await useAsyncData(
+const { data: story } = await useAsyncData<StoryblokStory<PageStoryblok>>(
   asyncKey,
   async () => {
-  // TODO: use getCachedData
-  // TODO: use destructured from useAsyncData error object instead of try/catch to show 404 (?)
+    // TODO: use getCachedData
     try {
-      const { data }: { data: StoryData } = await useStoryblokApi().get(apiEndpoint, {
+      const { data } = await useStoryblokApi().get(apiEndpoint, {
         version: storyVersion,
         language: locale.value,
         resolve_relations: resolveRelations,
@@ -55,9 +51,13 @@ const { data: story } = await useAsyncData(
   },
 )
 
-// TODO: use translation here
-if (!isPreview && !story.value)
-  showError({ statusCode: 404, statusMessage: 'Page Not Found' })
+if (!story.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found',
+    fatal: true, // important, it only works when setting this property
+  })
+}
 
 function initStoryblokBridge() {
   // TODO: improve types (evStory: ISbStoryData<any>)
@@ -80,8 +80,8 @@ if (story.value) {
   provide(storyInjectionKey, story.value.uuid)
 }
 
-// TODO: wrap in LocalePath
-const isSuccessPage = route.path === '/success'
+const localePath = useLocalePath()
+const isSuccessPage = route.path === localePath('/success')
 
 if (isSuccessPage) {
   definePageMeta({

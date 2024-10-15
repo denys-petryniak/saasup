@@ -17,15 +17,15 @@ function handleError() {
           404
         </h1>
         <h2 class="error__subtitle">
-          $t('message.not-found')
+          {{ $t('message.not-found') }}
         </h2>
       </div>
       <div v-else>
         <h1 class="error__title">
-          $t('message.error_dang')
+          {{ $t('message.error_dang') }}
         </h1>
         <h2 class="error__subtitle">
-          $t('message.error')
+          {{ $t('message.error') }}
         </h2>
       </div>
       <div>
@@ -33,7 +33,7 @@ function handleError() {
           {{ error.statusMessage }}
         </p>
         <BaseButton class="error__button" @click="handleError">
-          $t('button.home')
+          {{ $t('button.home') }}
         </BaseButton>
       </div>
     </BaseSection>

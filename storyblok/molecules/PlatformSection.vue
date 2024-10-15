@@ -29,7 +29,7 @@ const costBlockDescription = computed(() => renderRichText(props.blok.cost_descr
           <div class="cost platform-section__cost">
             <img
               v-if="blok.cost_image?.filename"
-              :src="blok.cost_image.filename"
+              :src="getStoryblokImageUrl(blok.cost_image.filename)"
               :width="96"
               :height="103"
               :alt="blok.cost_image.alt"
