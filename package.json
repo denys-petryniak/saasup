@@ -36,6 +36,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/i18n": "^8.5.5",
+    "@nuxtjs/seo": "2.0.0-rc.23",
     "@types/body-scroll-lock": "^3.1.2",
     "@types/node": "^22.7.4",
     "@vueuse/nuxt": "^11.1.0",
