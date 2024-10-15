@@ -26,14 +26,15 @@ const resolveLinks = 'url'
 const storyVersion = getStoryVersion()
 const isPreview = storyVersion === 'draft'
 
+const { locale } = useI18n()
 const route = useRoute()
-const slug = route.params.slug
+
+const { slug } = route.params
 const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
+const asyncKey = `page-${getSlug}-${locale.value}-${storyVersion}`
 
-const { locale } = useI18n()
-
-const { data: story } = await useAsyncData(getSlug, async () => {
+const { data: story } = await useAsyncData(asyncKey, async () => {
   // TODO: use getCachedData
   // TODO: use destructured from useAsyncData error object instead of try/catch to show 404 (?)
   try {
@@ -51,6 +52,7 @@ const { data: story } = await useAsyncData(getSlug, async () => {
   }
 })
 
+// TODO: use translation here
 if (!isPreview && !story.value)
   showError({ statusCode: 404, statusMessage: 'Page Not Found' })
 
@@ -75,6 +77,7 @@ if (story.value) {
   provide(storyInjectionKey, story.value.uuid)
 }
 
+// TODO: wrap in LocalePath
 const isSuccessPage = route.path === '/success'
 
 if (isSuccessPage) {
@@ -85,10 +88,5 @@ if (isSuccessPage) {
 </script>
 
 <template>
-  <div>
-    <StoryblokComponent
-      v-if="story"
-      :blok="story.content"
-    />
-  </div>
+  <StoryblokComponent v-if="story" :blok="story.content" />
 </template>

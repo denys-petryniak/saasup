@@ -1,4 +1,4 @@
-export function useArticleDate(date: string | Ref<string> | Date, locale: string | Ref<string> = 'en') {
+export function useArticleDate(date: string | Ref<string> | Date, locale: string | Ref<string> = 'en-US') {
   const resolvedLocale = toValue(locale)
 
   const dateFormatter = computed(() => {

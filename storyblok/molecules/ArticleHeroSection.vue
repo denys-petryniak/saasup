@@ -8,9 +8,9 @@ interface Props {
 defineProps<Props>()
 
 const { date, authors, category } = inject(blogArticleGeneralDataInjectionKey) as BlogArticleGeneralData
-const { locale } = useI18n()
 
-const { formattedArticleDate } = useArticleDate(date || new Date(), locale.value)
+const { localeProperties } = useI18n()
+const { formattedArticleDate } = useArticleDate(date || new Date(), localeProperties.value.language)
 </script>
 
 <template>

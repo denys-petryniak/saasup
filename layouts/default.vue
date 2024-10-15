@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { config, fetchConfig } = useFetchConfig()
+const { fetchConfig } = useFetchConfig()
 
-watchEffect(fetchConfig)
+const { config } = await fetchConfig()
 
 const route = useRoute()
 const localePath = useLocalePath()
