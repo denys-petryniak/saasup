@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://saaasup.vercel.app',
     name: 'SaaSup',
-    description: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard.',
+    description: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard',
   },
 
   schemaOrg: {

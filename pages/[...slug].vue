@@ -2,10 +2,14 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { PageStoryblok } from '~/component-types-sb'
 
-const { siteUrl } = useAppConfig()
-
-useHead({
-  link: [{ rel: 'canonical', href: siteUrl }],
+defineOgImageComponent('NuxtSeo', {
+  colorMode: 'light',
+  title: 'SaaSup 🦾',
+  description: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard',
+  icon: 'material-symbols:auto-awesome-outline-rounded',
+  siteName: 'SaaSup',
+  siteLogo: 'https://a2.storyblok.com/f/245408/173x41/e38cdc564d/saasup-logo.svg',
+  theme: '#5236ff',
 })
 
 const resolveRelations = [
@@ -25,7 +29,7 @@ const isPreview = storyVersion === 'draft'
 const { locale } = useI18n()
 const route = useRoute()
 
-const { slug } = route.params
+const { slug } = route.params as { slug?: string | string[] }
 const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
