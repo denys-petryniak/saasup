@@ -1,3 +1,6 @@
+@use 'sass:meta';
+@use 'sass:math';
+@use 'sass:map';
 @use './functions' as fn;
 @use './breakpoints' as bp;
 
@@ -12,7 +15,7 @@ $breakpoints: (
 );
 
 @mixin breakpoint($media, $max: false) {
-  @if not map-has-key($breakpoints, $media) {
+  @if not map.has-key($breakpoints, $media) {
     @warn "Warning: `#{$media}` is not a valid breakpoint name.";
   }
 
@@ -39,7 +42,7 @@ $breakpoints: (
   font-size: fn.clamped($min-size: $min-font-size, $max-size: $max-font-size);
 
   @if $min-line-height and $max-line-height {
-    @if unitless($min-line-height) and unitless($max-line-height) {
+    @if math.is-unitless($min-line-height) and math.is-unitless($max-line-height) {
       // Calculate the clamped line height
       line-height: fn.clamped(
         $min-size: $min-font-size * $min-line-height,

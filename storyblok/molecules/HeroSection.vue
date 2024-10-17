@@ -61,6 +61,8 @@ const localePath = useLocalePath()
           :height="1168"
           :alt="blok.image.alt"
           sizes="100vw lg:50vw"
+          loading="eager"
+          preload
           class="hero-section__image"
         />
       </div>

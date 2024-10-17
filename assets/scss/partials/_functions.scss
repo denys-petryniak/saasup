@@ -1,4 +1,6 @@
 @use 'sass:math';
+@use 'sass:meta';
+@use 'sass:list';
 
 /// Converts PX to REM
 /// @access public
@@ -7,8 +9,8 @@
 /// @example font-size: toRem(24px);
 /// @returns font-size: 1.5rem;
 @function toRem($size) {
-  @if (type-of($size) != 'number') or (unit($size) != 'px') {
-    @warn "Unsupported unit: #{unit($size)}. Please specify a value in 'px'.";
+  @if (meta.type-of($size) != 'number') or (math.unit($size) != 'px') {
+    @warn "Unsupported unit: #{math.unit($size)}. Please specify a value in 'px'.";
     @return null;
   }
 
@@ -23,8 +25,8 @@
 /// @example font-size: toEm(24px);
 /// @returns font-size: 1.5em;
 @function toEm($size) {
-  @if (type-of($size) != 'number') or (unit($size) != 'px') {
-    @warn "Unsupported unit: #{unit($size)}. Please specify a value in 'px'.";
+  @if (meta.type-of($size) != 'number') or (math.unit($size) != 'px') {
+    @warn "Unsupported unit: #{math.unit($size)}. Please specify a value in 'px'.";
     @return null;
   }
 
@@ -65,7 +67,7 @@ $default-max-bp: toRem(1440px);
   $inputs: ($min-size, $max-size, $min-breakpoint, $max-breakpoint);
 
   @each $input in $inputs {
-    @if unit($input) != 'rem' {
+    @if math.unit($input) != 'rem' {
       @error "Invalid unit! Please make sure all inputs use 'rem' as the unit.";
     }
   }
@@ -92,11 +94,11 @@ $layer-stack: (modal, header);
 /// @returns {number} - The z-index value for the layer, or null if the layer is not found.
 /// @throws {Warning} - Prints a warning if the given layer is not found in the list of layers.
 @function stacking($layer) {
-  $layer-index: index($layer-stack, $layer);
+  $layer-index: list.index($layer-stack, $layer);
 
   @if $layer-index {
     // Calculate the z-index based on the layer's position in the stack
-    @return length($layer-stack) - $layer-index + 1;
+    @return list.length($layer-stack) - $layer-index + 1;
   } @else {
     // Warn if the layer is not found and return null
     @warn 'Invalid layer: "#{$layer}". Valid layers are: #{$layer-stack}.';
