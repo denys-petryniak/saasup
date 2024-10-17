@@ -57,7 +57,7 @@ function isPricingPlanButtons(value: string): value is PricingPlanButtons {
         <table class="table pricing-compare-section__table">
           <thead v-if="blok.table.thead">
             <tr>
-              <th v-for="cell in blok.table.thead" :key="cell._uid">
+              <th v-for="cell in blok.table.thead" :key="cell._uid" scope="col">
                 {{ cell.value }}
               </th>
             </tr>
