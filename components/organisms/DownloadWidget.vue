@@ -16,9 +16,9 @@ defineProps<Props>()
     <p class="widget__label">
       {{ label }}
     </p>
-    <h4 class="widget__title">
+    <p class="title widget__title">
       {{ title }}
-    </h4>
+    </p>
     <p class="widget__description">
       {{ description }}
     </p>
@@ -78,6 +78,15 @@ $widget-padding-x: clamped(
     font-size: $text--lg;
     font-weight: $font--bold;
     color: $primary-color--light;
+  }
+
+  &__title {
+    @include fluid-typography(
+      $min-font-size: $text--2xl,
+      $max-font-size: $text--3xl,
+      $min-line-height: $leading--condensed,
+      $max-line-height: $leading--snug
+    );
   }
 
   &__title,

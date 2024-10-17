@@ -51,9 +51,9 @@ const localePath = useLocalePath()
           </div>
         </div>
         <nav class="navigation footer__section" aria-label="Primary">
-          <h4 class="navigation__headline">
+          <p class="title navigation__headline">
             {{ config.footer_nav_headline }}
-          </h4>
+          </p>
           <ul
             v-if="config.footer_nav?.length"
             class="navigation__menu"
@@ -154,6 +154,12 @@ const localePath = useLocalePath()
     position: relative;
     margin-top: 0;
     padding-bottom: $spacing--2xl;
+    @include fluid-typography(
+      $min-font-size: $text--2xl,
+      $max-font-size: $text--3xl,
+      $min-line-height: $leading--condensed,
+      $max-line-height: $leading--snug
+    );
 
     &::after {
       content: '';
