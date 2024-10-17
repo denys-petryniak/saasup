@@ -63,7 +63,10 @@ const durationName = computed(() => {
 })
 
 const route = useRoute()
-const planName = computed(() => route.params.slug?.[1])
+const planName = computed(() => {
+  const params = route.params as { slug?: string | string[] }
+  return params.slug?.[1]
+})
 
 function handleAddToCart() {
   if (!selectedPlanDuration.value) {
@@ -102,7 +105,7 @@ function handleAddToCart() {
 
 <template>
   <div class="plan-duration-widget">
-    <p class="plan-duration-widget__title">
+    <p id="plan-duration-widget-title" class="plan-duration-widget__title">
       {{ t('title') }}
     </p>
     <p class="plan-duration-widget__description">
@@ -119,6 +122,7 @@ function handleAddToCart() {
       v-model="selectedPlanDuration"
       name="plan-duration-widget"
       class="plan-duration-widget__select"
+      aria-labelledby="plan-duration-widget-title"
     >
       <option disabled value="">
         {{ t('duration.select') }}

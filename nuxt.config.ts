@@ -7,46 +7,35 @@ export default defineNuxtConfig({
   // Enable SPA mode for preview env or SSR (SSG) mode for production env
   ssr: IS_PROD,
 
-  app: {
-    head: {
-      htmlAttrs: {
-        lang: 'en',
-      },
-      title: 'SaaSup',
-      meta: [
-        { name: 'description', content: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard.' },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'SaaSup' },
-        { property: 'og:url', content: 'https://saaasup.vercel.app' },
-        { property: 'og:image', content: 'https://saaasup.vercel.app/images/saasup-preview.png' },
-        { property: 'og:description', content: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard.' },
-        { property: 'og:site_name', content: 'SaaSup' },
-        { name: 'msapplication-TileColor', content: '#da532c' },
-        { name: 'theme-color', content: '#ffffff' },
-      ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        {
-          rel: 'apple-touch-icon',
-          sizes: '114x114',
-          href: '/apple-touch-icon.png',
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '32x32',
-          href: '/favicon-32x32.png',
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '16x16',
-          href: '/favicon-16x16.png',
-        },
-        { rel: 'manifest', href: '/site.webmanifest' },
-        { rel: 'mask-icon', color: '#5bbad5', href: '/safari-pinned-tab.svg' },
-      ],
-    },
+  site: {
+    url: 'https://saaasup.vercel.app',
+    name: 'SaaSup',
+    description: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard',
+  },
+
+  schemaOrg: {
+    enabled: IS_PROD,
+    identity: 'Organization',
+  },
+
+  sitemap: {
+    enabled: IS_PROD,
+  },
+
+  robots: {
+    enabled: IS_PROD,
+  },
+
+  ogImage: {
+    enabled: IS_PROD,
+  },
+
+  linkChecker: {
+    enabled: IS_PROD,
+  },
+
+  seoExperiments: {
+    enabled: IS_PROD,
   },
 
   vite: {
@@ -82,28 +71,18 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    // https://github.com/storyblok/storyblok-nuxt
+    '@nuxt/eslint', // https://eslint.nuxt.com/
+    '@nuxt/icon', // https://github.com/nuxt-modules/icon
+    '@nuxtjs/html-validator', // https://html-validator.nuxtjs.org/
+    '@vueuse/nuxt', // https://vueuse.org/nuxt/README.html#vueuse-nuxt
+    'vue3-carousel-nuxt', // https://github.com/gaetansenn/vue3-carousel-nuxt
     [
-      '@storyblok/nuxt',
-      {
-        accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
-        apiOptions: {
-          region: 'eu',
-        },
-      },
-    ],
-    // https://www.npmjs.com/package/@vueuse/nuxt
-    '@vueuse/nuxt',
-    // https://github.com/nuxt-modules/icon
-    '@nuxt/icon',
-    // https://github.com/nuxt/image
-    [
-      '@nuxt/image',
+      '@nuxt/image', // https://github.com/nuxt/image
       {
         provider: 'storyblok',
         storyblok: {
-          // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
-          // opened issue: https://github.com/storyblok/storyblok/issues/580
+        // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
+        // opened issue: https://github.com/storyblok/storyblok/issues/580
           baseURL: 'https://a2.storyblok.com',
         },
         // The screen sizes predefined by `@nuxt/image`:
@@ -117,24 +96,25 @@ export default defineNuxtConfig({
         },
       },
     ],
-    // https://www.npmjs.com/package/@nuxtjs/google-fonts,
     [
-      '@nuxtjs/google-fonts',
+      '@nuxtjs/google-fonts', // https://www.npmjs.com/package/@nuxtjs/google-fonts,
       {
         families: {
           Nunito: [300, 400, 600, 700, 800],
         },
       },
     ],
-    // https://github.com/gaetansenn/vue3-carousel-nuxt
-    'vue3-carousel-nuxt',
-    // https://eslint.nuxt.com/
-    '@nuxt/eslint',
-    // https://html-validator.nuxtjs.org/
-    '@nuxtjs/html-validator',
-    // https://i18n.nuxtjs.org/
     [
-      '@nuxtjs/i18n',
+      '@storyblok/nuxt', // https://github.com/storyblok/storyblok-nuxt
+      {
+        accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
+        apiOptions: {
+          region: 'eu',
+        },
+      },
+    ],
+    [
+      '@nuxtjs/i18n', // https://i18n.nuxtjs.org/
       {
         baseUrl: 'https://saaasup.vercel.app',
         strategy: 'prefix_except_default',
@@ -146,6 +126,12 @@ export default defineNuxtConfig({
         ],
         defaultLocale: 'en',
         detectBrowserLanguage: false,
+      },
+    ],
+    [
+      '@nuxtjs/seo', // https://nuxtseo.com/
+      {
+        redirectToCanonicalSiteUrl: true,
       },
     ],
   ],
@@ -163,7 +149,9 @@ export default defineNuxtConfig({
     shim: false,
   },
 
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+  },
 
   eslint: {
     config: {

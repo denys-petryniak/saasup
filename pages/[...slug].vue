@@ -2,12 +2,6 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { PageStoryblok } from '~/component-types-sb'
 
-const { siteUrl } = useAppConfig()
-
-useHead({
-  link: [{ rel: 'canonical', href: siteUrl }],
-})
-
 const resolveRelations = [
   'article.category',
   'article.authors',
@@ -25,7 +19,7 @@ const isPreview = storyVersion === 'draft'
 const { locale } = useI18n()
 const route = useRoute()
 
-const { slug } = route.params
+const { slug } = route.params as { slug?: string | string[] }
 const getSlug = Array.isArray(slug) && slug.length > 0 ? slug.join('/') : 'home'
 
 const apiEndpoint = `cdn/stories/${removeTrailingSlash(getSlug)}`
@@ -83,11 +77,28 @@ if (story.value) {
 const localePath = useLocalePath()
 const isSuccessPage = route.path === localePath('/success')
 
+// FIXME: move definePageMeta to the top level
 if (isSuccessPage) {
   definePageMeta({
     middleware: 'check-contact-form-submission',
   })
 }
+
+const { siteName, siteLogo, primaryLightColor } = useAppConfig()
+const { t } = useI18n()
+const ogImageTemplateName = 'NuxtSeo'
+
+// Using static data due to limitations of the Storyblok free plan,
+// as the SEO plugin is not available on the free tier.
+defineOgImageComponent(ogImageTemplateName, {
+  siteName,
+  siteLogo,
+  title: 'SaaSup 🦾',
+  description: t('seo.description'),
+  theme: primaryLightColor,
+  colorMode: 'light',
+  icon: 'material-symbols:auto-awesome-outline-rounded',
+})
 </script>
 
 <template>

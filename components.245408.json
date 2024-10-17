@@ -2700,7 +2700,7 @@
       "name": "page",
       "display_name": null,
       "created_at": "2023-08-06T15:40:57.955Z",
-      "updated_at": "2024-06-01T12:40:24.282Z",
+      "updated_at": "2024-10-17T09:03:36.791Z",
       "id": 4385624,
       "schema": {
         "body": {
@@ -2713,7 +2713,8 @@
             "ccb5e043-7676-4f77-9848-767eab140da0",
             "3e8babdb-3744-4f1a-8072-3f6e675524d0",
             "bf585e57-3326-4449-89ae-951ca6fe0c58"
-          ]
+          ],
+          "pos": 1
         }
       },
       "image": null,
