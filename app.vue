@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const { siteTitle } = useAppConfig()
+const { siteName } = useAppConfig()
 
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - ${siteTitle}` : siteTitle
+    return titleChunk ? `${titleChunk} - ${siteName}` : siteName
   },
 })
 </script>

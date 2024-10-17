@@ -2,16 +2,6 @@
 import type { StoryblokStory } from 'storyblok-generate-ts'
 import type { PageStoryblok } from '~/component-types-sb'
 
-defineOgImageComponent('NuxtSeo', {
-  colorMode: 'light',
-  title: 'SaaSup 🦾',
-  description: 'Saasup introduces a cost-effective service dashboard, organized services in a single inbox, and efficient business process management through a unified dashboard',
-  icon: 'material-symbols:auto-awesome-outline-rounded',
-  siteName: 'SaaSup',
-  siteLogo: 'https://a2.storyblok.com/f/245408/173x41/e38cdc564d/saasup-logo.svg',
-  theme: '#5236ff',
-})
-
 const resolveRelations = [
   'article.category',
   'article.authors',
@@ -87,11 +77,28 @@ if (story.value) {
 const localePath = useLocalePath()
 const isSuccessPage = route.path === localePath('/success')
 
+// FIXME: move definePageMeta to the top level
 if (isSuccessPage) {
   definePageMeta({
     middleware: 'check-contact-form-submission',
   })
 }
+
+const { siteName, siteLogo, primaryLightColor } = useAppConfig()
+const { t } = useI18n()
+const ogImageTemplateName = 'NuxtSeo'
+
+// Using static data due to limitations of the Storyblok free plan,
+// as the SEO plugin is not available on the free tier.
+defineOgImageComponent(ogImageTemplateName, {
+  siteName,
+  siteLogo,
+  title: 'SaaSup 🦾',
+  description: t('seo.description'),
+  theme: primaryLightColor,
+  colorMode: 'light',
+  icon: 'material-symbols:auto-awesome-outline-rounded',
+})
 </script>
 
 <template>
