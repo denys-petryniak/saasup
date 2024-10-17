@@ -14,7 +14,28 @@ export default defineNuxtConfig({
   },
 
   schemaOrg: {
+    enabled: IS_PROD,
     identity: 'Organization',
+  },
+
+  sitemap: {
+    enabled: IS_PROD,
+  },
+
+  robots: {
+    enabled: IS_PROD,
+  },
+
+  ogImage: {
+    enabled: IS_PROD,
+  },
+
+  linkChecker: {
+    enabled: IS_PROD,
+  },
+
+  seoExperiments: {
+    enabled: IS_PROD,
   },
 
   vite: {

@@ -17,6 +17,7 @@ const localePath = useLocalePath()
     class="pricing-plan"
   >
     <div class="pricing-plan__head">
+      <!-- TODO: improve flexibility of heading level -->
       <DynamicTitle
         v-if="blok.card_heading"
         :as="blok.card_heading_level"
