@@ -160,8 +160,8 @@ export default defineNuxtConfig({
   },
 
   experimental: {
-    // Fully typed routing 💪
-    typedPages: true,
+    typedPages: true, // // Fully typed routing 💪
+    sharedPrerenderData: true, // Speeding up build time
   },
 
   compatibilityDate: '2024-07-03',
