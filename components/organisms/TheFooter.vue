@@ -5,7 +5,7 @@ interface Props {
   config: ConfigStoryblok
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 function getSocialLinkLogo(label: string | undefined): string {
   switch (label) {
@@ -21,6 +21,10 @@ function getSocialLinkLogo(label: string | undefined): string {
       return 'carbon:logo-facebook'
   }
 }
+
+const copyright = computed(() => {
+  return renderRichText(props.config.footer_copyright_text)
+})
 
 const localePath = useLocalePath()
 </script>
@@ -82,10 +86,8 @@ const localePath = useLocalePath()
         </div>
       </div>
       <LineDivider />
-      <div class="footer__copyright">
-        <p class="footer__copyright-text">
-          {{ config.footer_copyright_text }}
-        </p>
+      <div class="footer__info">
+        <div v-if="config.footer_copyright_text" v-html="copyright" />
         <div
           v-if="config.footer_social_links?.length"
           class="footer__social-links"
@@ -124,13 +126,9 @@ const localePath = useLocalePath()
     margin-top: $spacing--4xl;
   }
 
-  &__copyright {
+  &__info {
     padding: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl) 0;
     text-align: center;
-  }
-
-  &__copyright-text {
-    margin: 0;
   }
 
   &__social-links {
@@ -211,7 +209,7 @@ const localePath = useLocalePath()
       grid-template-columns: 0.8fr 0.5fr 1fr;
     }
 
-    &__copyright {
+    &__info {
       display: flex;
       justify-content: space-between;
       align-items: center;

@@ -2,10 +2,10 @@
 import type { ButtonStoryblok } from '~/component-types-sb'
 
 interface Props {
-  label: string | null
-  title: string | null
-  description: string | null
-  buttons: ButtonStoryblok[] | null
+  label: string
+  title: string
+  description: string
+  buttons: ButtonStoryblok[]
 }
 
 defineProps<Props>()
@@ -22,7 +22,6 @@ defineProps<Props>()
     <p class="widget__description">
       {{ description }}
     </p>
-    <!-- TODO: replace hardcoded buttons data with dynamic from storyblok -->
     <div class="widget__buttons">
       <BaseButton
         color="dark-branded"

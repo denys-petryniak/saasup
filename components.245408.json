@@ -570,7 +570,7 @@
       "name": "author-entry",
       "display_name": null,
       "created_at": "2023-08-15T17:38:49.927Z",
-      "updated_at": "2024-10-18T14:25:27.212Z",
+      "updated_at": "2024-10-18T14:39:28.803Z",
       "id": 4426269,
       "schema": {
         "photo": {
@@ -597,13 +597,16 @@
           "type": "number",
           "min_value": 1,
           "max_value": 5,
-          "pos": 3
+          "pos": 3,
+          "steps": 1
         },
         "star_rating": {
           "type": "custom",
           "pos": 4,
           "field_type": "storyblok-star-rating-v2",
-          "options": []
+          "options": [],
+          "description": "Doesn’t work properly",
+          "tooltip": true
         }
       },
       "image": null,
@@ -869,7 +872,7 @@
       "name": "config",
       "display_name": "Header & Footer",
       "created_at": "2023-08-25T15:38:51.769Z",
-      "updated_at": "2024-10-08T18:12:03.899Z",
+      "updated_at": "2024-10-18T17:58:19.950Z",
       "id": 4478042,
       "schema": {
         "header_logo": {
@@ -1036,9 +1039,10 @@
           "maximum": 2
         },
         "footer_copyright_text": {
-          "type": "text",
+          "type": "richtext",
           "required": true,
-          "pos": 19
+          "pos": 19,
+          "allow_target_blank": true
         },
         "tab-2bd30c4b-5e8c-4a0d-95d3-a9e0d5b83f67": {
           "display_name": "Header",

@@ -288,7 +288,7 @@ export interface ConfigStoryblok {
   download_widget_title: string;
   download_widget_description: string;
   download_widget_buttons: ButtonStoryblok[];
-  footer_copyright_text: string;
+  footer_copyright_text: RichtextStoryblok;
   _uid: string;
   component: "config";
   [k: string]: any;
