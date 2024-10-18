@@ -71,9 +71,8 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/fonts', // https://fonts.nuxt.com
-    '@nuxt/icon', // https://github.com/nuxt-modules/icon
     '@nuxt/eslint', // https://eslint.nuxt.com/
+    '@nuxt/icon', // https://github.com/nuxt-modules/icon
     '@nuxtjs/html-validator', // https://html-validator.nuxtjs.org/
     '@vueuse/nuxt', // https://vueuse.org/nuxt/README.html#vueuse-nuxt
     'vue3-carousel-nuxt', // https://github.com/gaetansenn/vue3-carousel-nuxt
@@ -82,8 +81,8 @@ export default defineNuxtConfig({
       {
         provider: 'storyblok',
         storyblok: {
-          // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
-          // opened issue: https://github.com/storyblok/storyblok/issues/580
+        // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
+        // opened issue: https://github.com/storyblok/storyblok/issues/580
           baseURL: 'https://a2.storyblok.com',
         },
         // The screen sizes predefined by `@nuxt/image`:
@@ -94,6 +93,14 @@ export default defineNuxtConfig({
           lg: 1024,
           xl: 1280,
           xxl: 1536,
+        },
+      },
+    ],
+    [
+      '@nuxtjs/google-fonts', // https://www.npmjs.com/package/@nuxtjs/google-fonts,
+      {
+        families: {
+          Nunito: [300, 400, 600, 700, 800],
         },
       },
     ],
