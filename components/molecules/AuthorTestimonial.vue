@@ -5,9 +5,7 @@ interface Props {
   blok: AuthorStoryblok | AuthorEntryStoryblok
 }
 
-const props = defineProps<Props>()
-
-const authorRating = computed(() => Number(props.blok.rating))
+defineProps<Props>()
 </script>
 
 <template>
@@ -32,8 +30,8 @@ const authorRating = computed(() => Number(props.blok.rating))
       {{ blok.role }}
     </p>
     <StarRating
-      v-if="authorRating"
-      :rating="authorRating"
+      v-if="blok.rating"
+      :rating="Number(blok.rating)"
       class="author__rating"
     />
   </div>

@@ -28,7 +28,6 @@ const asyncKey = `page-${getSlug}-${locale.value}-${storyVersion}`
 const { data: story } = await useAsyncData<StoryblokStory<PageStoryblok>>(
   asyncKey,
   async () => {
-    // TODO: use getCachedData
     try {
       const { data } = await useStoryblokApi().get(apiEndpoint, {
         version: storyVersion,
@@ -72,16 +71,6 @@ onMounted(() => {
 
 if (story.value) {
   provide(storyInjectionKey, story.value.uuid)
-}
-
-const localePath = useLocalePath()
-const isSuccessPage = route.path === localePath('/success')
-
-// FIXME: move definePageMeta to the top level
-if (isSuccessPage) {
-  definePageMeta({
-    middleware: 'check-contact-form-submission',
-  })
 }
 
 const { siteName, siteLogo, primaryLightColor } = useAppConfig()

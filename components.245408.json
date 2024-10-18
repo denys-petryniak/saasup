@@ -570,7 +570,7 @@
       "name": "author-entry",
       "display_name": null,
       "created_at": "2023-08-15T17:38:49.927Z",
-      "updated_at": "2024-10-08T22:47:05.564Z",
+      "updated_at": "2024-10-18T14:25:27.212Z",
       "id": 4426269,
       "schema": {
         "photo": {
@@ -598,6 +598,12 @@
           "min_value": 1,
           "max_value": 5,
           "pos": 3
+        },
+        "star_rating": {
+          "type": "custom",
+          "pos": 4,
+          "field_type": "storyblok-star-rating-v2",
+          "options": []
         }
       },
       "image": null,
