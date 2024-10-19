@@ -9,68 +9,126 @@ const localePath = useLocalePath()
 <template>
   <BaseModal
     :visible="visible"
-    class="order-modal plan-duration-widget__order-modal"
+    class="order-modal"
     @close="close"
   >
-    <template #header>
-      <p class="order-modal__title">
-        {{ $t('cart.name') }}
-      </p>
-    </template>
-    <template #default>
-      <template v-if="totalCartItems > 0">
-        <div v-for="cartItem in cartItems" :key="cartItem.id" class="cart-item order-modal__cart-item">
-          <div>
-            <p class="cart-item__name">
-              {{ cartItem.plan.title }}
-            </p>
-            <p class="cart-item__price">
-              ${{ cartItem.price }} USD
-            </p>
-            <p class="cart-item__duration">
-              {{ $t('cart.duration') }}: <span class="cart-item__duration-value">{{ capitalizeFirstChar(cartItem.duration.name) }}</span>
-            </p>
+    <div class="order-modal__container">
+      <div class="order-modal__header">
+        <p class="order-modal__title">
+          {{ $t('cart.name') }}
+        </p>
+        <button
+          class="order-modal__close-button"
+          @click="close"
+        >
+          <Icon
+            name="material-symbols:cancel"
+            class="order-modal__close-icon"
+            size="1.75em"
+          />
+        </button>
+      </div>
+      <div class="order-modal__body">
+        <template v-if="totalCartItems > 0">
+          <div v-for="cartItem in cartItems" :key="cartItem.id" class="cart-item order-modal__cart-item">
+            <div>
+              <p class="cart-item__name">
+                {{ cartItem.plan.title }}
+              </p>
+              <p class="cart-item__price">
+                ${{ cartItem.price }} USD
+              </p>
+              <p class="cart-item__duration">
+                {{ $t('cart.duration') }}: <span class="cart-item__duration-value">{{ capitalizeFirstChar(cartItem.duration.name) }}</span>
+              </p>
+            </div>
+            <BaseButton
+              size="sm"
+              color="light-branded"
+              class="cart-item__remove-button"
+              @click="removeFromCart(cartItem.id)"
+            >
+              {{ $t('button.remove') }}
+            </BaseButton>
           </div>
-          <BaseButton
-            size="md"
-            class="cart-item__remove-button"
-            @click="removeFromCart(cartItem.id)"
-          >
-            {{ $t('button.remove') }}
-          </BaseButton>
-        </div>
-      </template>
-      <template v-else>
-        <div class="order-modal__empty-cart">
-          <p class="order-modal__empty-cart-text">
-            {{ $t('cart.empty') }}
-          </p>
-          <BaseButton
-            :to="localePath('/pricing')"
-            color="dark-branded"
-            @click="close"
-          >
-            {{ $t('button.pricing') }}
-          </BaseButton>
-        </div>
-      </template>
-    </template>
-    <template #footer>
-      <p class="order-modal__total-price">
-        <span class="order-modal__total-price-label">{{ $t('cart.total') }}:</span><span class="order-modal__total-price-value">${{ totalCartPrice }} USD</span>
-      </p>
-      <BaseButton
-        class="order-modal__button"
-        @click="$toast.warn($t('message.checkout_disabled'))"
-      >
-        {{ $t('button.checkout') }}
-      </BaseButton>
-    </template>
+        </template>
+        <template v-else>
+          <div class="order-modal__empty-cart">
+            <p class="order-modal__empty-cart-text">
+              {{ $t('cart.empty') }}
+            </p>
+            <BaseButton
+              :to="localePath('/pricing')"
+              color="dark-branded"
+              @click="close"
+            >
+              {{ $t('button.pricing') }}
+            </BaseButton>
+          </div>
+        </template>
+      </div>
+      <div class="order-modal__footer">
+        <p class="order-modal__total-price">
+          <span class="order-modal__total-price-label">{{ $t('cart.total') }}:</span><span class="order-modal__total-price-value">${{ totalCartPrice }} USD</span>
+        </p>
+        <BaseButton
+          class="order-modal__checkout-button"
+          @click="$toast.warn($t('message.checkout_disabled'))"
+        >
+          {{ $t('button.checkout') }}
+        </BaseButton>
+      </div>
+    </div>
   </BaseModal>
 </template>
 
 <style scoped lang="scss">
+$order-modal-content-gap: clamped(
+  $min-size: $spacing--2xl,
+  $max-size: $spacing--4xl,
+);
+
 .order-modal {
+  &__container {
+    position: relative;
+    margin-inline: auto;
+    border-radius: $rounded--3xl;
+    background-color: $color-white;
+  }
+
+  &__header,
+  &__body,
+  &__footer {
+    padding: $order-modal-content-gap;
+  }
+
+  &__header {
+    border-bottom: 1px solid $divider-color--regular;
+  }
+
+  &__body {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    border-top: 1px solid $divider-color--regular;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: $order-modal-content-gap;
+    right: $order-modal-content-gap;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__close-icon {
+    color: $primary-color--dark;
+  }
+
   &__title {
     margin: 0;
     padding-right: clamped($min-size: $spacing--3xl, $max-size: $spacing--5xl);
@@ -101,7 +159,7 @@ const localePath = useLocalePath()
     font-weight: $font--extrabold;
   }
 
-  &__button {
+  &__checkout-button {
     width: 100%;
   }
 
@@ -114,6 +172,7 @@ const localePath = useLocalePath()
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: clamped($min-size: $spacing--lg, $max-size: $spacing--10xl);
 
   &:not(:first-child) {
     margin-top: clamped($min-size: $spacing--2xl, $max-size: $spacing--4xl);

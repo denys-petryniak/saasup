@@ -12,6 +12,21 @@ const heroDescription = computed(() => {
 })
 
 const localePath = useLocalePath()
+
+const isVideoModalVisible = ref(false)
+
+function openModal() {
+  isVideoModalVisible.value = true
+}
+
+function closeModal() {
+  isVideoModalVisible.value = false
+}
+
+provide(modalInjectionKey, {
+  visible: isVideoModalVisible,
+  close: closeModal,
+})
 </script>
 
 <template>
@@ -33,15 +48,13 @@ const localePath = useLocalePath()
               <BaseButton :to="localePath('/pricing')">
                 {{ $t('button.get_started') }}
               </BaseButton>
-              <!-- TODO: replace with ScriptYouTubePlayer (https://scripts.nuxt.com/) -->
               <BaseButton
-                to="https://youtu.be/dQw4w9WgXcQ?si=5APElTfy7hzEvZJk"
-                target="_blank"
                 color="light-bordered"
                 class="hero-section__video-button"
                 aria-label="Play video button"
                 icon="carbon:play-filled"
                 trailing
+                @click="openModal"
               >
                 <span class="hero-section__video-button-text">{{ $t('button.watch_video') }}</span>
               </BaseButton>
@@ -67,6 +80,9 @@ const localePath = useLocalePath()
         />
       </div>
     </div>
+    <ClientOnly>
+      <LazyVideoModal />
+    </ClientOnly>
   </BaseSection>
 </template>
 

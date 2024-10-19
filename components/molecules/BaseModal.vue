@@ -19,17 +19,16 @@ function close() {
   emit('close')
 }
 
-const modalContent = useTemplateRef<HTMLElement>('modalContent')
-
-onClickOutside(modalContent, () => close())
-
 const { escape } = useMagicKeys()
 
 whenever(escape, () => {
   close()
 })
 
-const modalBody = ref<HTMLElement | null>(null)
+const modalBody = useTemplateRef<HTMLElement>('modalBody')
+
+onClickOutside(modalBody, () => close())
+
 const isVisible = computed(() => props.visible)
 
 useBodyScrollLock(modalBody, isVisible)
@@ -42,37 +41,18 @@ useBodyScrollLock(modalBody, isVisible)
       v-bind="$attrs"
       class="modal"
     >
-      <div ref="modalContent" class="modal__content">
-        <div v-if="$slots.header" class="modal__header">
-          <button
-            class="modal__close-button"
-            @click="close"
-          >
-            <Icon
-              name="material-symbols:cancel"
-              class="modal__close-icon"
-              size="1.75em"
-            />
-          </button>
-          <slot name="header" />
-        </div>
-        <div v-if="$slots.default" ref="modalBody" class="modal__body">
-          <slot />
-        </div>
-        <div v-if="$slots.footer" class="modal__footer">
-          <slot name="footer" />
-        </div>
+      <div
+        v-if="$slots.default"
+        ref="modalBody"
+        class="modal__body"
+      >
+        <slot />
       </div>
     </div>
   </Teleport>
 </template>
 
 <style scoped lang="scss">
-$modal-content-gap: clamped(
-  $min-size: $spacing--2xl,
-  $max-size: $spacing--4xl,
-);
-
 .modal {
   position: fixed;
   inset: 0;
@@ -83,46 +63,10 @@ $modal-content-gap: clamped(
   padding: $spacing--2xl;
   background-color: rgba($primary-color--dark, 0.7);
 
-  &__content {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    border-radius: $rounded--3xl;
-    background-color: white;
-  }
-
-  &__header,
-  &__body,
-  &__footer {
-    padding: $modal-content-gap;
-  }
-
-  &__header {
-    border-bottom: 1px solid $divider-color--regular;
-  }
-
   &__body {
-    max-height: 40vh;
-    overflow-y: auto;
-  }
-
-  &__footer {
-    border-top: 1px solid $divider-color--regular;
-  }
-
-  &__close-button {
-    position: absolute;
-    top: $modal-content-gap;
-    right: $modal-content-gap;
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  &__close-icon {
-    color: $primary-color--dark;
+    width: 100%;
+    max-width: fit-content;
+    margin: auto;
   }
 }
 </style>

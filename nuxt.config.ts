@@ -71,6 +71,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxt/scripts', // https://scripts.nuxt.com
     '@nuxt/eslint', // https://eslint.nuxt.com/
     '@nuxt/icon', // https://github.com/nuxt-modules/icon
     '@nuxtjs/html-validator', // https://html-validator.nuxtjs.org/
@@ -81,8 +82,8 @@ export default defineNuxtConfig({
       {
         provider: 'storyblok',
         storyblok: {
-        // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
-        // opened issue: https://github.com/storyblok/storyblok/issues/580
+          // replaced https://a.storyblok.com with https://a2.storyblok.com as a workaround
+          // opened issue: https://github.com/storyblok/storyblok/issues/580
           baseURL: 'https://a2.storyblok.com',
         },
         // The screen sizes predefined by `@nuxt/image`:
