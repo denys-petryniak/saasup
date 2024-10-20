@@ -148,6 +148,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     shim: false,
+    typeCheck: 'build', // Build-time type checking
   },
 
   devtools: {
