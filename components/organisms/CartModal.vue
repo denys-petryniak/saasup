@@ -4,6 +4,10 @@ const { visible, close } = inject(modalInjectionKey) as ModalOptions
 const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
 
 const localePath = useLocalePath()
+
+const orderModalBody = useTemplateRef<HTMLElement>('orderModalBody')
+
+useBodyScrollLock(orderModalBody, visible)
 </script>
 
 <template>
@@ -28,7 +32,7 @@ const localePath = useLocalePath()
           />
         </button>
       </div>
-      <div class="order-modal__body">
+      <div ref="orderModalBody" class="order-modal__body">
         <template v-if="totalCartItems > 0">
           <div v-for="cartItem in cartItems" :key="cartItem.id" class="cart-item order-modal__cart-item">
             <div>

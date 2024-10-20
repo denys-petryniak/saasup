@@ -10,6 +10,8 @@ function stateChange(event: YT.OnStateChangeEvent) {
 }
 
 const RickAstleyVideoId = 'dQw4w9WgXcQ'
+
+useBodyScrollLock(video, visible)
 </script>
 
 <template>

@@ -7,7 +7,7 @@ defineOptions({
   inheritAttrs: false,
 })
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   visible: false,
 })
 
@@ -28,10 +28,6 @@ whenever(escape, () => {
 const modalBody = useTemplateRef<HTMLElement>('modalBody')
 
 onClickOutside(modalBody, () => close())
-
-const isVisible = computed(() => props.visible)
-
-useBodyScrollLock(modalBody, isVisible)
 </script>
 
 <template>
@@ -64,7 +60,7 @@ useBodyScrollLock(modalBody, isVisible)
   background-color: rgba($primary-color--dark, 0.7);
 
   &__body {
-    width: 100%;
+    // width: 100%;
     max-width: fit-content;
     margin: auto;
   }
