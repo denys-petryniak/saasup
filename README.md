@@ -133,3 +133,7 @@ For more information on deployment, check out the [Nuxt deployment documentation
 ## Credits
 
 Special thanks to [VictorFlow](https://dribbble.com/victorflow) for the beautiful design that formed the basis of the project.
+
+## License
+
+This open-source project is available under the [MIT License](LICENSE).
