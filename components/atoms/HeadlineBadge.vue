@@ -16,15 +16,12 @@ const badgeClasses = computed(() => {
   const sizeClass = props.size ? `badge--${props.size}` : null
   const colorClass = props.color ? `badge--${props.color}` : null
 
-  return [sizeClass, colorClass]
+  return ['badge', sizeClass, colorClass]
 })
 </script>
 
 <template>
-  <div
-    class="badge"
-    :class="badgeClasses"
-  >
+  <div :class="badgeClasses">
     <slot />
   </div>
 </template>

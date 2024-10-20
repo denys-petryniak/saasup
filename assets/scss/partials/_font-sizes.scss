@@ -1,7 +1,6 @@
 @use './functions' as fn;
 
 // based on tailwind font-sizes - https://tailwindcss.com/docs/font-size
-
 $text--xs: fn.toRem(12px);
 $text--sm: fn.toRem(14px);
 $text--base: fn.toRem(16px);
