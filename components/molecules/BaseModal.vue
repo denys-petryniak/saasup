@@ -60,7 +60,7 @@ onClickOutside(modalBody, () => close())
   background-color: rgba($primary-color--dark, 0.7);
 
   &__body {
-    // width: 100%;
+    width: 100%;
     max-width: fit-content;
     margin: auto;
   }
