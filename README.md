@@ -1,6 +1,6 @@
 # SaaSup
 
-<img src="https://github.com/denys-petryniak/saasup/assets/16530588/df265948-6a98-43ab-a58e-b05464ed21f0" alt="SaaSup Preview" width="650">
+![SaaSup Preview](https://github.com/denys-petryniak/saasup/assets/16530588/df265948-6a98-43ab-a58e-b05464ed21f0)
 
 ## Demo
 
@@ -16,54 +16,99 @@ Feel free to explore the code, make changes, and see the results in real-time!
 
 ## Setup
 
-Make sure to install the dependencies:
+To set up the project, make sure to install the dependencies:
 
 ```bash
-# pnpm
+# Install dependencies with pnpm
 pnpm install
 ```
 
-### Storyblok
+## Storyblok Integration
 
-#### HTTPS
+### Enable HTTPS for Storyblok v2
 
-Storyblok v2 requires your app to be served via HTTPS. Please follow the steps below to enable this in a Nuxt 3 project.
+Storyblok v2 requires your app to be served over HTTPS. Follow these steps to enable HTTPS in a Nuxt 3 project:
 
-- **Install `mkcert` on your system:** The installation instructions for macOS, Windows and Linux can be found in the [mkcert Github repository](https://github.com/FiloSottile/mkcert).
+1. **Install mkcert**
+   Install mkcert on your system. The installation instructions for macOS, Windows, and Linux can be found in the [mkcert GitHub repository](https://github.com/FiloSottile/mkcert).
 
-- **Change the following in your package.json:** `nuxt dev` -> `NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem
-`
+2. **Generate the certificate**
+   Run the following command in your project folder to create a valid SSL certificate:
 
-- **Create a valid certificate by running the following command in your project folder:**
+   ```bash
+   mkcert localhost
+   ```
 
-```bash
-mkcert localhost
-```
+3. **Add the certificates to .gitignore**
+   Ensure that the certificates are ignored in version control by adding the following lines to your .gitignore file:
 
-IMPORTANT: Add this to your project’s to gitignore
+   ```text
+   # HTTPS Proxy certificates
+   localhost.pem
+   localhost-key.pem
+   ```
 
-```bash
-# HTTPS Proxy certificates
-localhost.pem
-localhost-key.pem
-```
+4. **Modify your package.json**
+   Update the nuxt dev script as follows:
 
-#### Storyblok + TypeScript
+   ```json
+   "scripts": {
+     "dev": "nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem"
+   }
+   ```
 
-- Install the Storyblok CLI: `npm i -g storyblok`
-- Login using storyblok login in your terminal
-- In your project directory, save the schema of your Storyblok components in a `.json` file by running `storyblok pull-components --space SPACE_ID`
-- Install storyblok-generate-ts: `pnpm add -D storyblok-generate-ts`
-- Add the following command to your package.json: `"generate-sb-types": "storyblok-generate-ts source=./components.[SPACE_ID].json target=./component-types-sb"`
-- Generate the types: `pnpm generate-sb-types`
-- Import the type in each component, for example: `import type { PageStoryblok } from '../component-types-sb'`
-- Remember to rerun the `pull-components` and `generate-sb-types` scripts after you’ve made changes to your component schema in your Storyblok space
+### Storyblok + TypeScript Setup
 
-Please refer to the documentation of [Storyblok CLI](https://github.com/storyblok/storyblok-cli) and [storyblok-generate-ts](https://github.com/dohomi/storyblok-generate-ts) for advanced use cases, customization options, and more.
+1. **Install Storyblok CLI**
+   Run `npm i -g storyblok` to install the CLI.
+
+2. **Login to Storyblok**
+   In your terminal, use the command `storyblok login` to log in.
+
+3. **Save the component schema**
+   In your project directory, save the schema of your Storyblok components to a .json file:
+
+   ```bash
+   storyblok pull-components --space SPACE_ID
+   ```
+
+4. **Install storyblok-generate-ts**
+   Install the TypeScript generator:
+
+   ```bash
+   pnpm add -D storyblok-generate-ts
+   ```
+
+5. **Add a generation script to package.json**
+   Add the following script:
+
+   ```json
+   "scripts": {
+     "generate-sb-types": "storyblok-generate-ts source=./components.[SPACE_ID].json target=./component-types-sb"
+   }
+   ```
+
+6. **Generate types**
+   Run the following command to generate TypeScript types for Storyblok components:
+
+   ```bash
+   pnpm generate-sb-types
+   ```
+
+7. **Use the generated types**
+   Import the generated types in your components, for example:
+
+   ```typescript
+   import type { PageStoryblok } from '../component-types-sb'
+   ```
+
+Don't forget to rerun `pull-components` and `generate-sb-types` whenever you update your Storyblok schema.
+
+For more details, refer to the documentation of the [Storyblok CLI](https://github.com/storyblok/storyblok-cli) and [storyblok-generate-ts](https://github.com/dohomi/storyblok-generate-ts).
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`
+Start the development server at [http://localhost:3000](http://localhost:3000):
 
 ```bash
 pnpm dev
@@ -77,14 +122,14 @@ Build the application for production:
 pnpm build
 ```
 
-Locally preview production build:
+Preview the production build locally:
 
 ```bash
 pnpm preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+For more information on deployment, check out the [Nuxt deployment documentation](https://nuxt.com/docs/getting-started/deployment).
 
 ## Credits
 
-Special thanks to [VictorFlow](https://www.figma.com/@victorflow) for the fantastic design that served as an inspiration for this project.
+Special thanks to [VictorFlow](https://dribbble.com/victorflow) for the beautiful design that formed the basis of the project.
