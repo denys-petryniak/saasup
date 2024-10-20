@@ -27,7 +27,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "3.8.0",
     "@iconify-json/carbon": "^1.2.1",
-    "@iconify-json/material-symbols": "^1.2.2",
+    "@iconify-json/material-symbols": "^1.2.5",
     "@iconify-json/raphael": "^1.2.0",
     "@nuxt/devtools": "^1.5.2",
     "@nuxt/eslint": "^0.6.0",
