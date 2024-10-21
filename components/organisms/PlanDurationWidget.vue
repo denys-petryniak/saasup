@@ -12,37 +12,6 @@ const { t } = useI18n({
   useScope: 'local',
 })
 
-const selectedPlanDuration = ref('')
-
-const planOptions = ref([
-  { text: t('duration.monthly'), value: 'monthly' },
-  { text: t('duration.annually'), value: 'annually' },
-])
-
-const DISCOUNT_RATE = 0.1 // 10% discount for annual plans
-
-// TODO: move to composables
-const priceByDuration = computed(() => {
-  const basePrice = Number(props.price)
-
-  if (Number.isNaN(basePrice)) {
-    return '0.00'
-  }
-
-  if (selectedPlanDuration.value === 'monthly') {
-    return basePrice.toFixed(2)
-  }
-
-  if (selectedPlanDuration.value === 'annually') {
-    const annualPrice = basePrice * 12
-    const discountedPrice = annualPrice - (annualPrice * DISCOUNT_RATE)
-
-    return discountedPrice.toFixed(2)
-  }
-
-  return basePrice.toFixed(2)
-})
-
 const isCartModalVisible = ref(false)
 
 function closeModal() {
@@ -54,13 +23,20 @@ provide(modalInjectionKey, {
   close: closeModal,
 })
 
-const { addToCart } = useCart()
+const selectedPlanDuration = ref('')
+const { priceByDuration } = usePriceByDuration(props.price, selectedPlanDuration)
 
-const { $toast } = useNuxtApp()
+const planOptions = ref([
+  { text: t('duration.monthly'), value: 'monthly' },
+  { text: t('duration.annually'), value: 'annually' },
+])
 
 const durationName = computed(() => {
   return planOptions.value.find(option => option.value === selectedPlanDuration.value)!.text
 })
+
+const { $toast } = useNuxtApp()
+const { addToCart } = useCart()
 
 const route = useRoute()
 const planName = computed(() => {

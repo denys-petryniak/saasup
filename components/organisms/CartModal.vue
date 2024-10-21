@@ -5,36 +5,36 @@ const { cartItems, totalCartItems, totalCartPrice, removeFromCart } = useCart()
 
 const localePath = useLocalePath()
 
-const orderModalBody = useTemplateRef<HTMLElement>('orderModalBody')
+const cartModalBody = useTemplateRef<HTMLElement>('cartModalBody')
 
-useBodyScrollLock(orderModalBody, visible)
+useBodyScrollLock(cartModalBody, visible)
 </script>
 
 <template>
   <BaseModal
     :visible="visible"
-    class="order-modal"
+    class="cart-modal"
     @close="close"
   >
-    <div class="order-modal__container">
-      <div class="order-modal__header">
-        <p class="order-modal__title">
+    <div class="cart-modal__container">
+      <div class="cart-modal__header">
+        <p class="cart-modal__title">
           {{ $t('cart.name') }}
         </p>
         <button
-          class="order-modal__close-button"
+          class="cart-modal__close-button"
           @click="close"
         >
           <Icon
             name="material-symbols:cancel"
-            class="order-modal__close-icon"
+            class="cart-modal__close-icon"
             size="1.75em"
           />
         </button>
       </div>
-      <div ref="orderModalBody" class="order-modal__body">
+      <div ref="cartModalBody" class="cart-modal__body">
         <template v-if="totalCartItems > 0">
-          <div v-for="cartItem in cartItems" :key="cartItem.id" class="cart-item order-modal__cart-item">
+          <div v-for="cartItem in cartItems" :key="cartItem.id" class="cart-item cart-modal__cart-item">
             <div>
               <p class="cart-item__name">
                 {{ cartItem.plan.title }}
@@ -57,8 +57,8 @@ useBodyScrollLock(orderModalBody, visible)
           </div>
         </template>
         <template v-else>
-          <div class="order-modal__empty-cart">
-            <p class="order-modal__empty-cart-text">
+          <div class="cart-modal__empty-cart">
+            <p class="cart-modal__empty-cart-text">
               {{ $t('cart.empty') }}
             </p>
             <BaseButton
@@ -71,12 +71,12 @@ useBodyScrollLock(orderModalBody, visible)
           </div>
         </template>
       </div>
-      <div class="order-modal__footer">
-        <p class="order-modal__total-price">
-          <span class="order-modal__total-price-label">{{ $t('cart.total') }}:</span><span class="order-modal__total-price-value">${{ totalCartPrice }} USD</span>
+      <div class="cart-modal__footer">
+        <p class="cart-modal__total-price">
+          <span class="cart-modal__total-price-label">{{ $t('cart.total') }}:</span><span class="cart-modal__total-price-value">${{ totalCartPrice }} USD</span>
         </p>
         <BaseButton
-          class="order-modal__checkout-button"
+          class="cart-modal__checkout-button"
           @click="$toast.warn($t('message.checkout_disabled'))"
         >
           {{ $t('button.checkout') }}
@@ -87,12 +87,12 @@ useBodyScrollLock(orderModalBody, visible)
 </template>
 
 <style scoped lang="scss">
-$order-modal-content-gap: clamped(
+$cart-modal-content-gap: clamped(
   $min-size: $spacing--2xl,
   $max-size: $spacing--4xl,
 );
 
-.order-modal {
+.cart-modal {
   &__container {
     position: relative;
     margin-inline: auto;
@@ -103,7 +103,7 @@ $order-modal-content-gap: clamped(
   &__header,
   &__body,
   &__footer {
-    padding: $order-modal-content-gap;
+    padding: $cart-modal-content-gap;
   }
 
   &__header {
@@ -121,8 +121,8 @@ $order-modal-content-gap: clamped(
 
   &__close-button {
     position: absolute;
-    top: $order-modal-content-gap;
-    right: $order-modal-content-gap;
+    top: $cart-modal-content-gap;
+    right: $cart-modal-content-gap;
     padding: 0;
     background: none;
     border: none;
@@ -150,6 +150,7 @@ $order-modal-content-gap: clamped(
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: clamped($min-size: $spacing--lg, $max-size: $spacing--10xl);
     @include fluid-typography(
       $min-font-size: $text--2xl,
       $max-font-size: $text--3xl,
