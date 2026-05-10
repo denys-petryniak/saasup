@@ -6,14 +6,6 @@
 
 Check out the live demo of SaaSup at [https://saaasup.vercel.app](https://saaasup.vercel.app).
 
-## Explore in StackBlitz
-
-Click the button below to open the project in StackBlitz for preview and experimentation:
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/denys-petryniak/saasup)
-
-Feel free to explore the code, make changes, and see the results in real-time!
-
 ## Setup
 
 To set up the project, make sure to install the dependencies:
